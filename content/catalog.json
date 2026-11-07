@@ -1,0 +1,25 @@
+{
+  "classes": [
+    {
+      "id": "class-11",
+      "title": "একাদশ শ্ৰেণী (Class 11)",
+      "chapters": [
+        { "id": "class-11/ch01-basic-concepts", "no": 1, "status": "soon", "title": { "as": "ৰসায়নৰ কিছুমান মৌলিক ধাৰণা", "en": "Some Basic Concepts of Chemistry" } },
+        { "id": "class-11/ch02-structure-of-atom", "no": 2, "status": "ready", "title": { "as": "পৰমাণুৰ গঠন", "en": "Structure of Atom" } },
+        { "id": "class-11/ch03-periodic-classification", "no": 3, "status": "soon", "title": { "as": "মৌলৰ শ্ৰেণীবিভাজন আৰু ধৰ্মৰ পৌনঃপুনিকতা", "en": "Classification of Elements and Periodicity in Properties" } },
+        { "id": "class-11/ch04-chemical-bonding", "no": 4, "status": "soon", "title": { "as": "ৰাসায়নিক বন্ধন আৰু আণৱিক গঠন", "en": "Chemical Bonding and Molecular Structure" } },
+        { "id": "class-11/ch05-states-of-matter", "no": 5, "status": "soon", "title": { "as": "পদাৰ্থৰ অৱস্থা", "en": "States of Matter" } },
+        { "id": "class-11/ch06-thermodynamics", "no": 6, "status": "soon", "title": { "as": "তাপগতিবিজ্ঞান", "en": "Thermodynamics" } },
+        { "id": "class-11/ch07-equilibrium", "no": 7, "status": "soon", "title": { "as": "সাম্যাৱস্থা", "en": "Equilibrium" } },
+        { "id": "class-11/ch08-redox", "no": 8, "status": "soon", "title": { "as": "জাৰণ-বিজাৰণ বিক্ৰিয়া", "en": "Redox Reactions" } },
+        { "id": "class-11/ch09-hydrogen", "no": 9, "status": "soon", "title": { "as": "হাইড্ৰজেন", "en": "Hydrogen" } },
+        { "id": "class-11/ch10-s-block", "no": 10, "status": "soon", "title": { "as": "s-খণ্ডৰ মৌল", "en": "The s-Block Elements" } },
+        { "id": "class-11/ch11-p-block", "no": 11, "status": "soon", "title": { "as": "p-খণ্ডৰ মৌল", "en": "The p-Block Elements" } },
+        { "id": "class-11/ch12-organic-basics", "no": 12, "status": "soon", "title": { "as": "জৈৱ ৰসায়ন: কিছুমান মূল নীতি আৰু কৌশল", "en": "Organic Chemistry: Some Basic Principles and Techniques" } },
+        { "id": "class-11/ch13-hydrocarbons", "no": 13, "status": "soon", "title": { "as": "হাইড্ৰ'কাৰ্বন", "en": "Hydrocarbons" } },
+        { "id": "class-11/ch14-environmental-chemistry", "no": 14, "status": "soon", "title": { "as": "পৰিৱেশ ৰসায়ন", "en": "Environmental Chemistry" } }
+      ]
+    },
+    { "id": "class-12", "title": "দ্বাদশ শ্ৰেণী (Class 12)", "chapters": [] }
+  ]
+}

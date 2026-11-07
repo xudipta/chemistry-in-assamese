@@ -1,0 +1,19 @@
+{
+  "name": "অসমীয়াত ৰসায়ন · Chemistry in Assamese",
+  "short_name": "ৰসায়ন",
+  "description": "Class 11–12 chemistry in Assamese, chapter by chapter, with animations.",
+  "lang": "as",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4faf7",
+  "theme_color": "#0b7a6f",
+  "categories": ["education"],
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

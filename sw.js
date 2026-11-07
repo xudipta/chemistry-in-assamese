@@ -1,7 +1,7 @@
 /* Service worker: makes the site work offline.
    Network-first, so a new deploy shows up as soon as you are online; the cache is the offline fallback.
    Bump VERSION to drop old caches after a big change. */
-const VERSION = 'chem-as-v1';
+const VERSION = 'chem-as-v2';
 const SHELL = [
   './', 'index.html', 'chapter.html', 'manifest.webmanifest',
   'assets/css/base.css',

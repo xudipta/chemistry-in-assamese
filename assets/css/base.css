@@ -57,6 +57,8 @@ a { color: var(--brand); }
 .hero { padding: 36px 0 18px; }
 .hero h1 { font-size: clamp(1.7rem, 5vw, 2.6rem); line-height: 1.25; margin: 0 0 8px; }
 .hero .en { color: var(--muted); font-size: .95rem; letter-spacing: .02em; }
+.hero .byline { margin: 12px 0 0; color: var(--text); font-size: 1rem; }
+.hero .byline strong { color: var(--brand); }
 .hero p { max-width: 62ch; color: var(--muted); margin: 10px 0 0; }
 .pill { display: inline-block; padding: 2px 12px; border-radius: 99px; background: var(--brand-soft); color: var(--brand); font-size: .85rem; font-weight: 600; }
 .tabs { display: flex; gap: 8px; margin: 22px 0 14px; flex-wrap: wrap; }

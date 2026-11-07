@@ -1,8 +1,8 @@
 {
-  "name": "অসমীয়াত ৰসায়ন · Chemistry in Assamese",
-  "short_name": "ৰসায়ন",
+  "name": "Chemistry in Assamese",
+  "short_name": "Chemistry",
   "description": "Class 11–12 chemistry in Assamese, chapter by chapter, with animations.",
-  "lang": "as",
+  "lang": "en",
   "id": "./",
   "start_url": "./",
   "scope": "./",

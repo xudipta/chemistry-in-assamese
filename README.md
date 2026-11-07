@@ -5,6 +5,8 @@ English term in brackets. Installable as a web app and works offline.
 
 **Live site:** https://xudipta.github.io/chemistry-in-assamese/
 
+*Language: the app (navigation, buttons, labels) is in English; the subject content is in Assamese.*
+
 ## Status
 | Class | Chapter | Status |
 |---|---|---|

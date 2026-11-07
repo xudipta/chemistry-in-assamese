@@ -59,6 +59,7 @@ read-out (`class="readout"`, `aria-live="polite"`) next to every picture; give S
 use `k.reduceMotion` to avoid autoplay; use real physics/chemistry values (e.g. E = −13.6/n² eV), not made-up ones.
 
 ## Language style
+- **App UI is English** (navigation, buttons, badges, messages, animation controls such as Play/Pause/Next). **Subject content is Assamese** (chapter text, captions, read-outs, quiz, glossary).
 - Assamese letters ৰ and ৱ (not the Bengali র). English term in brackets on first use.
 - Use Western digits for data and formulae (1.602 × 10^{-19} C).
 - Have a chemistry teacher review new text before the chapter is marked ready.

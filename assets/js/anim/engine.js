@@ -114,7 +114,7 @@
       try { factory(stage, kit); }
       catch (err) {
         console.error(err);
-        stage.appendChild(h('p', { 'class': 'anim-missing', text: 'এই এনিমেচনটো লোড কৰিব পৰা নগ\'ল।' }));
+        stage.appendChild(h('p', { 'class': 'anim-missing', text: 'This animation could not be loaded.' }));
       }
     }
   };

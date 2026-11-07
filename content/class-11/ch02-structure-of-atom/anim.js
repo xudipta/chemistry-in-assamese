@@ -97,7 +97,7 @@
       });
     }
     var controls = h('div', { 'class': 'row' }, [cP, cN, cE]);
-    var presets = h('div', { 'class': 'row' }, [h('span', { 'class': 'en', text: 'উদাহৰণ:' }),
+    var presets = h('div', { 'class': 'row' }, [h('span', { 'class': 'en', text: 'Examples:' }),
       preset('H', 1, 0, 1), preset('¹²C', 6, 6, 6), preset('¹⁴C', 6, 8, 6), preset('O', 8, 8, 8), preset('Na⁺', 11, 12, 10), preset('Cl⁻', 17, 18, 18)]);
     root.appendChild(controls); root.appendChild(presets); root.appendChild(readout);
 
@@ -189,20 +189,20 @@
     function paintStats() { statEls.straight.textContent = stats.straight; statEls.bent.textContent = stats.bent; statEls.back.textContent = stats.back; }
 
     var lp = k.loop(root, tick);
-    var playBtn = k.button('⏸ থিয় কৰক', function () {
-      if (lp.running) { lp.stop(); playBtn.textContent = '▶ আৰম্ভ কৰক'; } else { lp.start(); playBtn.textContent = '⏸ থিয় কৰক'; }
+    var playBtn = k.button('⏸ Pause', function () {
+      if (lp.running) { lp.stop(); playBtn.textContent = '▶ Play'; } else { lp.start(); playBtn.textContent = '⏸ Pause'; }
     });
-    var rateCtl = k.slider('কণিকা/ছেকেণ্ড', 1, 20, 1, rate, function (v) { rate = v; });
-    var closeBtn = k.button('ওচৰৰ কণিকা পঠাওক', function () {
+    var rateCtl = k.slider('Particles/sec', 1, 20, 1, rate, function (v) { rate = v; });
+    var closeBtn = k.button('Fire close-up particles', function () {
       [3, 10, 25].forEach(function (b, i) { setTimeout(function () { spawn(-b); }, i * 450); });
-      if (!lp.running) { lp.start(); playBtn.textContent = '⏸ থিয় কৰক'; }
+      if (!lp.running) { lp.start(); playBtn.textContent = '⏸ Pause'; }
     });
-    var resetBtn = k.button('ফলাফল মচক', function () { stats.straight = stats.bent = stats.back = 0; parts.length = 0; paintStats(); draw(); });
+    var resetBtn = k.button('Clear counts', function () { stats.straight = stats.bent = stats.back = 0; parts.length = 0; paintStats(); draw(); });
 
     root.appendChild(h('div', { 'class': 'row' }, [playBtn, rateCtl.el, closeBtn, resetBtn]));
     root.appendChild(h('div', { 'class': 'stat-row' }, [stat('straight', 'সোজাই পাৰ হ\'ল (< 10°)'), stat('bent', 'বেঁকা হ\'ল (10°–90°)'), stat('back', 'উভতি আহিল (> 90°)')]));
     draw();
-    if (k.reduceMotion) { playBtn.textContent = '▶ আৰম্ভ কৰক'; } else { lp.start(); }
+    if (k.reduceMotion) { playBtn.textContent = '▶ Play'; } else { lp.start(); }
   });
 
   /* ------------------------------------------------------------------ 3. bohr */
@@ -300,8 +300,8 @@
     var selFrom, selTo;
     function opts() { var o = []; for (var i = 1; i <= 6; i++) o.push({ value: i, label: 'n = ' + i }); return o; }
     function syncSelects() { selFrom.select.value = from; selTo.select.value = to; }
-    selFrom = k.select('ৰ পৰা', opts(), from, function (v) { if (mode !== 'idle') return; from = +v; eRadius = orbitR(from); place(); paintReadout(); });
-    selTo = k.select('লৈ', opts(), to, function (v) { if (mode !== 'idle') return; to = +v; paintReadout(); });
+    selFrom = k.select('From', opts(), from, function (v) { if (mode !== 'idle') return; from = +v; eRadius = orbitR(from); place(); paintReadout(); });
+    selTo = k.select('To', opts(), to, function (v) { if (mode !== 'idle') return; to = +v; paintReadout(); });
 
     function run() {
       if (mode !== 'idle' || from === to) return;
@@ -314,9 +314,9 @@
     function quick(f, t) { return function () { if (mode !== 'idle') return; from = f; to = t; eRadius = orbitR(f); syncSelects(); paintReadout(); run(); }; }
 
     var lp = k.loop(root, tick);
-    root.appendChild(h('div', { 'class': 'row' }, [selFrom.el, selTo.el, k.button('চলাওক ▶', run, 'primary')]));
-    root.appendChild(h('div', { 'class': 'row' }, [h('span', { 'class': 'en', text: 'দ্ৰুত বাছনি:' }),
-      k.button('3 → 2 (Balmer, ৰঙা)', quick(3, 2)), k.button('4 → 2 (Balmer)', quick(4, 2)), k.button('2 → 1 (Lyman)', quick(2, 1)), k.button('1 → 3 (শোষণ)', quick(1, 3))]));
+    root.appendChild(h('div', { 'class': 'row' }, [selFrom.el, selTo.el, k.button('Run ▶', run, 'primary')]));
+    root.appendChild(h('div', { 'class': 'row' }, [h('span', { 'class': 'en', text: 'Quick picks:' }),
+      k.button('3 → 2 (Balmer, red)', quick(3, 2)), k.button('4 → 2 (Balmer)', quick(4, 2)), k.button('2 → 1 (Lyman)', quick(2, 1)), k.button('1 → 3 (absorption)', quick(1, 3))]));
     root.appendChild(readout);
     place(); paintReadout();
     if (!k.reduceMotion) lp.start();
@@ -446,7 +446,7 @@
     root.appendChild(h('div', { 'class': 'legend' }, [
       h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--pos)' }), 'ধনাত্মক চিহ্ন (+)']),
       h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--neg)' }), 'ঋণাত্মক চিহ্ন (−)']),
-      h('span', { text: 'ঘূৰাবলৈ টানক' })]));
+      h('span', { text: 'Drag to rotate' })]));
     root.appendChild(info);
     select(current);
     draw();
@@ -516,15 +516,15 @@
     }
 
     var slider = k.slider('Z', 1, 36, 1, z, function (v) { stop(); z = v; paint(); });
-    var prevBtn = k.button('◀ আগৰটো', function () { stop(); z = Math.max(1, z - 1); paint(); });
-    var nextBtn = k.button('পৰৱৰ্তী ইলেক্ট্ৰন ▶', function () { stop(); z = Math.min(36, z + 1); paint(); }, 'primary');
-    var playBtn = k.button('▶ স্বয়ংক্ৰিয়', function () {
+    var prevBtn = k.button('◀ Previous', function () { stop(); z = Math.max(1, z - 1); paint(); });
+    var nextBtn = k.button('Next electron ▶', function () { stop(); z = Math.min(36, z + 1); paint(); }, 'primary');
+    var playBtn = k.button('▶ Auto-play', function () {
       if (timer) { stop(); return; }
       if (z >= 36) z = 1;
-      paint(); playBtn.textContent = '⏸ থিয় কৰক';
+      paint(); playBtn.textContent = '⏸ Pause';
       timer = setInterval(function () { if (z >= 36) { stop(); return; } z++; paint(); }, 750);
     });
-    function stop() { if (timer) { clearInterval(timer); timer = null; } playBtn.textContent = '▶ স্বয়ংক্ৰিয়'; }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } playBtn.textContent = '▶ Auto-play'; }
 
     root.appendChild(h('div', { 'class': 'row' }, [slider.el, prevBtn, nextBtn, playBtn]));
     root.appendChild(levels);

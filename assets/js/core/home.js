@@ -12,11 +12,11 @@
   var active = null;
 
   function badge(ch) {
-    if (ch.status !== 'ready') return '<span class="badge soon">শীঘ্ৰে আহিছে</span>';
+    if (ch.status !== 'ready') return '<span class="badge soon">Coming soon</span>';
     var p = C.Progress.get(ch.id);
-    if (p.done) return '<span class="badge done">✔ সম্পূৰ্ণ' + (p.quiz ? ' · কুইজ ' + p.quiz.score + '/' + p.quiz.total : '') + '</span>';
-    if (p.seen) return '<span class="badge ready">● আৰম্ভ কৰিছে</span>';
-    return '<span class="badge ready">● পঢ়িবলৈ সাজু</span>';
+    if (p.done) return '<span class="badge done">✔ Completed' + (p.quiz ? ' · Quiz ' + p.quiz.score + '/' + p.quiz.total : '') + '</span>';
+    if (p.seen) return '<span class="badge ready">● In progress</span>';
+    return '<span class="badge ready">● Ready to read</span>';
   }
 
   function render() {
@@ -27,7 +27,7 @@
     cls.chapters.forEach(function (ch) {
       var li = document.createElement('li');
       var inner =
-        '<span class="no">অধ্যায় ' + ch.no + '</span>' +
+        '<span class="no">Chapter ' + ch.no + '</span>' +
         '<h3>' + C.esc(ch.title.as) + '</h3>' +
         '<span class="sub">' + C.esc(ch.title.en) + '</span>' + badge(ch);
       if (ch.status === 'ready') {
@@ -57,6 +57,6 @@
     renderTabs(); render();
   }).catch(function (err) {
     console.error(err);
-    gridEl.innerHTML = '<li class="empty">অধ্যায়ৰ তালিকা লোড কৰিব পৰা নগ\'ল। ইণ্টাৰনেট সংযোগ পৰীক্ষা কৰি পুনৰ চেষ্টা কৰক।</li>';
+    gridEl.innerHTML = '<li class="empty">Could not load the chapter list. Check your connection and try again.</li>';
   });
 })();

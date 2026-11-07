@@ -2,7 +2,7 @@
   "classes": [
     {
       "id": "class-11",
-      "title": "একাদশ শ্ৰেণী (Class 11)",
+      "title": "Class 11",
       "chapters": [
         { "id": "class-11/ch01-basic-concepts", "no": 1, "status": "soon", "title": { "as": "ৰসায়নৰ কিছুমান মৌলিক ধাৰণা", "en": "Some Basic Concepts of Chemistry" } },
         { "id": "class-11/ch02-structure-of-atom", "no": 2, "status": "ready", "title": { "as": "পৰমাণুৰ গঠন", "en": "Structure of Atom" } },
@@ -20,6 +20,6 @@
         { "id": "class-11/ch14-environmental-chemistry", "no": 14, "status": "soon", "title": { "as": "পৰিৱেশ ৰসায়ন", "en": "Environmental Chemistry" } }
       ]
     },
-    { "id": "class-12", "title": "দ্বাদশ শ্ৰেণী (Class 12)", "chapters": [] }
+    { "id": "class-12", "title": "Class 12", "chapters": [] }
   ]
 }

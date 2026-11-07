@@ -10,7 +10,7 @@
   var chapterId = new URLSearchParams(location.search).get('c') || '';
   /* only allow ids like class-11/ch02-structure-of-atom */
   if (!/^class-\d+\/[a-z0-9-]+$/.test(chapterId)) {
-    root.innerHTML = '<p class="loading">অধ্যায় পোৱা নগ\'ল। <a href="index.html">মূল পৃষ্ঠালৈ উভতি যাওক</a>।</p>';
+    root.innerHTML = '<p class="loading">Chapter not found. <a href="index.html">Back to home</a>.</p>';
     return;
   }
   var base = 'content/' + chapterId + '/';
@@ -100,11 +100,11 @@
             if (xi === q.answer) x.classList.add('right');
           });
           if (oi === q.answer) correct++; else b.classList.add('wrong');
-          explain.innerHTML = (oi === q.answer ? '✔ শুদ্ধ। ' : '✘ ভুল। ') + inline(q.explain || '');
+          explain.innerHTML = (oi === q.answer ? '✔ Correct. ' : '✘ Incorrect. ') + inline(q.explain || '');
           explain.hidden = false;
           answered++;
           if (answered === total) {
-            score.textContent = 'আপোনাৰ নম্বৰ: ' + correct + ' / ' + total;
+            score.textContent = 'Your score: ' + correct + ' / ' + total;
             C.Progress.update(chapterId, { quiz: { score: correct, total: total } });
           }
         });
@@ -115,7 +115,7 @@
       container.appendChild(card);
     });
     container.appendChild(score);
-    var again = el('button', 'btn', 'আকৌ চেষ্টা কৰক');
+    var again = el('button', 'btn', 'Try again');
     again.type = 'button';
     again.addEventListener('click', function () { container.innerHTML = ''; renderQuiz(quiz, container); });
     container.appendChild(again);
@@ -123,26 +123,26 @@
 
   function render(ch, quiz, catalog) {
     var title = ch.title;
-    document.title = title.as + ' (' + title.en + ') · অসমীয়াত ৰসায়ন';
+    document.title = title.en + ' · Chemistry in Assamese';
     root.innerHTML = '';
 
     var head = el('header', 'chapter-head');
-    head.appendChild(el('div', 'crumbs', '<a href="index.html">অসমীয়াত ৰসায়ন</a> › শ্ৰেণী ' + ch.class + ' › অধ্যায় ' + ch.number));
+    head.appendChild(el('div', 'crumbs', '<a href="index.html">Chemistry in Assamese</a> › Class ' + ch.class + ' › Chapter ' + ch.number));
     head.appendChild(el('h1', '', C.esc(title.as)));
     head.appendChild(el('div', 'en', C.esc(title.en)));
     root.appendChild(head);
 
     var goals = el('div', 'box');
-    goals.appendChild(el('h2', '', 'এই অধ্যায়ত আপুনি শিকিব'));
+    goals.appendChild(el('h2', '', 'What you will learn'));
     var gl = el('ul');
     ch.goals.forEach(function (g) { gl.appendChild(el('li', '', inline(g))); });
     goals.appendChild(gl);
     root.appendChild(goals);
 
-    var toc = el('nav', 'box toc'); toc.setAttribute('aria-label', 'অধ্যায়ৰ সূচী');
-    toc.appendChild(el('h2', '', 'সূচী'));
+    var toc = el('nav', 'box toc'); toc.setAttribute('aria-label', 'Chapter contents');
+    toc.appendChild(el('h2', '', 'Contents'));
     ch.sections.forEach(function (s, i) { toc.appendChild(el('a', '', (i + 1) + '. ' + C.esc(s.title)) ).setAttribute('href', '#' + s.id); });
-    toc.appendChild(el('a', '', 'কুইজ')).setAttribute('href', '#quiz');
+    toc.appendChild(el('a', '', 'Quiz')).setAttribute('href', '#quiz');
     root.appendChild(toc);
 
     ch.sections.forEach(function (s, i) {
@@ -157,7 +157,7 @@
 
     if (ch.summary && ch.summary.length) {
       var sum = el('section', 'sec'); sum.id = 'summary';
-      sum.appendChild(el('h2', '', 'সাৰাংশ'));
+      sum.appendChild(el('h2', '', 'Summary'));
       sum.appendChild(renderers.list({ items: ch.summary }));
       root.appendChild(sum);
     }
@@ -165,9 +165,9 @@
     var keys = Object.keys(glossary);
     if (keys.length) {
       var gs = el('section', 'sec'); gs.id = 'terms';
-      gs.appendChild(el('h2', '', 'মূল শব্দাৱলী'));
+      gs.appendChild(el('h2', '', 'Key terms'));
       gs.appendChild(renderers.table({
-        head: ['অসমীয়া', 'English', 'অৰ্থ'],
+        head: ['Assamese', 'English', 'Meaning'],
         rows: keys.map(function (k) { var g = glossary[k]; return [g.as, g.en, g.def]; })
       }));
       /* the definition column is long: let it wrap */
@@ -176,11 +176,11 @@
     }
 
     var qs = el('section', 'sec'); qs.id = 'quiz';
-    qs.appendChild(el('h2', '', 'কুইজ — নিজকে পৰীক্ষা কৰক'));
+    qs.appendChild(el('h2', '', 'Quiz: test yourself'));
     var qbox = el('div');
     qs.appendChild(qbox);
     root.appendChild(qs);
-    if (quiz) renderQuiz(quiz, qbox); else qbox.textContent = 'শীঘ্ৰে আহিছে।';
+    if (quiz) renderQuiz(quiz, qbox); else qbox.textContent = 'Coming soon.';
 
     /* completion + next chapter */
     var nav = el('div', 'chap-nav');
@@ -188,7 +188,7 @@
     done.type = 'button';
     function paintDone() {
       var d = C.Progress.get(chapterId).done;
-      done.textContent = d ? '✔ অধ্যায় সম্পূৰ্ণ (আকৌ বাতিল কৰক)' : 'অধ্যায়টো সম্পূৰ্ণ হ\'ল বুলি চিহ্নিত কৰক';
+      done.textContent = d ? '✔ Completed (click to undo)' : 'Mark chapter as complete';
       done.setAttribute('aria-pressed', String(!!d));
     }
     done.addEventListener('click', function () { C.Progress.update(chapterId, { done: !C.Progress.get(chapterId).done }); paintDone(); });
@@ -197,9 +197,9 @@
     var cls = (catalog.classes || []).filter(function (c) { return 'class-' + ch.class === c.id; })[0];
     var next = cls && cls.chapters.filter(function (c) { return c.no === ch.number + 1; })[0];
     if (next && next.status === 'ready') {
-      nav.appendChild(el('a', 'btn', 'পৰৱৰ্তী অধ্যায় →')).setAttribute('href', 'chapter.html?c=' + encodeURIComponent(next.id));
+      nav.appendChild(el('a', 'btn', 'Next chapter →')).setAttribute('href', 'chapter.html?c=' + encodeURIComponent(next.id));
     } else {
-      nav.appendChild(el('a', 'btn', '← সকলো অধ্যায়')).setAttribute('href', 'index.html');
+      nav.appendChild(el('a', 'btn', '← All chapters')).setAttribute('href', 'index.html');
     }
     root.appendChild(nav);
 
@@ -221,6 +221,6 @@
     render(ch, res[1], res[2]);
   }).catch(function (err) {
     console.error(err);
-    root.innerHTML = '<p class="loading">অধ্যায়টো লোড কৰিব পৰা নগ\'ল। <a href="index.html">মূল পৃষ্ঠালৈ উভতি যাওক</a>।</p>';
+    root.innerHTML = '<p class="loading">Could not load this chapter. <a href="index.html">Back to home</a>.</p>';
   });
 })();

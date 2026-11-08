@@ -61,7 +61,7 @@
     function frame(t) {
       raf = 0;
       if (!running || !visible) return;
-      var dt = Math.min(0.05, (t - last) / 1000);
+      var dt = Math.max(0, Math.min(0.05, (t - last) / 1000));   /* never negative on the first frame */
       last = t;
       tick(dt, t / 1000);
       raf = requestAnimationFrame(frame);

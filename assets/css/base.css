@@ -126,6 +126,8 @@ figure.anim figcaption { margin-top: 10px; font-size: .9rem; color: var(--muted)
 .anim-canvas.drag { cursor: grab; }
 .readout { margin-top: 10px; padding: 10px 14px; border-radius: 12px; background: var(--surface-2); font-size: .95rem; line-height: 1.6; }
 .readout b { color: var(--brand); }
+.readout table { font-size: .92rem; }
+.readout td { white-space: normal; padding: 3px 8px 3px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
 .anim-missing { color: var(--bad); }
 .sym-big { font-size: 1.5rem; font-weight: 800; }
 .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }

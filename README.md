@@ -11,11 +11,12 @@ English term in brackets. Installable as a web app and works offline.
 | Class | Chapter | Status |
 |---|---|---|
 | 11 | 2 · পৰমাণুৰ গঠন (Structure of Atom) | ✅ proof of concept: 5 sections, 6 animations, quiz |
-| 11 | other chapters | listed on the home page as "শীঘ্ৰে আহিছে" (coming soon) |
-| 12 | all | not started |
+| 11 | other chapters | listed as "Coming soon" (**list is a draft, to be checked against the Class 11 book**) |
+| 12 | 1 · দ্ৰৱ (Solutions) | ✅ 7 sections, 9 animations, 12-question quiz; terminology checked against the Assamese textbook |
+| 12 | 2–5 · Electrochemistry, Chemical Kinetics, d- and f-Block, Coordination Compounds | listed as "Coming soon" (Part I of the revised 2023-24 ASSEB book) |
+| 12 | Part II (organic chemistry, biomolecules) | not listed yet: waiting for the Part II book |
 
-The chapter list in `content/catalog.json` is a draft: check it against the AHSEC textbook.
-The Assamese text and element names are a first draft and need review by a chemistry teacher.
+The Assamese text is a first draft and still needs review by a chemistry teacher.
 
 ## Features
 - Chapter pages built from JSON: goals, sections, tables, formula boxes, tips, glossary tooltips, summary, quiz
@@ -47,7 +48,7 @@ assets/js/core/              app.js (theme, progress), home.js, chapter.js (rend
 assets/js/anim/              engine.js (animation kit), elements.js (elements 1–36)
 assets/fonts/                Noto Sans Bengali (woff2) + licence
 content/catalog.json         all classes and chapters, and which are ready
-content/class-11/ch02-…/     chapter.json, quiz.json, anim.js (this chapter's animations)
+content/class-1X/chNN-…/     chapter.json, quiz.json, anim.js (each chapter's own animations)
 tools/                       validate.js (content checks), make-icons.js (PNG icons, needs playwright)
 docs/ADDING_A_CHAPTER.md     step-by-step guide for new chapters
 ```

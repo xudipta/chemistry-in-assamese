@@ -100,7 +100,7 @@ tr:last-child td { border-bottom: 0; }
 .note { margin: 14px 0; padding: 12px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--accent); max-width: 70ch; }
 .note.try { border-left-color: var(--electron); }
 .note .lbl { font-weight: 700; margin-right: 6px; }
-.term { border-bottom: 1.5px dotted var(--brand); cursor: help; position: relative; white-space: nowrap; }
+.term { border-bottom: 1.5px dotted var(--brand); cursor: help; position: relative; }
 .term:hover::after, .term:focus::after { content: attr(data-def); position: absolute; left: 0; top: 100%; z-index: 10; margin-top: 6px; width: max-content; max-width: min(300px, 80vw); white-space: normal; padding: 8px 12px; border-radius: 10px; background: var(--text); color: var(--bg); font-size: .85rem; line-height: 1.5; box-shadow: var(--shadow); }
 .nuc { display: inline-flex; align-items: center; vertical-align: middle; font-weight: 700; }
 .nuc .ss { display: inline-flex; flex-direction: column; font-size: .6em; line-height: 1.05; margin-right: 1px; text-align: right; }
@@ -111,11 +111,11 @@ tr:last-child td { border-bottom: 0; }
 .btn.primary { background: var(--brand); border-color: var(--brand); color: var(--brand-ink); }
 .btn[aria-pressed="true"], .btn.on { background: var(--brand-soft); border-color: var(--brand); color: var(--brand); }
 .btn:disabled { opacity: .5; cursor: not-allowed; }
-.ctl { display: inline-flex; align-items: center; gap: 8px; font-size: .9rem; }
+.ctl { display: inline-flex; align-items: center; gap: 8px; font-size: .9rem; max-width: 100%; min-width: 0; }
 .ctl input[type="range"] { accent-color: var(--brand); width: 130px; }
-.ctl select { font: inherit; padding: 5px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); min-height: 36px; }
+.ctl select { max-width: 100%; min-width: 0; text-overflow: ellipsis; font: inherit; padding: 5px 8px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--text); min-height: 36px; }
 .ctl output { min-width: 2ch; font-weight: 700; font-variant-numeric: tabular-nums; }
-.row { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin-top: 10px; }
+.row { min-width: 0; max-width: 100%; display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin-top: 10px; }
 
 /* animation card */
 figure.anim { margin: 22px 0; padding: 14px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); box-shadow: var(--shadow); }

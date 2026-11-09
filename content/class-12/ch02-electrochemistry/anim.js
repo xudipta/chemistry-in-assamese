@@ -177,13 +177,13 @@
       function Y(e) { return H - PB - (e - ymin) / (ymax - ymin) * (H - PT - PB); }
       ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
       ctx.strokeStyle = gr; ctx.lineWidth = 1; ctx.fillStyle = mu; ctx.font = '11px sans-serif';
-      for (var i = 0; i <= 4; i++) { var e = ymin + (ymax - ymin) * i / 4; ctx.beginPath(); ctx.moveTo(PL, Y(e)); ctx.lineTo(W - PR, Y(e)); ctx.stroke(); ctx.fillText(e.toFixed(1), 22, Y(e) + 4); }
+      for (var i = 0; i <= 4; i++) { var e = ymin + (ymax - ymin) * i / 4; ctx.beginPath(); ctx.moveTo(PL, Y(e)); ctx.lineTo(W - PR, Y(e)); ctx.stroke(); ctx.textAlign = 'right'; ctx.fillText((Math.abs(e) < 0.05 ? 0 : e).toFixed(1), PL - 6, Y(e) + 4); ctx.textAlign = 'start'; }
       for (i = 0; i <= 5; i++) { var q = xmin + (xmax - xmin) * i / 5; ctx.fillText(q.toFixed(0), X(q) - 6, H - PB + 16); }
       ctx.strokeStyle = txt; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(PL, Y(0)); ctx.lineTo(W - PR, Y(0)); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(X(0), PT); ctx.lineTo(X(0), H - PB); ctx.strokeStyle = mu; ctx.setLineDash([3, 4]); ctx.stroke(); ctx.setLineDash([]);
       ctx.strokeStyle = teal; ctx.lineWidth = 3.5; ctx.beginPath(); ctx.moveTo(X(xmin), Y(E(xmin))); ctx.lineTo(X(xmax), Y(E(xmax))); ctx.stroke();
       ctx.fillStyle = bad; ctx.beginPath(); ctx.arc(X(logK()), Y(0), 6, 0, TAU); ctx.fill();
-      ctx.font = '600 12px "Noto Sans Bengali", sans-serif'; ctx.fillText('সাম্য (E = 0, Q = K)', Math.min(X(logK()) - 120, W - 170), Y(0) - 10);
+      ctx.font = '600 12px "Noto Sans Bengali", sans-serif'; ctx.fillText('সাম্য (E = 0, Q = K)', PL + 8, Y(0) + 18);
       ctx.fillStyle = org; ctx.beginPath(); ctx.arc(X(st.logQ), Y(E(st.logQ)), 6, 0, TAU); ctx.fill();
       ctx.fillStyle = txt; ctx.fillText('log Q →', W / 2 - 20, H - 6);
       ctx.save(); ctx.translate(12, H / 2 + 20); ctx.rotate(-Math.PI / 2); ctx.fillText('E কোষ (V)', 0, 0); ctx.restore();

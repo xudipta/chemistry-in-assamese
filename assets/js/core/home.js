@@ -23,8 +23,9 @@
     var cls = catalog.classes.filter(function (c) { return c.id === active; })[0];
     gridEl.innerHTML = '';
     emptyEl.hidden = true;
-    if (!cls || !cls.chapters.length) { emptyEl.hidden = false; return; }
-    cls.chapters.forEach(function (ch) {
+    if (!cls || (!cls.chapters.length && !(cls.parts && cls.parts.length))) { emptyEl.hidden = false; return; }
+
+    function card(ch) {
       var li = document.createElement('li');
       var inner =
         '<span class="no">Chapter ' + ch.no + '</span>' +
@@ -35,8 +36,29 @@
       } else {
         li.innerHTML = '<div class="card soon">' + inner + '</div>';
       }
-      gridEl.appendChild(li);
-    });
+      return li;
+    }
+
+    if (cls.parts && cls.parts.length) {
+      /* a class split into parts: heading, then that part's chapters (or a "coming soon" note) */
+      cls.parts.forEach(function (part) {
+        var items = cls.chapters.filter(function (ch) { return ch.part === part.n; });
+        var head = document.createElement('li');
+        head.className = 'part-head';
+        head.innerHTML = '<h2>' + C.esc(part.title) + '</h2>' +
+          (items.length ? (part.note ? '<span class="en">' + C.esc(part.note) + '</span>' : '') : '<span class="badge soon">Coming soon</span>');
+        gridEl.appendChild(head);
+        if (!items.length) {
+          var note = document.createElement('li');
+          note.className = 'part-note';
+          note.textContent = part.title + ' chapters will be added soon.';
+          gridEl.appendChild(note);
+        }
+        items.forEach(function (ch) { gridEl.appendChild(card(ch)); });
+      });
+    } else {
+      cls.chapters.forEach(function (ch) { gridEl.appendChild(card(ch)); });
+    }
   }
 
   function renderTabs() {

@@ -1,6 +1,73 @@
 {
   "classes": [
     {
+      "id": "class-12",
+      "title": "Class 12",
+      "parts": [
+        {
+          "n": 1,
+          "title": "Part I",
+          "note": "Chapters 1–5"
+        },
+        {
+          "n": 2,
+          "title": "Part II"
+        }
+      ],
+      "chapters": [
+        {
+          "id": "class-12/ch01-solutions",
+          "no": 1,
+          "status": "ready",
+          "title": {
+            "as": "দ্ৰৱ",
+            "en": "Solutions"
+          },
+          "part": 1
+        },
+        {
+          "id": "class-12/ch02-electrochemistry",
+          "no": 2,
+          "status": "ready",
+          "title": {
+            "as": "বিদ্যুৎৰসায়নবিজ্ঞান",
+            "en": "Electrochemistry"
+          },
+          "part": 1
+        },
+        {
+          "id": "class-12/ch03-chemical-kinetics",
+          "no": 3,
+          "status": "ready",
+          "title": {
+            "as": "ৰাসায়নিক গতিবিজ্ঞান",
+            "en": "Chemical Kinetics"
+          },
+          "part": 1
+        },
+        {
+          "id": "class-12/ch04-d-f-block",
+          "no": 4,
+          "status": "ready",
+          "title": {
+            "as": "d- আৰু f- গোষ্ঠীৰ মৌল",
+            "en": "The d- and f-Block Elements"
+          },
+          "part": 1
+        },
+        {
+          "id": "class-12/ch05-coordination-compounds",
+          "no": 5,
+          "status": "ready",
+          "title": {
+            "as": "সমন্বয়ী যৌগ",
+            "en": "Coordination Compounds"
+          },
+          "part": 1
+        }
+      ]
+    },
+    {
       "id": "class-11",
       "title": "Class 11",
       "chapters": [
@@ -128,57 +195,6 @@
           "title": {
             "as": "পৰিৱেশ ৰসায়ন",
             "en": "Environmental Chemistry"
-          }
-        }
-      ]
-    },
-    {
-      "id": "class-12",
-      "title": "Class 12",
-      "chapters": [
-        {
-          "id": "class-12/ch01-solutions",
-          "no": 1,
-          "status": "ready",
-          "title": {
-            "as": "দ্ৰৱ",
-            "en": "Solutions"
-          }
-        },
-        {
-          "id": "class-12/ch02-electrochemistry",
-          "no": 2,
-          "status": "ready",
-          "title": {
-            "as": "বিদ্যুৎৰসায়নবিজ্ঞান",
-            "en": "Electrochemistry"
-          }
-        },
-        {
-          "id": "class-12/ch03-chemical-kinetics",
-          "no": 3,
-          "status": "ready",
-          "title": {
-            "as": "ৰাসায়নিক গতিবিজ্ঞান",
-            "en": "Chemical Kinetics"
-          }
-        },
-        {
-          "id": "class-12/ch04-d-f-block",
-          "no": 4,
-          "status": "ready",
-          "title": {
-            "as": "d- আৰু f- গোষ্ঠীৰ মৌল",
-            "en": "The d- and f-Block Elements"
-          }
-        },
-        {
-          "id": "class-12/ch05-coordination-compounds",
-          "no": 5,
-          "status": "ready",
-          "title": {
-            "as": "সমন্বয়ী যৌগ",
-            "en": "Coordination Compounds"
           }
         }
       ]

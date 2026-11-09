@@ -138,7 +138,17 @@
       ctx.fillText('কঠিন: ' + S + ' · দ্ৰবীভূত: ' + D.length, bx, 190);
       var st = status();
       ctx.fillStyle = k.cssVar(st.c); ctx.font = '700 13px "Noto Sans Bengali", sans-serif';
-      var words = st.t.split(' — '); ctx.fillText(words[0], bx, 222); if (words[1]) { ctx.font = '12px "Noto Sans Bengali", sans-serif'; ctx.fillText(words[1], bx, 242); }
+      var words = st.t.split(' — '), yy = 216;
+      function wrap(txt, size, weight) {
+        ctx.font = weight + ' ' + size + 'px "Noto Sans Bengali", sans-serif';
+        var parts = txt.split(' '), line = '';
+        parts.forEach(function (w) {
+          var test = line ? line + ' ' + w : w;
+          if (ctx.measureText(test).width > W - bx - 8 && line) { ctx.fillText(line, bx, yy); yy += size + 5; line = w; } else line = test;
+        });
+        if (line) { ctx.fillText(line, bx, yy); yy += size + 5; }
+      }
+      wrap(words[0], 13, '700'); if (words[1]) { ctx.fillStyle = mu; wrap(words[1], 12, '400'); }
       ctx.fillStyle = mu; ctx.font = '600 13px "Noto Sans Bengali", sans-serif';
       ctx.fillText('কঠিন দ্ৰাৱ + দ্ৰাৱক ⇌ দ্ৰৱ', LQ.x, 24);
     }
@@ -298,8 +308,6 @@
         var c = pp(st.x2, st.A);
         ctx.strokeStyle = txt; ctx.lineWidth = 1; ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(X(st.x2), PT); ctx.lineTo(X(st.x2), H - PB); ctx.stroke(); ctx.setLineDash([]);
         [[c.p1, blue], [c.p2, org], [c.t, teal]].forEach(function (d) { ctx.fillStyle = d[1]; ctx.beginPath(); ctx.arc(X(st.x2), Y(d[0]), 5, 0, TAU); ctx.fill(); });
-        ctx.font = '600 12px "Noto Sans Bengali", sans-serif';
-        ctx.fillStyle = blue; ctx.fillText('p₁', W - PR - 70, 28); ctx.fillStyle = org; ctx.fillText('p₂', W - PR - 50, 28); ctx.fillStyle = teal; ctx.fillText('p মুঠ', W - PR - 32 - 0, 28);
       }
       var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
       function paint() {

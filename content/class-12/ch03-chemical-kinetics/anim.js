@@ -71,8 +71,6 @@
       ctx.strokeStyle = mu; ctx.lineWidth = 1; ctx.setLineDash([2, 3]); ctx.beginPath();
       ctx.moveTo(P.X(st.t), P.Y(c(st.t))); ctx.lineTo(P.X(t2), P.Y(c(st.t))); ctx.lineTo(P.X(t2), P.Y(c(t2))); ctx.stroke(); ctx.setLineDash([]);
       dot(ctx, P.X(st.t), P.Y(c(st.t)), tx, 5); dot(ctx, P.X(t2), P.Y(c(t2)), org, 5);
-      ctx.font = '600 12px "Noto Sans Bengali", sans-serif';
-      ctx.fillStyle = blue; ctx.fillText('[R] (বিক্ৰিয়ক)', P.X(2), P.Y(0.97)); ctx.fillStyle = org; ctx.fillText('[P] (বিক্ৰিয়াজাত)', P.X(32), P.Y(0.9));
     }
     function paint() {
       var t2 = st.t + st.dt, rav = (c(st.t) - c(t2)) / st.dt, rin = st.k * c(st.t);
@@ -86,6 +84,10 @@
     var ts = k.slider('t (s)', 0, 40, 1, st.t, function (v) { st.t = v; paint(); });
     var ds = k.slider('Δt (s)', 1, 20, 1, st.dt, function (v) { st.dt = v; paint(); });
     root.appendChild(h('div', { 'class': 'row' }, [ks.el, ts.el, ds.el]));
+    root.appendChild(h('div', { 'class': 'legend' }, [
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), '[R] বিক্ৰিয়ক']),
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), '[P] বিক্ৰিয়াজাত']),
+      h('span', { text: 'ডেশ ৰেখা = স্পৰ্শক · কমলা ৰেখা = secant' })]));
     root.appendChild(info);
     paint();
   });
@@ -232,8 +234,6 @@
       }
       ctx.globalAlpha = 1;
       /* time bar */
-      var tm = st.ord === 1 ? 5 * Math.log(2) / st.k : st.n0 * DOT / st.k, bx = 380, bw = 90;
-      ctx.fillStyle = tx; ctx.font = '600 12px "Noto Sans Bengali", sans-serif'; ctx.fillText('t = ' + t.toFixed(1) + ' s', bx, 24);
     }
     function paint(n) {
       var R0 = st.n0 * DOT, t12 = st.ord === 1 ? Math.log(2) / st.k : R0 / (2 * st.k);
@@ -243,7 +243,7 @@
         marks.forEach(function (m) { parts.push((m - prev).toFixed(1) + ' s'); prev = m; });
         hl = '<br>পৰ্যবেক্ষিত অৰ্ধ-জীৱন কাল (ক্ৰমান্বয়ে): <b>' + parts.join(' → ') + '</b>';
       }
-      info.innerHTML = (st.ord === 1 ?
+      info.innerHTML = 'সময় t = <b>' + t.toFixed(1) + ' s</b><br>' + (st.ord === 1 ?
         '<b>প্ৰথম ক্ৰম:</b> t<sub>½</sub> = 0.693/k = ' + t12.toFixed(1) + ' s — প্ৰতিটো অৰ্ধ-জীৱন কাল একে।' :
         '<b>শূন্য ক্ৰম:</b> t<sub>½</sub> = [R]<sub>0</sub>/2k = ' + t12.toFixed(1) + ' s — পৰৱৰ্তী অৰ্ধ-জীৱন কাল ক্ৰমান্বয়ে আধা আধা হয়।') +
         '<br>বৰ্তমান [R] = <b>' + (n * DOT).toFixed(3) + '</b> mol L<sup>−1</sup> (প্ৰাৰম্ভিক ' + R0.toFixed(2) + ')' + hl;
@@ -272,7 +272,7 @@
       if (st.log) {
         EM = Math.max(80, st.Ea * 1.4);
         var lo = Math.log10(f(EM, st.T)) - 0.5, hi = Math.max(Math.log10(f(1, st.T + 10)), -1) + 0.3;
-        P = plot(ctx, k, W, H, 0, EM, lo, hi, 'গতিশক্তি E (kJ mol⁻¹) →', 'log₁₀ (বিতৰণ)', { yf: function (v) { return v.toFixed(0); } });
+        P = plot(ctx, k, W, H, 0, EM, lo, hi, 'গতিশক্তি E (kJ mol⁻¹) →', 'log₁₀ (বিতৰণ)', { yf: function (v) { return String(Math.round(v) || 0); } });
         curve(ctx, P, function (e) { return Math.log10(f(e, st.T)); }, 0.3, EM, blue, 3.5); curve(ctx, P, function (e) { return Math.log10(f(e, st.T + 10)); }, 0.3, EM, org, 3);
         var y1 = Math.log10(f(st.Ea, st.T)), y2 = Math.log10(f(st.Ea, st.T + 10));
         dot(ctx, P.X(st.Ea), P.Y(y1), blue, 5); dot(ctx, P.X(st.Ea), P.Y(y2), org, 5);
@@ -289,7 +289,6 @@
         ctx.strokeStyle = pr; ctx.lineWidth = 2; ctx.setLineDash([5, 4]); ctx.beginPath(); ctx.moveTo(P.X(st.Ea), P.Y(0)); ctx.lineTo(P.X(st.Ea), P.m.t); ctx.stroke(); ctx.setLineDash([]);
       }
       ctx.fillStyle = pr; ctx.font = '600 12px "Noto Sans Bengali", sans-serif'; ctx.fillText('E_a', P.X(st.Ea) + 4, P.m.t + 12);
-      ctx.fillStyle = blue; ctx.fillText('T = ' + st.T + ' K', W - 120, 28); ctx.fillStyle = org; ctx.fillText('T + 10 = ' + (st.T + 10) + ' K', W - 120, 46);
     }
     function paint() {
       var f1 = frac(st.Ea, st.T), f2 = frac(st.Ea, st.T + 10), rt = R * st.T / 1000;
@@ -304,7 +303,12 @@
     var ts = k.slider('T (K)', 280, 450, 5, st.T, function (v) { st.T = v; paint(); });
     var es = k.slider('Eₐ (kJ/mol)', 5, 120, 5, st.Ea, function (v) { st.Ea = v; paint(); });
     root.appendChild(h('div', { 'class': 'row' }, [vl, vn])); root.appendChild(h('div', { 'class': 'row' }, [ts.el, es.el]));
+    var legT = h('span', {}), legT10 = h('span', {});
+    root.appendChild(h('div', { 'class': 'legend' }, [
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), legT]), h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), legT10]),
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--proton)' }), 'ৰঙা ডেশ = E_a'])]));
     root.appendChild(info);
+    var paint0 = paint; paint = function () { legT.textContent = 'T = ' + st.T + ' K'; legT10.textContent = 'T + 10 = ' + (st.T + 10) + ' K'; paint0(); };
     pB(); paint();
   });
 
@@ -366,17 +370,17 @@
     function draw() {
       var blue = k.cssVar('--electron'), org = k.cssVar('--alpha'), tx = k.cssVar('--text'), pr = k.cssVar('--proton'), mu = k.cssVar('--muted');
       var ymin = -Math.ceil((-Math.min(st.dH, 0) + 5) / 20) * 20, ymax = ymin + Math.ceil((150 - ymin) / 40) * 40;
-      var P = plot(ctx, k, W, H, 0, 1, ymin, ymax, 'বিক্ৰিয়া স্থানাংক →', 'স্থিতি শক্তি (kJ mol⁻¹)', { xf: function () { return ''; }, yf: function (v) { return v.toFixed(0); } });
+      var P = plot(ctx, k, W, H, 0, 1, ymin, ymax, 'বিক্ৰিয়া স্থানাংক →', 'স্থিতি শক্তি (kJ mol⁻¹)', { xf: function () { return ''; }, yf: function (v) { return String(Math.round(v) || 0); } });
       curve(ctx, P, function (x) { return prof(x, st.Ea, st.dH); }, 0, 1, blue, 3.5);
       if (st.cat) curve(ctx, P, function (x) { return prof(x, eac(), st.dH); }, 0, 1, org, 3.5, [7, 4]);
       ctx.strokeStyle = mu; ctx.lineWidth = 1; ctx.setLineDash([3, 4]);
       ctx.beginPath(); ctx.moveTo(P.X(0), P.Y(0)); ctx.lineTo(P.X(1), P.Y(0)); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(P.X(0.65), P.Y(st.dH)); ctx.lineTo(P.X(1), P.Y(st.dH)); ctx.stroke(); ctx.setLineDash([]);
       ctx.fillStyle = tx; ctx.font = '600 12px "Noto Sans Bengali", sans-serif';
-      ctx.fillText('বিক্ৰিয়ক', P.X(0.02), P.Y(0) - 8); ctx.fillText('বিক্ৰিয়াজাত', P.X(0.8), P.Y(st.dH) - 8);
-      ctx.fillStyle = blue; ctx.fillText('E_a = ' + st.Ea, P.X(0.52), P.Y(st.Ea) + 4);
-      if (st.cat) { ctx.fillStyle = org; ctx.fillText('E_a (অনুঘটক) = ' + eac(), P.X(0.52), P.Y(eac()) + 16); }
-      ctx.fillStyle = pr; ctx.fillText('ΔH = ' + st.dH, P.X(0.8), P.Y(st.dH / 2) + 4);
+      ctx.textAlign = 'left'; ctx.fillText('বিক্ৰিয়ক', P.X(0.01), P.Y(0) - 8);
+      ctx.textAlign = 'right'; ctx.fillText('বিক্ৰিয়াজাত', P.X(1), P.Y(st.dH) - 8);
+      ctx.textAlign = 'center'; ctx.fillStyle = blue; ctx.fillText('E_a = ' + st.Ea, P.X(0.42), P.Y(st.Ea) - 9);
+      ctx.textAlign = 'start';
       var fn = st.cat ? eac() : st.Ea, x = ball; dot(ctx, P.X(x), P.Y(prof(x, fn, st.dH)), tx, 6);
     }
     function paint() {
@@ -391,6 +395,9 @@
     var cb = k.button('Catalyst on/off', function () { st.cat = !st.cat; cb.setAttribute('aria-pressed', String(st.cat)); paint(); });
     cb.setAttribute('aria-pressed', 'true');
     root.appendChild(h('div', { 'class': 'row' }, [es.el, hs.el])); root.appendChild(h('div', { 'class': 'row' }, [cb, ds.el]));
+    root.appendChild(h('div', { 'class': 'legend' }, [
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), 'অনুঘটক নোহোৱাকৈ']),
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), 'অনুঘটক সহ (ডেশ)']), h('span', { text: 'ΔH = বিক্ৰিয়াজাত − বিক্ৰিয়কৰ শক্তি' })]));
     root.appendChild(info);
     var lp = k.loop(root, tick);
     paint(); draw(); if (!k.reduceMotion) lp.start();
@@ -479,8 +486,6 @@
       var blue = k.cssVar('--electron'), org = k.cssVar('--alpha'), ok = k.cssVar('--ok');
       var P = plot(ctx, k, W, H, 0, tm(), 0, 1.05, 'সময় (s) →', 'আপেক্ষিক গাঢ়তা');
       curve(ctx, P, function (t) { return conc(t).a; }, 0, tm(), blue, 3.2); curve(ctx, P, function (t) { return conc(t).i; }, 0, tm(), org, 3.2); curve(ctx, P, function (t) { return conc(t).p; }, 0, tm(), ok, 3.2);
-      ctx.font = '600 12px "Noto Sans Bengali", sans-serif';
-      ctx.fillStyle = blue; ctx.fillText('A (বিক্ৰিয়ক)', W - 130, 28); ctx.fillStyle = org; ctx.fillText('I (মধ্যৱৰ্তী)', W - 130, 46); ctx.fillStyle = ok; ctx.fillText('P (বিক্ৰিয়াজাত)', W - 130, 64);
     }
     function paint() {
       var slow = st.k1 < st.k2 ? 1 : (st.k2 < st.k1 ? 2 : 0), imax = 0, t90 = null, t;
@@ -495,6 +500,10 @@
     function preset(a, b) { return function () { st.k1 = a; st.k2 = b; k1.input.value = a; k1.out.textContent = a; k2.input.value = b; k2.out.textContent = b; paint(); }; }
     root.appendChild(h('div', { 'class': 'row' }, [k.button('Step 1 slow', preset(0.1, 2)), k.button('Step 2 slow', preset(2, 0.1)), k.button('Equal', preset(0.5, 0.5))]));
     root.appendChild(h('div', { 'class': 'row' }, [k1.el, k2.el]));
+    root.appendChild(h('div', { 'class': 'legend' }, [
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), 'A বিক্ৰিয়ক']),
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), 'I মধ্যৱৰ্তী']),
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--ok)' }), 'P বিক্ৰিয়াজাত'])]));
     root.appendChild(info);
     paint();
   });

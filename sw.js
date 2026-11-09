@@ -1,13 +1,13 @@
 /* Service worker: makes the site work offline.
    Network-first, so a new deploy shows up as soon as you are online; the cache is the offline fallback.
    Bump VERSION to drop old caches after a big change. */
-const VERSION = 'chem-as-v11';
+const VERSION = 'chem-as-v12';
 const SHELL = [
   './', 'index.html', 'chapter.html', 'manifest.webmanifest',
   'assets/css/base.css',
   'assets/js/core/app.js', 'assets/js/core/home.js', 'assets/js/core/chapter.js',
   'assets/js/anim/engine.js', 'assets/js/anim/elements.js',
-  'assets/fonts/noto-sans-bengali-bengali-wght-normal.woff2', 'assets/fonts/noto-sans-bengali-latin-wght-normal.woff2',
+  'assets/fonts/atma-bengali-700-normal.woff2', 'assets/fonts/noto-sans-bengali-bengali-wght-normal.woff2', 'assets/fonts/noto-sans-bengali-latin-wght-normal.woff2',
   'assets/favicon.svg', 'assets/icons/icon-192.png', 'assets/icons/icon-512.png', 'assets/icons/apple-touch-icon.png',
   'content/catalog.json',
   'content/class-11/ch02-structure-of-atom/chapter.json',

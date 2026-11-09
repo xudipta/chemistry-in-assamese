@@ -18,6 +18,8 @@ const BLOCKS = new Set(['p', 'list', 'table', 'formula', 'note', 'anim']);
 let ready = 0;
 
 (catalog ? catalog.classes : []).forEach((cls) => {
+  const partNos = (cls.parts || []).map((x) => x.n);
+  if (cls.parts) cls.chapters.forEach((ch) => { if (!partNos.includes(ch.part)) err(`${ch.id}: part ${ch.part} is not listed in ${cls.id} parts`); });
   cls.chapters.forEach((ch) => {
     if (!ch.title || !ch.title.as || !ch.title.en) err(`${ch.id}: catalog entry needs title.as and title.en`);
     if (ch.status !== 'ready') return;

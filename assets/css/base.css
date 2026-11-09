@@ -73,6 +73,9 @@ a.card:hover { border-color: var(--brand); transform: translateY(-2px); transiti
 .card .badge { margin-top: auto; font-size: .8rem; font-weight: 600; }
 .card.soon { opacity: .62; box-shadow: none; }
 .badge.done { color: var(--ok); } .badge.ready { color: var(--brand); } .badge.soon { color: var(--muted); }
+.part-head { grid-column: 1 / -1; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: 10px; padding-bottom: 6px; border-bottom: 2px solid var(--brand-soft); }
+.part-head h2 { margin: 0; font-size: 1.3rem; }
+.part-note { grid-column: 1 / -1; padding: 18px; border: 1px dashed var(--border); border-radius: 14px; color: var(--muted); }
 .empty { padding: 28px; border: 1px dashed var(--border); border-radius: 16px; color: var(--muted); }
 
 /* chapter */

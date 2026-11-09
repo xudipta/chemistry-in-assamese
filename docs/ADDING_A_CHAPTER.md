@@ -1,6 +1,6 @@
 # Adding a chapter
 
-1. **Catalog.** In `content/catalog.json` set the chapter's `"status": "ready"`.
+1. **Catalog.** In `content/catalog.json` set the chapter's `"status": "ready"`. A class that is split into parts (Class 12) lists them in a `parts` array and each chapter carries `"part": <n>`; a part with no chapters is shown as "Coming soon". The first class in the file is the default tab.
 2. **Folder.** Create `content/class-11/chNN-short-name/` (the id in the catalog must match: `class-11/chNN-short-name`) with:
    - `chapter.json` — the text (format below)
    - `quiz.json` — the questions

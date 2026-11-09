@@ -36,11 +36,15 @@
     if (hollow) { ctx.strokeStyle = color; ctx.lineWidth = 2; ctx.stroke(); } else { ctx.fillStyle = color; ctx.fill(); }
   }
   /* a conical flask whose liquid colour fades smoothly */
+  var FLASK_ID = 0;
   function flask(s, color) {
-    var g = s('g');
-    var liquid = s('path', { d: 'M110 120 L90 200 Q86 216 102 216 H198 Q214 216 210 200 L190 120 Z', style: 'fill:' + color + ';transition:fill 1.2s;opacity:.92' });
+    var g = s('g'), id = 'flaskclip' + (++FLASK_ID);
+    var shape = 'M130 40 H170 V104 L222 202 Q232 228 200 228 H100 Q68 228 78 202 L130 104 Z';
+    var defs = s('defs'), clip = s('clipPath', { id: id });
+    clip.appendChild(s('path', { d: shape })); defs.appendChild(clip); g.appendChild(defs);
+    var liquid = s('rect', { x: 60, y: 118, width: 180, height: 120, 'clip-path': 'url(#' + id + ')', style: 'fill:' + color + ';transition:fill 1.2s;opacity:.92' });
     g.appendChild(liquid);
-    g.appendChild(s('path', { d: 'M130 40 H170 V104 L222 202 Q232 228 200 228 H100 Q68 228 78 202 L130 104 Z', fill: 'none', style: 'stroke:var(--muted)', 'stroke-width': 3, 'stroke-linejoin': 'round' }));
+    g.appendChild(s('path', { d: shape, fill: 'none', style: 'stroke:var(--muted)', 'stroke-width': 3, 'stroke-linejoin': 'round' }));
     g.appendChild(s('rect', { x: 124, y: 34, width: 52, height: 8, rx: 3, style: 'fill:var(--muted)' }));
     return { g: g, liquid: liquid, set: function (c) { liquid.setAttribute('style', 'fill:' + c + ';transition:fill 1.2s;opacity:.92'); } };
   }
@@ -285,9 +289,9 @@
       var fl = flask(s, 'rgb(' + c.join(',') + ')'); svg.appendChild(fl.g);
       var nPairs = Math.round(f * 6), i;
       for (i = 0; i < 6; i++) {
-        var cx = 118 + (i % 3) * 36 + (i > 2 ? 14 : 0), cy = 160 + Math.floor(i / 3) * 34;
-        if (i < nPairs) { svg.appendChild(s('circle', { cx: cx - 8, cy: cy, r: 10, style: 'fill:#d9480f;stroke:var(--canvas)', 'stroke-width': 1.5 })); svg.appendChild(s('circle', { cx: cx + 8, cy: cy, r: 10, style: 'fill:#d9480f;stroke:var(--canvas)', 'stroke-width': 1.5 })); }
-        else svg.appendChild(s('circle', { cx: cx, cy: cy, r: 10, style: 'fill:#b08900;stroke:var(--canvas)', 'stroke-width': 1.5 }));
+        var cx = 120 + (i % 3) * 30, cy = 165 + Math.floor(i / 3) * 30;      /* stays inside the liquid */
+        if (i < nPairs) { svg.appendChild(s('circle', { cx: cx - 6, cy: cy, r: 8, style: 'fill:#d9480f;stroke:var(--canvas)', 'stroke-width': 1.5 })); svg.appendChild(s('circle', { cx: cx + 6, cy: cy, r: 8, style: 'fill:#d9480f;stroke:var(--canvas)', 'stroke-width': 1.5 })); }
+        else svg.appendChild(s('circle', { cx: cx, cy: cy, r: 9, style: 'fill:#b08900;stroke:var(--canvas)', 'stroke-width': 1.5 }));
       }
       svg.appendChild(s('text', { x: 238, y: 60, 'font-size': 13, 'font-weight': 700, style: 'fill:var(--text)', text: 'pH = ' + pH.toFixed(1) }));
       svg.appendChild(s('text', { x: 238, y: 86, 'font-size': 11, style: 'fill:#b08900', text: '● CrO₄²⁻' })); svg.appendChild(s('text', { x: 238, y: 100, 'font-size': 11, style: 'fill:#b08900', text: '(হালধীয়া)' }));

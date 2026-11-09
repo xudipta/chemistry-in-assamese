@@ -1,7 +1,7 @@
 /* Service worker: makes the site work offline.
    Network-first, so a new deploy shows up as soon as you are online; the cache is the offline fallback.
    Bump VERSION to drop old caches after a big change. */
-const VERSION = 'chem-as-v5';
+const VERSION = 'chem-as-v6';
 const SHELL = [
   './', 'index.html', 'chapter.html', 'manifest.webmanifest',
   'assets/css/base.css',
@@ -18,7 +18,10 @@ const SHELL = [
   'content/class-12/ch01-solutions/anim.js',
   'content/class-12/ch02-electrochemistry/chapter.json',
   'content/class-12/ch02-electrochemistry/quiz.json',
-  'content/class-12/ch02-electrochemistry/anim.js'
+  'content/class-12/ch02-electrochemistry/anim.js',
+  'content/class-12/ch03-chemical-kinetics/chapter.json',
+  'content/class-12/ch03-chemical-kinetics/quiz.json',
+  'content/class-12/ch03-chemical-kinetics/anim.js'
 ];
 
 self.addEventListener('install', (e) => {

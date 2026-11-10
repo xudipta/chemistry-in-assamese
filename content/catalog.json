@@ -63,7 +63,11 @@
             "as": "সমন্বয়ী যৌগ",
             "en": "Coordination Compounds"
           },
-          "part": 1
+          "part": 1,
+          "langs": [
+            "as",
+            "en"
+          ]
         }
       ]
     },

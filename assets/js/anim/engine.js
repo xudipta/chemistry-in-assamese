@@ -94,12 +94,17 @@
     return ctx;
   }
 
+  /* t(assamese, english): the string for the language the reader chose (<html data-lang>). */
+  function t(as, en) { return document.documentElement.getAttribute('data-lang') === 'en' ? en : as; }
+
   var kit = {
+    t: t,
     h: h, s: s, button: button, slider: slider, select: select, loop: loop,
     cssVar: cssVar, hiDpiCanvas: hiDpiCanvas, reduceMotion: reduceMotion
   };
 
   global.ChemAnim = {
+    t: t,
     register: function (name, factory) { registry[name] = factory; },
     has: function (name) { return Object.prototype.hasOwnProperty.call(registry, name); },
     names: function () { return Object.keys(registry); },

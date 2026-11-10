@@ -1,9 +1,11 @@
 /* Chapter page: loads content/<class>/<chapter>/chapter.json (+ quiz.json) and renders it.
+   Other languages sit next to them as chapter.<code>.json / quiz.<code>.json (see assets/js/core/i18n.js).
    Block types: p, list, table, formula, note, anim.  See docs/ADDING_A_CHAPTER.md. */
 (function () {
   'use strict';
-  var C = window.Chem;
+  var C = window.Chem, I = C.i18n;
   C.initTheme(document.getElementById('theme-btn'));
+  I.mountSwitch(document.getElementById('theme-btn'));
   C.registerServiceWorker();
 
   var root = document.getElementById('chapter');
@@ -15,6 +17,8 @@
   }
   var base = 'content/' + chapterId + '/';
   var glossary = {};
+  var shown = 'as';            /* language of the text currently on screen */
+  var scriptsReady;
 
   /* ---- inline markup: **bold**, ^{sup}, _{sub}, [[glossary-key]] (input is escaped first) ---- */
   function inline(text) {
@@ -22,8 +26,10 @@
     x = x.replace(/\[\[([\w-]+)\]\]/g, function (m, k) {
       var g = glossary[k];
       if (!g) return m;
-      return '<span class="term" tabindex="0" data-def="' + C.esc(g.def) + '">' + C.esc(g.as) +
-        ' <span class="en">(' + C.esc(g.en) + ')</span></span>';
+      /* the reader's language first, the other in brackets (Assamese stays visible: exams are in Assamese) */
+      var main = shown === 'en' ? C.esc(g.en) : C.esc(g.as);
+      var other = shown === 'en' ? '<span lang="as">' + C.esc(g.as) + '</span>' : C.esc(g.en);
+      return '<span class="term" tabindex="0" data-def="' + C.esc(g.def) + '">' + main + ' <span class="en">(' + other + ')</span></span>';
     });
     x = x.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
     x = x.replace(/\^\{(.+?)\}/g, '<sup>$1</sup>').replace(/_\{(.+?)\}/g, '<sub>$1</sub>');
@@ -59,7 +65,7 @@
     },
     note: function (b) {
       var kind = b.kind === 'try' ? 'try' : 'tip';
-      var label = b.label || (kind === 'try' ? 'নিজে কৰি চাওক' : 'মনত ৰাখিব');
+      var label = b.label || (kind === 'try' ? I.t('নিজে কৰি চাওক', 'Try it yourself') : I.t('মনত ৰাখিব', 'Remember'));
       return el('div', 'note ' + kind, '<span class="lbl">' + inline(label) + ':</span>' + inline(b.text));
     },
     anim: function (b) {
@@ -74,14 +80,20 @@
     }
   };
 
-  var scriptsReady;
-
+  /* scripts are loaded once per page, however many times the chapter is re-rendered */
+  var loaded = {};
   function loadScript(src) {
-    return new Promise(function (resolve, reject) {
-      var s = document.createElement('script');
-      s.src = src; s.onload = resolve; s.onerror = function () { reject(new Error('Failed to load ' + src)); };
-      document.head.appendChild(s);
-    });
+    if (!loaded[src]) {
+      loaded[src] = new Promise(function (resolve, reject) {
+        var s = document.createElement('script');
+        s.src = src; s.onload = resolve; s.onerror = function () { reject(new Error('Failed to load ' + src)); };
+        document.head.appendChild(s);
+      });
+    }
+    return loaded[src];
+  }
+  function loadScripts(list) {
+    return list.reduce(function (p, src) { return p.then(function () { return loadScript(src); }); }, Promise.resolve());
   }
 
   function renderQuiz(quiz, container) {
@@ -121,16 +133,36 @@
     container.appendChild(again);
   }
 
-  function render(ch, quiz, catalog) {
-    var title = ch.title;
+  function glossaryTable() {
+    var keys = Object.keys(glossary), en = shown === 'en';
+    var cell = function (txt, isAs) { return '<td' + (isAs ? ' lang="as"' : '') + '>' + C.esc(txt) + '</td>'; };
+    var head = en ? ['English', 'Assamese', 'Meaning'] : ['Assamese', 'English', 'Meaning'];
+    var wrap = el('div', 'table-wrap'), t = el('table');
+    t.innerHTML = '<thead><tr>' + head.map(function (h) { return '<th scope="col">' + h + '</th>'; }).join('') + '</tr></thead><tbody>' +
+      keys.map(function (k) {
+        var g = glossary[k];
+        return '<tr>' + (en ? cell(g.en, false) + cell(g.as, true) : cell(g.as, false) + cell(g.en, false)) + cell(g.def, false).replace('<td>', '<td style="white-space:normal;min-width:240px">') + '</tr>';
+      }).join('') + '</tbody>';
+    wrap.appendChild(t);
+    return wrap;
+  }
+
+  function render(ch, quiz, catalog, wanted) {
+    var title = ch.title, en = shown === 'en';
     document.title = title.en + ' · Chemistry in Assamese';
     root.innerHTML = '';
 
     var head = el('header', 'chapter-head');
     head.appendChild(el('div', 'crumbs', '<a href="index.html">Chemistry in Assamese</a> › Class ' + ch.class + ' › Chapter ' + ch.number));
-    head.appendChild(el('h1', '', C.esc(title.as)));
-    head.appendChild(el('div', 'en', C.esc(title.en)));
+    head.appendChild(el('h1', '', C.esc(en ? title.en : title.as)));
+    head.appendChild(el('div', 'en', en ? '<span lang="as">' + C.esc(title.as) + '</span>' : C.esc(title.en)));
     root.appendChild(head);
+
+    if (wanted !== shown) {   /* the reader asked for a language this chapter does not have yet */
+      root.appendChild(el('div', 'lang-note', wanted === 'en'
+        ? 'The English version of this chapter is coming soon. Showing the Assamese version for now.'
+        : 'This chapter is not available in the selected language yet.'));
+    }
 
     var goals = el('div', 'box');
     goals.appendChild(el('h2', '', 'What you will learn'));
@@ -141,12 +173,12 @@
 
     var toc = el('nav', 'box toc'); toc.setAttribute('aria-label', 'Chapter contents');
     toc.appendChild(el('h2', '', 'Contents'));
-    ch.sections.forEach(function (s, i) { toc.appendChild(el('a', '', (i + 1) + '. ' + C.esc(s.title)) ).setAttribute('href', '#' + s.id); });
+    ch.sections.forEach(function (s, i) { toc.appendChild(el('a', '', (i + 1) + '. ' + C.esc(s.title))).setAttribute('href', '#' + s.id); });
     toc.appendChild(el('a', '', 'Quiz')).setAttribute('href', '#quiz');
     root.appendChild(toc);
 
     ch.sections.forEach(function (s, i) {
-      var sec = el('section', 'sec'); sec.id = s.id;
+      var sec = el('section', 'sec'); sec.id = s.id; sec.setAttribute('lang', shown);
       sec.appendChild(el('h2', '', (i + 1) + '. ' + inline(s.title)));
       s.blocks.forEach(function (b) {
         var r = renderers[b.type];
@@ -156,26 +188,20 @@
     });
 
     if (ch.summary && ch.summary.length) {
-      var sum = el('section', 'sec'); sum.id = 'summary';
+      var sum = el('section', 'sec'); sum.id = 'summary'; sum.setAttribute('lang', shown);
       sum.appendChild(el('h2', '', 'Summary'));
       sum.appendChild(renderers.list({ items: ch.summary }));
       root.appendChild(sum);
     }
 
-    var keys = Object.keys(glossary);
-    if (keys.length) {
-      var gs = el('section', 'sec'); gs.id = 'terms';
+    if (Object.keys(glossary).length) {
+      var gs = el('section', 'sec'); gs.id = 'key-terms';
       gs.appendChild(el('h2', '', 'Key terms'));
-      gs.appendChild(renderers.table({
-        head: ['Assamese', 'English', 'Meaning'],
-        rows: keys.map(function (k) { var g = glossary[k]; return [g.as, g.en, g.def]; })
-      }));
-      /* the definition column is long: let it wrap */
-      gs.querySelectorAll('td:last-child').forEach(function (td) { td.style.whiteSpace = 'normal'; td.style.minWidth = '240px'; });
+      gs.appendChild(glossaryTable());
       root.appendChild(gs);
     }
 
-    var qs = el('section', 'sec'); qs.id = 'quiz';
+    var qs = el('section', 'sec'); qs.id = 'quiz'; qs.setAttribute('lang', shown);
     qs.appendChild(el('h2', '', 'Quiz: test yourself'));
     var qbox = el('div');
     qs.appendChild(qbox);
@@ -206,21 +232,36 @@
     C.Progress.update(chapterId, { seen: Date.now() });
   }
 
-  Promise.all([
-    C.fetchJSON(base + 'chapter.json'),
-    C.fetchJSON(base + 'quiz.json').catch(function () { return null; }),
-    C.fetchJSON('content/catalog.json').catch(function () { return { classes: [] }; })
-  ]).then(function (res) {
-    var ch = res[0];
-    glossary = ch.glossary || {};
-    var libs = ['assets/js/anim/engine.js', 'assets/js/anim/elements.js'];
-    scriptsReady = libs.reduce(function (p, src) { return p.then(function () { return loadScript(src); }); }, Promise.resolve())
-      .then(function () {
-        return (ch.scripts || []).reduce(function (p, src) { return p.then(function () { return loadScript(base + src); }); }, Promise.resolve());
+  /* languages this chapter is available in (catalog "langs", default Assamese only) */
+  function chapterLangs(catalog) {
+    var found = null;
+    (catalog.classes || []).forEach(function (c) { c.chapters.forEach(function (ch) { if (ch.id === chapterId) found = ch; }); });
+    return (found && found.langs) || ['as'];
+  }
+
+  function load() {
+    var wanted = I.get(), keepY = window.scrollY;
+    return C.fetchJSON('content/catalog.json').catch(function () { return { classes: [] }; }).then(function (catalog) {
+      shown = chapterLangs(catalog).indexOf(wanted) >= 0 ? wanted : 'as';
+      var sfx = shown === 'as' ? '' : '.' + shown;
+      return Promise.all([
+        C.fetchJSON(base + 'chapter' + sfx + '.json'),
+        C.fetchJSON(base + 'quiz' + sfx + '.json').catch(function () { return null; })
+      ]).then(function (res) {
+        var ch = res[0];
+        glossary = ch.glossary || {};
+        scriptsReady = loadScripts(['assets/js/anim/engine.js', 'assets/js/anim/elements.js'])
+          .then(function () { return loadScripts((ch.scripts || []).map(function (s) { return base + s; })); });
+        render(ch, res[1], catalog, wanted);
+        if (keepY) window.scrollTo(0, keepY);
       });
-    render(ch, res[1], res[2]);
-  }).catch(function (err) {
+    });
+  }
+
+  I.on(function () { load().catch(fail); });
+  function fail(err) {
     console.error(err);
     root.innerHTML = '<p class="loading">Could not load this chapter. <a href="index.html">Back to home</a>.</p>';
-  });
+  }
+  load().catch(fail);
 })();

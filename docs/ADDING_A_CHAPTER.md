@@ -63,3 +63,13 @@ use `k.reduceMotion` to avoid autoplay; use real physics/chemistry values (e.g. 
 - Assamese letters ৰ and ৱ (not the Bengali র). English term in brackets on first use.
 - Use Western digits for data and formulae (1.602 × 10^{-19} C).
 - Have a chemistry teacher review new text before the chapter is marked ready.
+
+## Languages (Assamese default, English optional)
+The reader picks Assamese or English in the header; the choice is stored and sets `<html data-lang>`.
+- **Assamese** is the source: `chapter.json`, `quiz.json`. Never skip it.
+- **A translation** is a parallel pair: `chapter.en.json` + `quiz.en.json`, with *exactly the same structure* (same section ids, block order and types, list/table sizes, glossary keys, quiz answer indexes). Translate prose only; `id`, `type`, `name`, `kind` stay identical. Keep each glossary entry's `as` and `title.as` copied from the Assamese file (shown as the bracketed Assamese term).
+- Add `"langs": ["as", "en"]` to the chapter's entry in `content/catalog.json`, and add both new files to `SHELL` in `sw.js`.
+- **Animations** are shared. Write every visible string as `var L = A.t; … L('অসমীয়া', 'English')` (the helper is also `kit.t`). Re-render on language change is handled by the page. Intentional Assamese in English mode (e.g. the Assamese form of a name) must be wrapped in an element with `lang="as"`.
+- Chapters without an English file still open: the Assamese text is shown with a notice.
+- New language: add its code to `KNOWN_LANGS` in `tools/validate.js` and `LANGS` in `assets/js/core/i18n.js`, then follow the same file pattern.
+- Checks: `node tools/validate.js` (structure parity, no Bengali script in translations, service-worker coverage) and `node tools/check-language.js` (needs Playwright; opens each translated chapter, exercises every animation control, fails on visible Assamese text outside `lang="as"`, JS errors or sideways scrolling).

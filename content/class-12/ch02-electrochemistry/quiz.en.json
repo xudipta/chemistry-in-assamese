@@ -1,0 +1,158 @@
+{
+ "questions": [
+  {
+   "q": "What kind of reaction takes place at the cathode of a galvanic cell?",
+   "options": [
+    "Oxidation",
+    "Reduction",
+    "Both oxidation and reduction",
+    "No reaction"
+   ],
+   "answer": 1,
+   "explain": "Reduction takes place at the cathode and oxidation at the anode. In a galvanic cell the cathode is positive."
+  },
+  {
+   "q": "What will happen if an external potential of 1.30 V is applied to a Daniell cell (E° = 1.10 V)?",
+   "options": [
+    "The cell will give current as before",
+    "The reaction will occur in the opposite direction (it will become an electrolytic cell)",
+    "No reaction will occur",
+    "More Zn will dissolve"
+   ],
+   "answer": 1,
+   "explain": "If E external > E°cell, the flow of electrons is reversed and the cell becomes electrolytic: Cu dissolves and Zn is deposited."
+  },
+  {
+   "q": "E°(Zn²⁺|Zn) = −0.76 V and E°(Cu²⁺|Cu) = +0.34 V. What is E°_{cell} of the cell Zn | Zn²⁺ || Cu²⁺ | Cu?",
+   "options": [
+    "−1.10 V",
+    "+0.42 V",
+    "+1.10 V",
+    "−0.42 V"
+   ],
+   "answer": 2,
+   "explain": "E°cell = E°cathode − E°anode = 0.34 − (−0.76) = +1.10 V."
+  },
+  {
+   "q": "Which of the following metals cannot liberate H₂ from dilute HCl?",
+   "options": [
+    "Zn (−0.76 V)",
+    "Fe (−0.44 V)",
+    "Cu (+0.34 V)",
+    "Mg (−2.36 V)"
+   ],
+   "answer": 2,
+   "explain": "The E° of Cu is positive (higher than the 0.00 V of H⁺|H₂); so it cannot reduce H⁺."
+  },
+  {
+   "q": "What is the emf of the cell Zn | Zn²⁺(0.01 M) || Cu²⁺(1 M) | Cu at 298 K? (E° = 1.10 V)",
+   "options": [
+    "1.04 V",
+    "1.10 V",
+    "1.16 V",
+    "1.22 V"
+   ],
+   "answer": 2,
+   "explain": "E = 1.10 − (0.0591/2) log(0.01/1) = 1.10 + 0.059 = 1.16 V."
+  },
+  {
+   "q": "Which is correct when a galvanic cell reaches equilibrium?",
+   "options": [
+    "E_{cell} = E°_{cell}",
+    "E_{cell} = 0 and Q = K",
+    "Q = 1",
+    "Δ_{r}G > 0"
+   ],
+   "answer": 1,
+   "explain": "At equilibrium the emf of the cell is zero and the reaction quotient Q equals the equilibrium constant K."
+  },
+  {
+   "q": "What is Δ_{r}G° if E° = 0.50 V and n = 2? (F = 96500 C mol⁻¹)",
+   "options": [
+    "−48.3 kJ mol^{−1}",
+    "−96.5 kJ mol^{−1}",
+    "−193 kJ mol^{−1}",
+    "+96.5 kJ mol^{−1}"
+   ],
+   "answer": 1,
+   "explain": "Δ_{r}G° = −nFE° = −2 × 96500 × 0.50 = −96500 J = −96.5 kJ mol^{−1}."
+  },
+  {
+   "q": "What happens to κ and Λ_{m} when an electrolyte solution is diluted?",
+   "options": [
+    "Both increase",
+    "Both decrease",
+    "κ decreases, Λ_{m} increases",
+    "κ increases, Λ_{m} decreases"
+   ],
+   "answer": 2,
+   "explain": "κ decreases because the number of ions per unit volume decreases. But in Λ_{m} the volume also increases and the attraction between ions falls, so Λ_{m} increases."
+  },
+  {
+   "q": "What is Λ°_{m} of Na₂SO₄? (λ°(Na⁺) = 50.1, λ°(SO₄²⁻) = 160.0 S cm² mol⁻¹)",
+   "options": [
+    "210.1",
+    "260.2",
+    "310.3",
+    "370.2"
+   ],
+   "answer": 1,
+   "explain": "Kohlrausch law: Λ°m = 2 × 50.1 + 160.0 = 260.2 S cm² mol^{−1}."
+  },
+  {
+   "q": "How many faradays of electricity are needed to reduce 1 mol of Al³⁺ to Al?",
+   "options": [
+    "1 F",
+    "2 F",
+    "3 F",
+    "6 F"
+   ],
+   "answer": 2,
+   "explain": "Al³⁺ + 3e⁻ → Al; 3 mol of electrons for 1 mol of Al, i.e. 3 F."
+  },
+  {
+   "q": "How much Ag will be deposited at the cathode of an AgNO₃ solution by a charge of 965 C? (Ag = 108, F = 96500 C mol⁻¹)",
+   "options": [
+    "0.108 g",
+    "1.08 g",
+    "10.8 g",
+    "108 g"
+   ],
+   "answer": 1,
+   "explain": "m = (M × Q)/(zF) = (108 × 965)/(1 × 96500) = 1.08 g."
+  },
+  {
+   "q": "What is produced at the cathode when an aqueous solution of NaCl is electrolysed with Pt electrodes?",
+   "options": [
+    "Na metal",
+    "H₂ gas",
+    "Cl₂ gas",
+    "O₂ gas"
+   ],
+   "answer": 1,
+   "explain": "Reduction of water (E° = −0.83 V) is easier than reduction of Na⁺ (E° = −2.71 V). So H₂ is released at the cathode and NaOH is left in the solution."
+  },
+  {
+   "q": "Which of the following is a secondary battery?",
+   "options": [
+    "Dry cell (Leclanché)",
+    "Mercury cell",
+    "Lead storage battery",
+    "None of them"
+   ],
+   "answer": 2,
+   "explain": "A lead storage battery can be recharged by passing current in the opposite direction."
+  },
+  {
+   "q": "Why does iron coated with zinc not rust even when a scratch exposes the iron?",
+   "options": [
+    "Because the E° of Zn is more positive than that of Fe",
+    "Zn (E° = −0.76 V) is more reactive than Fe (−0.44 V); Zn becomes the anode and corrodes, and Fe becomes the cathode and stays protected",
+    "Because the paint deposited on Zn covers the iron",
+    "Because Zn does not corrode"
+   ],
+   "answer": 1,
+   "explain": "This is called sacrificial protection: the more reactive metal (Zn) is itself oxidised and protects the iron."
+  }
+ ]
+}

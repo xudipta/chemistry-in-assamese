@@ -1,0 +1,180 @@
+{
+  "questions": [
+    {
+      "q": "In the complex CoCl₃·5NH₃, 1 mol of the compound gives 2 mol of AgCl with excess AgNO₃. What is the correct formula?",
+      "options": [
+        "[Co(NH₃)₅]Cl₃",
+        "[CoCl(NH₃)₅]Cl₂",
+        "[CoCl₂(NH₃)₅]Cl",
+        "[CoCl₃(NH₃)₅]"
+      ],
+      "answer": 1,
+      "explain": "2 mol of Cl⁻ are free (outside), so one Cl is inside the complex ion. The coordination number is 6 (5 NH₃ + 1 Cl)."
+    },
+    {
+      "q": "According to Werner's theory, the secondary valency is equal to the metal's:",
+      "options": [
+        "oxidation number",
+        "coordination number",
+        "number of ionisable ions",
+        "ligand charge"
+      ],
+      "answer": 1,
+      "explain": "The secondary valency is non-ionisable and equals the coordination number; the primary valency equals the oxidation number."
+    },
+    {
+      "q": "What are the oxidation number and coordination number of Fe in [Fe(CN)₆]⁴⁻?",
+      "options": [
+        "+2 and 6",
+        "+3 and 6",
+        "+2 and 4",
+        "+4 and 6"
+      ],
+      "answer": 0,
+      "explain": "Charge = x + 6(−1) = −4, so x = +2. Six unidentate CN⁻ give coordination number 6."
+    },
+    {
+      "q": "Which of the following is a didentate ligand?",
+      "options": [
+        "NH₃",
+        "Cl⁻",
+        "ethane-1,2-diamine (en)",
+        "H₂O"
+      ],
+      "answer": 2,
+      "explain": "en has two nitrogen donor atoms and can form two bonds. The others are unidentate."
+    },
+    {
+      "q": "What is the coordination number in [Co(en)₃]³⁺?",
+      "options": [
+        "3",
+        "6",
+        "9",
+        "2"
+      ],
+      "answer": 1,
+      "explain": "Three didentate ligands × 2 = 6."
+    },
+    {
+      "q": "What is the IUPAC name of K₃[Fe(CN)₆]?",
+      "options": [
+        "potassium hexacyanoferrate(II)",
+        "potassium hexacyanidoferrate(III)",
+        "tripotassium hexacyanoiron(III)",
+        "potassium hexacyanidoiron(III)"
+      ],
+      "answer": 1,
+      "explain": "K₃ means the complex ion has charge 3−; x − 6 = −3, so Fe is +3. Because the complex is an anion, iron is called ferrate."
+    },
+    {
+      "q": "In which order are the ligands named in [Co(NH₃)₄(H₂O)Cl]Cl₂?",
+      "options": [
+        "tetraammine, aqua, chlorido",
+        "chlorido, aqua, tetraammine",
+        "aqua, chlorido, tetraammine",
+        "tetraammine, chlorido, aqua"
+      ],
+      "answer": 0,
+      "explain": "Alphabetically ammine < aqua < chlorido; multiplying prefixes such as tetra are ignored."
+    },
+    {
+      "q": "How many geometrical isomers are possible for square planar [Pt(NH₃)₂Cl₂]?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answer": 1,
+      "explain": "cis and trans: two in total."
+    },
+    {
+      "q": "Which of the following shows optical isomerism?",
+      "options": [
+        "trans-[CoCl₂(en)₂]⁺",
+        "[Co(en)₃]³⁺",
+        "[Ni(CO)₄]",
+        "[PtCl₄]²⁻"
+      ],
+      "answer": 1,
+      "explain": "[Co(en)₃]³⁺ is octahedral and its mirror image cannot be superimposed on it (it is chiral). The trans form has a plane of symmetry, and [Ni(CO)₄] and [PtCl₄]²⁻ are symmetric."
+    },
+    {
+      "q": "What kind of isomerism exists between [Co(NH₃)₅Cl]SO₄ and [Co(NH₃)₅SO₄]Cl?",
+      "options": [
+        "linkage",
+        "coordination",
+        "ionisation",
+        "geometrical"
+      ],
+      "answer": 2,
+      "explain": "The counter ion (SO₄²⁻ / Cl⁻) and a ligand have been exchanged: ionisation isomerism."
+    },
+    {
+      "q": "According to VBT, what are the hybridisations of [Co(NH₃)₆]³⁺ and [CoF₆]³⁻?",
+      "options": [
+        "d²sp³ and sp³d²",
+        "sp³d² and d²sp³",
+        "dsp² and sp³",
+        "sp³ and dsp²"
+      ],
+      "answer": 0,
+      "explain": "NH₃ is a strong-field ligand: the 3d electrons pair up and the complex is d²sp³ (inner orbital, diamagnetic). F⁻ is a weak-field ligand: 4d is used, giving sp³d² (outer orbital, 4 unpaired electrons)."
+    },
+    {
+      "q": "What are the geometry and magnetic behaviour of [Ni(CN)₄]²⁻ and [NiCl₄]²⁻?",
+      "options": [
+        "square planar, diamagnetic and tetrahedral, paramagnetic",
+        "tetrahedral, diamagnetic and square planar, paramagnetic",
+        "both square planar, paramagnetic",
+        "both tetrahedral, diamagnetic"
+      ],
+      "answer": 0,
+      "explain": "CN⁻ is a strong-field ligand: dsp², square planar, no unpaired electrons. Cl⁻ is a weak-field ligand: sp³, tetrahedral, two unpaired electrons."
+    },
+    {
+      "q": "In an octahedral field with Δ₀ > P, what are the configuration and the number of unpaired electrons of a d⁶ ion?",
+      "options": [
+        "t₂g⁴ e_g², 4",
+        "t₂g⁶ e_g⁰, 0",
+        "t₂g³ e_g³, 5",
+        "t₂g⁵ e_g¹, 1"
+      ],
+      "answer": 1,
+      "explain": "Δ₀ > P gives low spin: all the electrons pair up in t₂g, so t₂g⁶ e_g⁰ with 0 unpaired."
+    },
+    {
+      "q": "Why does [Ti(H₂O)₆]³⁺ appear violet?",
+      "options": [
+        "Ti³⁺ has no d electrons",
+        "The d electron in t₂g absorbs blue-green light and is promoted to e_g (a d–d transition)",
+        "H₂O gives it the colour",
+        "Ti³⁺ is a small ion"
+      ],
+      "answer": 1,
+      "explain": "Ti³⁺ is d¹. It absorbs at 498 nm (blue-green), so the complementary colour, violet, is seen."
+    },
+    {
+      "q": "What are the oxidation state and geometry of Ni in [Ni(CO)₄]?",
+      "options": [
+        "+2, square planar",
+        "0, tetrahedral",
+        "+4, tetrahedral",
+        "0, octahedral"
+      ],
+      "answer": 1,
+      "explain": "CO is neutral, so Ni is 0; sp³ hybridisation, tetrahedral, diamagnetic (3d¹⁰)."
+    },
+    {
+      "q": "Why can EDTA be used to determine the hardness of water?",
+      "options": [
+        "It absorbs water",
+        "It forms stable complexes with Ca²⁺ and Mg²⁺, with different stability constants",
+        "It is insoluble in water",
+        "It removes Na⁺"
+      ],
+      "answer": 1,
+      "explain": "Titration with Na₂EDTA lets Ca²⁺ and Mg²⁺ be estimated separately."
+    }
+  ]
+}

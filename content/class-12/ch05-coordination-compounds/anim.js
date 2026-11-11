@@ -1,10 +1,12 @@
 /* Animations for Class 12, Chapter 5: Coordination Compounds (সমন্বয়ী যৌগ).
    Registered: werner, geometry, naming, isomers, vbt, cft, colour, synergic
-   Controls are English (app UI); read-outs are Assamese (subject content). */
+   Controls are English (app UI). Subject text is written as L(assamese, english) pairs, so both
+   languages sit side by side and the animation follows the language switch (the page re-renders it). */
 (function () {
   'use strict';
   var A = window.ChemAnim;
   var TAU = Math.PI * 2;
+  var L = A.t;   /* L(assamese, english): the string for the language the reader chose */
 
   function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
   function sub(n) { return n > 1 ? '<sub>' + n + '</sub>' : ''; }
@@ -65,13 +67,13 @@
   A.register('werner', function (root, k) {
     var h = k.h, s = k.s;
     var CPD = [
-      { n: 'CoCl₃·6NH₃ (হালধীয়া)', col: '#e8c93a', nh: 6, cl_in: 0, free: 3, f: '[Co(NH₃)₆]Cl₃', ratio: '1 : 3' },
-      { n: 'CoCl₃·5NH₃ (পূৰৈয়া)', col: '#a2487a', nh: 5, cl_in: 1, free: 2, f: '[CoCl(NH₃)₅]Cl₂', ratio: '1 : 2' },
-      { n: 'CoCl₃·4NH₃ (সেউজীয়া)', col: '#3aa655', nh: 4, cl_in: 2, free: 1, f: '[CoCl₂(NH₃)₄]Cl', ratio: '1 : 1' },
-      { n: 'CoCl₃·4NH₃ (বেঙুনীয়া)', col: '#7a4bb0', nh: 4, cl_in: 2, free: 1, f: '[CoCl₂(NH₃)₄]Cl', ratio: '1 : 1' }
+      { n: L('CoCl₃·6NH₃ (হালধীয়া)', 'CoCl₃·6NH₃ (yellow)'), col: '#e8c93a', nh: 6, cl_in: 0, free: 3, f: '[Co(NH₃)₆]Cl₃', ratio: '1 : 3' },
+      { n: L('CoCl₃·5NH₃ (পূৰৈয়া)', 'CoCl₃·5NH₃ (purple)'), col: '#a2487a', nh: 5, cl_in: 1, free: 2, f: '[CoCl(NH₃)₅]Cl₂', ratio: '1 : 2' },
+      { n: L('CoCl₃·4NH₃ (সেউজীয়া)', 'CoCl₃·4NH₃ (green)'), col: '#3aa655', nh: 4, cl_in: 2, free: 1, f: '[CoCl₂(NH₃)₄]Cl', ratio: '1 : 1' },
+      { n: L('CoCl₃·4NH₃ (বেঙুনীয়া)', 'CoCl₃·4NH₃ (violet)'), col: '#7a4bb0', nh: 4, cl_in: 2, free: 1, f: '[CoCl₂(NH₃)₄]Cl', ratio: '1 : 1' }
     ];
     var cur = 0, added = false, t = 0;
-    var svg = s('svg', { viewBox: '0 0 400 250', 'class': 'anim-svg', role: 'img', 'aria-label': 'ৱাৰ্নাৰৰ সমন্বয়ী যৌগ: সমন্বয়ী বলয়ৰ ভিতৰত আৰু বাহিৰত থকা ক্ল\'ৰাইড' });
+    var svg = s('svg', { viewBox: '0 0 400 250', 'class': 'anim-svg', role: 'img', 'aria-label': L('ৱাৰ্নাৰৰ সমন্বয়ী যৌগ: সমন্বয়ী বলয়ৰ ভিতৰত আৰু বাহিৰত থকা ক্ল\'ৰাইড', 'Werner\'s compounds: chloride inside and outside the coordination sphere') });
     root.appendChild(svg);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     var POS = [[0, -62], [0, 62], [-62, 0], [62, 0], [-44, -44], [44, 44]];
@@ -79,7 +81,7 @@
     function build() {
       var c = CPD[cur]; svg.innerHTML = ''; counters = [];
       svg.appendChild(s('circle', { cx: 130, cy: 125, r: 88, fill: 'none', style: 'stroke:' + c.col + ';stroke-width:3', 'stroke-dasharray': '7 5' }));
-      svg.appendChild(s('text', { x: 130, y: 232, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--muted)', text: 'সমন্বয়ী বলয় (coordination sphere)' }));
+      svg.appendChild(s('text', { x: 130, y: 232, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--muted)', text: L('সমন্বয়ী বলয় (coordination sphere)', 'coordination sphere') }));
       svg.appendChild(s('circle', { cx: 130, cy: 125, r: 17, style: 'fill:' + c.col }));
       svg.appendChild(s('text', { x: 130, y: 130, 'text-anchor': 'middle', 'font-size': 14, 'font-weight': 700, style: 'fill:#222', text: 'Co' }));
       for (var i = 0; i < 6; i++) {
@@ -99,14 +101,16 @@
         node.appendChild(s('text', { x: 0, y: 4, 'text-anchor': 'middle', 'font-size': 10, 'font-weight': 700, style: 'fill:#fff', text: 'Cl⁻' }));
         node.setAttribute('transform', 'translate(' + cx + ',' + cy + ')'); svg.appendChild(node); counters.push({ g: node, x: cx, y: cy, ph: i });
       }
-      svg.appendChild(s('text', { x: 316, y: 232, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--muted)', text: 'প্ৰতি-আয়ন (বাহিৰত)' }));
+      svg.appendChild(s('text', { x: 316, y: 232, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--muted)', text: L('প্ৰতি-আয়ন (বাহিৰত)', 'counter ions (outside)') }));
       added = false; t = 0; paint();
     }
     function paint() {
       var c = CPD[cur], pct = added ? c.free : 0;
-      info.innerHTML = 'সংকেত: <b>' + c.f + '</b> · মুখ্য যোজ্যতা (আয়নীকৰণীয়) = ' + c.free + ' (বাহিৰৰ Cl<sup>−</sup>) · গৌণ যোজ্যতা = সমন্বয়ী সংখ্যা = <b>6</b><br>' +
-        'অতিৰিক্ত AgNO<sub>3</sub> দ্ৰৱ যোগ কৰিলে AgCl অধঃক্ষেপ = <b>' + (added ? c.free : '?') + ' mol</b> · ম\'লাৰ পৰিবাহিতাৰ অনুপাত = ' + c.ratio + ' বিদ্যুৎবিশ্লেষ্য' +
-        (cur >= 2 ? '<br><span class="en">দুয়োটা CoCl₃·4NH₃ ৰ সংকেত একে কিন্তু বৰণ বেলেগ — সিহঁত সমযোগী (isomers)।</span>' : '');
+      info.innerHTML = L('সংকেত: ', 'Formula: ') + '<b>' + c.f + '</b> · ' + L('মুখ্য যোজ্যতা (আয়নীকৰণীয়) = ', 'primary valency (ionisable) = ') + c.free +
+        L(' (বাহিৰৰ Cl<sup>−</sup>) · গৌণ যোজ্যতা = সমন্বয়ী সংখ্যা = <b>6</b><br>', ' (outer Cl<sup>−</sup>) · secondary valency = coordination number = <b>6</b><br>') +
+        L('অতিৰিক্ত AgNO<sub>3</sub> দ্ৰৱ যোগ কৰিলে AgCl অধঃক্ষেপ = <b>', 'AgCl precipitated with excess AgNO<sub>3</sub> = <b>') + (added ? c.free : '?') + ' mol</b> · ' +
+        L('ম\'লাৰ পৰিবাহিতাৰ অনুপাত = ', 'molar conductivity ratio = ') + c.ratio + L(' বিদ্যুৎবিশ্লেষ্য', ' electrolyte') +
+        (cur >= 2 ? '<br><span class="en">' + L('দুয়োটা CoCl₃·4NH₃ ৰ সংকেত একে কিন্তু বৰণ বেলেগ — সিহঁত সমযোগী (isomers)।', 'Both CoCl₃·4NH₃ compounds have the same formula but different colours: they are isomers.') + '</span>' : '');
     }
     function tick(dt) {
       t += dt;
@@ -128,13 +132,13 @@
     var h = k.h;
     var S = 1.0, T = 0.577;
     var SHAPES = {
-      oct: { n: 'Octahedral (CN 6)', pos: OCT, ex: '[Co(NH₃)₆]³⁺, [Cr(CO)₆]', hyb: 'sp³d² / d²sp³', note: 'ছয়টা লিগাণ্ড অষ্টফলকৰ কোণত।' },
-      tet: { n: 'Tetrahedral (CN 4)', pos: [[T, T, T], [T, -T, -T], [-T, T, -T], [-T, -T, T]], ex: '[Ni(CO)₄], [NiCl₄]²⁻', hyb: 'sp³', note: 'চাৰিটা লিগাণ্ড চতুৰ্ফলকৰ কোণত।' },
-      sqp: { n: 'Square planar (CN 4)', pos: [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0]], ex: '[PtCl₄]²⁻, [Ni(CN)₄]²⁻', hyb: 'dsp²', note: 'চাৰিটা লিগাণ্ড একে সমতলত বৰ্গৰ চাৰিকোণত।' },
-      tbp: { n: 'Trigonal bipyramidal (CN 5)', pos: [[0, 0, 1], [0, 0, -1], [1, 0, 0], [-0.5, 0.866, 0], [-0.5, -0.866, 0]], ex: '[Fe(CO)₅]', hyb: 'sp³d', note: 'দুটা অক্ষীয় আৰু তিনিটা বিষুৱীয় লিগাণ্ড।' },
-      sqpy: { n: 'Square pyramidal (CN 5)', pos: [[1, 0, -0.25], [-1, 0, -0.25], [0, 1, -0.25], [0, -1, -0.25], [0, 0, 0.85]], ex: '[Mn(CO)₅] (Mn₂(CO)₁₀ ৰ প্ৰতিটো অংশ)', hyb: '—', note: 'চাৰিটা ভিত্তি আৰু এটা শীৰ্ষ লিগাণ্ড।' }
+      oct: { n: 'Octahedral (CN 6)', pos: OCT, ex: '[Co(NH₃)₆]³⁺, [Cr(CO)₆]', hyb: 'sp³d² / d²sp³', note: L('ছয়টা লিগাণ্ড অষ্টফলকৰ কোণত।', 'Six ligands at the corners of an octahedron.') },
+      tet: { n: 'Tetrahedral (CN 4)', pos: [[T, T, T], [T, -T, -T], [-T, T, -T], [-T, -T, T]], ex: '[Ni(CO)₄], [NiCl₄]²⁻', hyb: 'sp³', note: L('চাৰিটা লিগাণ্ড চতুৰ্ফলকৰ কোণত।', 'Four ligands at the corners of a tetrahedron.') },
+      sqp: { n: 'Square planar (CN 4)', pos: [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0]], ex: '[PtCl₄]²⁻, [Ni(CN)₄]²⁻', hyb: 'dsp²', note: L('চাৰিটা লিগাণ্ড একে সমতলত বৰ্গৰ চাৰিকোণত।', 'Four ligands in one plane, at the corners of a square.') },
+      tbp: { n: 'Trigonal bipyramidal (CN 5)', pos: [[0, 0, 1], [0, 0, -1], [1, 0, 0], [-0.5, 0.866, 0], [-0.5, -0.866, 0]], ex: '[Fe(CO)₅]', hyb: 'sp³d', note: L('দুটা অক্ষীয় আৰু তিনিটা বিষুৱীয় লিগাণ্ড।', 'Two axial and three equatorial ligands.') },
+      sqpy: { n: 'Square pyramidal (CN 5)', pos: [[1, 0, -0.25], [-1, 0, -0.25], [0, 1, -0.25], [0, -1, -0.25], [0, 0, 0.85]], ex: L('[Mn(CO)₅] (Mn₂(CO)₁₀ ৰ প্ৰতিটো অংশ)', '[Mn(CO)₅] (each half of Mn₂(CO)₁₀)'), hyb: '—', note: L('চাৰিটা ভিত্তি আৰু এটা শীৰ্ষ লিগাণ্ড।', 'Four base ligands and one apical ligand.') }
     };
-    var cur = 'oct', v = viewer(root, k, 'সমন্বয়ী বহুফলকৰ ঘূৰণীয়া ত্ৰিমাত্ৰিক দৃশ্য', 320);
+    var cur = 'oct', v = viewer(root, k, L('সমন্বয়ী বহুফলকৰ ঘূৰণীয়া ত্ৰিমাত্ৰিক দৃশ্য', 'Rotating 3-D view of a coordination polyhedron'), 320);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     function paint() {
       var sh = SHAPES[cur], atoms = [{ p: [0, 0, 0], r: 20, c: '#7a4bb0', l: 'M' }], bonds = [];
@@ -148,12 +152,12 @@
       }
       if (cur === 'tet' || cur === 'tbp') { var P2 = sh.pos; for (var a = 0; a < P2.length; a++) for (var b = a + 1; b < P2.length; b++) bonds.push([a + 1, b + 1, true]); }
       v.set({ atoms: atoms, bonds: bonds });
-      info.innerHTML = '<b>' + sh.n + '</b> · ' + sh.note + '<br>উদাহৰণ: ' + sh.ex + ' · সংকৰণ: <b>' + sh.hyb + '</b>';
+      info.innerHTML = '<b>' + sh.n + '</b> · ' + sh.note + '<br>' + L('উদাহৰণ: ', 'Example: ') + sh.ex + L(' · সংকৰণ: <b>', ' · hybridisation: <b>') + sh.hyb + '</b>';
     }
     var sel = k.select('Shape', Object.keys(SHAPES).map(function (x) { return { value: x, label: SHAPES[x].n }; }), cur, function (val) { cur = val; paint(); });
     root.insertBefore(h('div', { 'class': 'row' }, [sel.el]), root.firstChild);
     root.appendChild(info);
-    root.appendChild(h('div', { 'class': 'legend' }, [h('span', {}, [h('span', { 'class': 'dot', style: 'background:#7a4bb0' }), 'M কেন্দ্ৰীয় পৰমাণু / আয়ন']), h('span', {}, [h('span', { 'class': 'dot', style: 'background:#1c7ed6' }), 'L লিগাণ্ড']), h('span', { text: 'ঘূৰাবলৈ টানক' })]));
+    root.appendChild(h('div', { 'class': 'legend' }, [h('span', {}, [h('span', { 'class': 'dot', style: 'background:#7a4bb0' }), L('M কেন্দ্ৰীয় পৰমাণু / আয়ন', 'M central atom / ion')]), h('span', {}, [h('span', { 'class': 'dot', style: 'background:#1c7ed6' }), L('L লিগাণ্ড', 'L ligand')]), h('span', { text: L('ঘূৰাবলৈ টানক', 'Drag to rotate') })]));
     paint(); v.start();
   });
 
@@ -214,11 +218,14 @@
     }
     function paint() {
       var r = compute(), tot = Object.keys(st.n).reduce(function (a, x) { return a + st.n[x]; }, 0);
-      out.innerHTML = tot === 0 ? 'অন্ততঃ এটা লিগাণ্ড যোগ কৰক।' :
-        'সংকেত: <span class="cfg">' + r.formula + '</span><br>' +
-        'জটিল সত্তাৰ আধান = ' + st.ox + ' + (লিগাণ্ডৰ আধান) = <b>' + (r.q > 0 ? '+' + r.q : (r.q < 0 ? '−' + (-r.q) : '0')) + '</b> · সমন্বয়ী সংখ্যা = <b>' + r.cn + '</b>' + (r.cn !== 2 && r.cn !== 4 && r.cn !== 6 ? ' <span class="en">(অস্বাভাৱিক সংখ্যা)</span>' : '') + '<br>' +
-        'IUPAC নাম: <b>' + r.as + '</b><br><span class="en">' + r.en + '</span><br>' +
-        '<span class="en">নিয়ম: লিগাণ্ডবোৰ বৰ্ণানুক্ৰমে (নামত) → ধাতু → জাৰণ সংখ্যা (ৰোমান); এনায়নীয় সত্তাত ধাতুৰ নামৰ শেষত -ate; কেটায়নৰ নাম প্ৰথমে।</span>';
+      var chg = r.q > 0 ? '+' + r.q : (r.q < 0 ? '−' + (-r.q) : '0'), odd = r.cn !== 2 && r.cn !== 4 && r.cn !== 6;
+      out.innerHTML = tot === 0 ? L('অন্ততঃ এটা লিগাণ্ড যোগ কৰক।', 'Add at least one ligand.') :
+        L('সংকেত: ', 'Formula: ') + '<span class="cfg">' + r.formula + '</span><br>' +
+        L('জটিল সত্তাৰ আধান = ', 'Charge of the complex entity = ') + st.ox + L(' + (লিগাণ্ডৰ আধান) = <b>', ' + (ligand charges) = <b>') + chg + '</b> · ' +
+        L('সমন্বয়ী সংখ্যা = ', 'coordination number = ') + '<b>' + r.cn + '</b>' + (odd ? ' <span class="en">' + L('(অস্বাভাৱিক সংখ্যা)', '(unusual number)') + '</span>' : '') + '<br>' +
+        L('IUPAC নাম: <b>' + r.as + '</b><br><span class="en">' + r.en + '</span><br>', 'IUPAC name: <b>' + r.en + '</b><br><span class="en" lang="as">' + r.as + '</span><br>') +
+        '<span class="en">' + L('নিয়ম: লিগাণ্ডবোৰ বৰ্ণানুক্ৰমে (নামত) → ধাতু → জাৰণ সংখ্যা (ৰোমান); এনায়নীয় সত্তাত ধাতুৰ নামৰ শেষত -ate; কেটায়নৰ নাম প্ৰথমে।',
+          'Rules: ligands in alphabetical order of their names → metal → oxidation state (Roman numeral); the metal name ends in -ate in an anionic entity; the cation is named first.') + '</span>';
       Object.keys(cvals).forEach(function (x) { cvals[x].textContent = st.n[x]; });
     }
     function counter(x) {
@@ -247,7 +254,7 @@
       square: { n: 'Geometrical: square planar [MA₂B₂] cis / trans' }
     };
     var cur = 'cistrans', form = 0;
-    var v = viewer(root, k, 'সমযোগীৰ ত্ৰিমাত্ৰিক গঠন', 320);
+    var v = viewer(root, k, L('সমযোগীৰ ত্ৰিমাত্ৰিক গঠন', 'Three-dimensional structure of an isomer'), 320);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     var A_ = '#1c7ed6', B_ = '#e8590c';
     function scene() {
@@ -256,23 +263,23 @@
         var Bidx = form === 0 ? [4, 5] : [0, 1];            /* cis: B on +z and +x?  trans: B on opposite vertices */
         var Bs = form === 0 ? [0, 2] : [4, 5];
         OCT.forEach(function (p, j) { var isB = Bs.indexOf(j) >= 0; atoms.push({ p: p, r: 12, c: isB ? B_ : A_, l: isB ? 'B' : 'A' }); bonds.push([0, j + 1]); });
-        return { sc: { atoms: atoms, bonds: bonds }, txt: form === 0 ? '<b>cis-[MA₄B₂]</b> — দুটা B লিগাণ্ড ওচৰা-ওচৰিকৈ (90°)।' : '<b>trans-[MA₄B₂]</b> — দুটা B লিগাণ্ড বিপৰীত দিশত (180°)। উদাহৰণ: [Co(NH₃)₄Cl₂]⁺ ৰ ছিছ (বেঙুনীয়া) আৰু ট্ৰেন্স (সেউজীয়া)।' };
+        return { sc: { atoms: atoms, bonds: bonds }, txt: form === 0 ? L('<b>cis-[MA₄B₂]</b> — দুটা B লিগাণ্ড ওচৰা-ওচৰিকৈ (90°)।', '<b>cis-[MA₄B₂]</b>: the two B ligands are next to each other (90°).') : L('<b>trans-[MA₄B₂]</b> — দুটা B লিগাণ্ড বিপৰীত দিশত (180°)। উদাহৰণ: [Co(NH₃)₄Cl₂]⁺ ৰ ছিছ (বেঙুনীয়া) আৰু ট্ৰেন্স (সেউজীয়া)।', '<b>trans-[MA₄B₂]</b>: the two B ligands are opposite each other (180°). Example: [Co(NH₃)₄Cl₂]⁺, cis (violet) and trans (green).') };
       }
       if (cur === 'facmer') {
         var Bs2 = form === 0 ? [0, 2, 4] : [0, 1, 2];     /* fac: three at one face; mer: a meridian (+x,-x,+y) */
         OCT.forEach(function (p, j) { var isB = Bs2.indexOf(j) >= 0; atoms.push({ p: p, r: 12, c: isB ? B_ : A_, l: isB ? 'B' : 'A' }); bonds.push([0, j + 1]); });
-        return { sc: { atoms: atoms, bonds: bonds }, txt: form === 0 ? '<b>fac-[MA₃B₃]</b> (facial) — তিনিটা B এটা ফলকৰ তিনিটা কোণত (পৰস্পৰ 90°)।' : '<b>mer-[MA₃B₃]</b> (meridional) — তিনিটা B অষ্টফলকৰ মধ্যৰেখাত (ইয়াৰ দুটা বিপৰীত)। উদাহৰণ: [Co(NH₃)₃(NO₂)₃]।' };
+        return { sc: { atoms: atoms, bonds: bonds }, txt: form === 0 ? L('<b>fac-[MA₃B₃]</b> (facial) — তিনিটা B এটা ফলকৰ তিনিটা কোণত (পৰস্পৰ 90°)।', '<b>fac-[MA₃B₃]</b> (facial): the three B ligands sit at the corners of one face (90° to each other).') : L('<b>mer-[MA₃B₃]</b> (meridional) — তিনিটা B অষ্টফলকৰ মধ্যৰেখাত (ইয়াৰ দুটা বিপৰীত)। উদাহৰণ: [Co(NH₃)₃(NO₂)₃]।', '<b>mer-[MA₃B₃]</b> (meridional): the three B ligands lie along a meridian of the octahedron (two of them opposite). Example: [Co(NH₃)₃(NO₂)₃].') };
       }
       if (cur === 'optical') {
         var sg = form === 0 ? 1 : -1;
         OCT.forEach(function (p, j) { atoms.push({ p: [p[0] * sg, p[1], p[2]], r: 11, c: A_, l: 'A' }); bonds.push([0, j + 1]); });
         /* chelates (+x,+y), (-x,+z), (-y,-z) → indices of OCT: +x=0,-x=1,+y=2,-y=3,+z=4,-z=5 */
         [[0, 2], [1, 4], [3, 5]].forEach(function (pr) { arcs.push([pr[0] + 1, pr[1] + 1, B_]); });
-        return { sc: { atoms: atoms, bonds: bonds, arcs: arcs }, txt: form === 0 ? '<b>d (দক্ষিণাবৰ্তী) [M(AA)₃]</b> — তিনিটা দ্বিদন্তী লিগাণ্ড (কমলা চাপ) এটা সুঁতিৰ দৰে পাক খাই আছে।' : '<b>l (বামাবৰ্তী) [M(AA)₃]</b> — ইয়াৰ দাপোণ প্ৰতিবিম্ব; ওপৰৰটোৰ ওপৰত সমাৰোপণ কৰিব নোৱাৰি। ইহঁতক <b>এনানছিঅ\'মাৰ</b> বোলে আৰু ইহঁতে সমতল ধ্ৰুৱিত পোহৰ বিপৰীত দিশত ঘূৰায়। উদাহৰণ: [Co(en)₃]³⁺।' };
+        return { sc: { atoms: atoms, bonds: bonds, arcs: arcs }, txt: form === 0 ? L('<b>d (দক্ষিণাবৰ্তী) [M(AA)₃]</b> — তিনিটা দ্বিদন্তী লিগাণ্ড (কমলা চাপ) এটা সুঁতিৰ দৰে পাক খাই আছে।', '<b>d (dextro) [M(AA)₃]</b>: three bidentate ligands (orange arcs) twist around the metal like a propeller.') : L('<b>l (বামাবৰ্তী) [M(AA)₃]</b> — ইয়াৰ দাপোণ প্ৰতিবিম্ব; ওপৰৰটোৰ ওপৰত সমাৰোপণ কৰিব নোৱাৰি। ইহঁতক <b>এনানছিঅ\'মাৰ</b> বোলে আৰু ইহঁতে সমতল ধ্ৰুৱিত পোহৰ বিপৰীত দিশত ঘূৰায়। উদাহৰণ: [Co(en)₃]³⁺।', '<b>l (laevo) [M(AA)₃]</b>: the mirror image of the d form; the two cannot be superimposed. Such a pair are <b>enantiomers</b> and rotate plane-polarised light in opposite directions. Example: [Co(en)₃]³⁺.') };
       }
       var Bsq = form === 0 ? [0, 2] : [0, 1];            /* cis: +x,+y  trans: +x,-x */
       [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0]].forEach(function (p, j) { var isB = Bsq.indexOf(j) >= 0; atoms.push({ p: p, r: 12, c: isB ? B_ : A_, l: isB ? 'B' : 'A' }); bonds.push([0, j + 1]); });
-      return { sc: { atoms: atoms, bonds: bonds }, txt: form === 0 ? '<b>cis-[Pt(NH₃)₂Cl₂]</b> — একে লিগাণ্ড ওচৰা-ওচৰি। (এই ছিছ-সমযোগীটোৱেই cisplatin, টিউমাৰ-ৰোধী।)' : '<b>trans-[Pt(NH₃)₂Cl₂]</b> — একে লিগাণ্ড বিপৰীত দিশত। চতুৰ্ফলকীয় [MA₂B₂] ত জ্যামিতীয় সমযোগিতা নাই।' };
+      return { sc: { atoms: atoms, bonds: bonds }, txt: form === 0 ? L('<b>cis-[Pt(NH₃)₂Cl₂]</b> — একে লিগাণ্ড ওচৰা-ওচৰি। (এই ছিছ-সমযোগীটোৱেই cisplatin, টিউমাৰ-ৰোধী।)', '<b>cis-[Pt(NH₃)₂Cl₂]</b>: identical ligands next to each other. (This cis isomer is cisplatin, an anti-tumour drug.)') : L('<b>trans-[Pt(NH₃)₂Cl₂]</b> — একে লিগাণ্ড বিপৰীত দিশত। চতুৰ্ফলকীয় [MA₂B₂] ত জ্যামিতীয় সমযোগিতা নাই।', '<b>trans-[Pt(NH₃)₂Cl₂]</b>: identical ligands opposite each other. A tetrahedral [MA₂B₂] shows no geometrical isomerism.') };
     }
     function paint() { var r = scene(); v.set(r.sc); info.innerHTML = r.txt; }
     var sel = k.select('Type', Object.keys(TYPES).map(function (x) { return { value: x, label: TYPES[x].n }; }), cur, function (val) { cur = val; form = 0; paintB(); paint(); });
@@ -287,20 +294,20 @@
   A.register('vbt', function (root, k) {
     var h = k.h, s = k.s;
     var CX = [
-      { n: '[Co(NH₃)₆]³⁺', d: 6, hy: 'd2sp3', l: 'NH₃', spin: 'low', cn: 6, g: 'অষ্টফলকীয়' },
-      { n: '[CoF₆]³⁻', d: 6, hy: 'sp3d2', l: 'F⁻', spin: 'high', cn: 6, g: 'অষ্টফলকীয়' },
-      { n: '[Fe(CN)₆]³⁻', d: 5, hy: 'd2sp3', l: 'CN⁻', spin: 'low', cn: 6, g: 'অষ্টফলকীয়' },
-      { n: '[FeF₆]³⁻', d: 5, hy: 'sp3d2', l: 'F⁻', spin: 'high', cn: 6, g: 'অষ্টফলকীয়' },
-      { n: '[Fe(CN)₆]⁴⁻', d: 6, hy: 'd2sp3', l: 'CN⁻', spin: 'low', cn: 6, g: 'অষ্টফলকীয়' },
-      { n: '[Mn(CN)₆]³⁻', d: 4, hy: 'd2sp3', l: 'CN⁻', spin: 'low', cn: 6, g: 'অষ্টফলকীয়' },
-      { n: '[MnCl₆]³⁻', d: 4, hy: 'sp3d2', l: 'Cl⁻', spin: 'high', cn: 6, g: 'অষ্টফলকীয়' },
-      { n: '[Ni(NH₃)₆]²⁺', d: 8, hy: 'sp3d2', l: 'NH₃', spin: 'high', cn: 6, g: 'অষ্টফলকীয়' },
-      { n: '[Ni(CN)₄]²⁻', d: 8, hy: 'dsp2', l: 'CN⁻', spin: 'low', cn: 4, g: 'বৰ্গসমতলীয়' },
-      { n: '[NiCl₄]²⁻', d: 8, hy: 'sp3', l: 'Cl⁻', spin: 'high', cn: 4, g: 'চতুৰ্ফলকীয়' },
-      { n: '[Ni(CO)₄]', d: 10, hy: 'sp3', l: 'CO', spin: 'high', cn: 4, g: 'চতুৰ্ফলকীয়' }
+      { n: '[Co(NH₃)₆]³⁺', d: 6, hy: 'd2sp3', l: 'NH₃', spin: 'low', cn: 6, g: L('অষ্টফলকীয়', 'octahedral') },
+      { n: '[CoF₆]³⁻', d: 6, hy: 'sp3d2', l: 'F⁻', spin: 'high', cn: 6, g: L('অষ্টফলকীয়', 'octahedral') },
+      { n: '[Fe(CN)₆]³⁻', d: 5, hy: 'd2sp3', l: 'CN⁻', spin: 'low', cn: 6, g: L('অষ্টফলকীয়', 'octahedral') },
+      { n: '[FeF₆]³⁻', d: 5, hy: 'sp3d2', l: 'F⁻', spin: 'high', cn: 6, g: L('অষ্টফলকীয়', 'octahedral') },
+      { n: '[Fe(CN)₆]⁴⁻', d: 6, hy: 'd2sp3', l: 'CN⁻', spin: 'low', cn: 6, g: L('অষ্টফলকীয়', 'octahedral') },
+      { n: '[Mn(CN)₆]³⁻', d: 4, hy: 'd2sp3', l: 'CN⁻', spin: 'low', cn: 6, g: L('অষ্টফলকীয়', 'octahedral') },
+      { n: '[MnCl₆]³⁻', d: 4, hy: 'sp3d2', l: 'Cl⁻', spin: 'high', cn: 6, g: L('অষ্টফলকীয়', 'octahedral') },
+      { n: '[Ni(NH₃)₆]²⁺', d: 8, hy: 'sp3d2', l: 'NH₃', spin: 'high', cn: 6, g: L('অষ্টফলকীয়', 'octahedral') },
+      { n: '[Ni(CN)₄]²⁻', d: 8, hy: 'dsp2', l: 'CN⁻', spin: 'low', cn: 4, g: L('বৰ্গসমতলীয়', 'square planar') },
+      { n: '[NiCl₄]²⁻', d: 8, hy: 'sp3', l: 'Cl⁻', spin: 'high', cn: 4, g: L('চতুৰ্ফলকীয়', 'tetrahedral') },
+      { n: '[Ni(CO)₄]', d: 10, hy: 'sp3', l: 'CO', spin: 'high', cn: 4, g: L('চতুৰ্ফলকীয়', 'tetrahedral') }
     ];
     var cur = 0;
-    var svg = s('svg', { viewBox: '0 0 450 100', 'class': 'anim-svg', role: 'img', 'aria-label': 'সংকৰণ আৰু অৰবিটেলৰ বাকচ চিত্ৰ' });
+    var svg = s('svg', { viewBox: '0 0 450 100', 'class': 'anim-svg', role: 'img', 'aria-label': L('সংকৰণ আৰু অৰবিটেলৰ বাকচ চিত্ৰ', 'Hybridisation and orbital box diagram') });
     root.appendChild(svg);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
 
@@ -338,17 +345,17 @@
         }
       }
       var mu = Math.sqrt(unp * (unp + 2)), inner = c.hy === 'd2sp3' || c.hy === 'dsp2';
-      info.innerHTML = '<b>' + c.n + '</b> · ধাতুৰ d-ইলেক্ট্ৰন = d<sup>' + c.d + '</sup> · লিগাণ্ড: ' + c.l + ' · সমন্বয়ী সংখ্যা ' + c.cn + '<br>' +
-        'সংকৰণ: <b>' + c.hy.replace('d2sp3', 'd²sp³').replace('sp3d2', 'sp³d²').replace('dsp2', 'dsp²').replace('sp3', 'sp³') + '</b> → ' + c.g + ' · ' +
-        (c.hy === 'sp3' ? '' : (inner ? '<b>অন্তঃ অৰবিটেল</b> (inner) জটিল — নিম্ন স্পিন' : '<b>বহিঃ অৰবিটেল</b> (outer, 4d ব্যৱহাৰ) জটিল — উচ্চ স্পিন')) + '<br>' +
-        'অযুগ্ম ইলেক্ট্ৰন n = <b>' + unp + '</b> · μ = √(n(n+2)) = <b>' + mu.toFixed(2) + ' BM</b> · ' + (unp ? '<b>অনুচুম্বকীয়</b>' : '<b>অপচুম্বকীয়</b>');
+      info.innerHTML = '<b>' + c.n + '</b> · ' + L('ধাতুৰ d-ইলেক্ট্ৰন = d<sup>', 'metal d electrons = d<sup>') + c.d + '</sup> · ' + L('লিগাণ্ড: ', 'ligand: ') + c.l + ' · ' + L('সমন্বয়ী সংখ্যা ', 'coordination number ') + c.cn + '<br>' +
+        L('সংকৰণ: ', 'hybridisation: ') + '<b>' + c.hy.replace('d2sp3', 'd²sp³').replace('sp3d2', 'sp³d²').replace('dsp2', 'dsp²').replace('sp3', 'sp³') + '</b> → ' + c.g + ' · ' +
+        (c.hy === 'sp3' ? '' : (inner ? L('<b>অন্তঃ অৰবিটেল</b> (inner) জটিল — নিম্ন স্পিন', '<b>inner orbital</b> complex: low spin') : L('<b>বহিঃ অৰবিটেল</b> (outer, 4d ব্যৱহাৰ) জটিল — উচ্চ স্পিন', '<b>outer orbital</b> complex (uses 4d): high spin'))) + '<br>' +
+        L('অযুগ্ম ইলেক্ট্ৰন n = ', 'unpaired electrons n = ') + '<b>' + unp + '</b> · μ = √(n(n+2)) = <b>' + mu.toFixed(2) + ' BM</b> · ' + (unp ? L('<b>অনুচুম্বকীয়</b>', '<b>paramagnetic</b>') : L('<b>অপচুম্বকীয়</b>', '<b>diamagnetic</b>'));
     }
     var sel = k.select('Complex', CX.map(function (x, i) { return { value: i, label: x.n }; }), cur, function (v) { cur = +v; paint(); });
     root.appendChild(h('div', { 'class': 'row' }, [sel.el, k.button('◀', function () { cur = (cur + CX.length - 1) % CX.length; sel.select.value = cur; paint(); }), k.button('▶', function () { cur = (cur + 1) % CX.length; sel.select.value = cur; paint(); })]));
     root.appendChild(h('div', { 'class': 'legend' }, [
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--accent)' }), 'কমলা ঘেৰ = সংকৰিত অৰবিটেল']),
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--brand)' }), '↑↓ = লিগাণ্ডৰ ইলেক্ট্ৰন যোৰ']),
-      h('span', { text: 'নীলা / ৰঙা তীৰ = ধাতুৰ ইলেক্ট্ৰন' })]));
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--accent)' }), L('কমলা ঘেৰ = সংকৰিত অৰবিটেল', 'orange outline = hybridised orbitals')]),
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--brand)' }), L('↑↓ = লিগাণ্ডৰ ইলেক্ট্ৰন যোৰ', '↑↓ = electron pair from the ligand')]),
+      h('span', { text: L('নীলা / ৰঙা তীৰ = ধাতুৰ ইলেক্ট্ৰন', 'blue / red arrows = electrons of the metal') })]));
     root.appendChild(info);
     paint();
   });
@@ -359,7 +366,7 @@
     var ION = ['', 'Ti³⁺', 'V³⁺', 'Cr³⁺', 'Cr²⁺ / Mn³⁺', 'Mn²⁺ / Fe³⁺', 'Fe²⁺ / Co³⁺', 'Co²⁺', 'Ni²⁺', 'Cu²⁺'];
     var SERIES = [['I⁻', 8], ['Br⁻', 9], ['SCN⁻', 10], ['Cl⁻', 11], ['F⁻', 13], ['OH⁻', 14], ['C₂O₄²⁻', 15], ['H₂O', 16], ['EDTA⁴⁻', 17], ['NH₃', 20], ['en', 22], ['CN⁻', 28], ['CO', 32]];
     var P = 18, st = { n: 6, lig: 7, geo: 'oct' };
-    var svg = s('svg', { viewBox: '0 0 400 230', 'class': 'anim-svg', role: 'img', 'aria-label': 'ক্ৰিষ্টেল ক্ষেত্ৰ বিভাজন আৰু d-ইলেক্ট্ৰনৰ বিন্যাস' });
+    var svg = s('svg', { viewBox: '0 0 400 230', 'class': 'anim-svg', role: 'img', 'aria-label': L('ক্ৰিষ্টেল ক্ষেত্ৰ বিভাজন আৰু d-ইলেক্ট্ৰনৰ বিন্যাস', 'Crystal field splitting and d-electron arrangement') });
     root.appendChild(svg);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     function fillOct(n, low) {
@@ -402,12 +409,12 @@
       svg.appendChild(g);
       svg.appendChild(s('line', { x1: 200, x2: 200, y1: yLow, y2: yHi, style: 'stroke:var(--proton)', 'stroke-width': 2 }));
       svg.appendChild(s('text', { x: 210, y: (yLow + yHi) / 2 + 4, 'font-size': 14, 'font-weight': 700, style: 'fill:var(--proton)', text: oct ? 'Δ₀' : 'Δₜ = (4/9)Δ₀' }));
-      svg.appendChild(s('text', { x: 10, y: 20, 'font-size': 13, 'font-weight': 700, style: 'fill:var(--text)', text: (oct ? 'অষ্টফলকীয়' : 'চতুৰ্ফলকীয়') + ' ক্ষেত্ৰ — d' + n + ' (' + ION[n] + ')' }));
+      svg.appendChild(s('text', { x: 10, y: 20, 'font-size': 13, 'font-weight': 700, style: 'fill:var(--text)', text: (oct ? L('অষ্টফলকীয়', 'Octahedral') : L('চতুৰ্ফলকীয়', 'Tetrahedral')) + L(' ক্ষেত্ৰ — d', ' field: d') + n + ' (' + ION[n] + ')' }));
       var un = oct ? unpaired(lowN, 3) + unpaired(hiN, 2) : unpaired(lowN, 2) + unpaired(hiN, 3), mu = Math.sqrt(un * (un + 2));
-      var spinTxt = oct ? (n >= 4 && n <= 7 ? (low ? '<b>নিম্ন স্পিন</b> (Δ₀ > P, তীব্ৰ ক্ষেত্ৰ লিগাণ্ড)' : '<b>উচ্চ স্পিন</b> (Δ₀ < P, মৃদু ক্ষেত্ৰ লিগাণ্ড)') : 'd' + n + ' ত উচ্চ/নিম্ন স্পিনৰ পাৰ্থক্য নাই') : 'চতুৰ্ফলকীয়ত Δₜ সৰু (< P), গতিকে সদায় <b>উচ্চ স্পিন</b>';
-      info.innerHTML = (oct ? 'লিগাণ্ড <b>' + SERIES[st.lig][0] + '</b> · Δ₀ ≈ ' + do_ + ' একক (P = ' + P + ' একক) — ' : 'Δₜ ≈ ' + dt.toFixed(1) + ' একক — ') + spinTxt + '<br>' +
-        (oct ? 't<sub>2g</sub><sup>' + lowN + '</sup> e<sub>g</sub><sup>' + hiN + '</sup>' : 'e<sup>' + lowN + '</sup> t<sub>2</sub><sup>' + hiN + '</sup>') + ' · অযুগ্ম ইলেক্ট্ৰন = <b>' + un + '</b> · μ ≈ <b>' + mu.toFixed(2) + ' BM</b> · CFSE = <b>' + cfse.toFixed(1) + (oct ? ' Δ₀' : ' Δ₀ × 4/9 ' ) + '</b>' +
-        '<br><span class="en">(একক দৃষ্টান্তমূলক — প্ৰকৃত Δ₀ আৰু P ধাতুৰ আয়ন অনুসৰি সলনি হয়।)</span>';
+      var spinTxt = oct ? (n >= 4 && n <= 7 ? (low ? L('<b>নিম্ন স্পিন</b> (Δ₀ > P, তীব্ৰ ক্ষেত্ৰ লিগাণ্ড)', '<b>low spin</b> (Δ₀ &gt; P, strong-field ligand)') : L('<b>উচ্চ স্পিন</b> (Δ₀ < P, মৃদু ক্ষেত্ৰ লিগাণ্ড)', '<b>high spin</b> (Δ₀ &lt; P, weak-field ligand)')) : L('d' + n + ' ত উচ্চ/নিম্ন স্পিনৰ পাৰ্থক্য নাই', 'no high/low-spin distinction for d' + n)) : L('চতুৰ্ফলকীয়ত Δₜ সৰু (< P), গতিকে সদায় <b>উচ্চ স্পিন</b>', 'in a tetrahedral field Δₜ is small (&lt; P), so it is always <b>high spin</b>');
+      info.innerHTML = (oct ? L('লিগাণ্ড <b>', 'Ligand <b>') + SERIES[st.lig][0] + '</b> · Δ₀ ≈ ' + do_ + L(' একক (P = ', ' units (P = ') + P + L(' একক) — ', ' units): ') : 'Δₜ ≈ ' + dt.toFixed(1) + L(' একক — ', ' units: ')) + spinTxt + '<br>' +
+        (oct ? 't<sub>2g</sub><sup>' + lowN + '</sup> e<sub>g</sub><sup>' + hiN + '</sup>' : 'e<sup>' + lowN + '</sup> t<sub>2</sub><sup>' + hiN + '</sup>') + L(' · অযুগ্ম ইলেক্ট্ৰন = <b>', ' · unpaired electrons = <b>') + un + '</b> · μ ≈ <b>' + mu.toFixed(2) + ' BM</b> · CFSE = <b>' + cfse.toFixed(1) + (oct ? ' Δ₀' : ' Δ₀ × 4/9 ') + '</b>' +
+        '<br><span class="en">' + L('(একক দৃষ্টান্তমূলক — প্ৰকৃত Δ₀ আৰু P ধাতুৰ আয়ন অনুসৰি সলনি হয়।)', '(Units are illustrative: the real Δ₀ and P depend on the metal ion.)') + '</span>';
     }
     var ns = k.slider('d electrons', 1, 9, 1, st.n, function (v) { st.n = v; paint(); });
     var ls = k.select('Ligand', SERIES.map(function (x, i) { return { value: i, label: x[0] + (i === 0 ? ' (weak field)' : (i === SERIES.length - 1 ? ' (strong field)' : '')) }; }), st.lig, function (v) { st.lig = +v; paint(); });
@@ -415,7 +422,7 @@
     function gB() { go.setAttribute('aria-pressed', String(st.geo === 'oct')); gt.setAttribute('aria-pressed', String(st.geo === 'tet')); }
     root.appendChild(h('div', { 'class': 'row' }, [go, gt])); root.appendChild(h('div', { 'class': 'row' }, [ns.el, ls.el]));
     root.appendChild(info);
-    root.appendChild(h('div', { 'class': 'legend' }, [h('span', { text: 'স্পেক্ট্ৰ\'ৰাসায়নিক শ্ৰেণী: I⁻ < Br⁻ < SCN⁻ < Cl⁻ < F⁻ < OH⁻ < C₂O₄²⁻ < H₂O < EDTA⁴⁻ < NH₃ < en < CN⁻ < CO' })]));
+    root.appendChild(h('div', { 'class': 'legend' }, [h('span', { text: L('স্পেক্ট্ৰ\'ৰাসায়নিক শ্ৰেণী: ', 'Spectrochemical series: ') + 'I⁻ < Br⁻ < SCN⁻ < Cl⁻ < F⁻ < OH⁻ < C₂O₄²⁻ < H₂O < EDTA⁴⁻ < NH₃ < en < CN⁻ < CO' })]));
     gB(); paint();
   });
 
@@ -430,19 +437,19 @@
   A.register('colour', function (root, k) {
     var h = k.h, s = k.s;
     var CX = [
-      { n: '[CoCl(NH₃)₅]²⁺', nm: 535, abs: 'হালধীয়া-সেউজীয়া', obs: 'বেঙুনীয়া', c: '#c86bb4' },
-      { n: '[Co(NH₃)₅(H₂O)]³⁺', nm: 500, abs: 'নীলা-সেউজীয়া', obs: 'ৰঙা', c: '#e0212b' },
-      { n: '[Co(NH₃)₆]³⁺', nm: 475, abs: 'নীলা', obs: 'হালধীয়া-কমলা', c: '#f2a900' },
-      { n: '[Co(CN)₆]³⁻', nm: 310, abs: 'অতিবেঙুনীয়া (অদৃশ্য)', obs: 'শেঁতা হালধীয়া', c: '#f6f1a8' },
-      { n: '[Cu(H₂O)₄]²⁺', nm: 600, abs: 'কমলা-ৰঙা', obs: 'নীলা', c: '#2f5fd0' },
-      { n: '[Ti(H₂O)₆]³⁺', nm: 498, abs: 'নীলা-সেউজীয়া', obs: 'বেঙুনীয়া / পূৰৈয়া', c: '#a0399a' }
+      { n: '[CoCl(NH₃)₅]²⁺', nm: 535, abs: L('হালধীয়া-সেউজীয়া', 'yellow-green'), obs: L('বেঙুনীয়া', 'violet'), c: '#c86bb4' },
+      { n: '[Co(NH₃)₅(H₂O)]³⁺', nm: 500, abs: L('নীলা-সেউজীয়া', 'blue-green'), obs: L('ৰঙা', 'red'), c: '#e0212b' },
+      { n: '[Co(NH₃)₆]³⁺', nm: 475, abs: L('নীলা', 'blue'), obs: L('হালধীয়া-কমলা', 'yellow-orange'), c: '#f2a900' },
+      { n: '[Co(CN)₆]³⁻', nm: 310, abs: L('অতিবেঙুনীয়া (অদৃশ্য)', 'ultraviolet (invisible)'), obs: L('শেঁতা হালধীয়া', 'pale yellow'), c: '#f6f1a8' },
+      { n: '[Cu(H₂O)₄]²⁺', nm: 600, abs: L('কমলা-ৰঙা', 'orange-red'), obs: L('নীলা', 'blue'), c: '#2f5fd0' },
+      { n: '[Ti(H₂O)₆]³⁺', nm: 498, abs: L('নীলা-সেউজীয়া', 'blue-green'), obs: L('বেঙুনীয়া / পূৰৈয়া', 'violet / purple'), c: '#a0399a' }
     ];
     var EN = [
-      { n: 0, f: '[Ni(H₂O)₆]²⁺', c: '#4cae5a', t: 'সেউজীয়া' }, { n: 1, f: '[Ni(H₂O)₄(en)]²⁺', c: '#b5dcf0', t: 'শেঁতা নীলা' },
-      { n: 2, f: '[Ni(H₂O)₂(en)₂]²⁺', c: '#7b8cd6', t: 'নীলা / পূৰৈয়া' }, { n: 3, f: '[Ni(en)₃]²⁺', c: '#a455c9', t: 'বেঙুনীয়া' }
+      { n: 0, f: '[Ni(H₂O)₆]²⁺', c: '#4cae5a', t: L('সেউজীয়া', 'green') }, { n: 1, f: '[Ni(H₂O)₄(en)]²⁺', c: '#b5dcf0', t: L('শেঁতা নীলা', 'pale blue') },
+      { n: 2, f: '[Ni(H₂O)₂(en)₂]²⁺', c: '#7b8cd6', t: L('নীলা / পূৰৈয়া', 'blue / purple') }, { n: 3, f: '[Ni(en)₃]²⁺', c: '#a455c9', t: L('বেঙুনীয়া', 'violet') }
     ];
     var cur = 2, en = 0;
-    var svg = s('svg', { viewBox: '0 0 400 190', 'class': 'anim-svg', role: 'img', 'aria-label': 'শোষিত তৰংগদৈৰ্ঘ্য আৰু জটিল যৌগৰ বৰণ' });
+    var svg = s('svg', { viewBox: '0 0 400 190', 'class': 'anim-svg', role: 'img', 'aria-label': L('শোষিত তৰংগদৈৰ্ঘ্য আৰু জটিল যৌগৰ বৰণ', 'Absorbed wavelength and colour of a complex') });
     root.appendChild(svg);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     function paint() {
@@ -453,17 +460,19 @@
       var px = 20 + clamp((c.nm - 400) / 300, 0, 1) * 360;
       svg.appendChild(s('line', { x1: px, x2: px, y1: 22, y2: 62, style: 'stroke:var(--text)', 'stroke-width': 3 }));
       svg.appendChild(s('text', { x: clamp(px, 40, 360), y: 76, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, style: 'fill:var(--text)', text: c.nm + ' nm' + (c.nm < 380 ? ' (UV)' : '') }));
-      svg.appendChild(s('rect', { x: 20, y: 90, width: 70, height: 36, rx: 6, fill: abs || '#8a8a8a', style: 'stroke:var(--border)' })); svg.appendChild(s('text', { x: 100, y: 112, 'font-size': 12, style: 'fill:var(--text)', text: '← শোষিত বৰণ' }));
-      svg.appendChild(s('rect', { x: 210, y: 90, width: 70, height: 36, rx: 6, fill: c.c, style: 'stroke:var(--border)' })); svg.appendChild(s('text', { x: 290, y: 112, 'font-size': 12, style: 'fill:var(--text)', text: '← দেখা বৰণ' }));
+      svg.appendChild(s('rect', { x: 20, y: 90, width: 70, height: 36, rx: 6, fill: abs || '#8a8a8a', style: 'stroke:var(--border)' })); svg.appendChild(s('text', { x: 100, y: 112, 'font-size': 12, style: 'fill:var(--text)', text: L('← শোষিত বৰণ', '← absorbed colour') }));
+      svg.appendChild(s('rect', { x: 210, y: 90, width: 70, height: 36, rx: 6, fill: c.c, style: 'stroke:var(--border)' })); svg.appendChild(s('text', { x: 290, y: 112, 'font-size': 12, style: 'fill:var(--text)', text: L('← দেখা বৰণ', '← observed colour') }));
       for (var i = 0; i < 4; i++) {
         var x = 30 + i * 56, on = i === en;
         svg.appendChild(s('rect', { x: x, y: 142, width: 30, height: 38, rx: 6, fill: EN[i].c, style: 'stroke:' + (on ? 'var(--accent)' : 'var(--border)') + ';stroke-width:' + (on ? 3.5 : 1.5) }));
         svg.appendChild(s('text', { x: x + 15, y: 138, 'text-anchor': 'middle', 'font-size': 10, style: 'fill:var(--muted)', text: i + ':1' }));
       }
-      svg.appendChild(s('text', { x: 262, y: 166, 'font-size': 11, style: 'fill:var(--muted)', text: 'en : Ni ক্ৰম বঢ়ালে' }));
+      svg.appendChild(s('text', { x: 262, y: 166, 'font-size': 11, style: 'fill:var(--muted)', text: L('en : Ni ক্ৰম বঢ়ালে', 'as the en : Ni ratio rises') }));
       var eV = 1240 / c.nm;
-      info.innerHTML = '<b>' + c.n + '</b> — শোষিত পোহৰ ≈ <b>' + c.nm + ' nm</b> (' + c.abs + ') → ΔE = hc/λ ≈ ' + eV.toFixed(2) + ' eV (d–d সংক্ৰমণ t<sub>2g</sub> → e<sub>g</sub>)<br>দৃশ্য বৰণ = শোষিত বৰণৰ <b>পৰিপূৰক</b>: <b>' + c.obs + '</b><br>' +
-        'Ni(II) ত en ৰ লগত: <b>' + e.f + '</b> — ' + e.t + ' (লিগাণ্ড সলনি কৰিলে Δ₀ সলনি হয়, গতিকে বৰণ সলনি হয়)<br><span class="en">লিগাণ্ড নথকা পদাৰ্থত d অৰবিটেলৰ বিভাজন নঘটে — সেয়ে অনাৰ্দ্ৰ CuSO₄ বগা আৰু CuSO₄·5H₂O নীলা।</span>';
+      info.innerHTML = '<b>' + c.n + '</b> — ' + L('শোষিত পোহৰ ≈ <b>', 'absorbed light ≈ <b>') + c.nm + ' nm</b> (' + c.abs + ') → ΔE = hc/λ ≈ ' + eV.toFixed(2) +
+        L(' eV (d–d সংক্ৰমণ t<sub>2g</sub> → e<sub>g</sub>)<br>দৃশ্য বৰণ = শোষিত বৰণৰ <b>পৰিপূৰক</b>: <b>', ' eV (d–d transition t<sub>2g</sub> → e<sub>g</sub>)<br>observed colour = the <b>complement</b> of the absorbed colour: <b>') + c.obs + '</b><br>' +
+        L('Ni(II) ত en ৰ লগত: <b>', 'Ni(II) with en: <b>') + e.f + '</b> — ' + e.t + L(' (লিগাণ্ড সলনি কৰিলে Δ₀ সলনি হয়, গতিকে বৰণ সলনি হয়)', ' (changing the ligand changes Δ₀, so the colour changes)') +
+        '<br><span class="en">' + L('লিগাণ্ড নথকা পদাৰ্থত d অৰবিটেলৰ বিভাজন নঘটে — সেয়ে অনাৰ্দ্ৰ CuSO₄ বগা আৰু CuSO₄·5H₂O নীলা।', 'With no ligands there is no d-orbital splitting: anhydrous CuSO₄ is white but CuSO₄·5H₂O is blue.') + '</span>';
     }
     var sel = k.select('Complex', CX.map(function (x, i) { return { value: i, label: x.n }; }), cur, function (v) { cur = +v; paint(); });
     var es = k.slider('en : Ni ratio', 0, 3, 1, en, function (v) { en = v; paint(); });
@@ -475,7 +484,7 @@
   /* ================================================================== 8. synergic bonding in carbonyls */
   A.register('synergic', function (root, k) {
     var h = k.h, s = k.s, t = 0, mode = 'both';
-    var svg = s('svg', { viewBox: '0 0 400 200', 'class': 'anim-svg', role: 'img', 'aria-label': 'ধাতু কাৰ্বনিলত σ-দান আৰু π-প্ৰতিদান' });
+    var svg = s('svg', { viewBox: '0 0 400 200', 'class': 'anim-svg', role: 'img', 'aria-label': L('ধাতু কাৰ্বনিলত σ-দান আৰু π-প্ৰতিদান', 'σ donation and π back-donation in a metal carbonyl') });
     root.appendChild(svg);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     var sig, pi, mC;
@@ -483,24 +492,24 @@
       svg.innerHTML = '';
       svg.appendChild(s('ellipse', { cx: 90, cy: 100, rx: 52, ry: 52, style: 'fill:#7a4bb0;opacity:.2;stroke:#7a4bb0' }));
       svg.appendChild(s('text', { x: 90, y: 106, 'text-anchor': 'middle', 'font-size': 22, 'font-weight': 800, style: 'fill:#7a4bb0', text: 'M' }));
-      svg.appendChild(s('text', { x: 90, y: 168, 'text-anchor': 'middle', 'font-size': 11, style: 'fill:var(--muted)', text: 'ধাতুৰ পূৰ্ণ d অৰবিটেল' }));
+      svg.appendChild(s('text', { x: 90, y: 168, 'text-anchor': 'middle', 'font-size': 11, style: 'fill:var(--muted)', text: L('ধাতুৰ পূৰ্ণ d অৰবিটেল', 'filled d orbital of the metal') }));
       svg.appendChild(s('circle', { cx: 230, cy: 100, r: 20, style: 'fill:var(--proton)' })); svg.appendChild(s('text', { x: 230, y: 106, 'text-anchor': 'middle', 'font-size': 18, 'font-weight': 800, style: 'fill:#fff', text: 'C' }));
       svg.appendChild(s('circle', { cx: 330, cy: 100, r: 20, style: 'fill:var(--electron)' })); svg.appendChild(s('text', { x: 330, y: 106, 'text-anchor': 'middle', 'font-size': 18, 'font-weight': 800, style: 'fill:#fff', text: 'O' }));
       svg.appendChild(s('line', { x1: 250, x2: 310, y1: 94, y2: 94, style: 'stroke:var(--text)', 'stroke-width': 3 })); svg.appendChild(s('line', { x1: 250, x2: 310, y1: 106, y2: 106, style: 'stroke:var(--text)', 'stroke-width': 3 }));
-      svg.appendChild(s('text', { x: 280, y: 148, 'text-anchor': 'middle', 'font-size': 11, style: 'fill:var(--muted)', text: 'CO ৰ খালী π* অৰবিটেল' }));
+      svg.appendChild(s('text', { x: 280, y: 148, 'text-anchor': 'middle', 'font-size': 11, style: 'fill:var(--muted)', text: L('CO ৰ খালী π* অৰবিটেল', 'empty π* orbital of CO') }));
       sig = s('path', { d: 'M205 78 Q150 48 142 78', fill: 'none', style: 'stroke:var(--brand);stroke-width:4', 'stroke-dasharray': '10 7', 'marker-end': 'url(#ah)' });
       pi = s('path', { d: 'M140 124 Q190 160 222 126', fill: 'none', style: 'stroke:var(--alpha);stroke-width:4', 'stroke-dasharray': '10 7' });
       svg.appendChild(sig); svg.appendChild(pi);
       svg.appendChild(s('text', { x: 172, y: 44, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, style: 'fill:var(--brand)', text: 'σ: C → M' }));
-      svg.appendChild(s('text', { x: 180, y: 182, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, style: 'fill:var(--alpha)', text: 'π: M → C (π* লৈ)' }));
+      svg.appendChild(s('text', { x: 180, y: 182, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, style: 'fill:var(--alpha)', text: L('π: M → C (π* লৈ)', 'π: M → C (into π*)') }));
       paint();
     }
     function paint() {
       sig.setAttribute('visibility', mode === 'pi' ? 'hidden' : 'visible'); pi.setAttribute('visibility', mode === 'sigma' ? 'hidden' : 'visible');
-      info.innerHTML = (mode === 'sigma' ? '<b>σ-বান্ধনি:</b> কাৰ্বনিলৰ কাৰ্বন পৰমাণুৰ এযোৰ অনাবদ্ধ ইলেক্ট্ৰন ধাতুৰ খালী অৰবিটেললৈ দান হয় (M ← C)।' :
-        (mode === 'pi' ? '<b>π-বান্ধনি:</b> ধাতুৰ পূৰ্ণ d অৰবিটেলৰ এযোৰ ইলেক্ট্ৰন CO ৰ খালী এন্টিবণ্ডিং π* অৰবিটেললৈ দান হয় (M → C)। ইয়াক <b>ঘূৰি দান</b> (back-donation) বোলে।' :
-          '<b>সম্মিলিত ক্ৰিয়া (synergic effect):</b> σ-দানে ধাতুত ইলেক্ট্ৰন ঘনত্ব বঢ়ায় আৰু π-প্ৰতিদানে তাক কমায়; দুয়োটা প্ৰক্ৰিয়াই ইটোৱে সিটোক শক্তিশালী কৰে। ফলত M–C বান্ধনি শক্তিশালী আৰু C–O বান্ধনি অলপ দুৰ্বল হয়।')) +
-        '<br><span class="en">উদাহৰণ: [Ni(CO)₄] (চতুৰ্ফলকীয়), [Fe(CO)₅] (ত্ৰিভুজীয় দ্বিপিৰামিডীয়), [Cr(CO)₆] (অষ্টফলকীয়) — এই তিনিটাতে ধাতুৰ জাৰণ অৱস্থা 0।</span>';
+      info.innerHTML = (mode === 'sigma' ? L('<b>σ-বান্ধনি:</b> কাৰ্বনিলৰ কাৰ্বন পৰমাণুৰ এযোৰ অনাবদ্ধ ইলেক্ট্ৰন ধাতুৰ খালী অৰবিটেললৈ দান হয় (M ← C)।', '<b>σ bond:</b> a lone pair on the carbon of CO is donated into an empty orbital of the metal (M ← C).') :
+        (mode === 'pi' ? L('<b>π-বান্ধনি:</b> ধাতুৰ পূৰ্ণ d অৰবিটেলৰ এযোৰ ইলেক্ট্ৰন CO ৰ খালী এন্টিবণ্ডিং π* অৰবিটেললৈ দান হয় (M → C)। ইয়াক <b>ঘূৰি দান</b> (back-donation) বোলে।', '<b>π bond:</b> a pair of electrons from a filled d orbital of the metal is donated into the empty antibonding π* orbital of CO (M → C). This is called <b>back-donation</b>.') :
+          L('<b>সম্মিলিত ক্ৰিয়া (synergic effect):</b> σ-দানে ধাতুত ইলেক্ট্ৰন ঘনত্ব বঢ়ায় আৰু π-প্ৰতিদানে তাক কমায়; দুয়োটা প্ৰক্ৰিয়াই ইটোৱে সিটোক শক্তিশালী কৰে। ফলত M–C বান্ধনি শক্তিশালী আৰু C–O বান্ধনি অলপ দুৰ্বল হয়।', '<b>Synergic effect:</b> σ donation raises the electron density on the metal and π back-donation lowers it; each process strengthens the other. As a result the M–C bond is strong and the C–O bond is slightly weakened.'))) +
+        '<br><span class="en">' + L('উদাহৰণ: [Ni(CO)₄] (চতুৰ্ফলকীয়), [Fe(CO)₅] (ত্ৰিভুজীয় দ্বিপিৰামিডীয়), [Cr(CO)₆] (অষ্টফলকীয়) — এই তিনিটাতে ধাতুৰ জাৰণ অৱস্থা 0।', 'Examples: [Ni(CO)₄] (tetrahedral), [Fe(CO)₅] (trigonal bipyramidal), [Cr(CO)₆] (octahedral). The metal has oxidation state 0 in all three.') + '</span>';
     }
     function tick(dt) { t += dt * 40; var d = -t; sig.setAttribute('stroke-dashoffset', d); pi.setAttribute('stroke-dashoffset', -d); }
     var lp = k.loop(root, tick);

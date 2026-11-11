@@ -1,8 +1,9 @@
 /* Home page: class tabs + chapter grid, driven by content/catalog.json. */
 (function () {
   'use strict';
-  var C = window.Chem;
+  var C = window.Chem, I = C.i18n;
   C.initTheme(document.getElementById('theme-btn'));
+  I.mountSwitch(document.getElementById('theme-btn'));
   C.registerServiceWorker();
 
   var tabsEl = document.getElementById('tabs');
@@ -27,10 +28,14 @@
 
     function card(ch) {
       var li = document.createElement('li');
+      /* the reader's language first, the other title as the subtitle; EN tag = English version available */
+      var en = I.get() === 'en', has = (ch.langs || ['as']).indexOf('en') >= 0;
+      var main = en ? ch.title.en : ch.title.as, other = en ? ch.title.as : ch.title.en;
       var inner =
-        '<span class="no">Chapter ' + ch.no + '</span>' +
-        '<h3>' + C.esc(ch.title.as) + '</h3>' +
-        '<span class="sub">' + C.esc(ch.title.en) + '</span>' + badge(ch);
+        '<span class="no">Chapter ' + ch.no + (has ? '<span class="langtag" title="English version available">EN</span>' : '') + '</span>' +
+        '<h3>' + C.esc(main) + '</h3>' +
+        '<span class="sub"' + (en ? ' lang="as"' : '') + '>' + C.esc(other) + '</span>' +
+        (en && !has && ch.status === 'ready' ? '<span class="badge soon">English coming soon</span>' : '') + badge(ch);
       if (ch.status === 'ready') {
         li.innerHTML = '<a class="card" href="chapter.html?c=' + encodeURIComponent(ch.id) + '">' + inner + '</a>';
       } else {
@@ -72,6 +77,8 @@
       tabsEl.appendChild(b);
     });
   }
+
+  I.on(function () { if (catalog) render(); });
 
   C.fetchJSON('content/catalog.json').then(function (data) {
     catalog = data;

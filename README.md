@@ -5,7 +5,7 @@ English term in brackets. Installable as a web app and works offline.
 
 **Live site:** https://xudipta.github.io/chemistry-in-assamese/
 
-*Language: the app (navigation, buttons, labels) is in English; the subject content is in Assamese.*
+*Language: the app (navigation, buttons, labels) is in English; the subject content is in Assamese by default, and a switch in the header (অসমীয়া / English) shows chapters that have an English version.*
 
 ## Status
 | Class | Chapter | Status |
@@ -16,12 +16,13 @@ English term in brackets. Installable as a web app and works offline.
 | 12 | 2 · বিদ্যুৎৰসায়নবিজ্ঞান (Electrochemistry) | ✅ 8 sections, 10 animations, 14-question quiz |
 | 12 | 3 · ৰাসায়নিক গতিবিজ্ঞান (Chemical Kinetics) | ✅ 5 sections, 10 animations, 14-question quiz |
 | 12 | 4 · d- আৰু f- গোষ্ঠীৰ মৌল (d- and f-Block Elements) | ✅ 6 sections, 8 animations, 14-question quiz |
-| 12 | 5 · সমন্বয়ী যৌগ (Coordination Compounds) | ✅ 7 sections, 8 animations, 15-question quiz — completes Part I |
+| 12 | 5 · সমন্বয়ী যৌগ (Coordination Compounds) | ✅ 7 sections, 8 animations, 15-question quiz — completes Part I; **also available in English** (first bilingual chapter) |
 | 12 | Part II (organic chemistry, biomolecules) | not listed yet: waiting for the Part II book |
 
 The Assamese text is a first draft and still needs review by a chemistry teacher.
 
 ## Features
+- Language switch (default Assamese): chapters with an English version (`chapter.en.json`, `quiz.en.json`, `"langs"` in the catalog) show it; others show the Assamese text with a notice. See docs/ADDING_A_CHAPTER.md
 - Chapter pages built from JSON: goals, sections, tables, formula boxes, tips, glossary tooltips, summary, quiz
 - Interactive animations (plain SVG/canvas): atom builder, α-scattering, Bohr jumps and photons, quantum-number explorer,
   rotatable 3-D orbitals, step-by-step electron filling (Aufbau, Pauli, Hund, Cr/Cu exceptions)

@@ -1,9 +1,10 @@
 /* Animations for Class 12, Chapter 3: Chemical Kinetics (ৰাসায়নিক গতিবিজ্ঞান).
    Registered: rate-curve, rate-stoich, order-finder, integrated, halflife, boltzmann, arrhenius, energy-profile, collision, rds
-   Controls are English (app UI); read-outs are Assamese (subject content). */
+   Controls are English (app UI); read-outs follow the reader's language: L('assamese', 'english'). */
 (function () {
   'use strict';
   var A = window.ChemAnim;
+  var L = A.t;   /* L(assamese, english): the string for the reader's language */
   var TAU = Math.PI * 2, R = 8.314;
 
   function sci(x, d) {
@@ -54,13 +55,13 @@
 
   /* ================================================================== 1. average vs instantaneous rate */
   A.register('rate-curve', function (root, k) {
-    var h = k.h, W = 480, H = 300, ctx = mkCanvas(root, k, 'বিক্ৰিয়কৰ গাঢ়তা সময়ৰ লগত কমে; গড় আৰু তাৎক্ষণিক গতিবেগ', W, H);
+    var h = k.h, W = 480, H = 300, ctx = mkCanvas(root, k, L('বিক্ৰিয়কৰ গাঢ়তা সময়ৰ লগত কমে; গড় আৰু তাৎক্ষণিক গতিবেগ', 'The reactant concentration falls with time; average and instantaneous rate'), W, H);
     var st = { k: 0.06, t: 20, dt: 15 }, R0 = 1.0, TM = 60;
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     function c(t) { return R0 * Math.exp(-st.k * t); }
     function draw() {
       var blue = k.cssVar('--electron'), org = k.cssVar('--alpha'), tx = k.cssVar('--text'), mu = k.cssVar('--muted');
-      var P = plot(ctx, k, W, H, 0, TM, 0, 1.05, 'সময় (s) →', 'গাঢ়তা (mol L⁻¹)');
+      var P = plot(ctx, k, W, H, 0, TM, 0, 1.05, L('সময় (s) →', 'Time (s) →'), L('গাঢ়তা (mol L⁻¹)', 'Concentration (mol L⁻¹)'));
       curve(ctx, P, c, 0, TM, blue, 3.5); curve(ctx, P, function (t) { return R0 - c(t); }, 0, TM, org, 3.5);
       /* tangent at t */
       var t2 = Math.min(TM, st.t + st.dt), slope = -st.k * c(st.t);
@@ -74,10 +75,10 @@
     }
     function paint() {
       var t2 = st.t + st.dt, rav = (c(st.t) - c(t2)) / st.dt, rin = st.k * c(st.t);
-      info.innerHTML = 'R → P (প্ৰথম ক্ৰমৰ) · [R] = [R]<sub>0</sub> e<sup>−kt</sup>, [R]<sub>0</sub> = 1.0 mol L<sup>−1</sup><br>' +
-        'গড় গতিবেগ (t = ' + st.t + ' ৰ পৰা ' + t2 + ' s): r<sub>av</sub> = −Δ[R]/Δt = <b>' + sci(rav, 3) + ' mol L<sup>−1</sup> s<sup>−1</sup></b><br>' +
-        'তাৎক্ষণিক গতিবেগ t = ' + st.t + ' s ত: r<sub>inst</sub> = −d[R]/dt = স্পৰ্শকৰ ঢাল = <b>' + sci(rin, 3) + ' mol L<sup>−1</sup> s<sup>−1</sup></b><br>' +
-        '<span class="en">Δt যিমান সৰু কৰিবা, r<sub>av</sub> আৰু r<sub>inst</sub> সিমান ওচৰ চাপিব।</span>';
+      info.innerHTML = 'R → P (' + L('প্ৰথম ক্ৰমৰ', 'first order') + ') · [R] = [R]<sub>0</sub> e<sup>−kt</sup>, [R]<sub>0</sub> = 1.0 mol L<sup>−1</sup><br>' +
+        L('গড় গতিবেগ (t = ' + st.t + ' ৰ পৰা ' + t2 + ' s)', 'Average rate (t = ' + st.t + ' to ' + t2 + ' s)') + ': r<sub>av</sub> = −Δ[R]/Δt = <b>' + sci(rav, 3) + ' mol L<sup>−1</sup> s<sup>−1</sup></b><br>' +
+        L('তাৎক্ষণিক গতিবেগ t = ' + st.t + ' s ত', 'Instantaneous rate at t = ' + st.t + ' s') + ': r<sub>inst</sub> = −d[R]/dt = ' + L('স্পৰ্শকৰ ঢাল', 'slope of the tangent') + ' = <b>' + sci(rin, 3) + ' mol L<sup>−1</sup> s<sup>−1</sup></b><br>' +
+        '<span class="en">' + L('Δt যিমান সৰু কৰিবা, r<sub>av</sub> আৰু r<sub>inst</sub> সিমান ওচৰ চাপিব।', 'The smaller you make Δt, the closer r<sub>av</sub> comes to r<sub>inst</sub>.') + '</span>';
       draw();
     }
     var ks = k.slider('k (s⁻¹)', 0.01, 0.2, 0.01, st.k, function (v) { st.k = v; paint(); });
@@ -85,9 +86,9 @@
     var ds = k.slider('Δt (s)', 1, 20, 1, st.dt, function (v) { st.dt = v; paint(); });
     root.appendChild(h('div', { 'class': 'row' }, [ks.el, ts.el, ds.el]));
     root.appendChild(h('div', { 'class': 'legend' }, [
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), '[R] বিক্ৰিয়ক']),
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), '[P] বিক্ৰিয়াজাত']),
-      h('span', { text: 'ডেশ ৰেখা = স্পৰ্শক · কমলা ৰেখা = secant' })]));
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), L('[R] বিক্ৰিয়ক', '[R] reactant')]),
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), L('[P] বিক্ৰিয়াজাত', '[P] product')]),
+      h('span', { text: L('ডেশ ৰেখা = স্পৰ্শক · কমলা ৰেখা = secant', 'dashed line = tangent · orange line = secant') })]));
     root.appendChild(info);
     paint();
   });
@@ -110,14 +111,14 @@
         var bar = h('div', { style: 'height:22px;border-radius:6px;width:' + w + '%;background:' + (s[1] < 0 ? 'var(--electron)' : 'var(--alpha)') + ';transition:width .25s' });
         bars.appendChild(h('div', { 'class': 'lv', style: 'grid-template-columns:70px 1fr 120px' }, [
           h('div', { 'class': 'nm', style: 'text-align:left', text: s[0] }), h('div', { style: 'background:var(--surface-2);border-radius:6px' }, [bar]),
-          h('div', { 'class': 'cnt', style: 'color:var(--text)', html: (s[1] < 0 ? 'নষ্ট ' : 'উৎপন্ন ') + sci(Math.abs(v), 2) })]));
+          h('div', { 'class': 'cnt', style: 'color:var(--text)', html: (s[1] < 0 ? L('নষ্ট ', 'used ') : L('উৎপন্ন ', 'formed ')) + sci(Math.abs(v), 2) })]));
       });
       var parts = rx.sp.map(function (s) {
         var a = Math.abs(s[1]), sg = s[1] < 0 ? '−' : '';
         return sg + (a > 1 ? '(1/' + a + ') ' : '') + 'Δ[' + s[0] + ']/Δt';
       });
-      info.innerHTML = 'গতিবেগ r = ' + parts.join(' = ') + ' = <b>' + sci(r, 2) + ' mol L<sup>−1</sup> s<sup>−1</sup></b><br>' +
-        '<span class="en">বিক্ৰিয়ক আৰু বিক্ৰিয়াজাত পদাৰ্থৰ সহগ 1 নহ\'লে প্ৰতিটো পদাৰ্থৰ গাঢ়তাৰ পৰিৱৰ্তনক সেই পদাৰ্থৰ সহগেৰে হৰণ কৰি বিক্ৰিয়াৰ গতিবেগ পোৱা যায়।</span>';
+      info.innerHTML = L('গতিবেগ', 'Rate') + ' r = ' + parts.join(' = ') + ' = <b>' + sci(r, 2) + ' mol L<sup>−1</sup> s<sup>−1</sup></b><br>' +
+        '<span class="en">' + L('বিক্ৰিয়ক আৰু বিক্ৰিয়াজাত পদাৰ্থৰ সহগ 1 নহ\'লে প্ৰতিটো পদাৰ্থৰ গাঢ়তাৰ পৰিৱৰ্তনক সেই পদাৰ্থৰ সহগেৰে হৰণ কৰি বিক্ৰিয়াৰ গতিবেগ পোৱা যায়।', 'When a coefficient is not 1, the rate of the reaction is obtained by dividing the change in concentration of each substance by its coefficient.') + '</span>';
     }
     var sel = k.select('Reaction', RX.map(function (x, i) { return { value: i, label: x.n }; }), cur, function (v) { cur = +v; paint(); });
     var rs = k.slider('r × 10⁻⁵ (mol L⁻¹ s⁻¹)', 0.5, 5, 0.5, r, function (v) { r = v * 1e-5; paint(); });
@@ -133,24 +134,24 @@
     var RX = [
       { n: '2NO + O₂ → 2NO₂', a: 'NO', b: 'O₂', x: 2, y: 1, k: 3.556 },
       { n: 'CHCl₃ + Cl₂ → CCl₄ + HCl', a: 'CHCl₃', b: 'Cl₂', x: 1, y: 0.5, k: 0.5 },
-      { n: 'CH₃COOC₂H₅ + H₂O → CH₃COOH + C₂H₅OH (পানী বেছি)', a: 'এষ্টাৰ', b: 'H₂O', x: 1, y: 0, k: 0.02 }
+      { n: 'CH₃COOC₂H₅ + H₂O → CH₃COOH + C₂H₅OH (' + L('পানী বেছি', 'water in excess') + ')', a: L('এষ্টাৰ', 'ester'), b: 'H₂O', x: 1, y: 0, k: 0.02 }
     ];
     var cur = 0, A0 = 0.3, B0 = 0.3, rows = [], reveal = false;
     var tbl = h('div', { 'class': 'table-wrap' }), info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     function rate(a, b) { var rx = RX[cur]; return rx.k * Math.pow(a, rx.x) * Math.pow(b, rx.y); }
     function paint() {
       var rx = RX[cur], live = rate(A0, B0);
-      var head = '<thead><tr><th>পৰীক্ষা</th><th>[' + rx.a + '] (mol L⁻¹)</th><th>[' + rx.b + '] (mol L⁻¹)</th><th>প্ৰাৰম্ভিক গতিবেগ (mol L⁻¹ s⁻¹)</th></tr></thead>';
+      var head = '<thead><tr><th>' + L('পৰীক্ষা', 'Experiment') + '</th><th>[' + rx.a + '] (mol L⁻¹)</th><th>[' + rx.b + '] (mol L⁻¹)</th><th>' + L('প্ৰাৰম্ভিক গতিবেগ', 'Initial rate') + ' (mol L⁻¹ s⁻¹)</th></tr></thead>';
       var body = '<tbody>' + rows.map(function (r, i) { return '<tr><td>' + (i + 1) + '</td><td>' + r.a.toFixed(2) + '</td><td>' + r.b.toFixed(2) + '</td><td>' + sci(r.r, 3) + '</td></tr>'; }).join('') + '</tbody>';
       tbl.innerHTML = '<table>' + head + body + '</table>';
-      var txt = 'এতিয়াৰ মান: [' + rx.a + '] = ' + A0.toFixed(2) + ', [' + rx.b + '] = ' + B0.toFixed(2) + ' → গতিবেগ = <b>' + sci(live, 3) + '</b> mol L<sup>−1</sup> s<sup>−1</sup><br>';
+      var txt = L('এতিয়াৰ মান', 'Current values') + ': [' + rx.a + '] = ' + A0.toFixed(2) + ', [' + rx.b + '] = ' + B0.toFixed(2) + ' → ' + L('গতিবেগ', 'rate') + ' = <b>' + sci(live, 3) + '</b> mol L<sup>−1</sup> s<sup>−1</sup><br>';
       if (rows.length >= 2) {
         var p = rows[rows.length - 2], q = rows[rows.length - 1], ratio = q.r / p.r;
-        if (Math.abs(p.b - q.b) < 1e-9 && Math.abs(p.a - q.a) > 1e-9) txt += 'শেষৰ দুটা পৰীক্ষাত [' + rx.b + '] একে; [' + rx.a + '] ' + (q.a / p.a).toFixed(2) + ' গুণ হ\'লে গতিবেগ <b>' + ratio.toFixed(2) + ' গুণ</b> → ' + rx.a + ' সাপেক্ষে ক্ৰম x = log(' + ratio.toFixed(2) + ') / log(' + (q.a / p.a).toFixed(2) + ') = <b>' + (Math.log(ratio) / Math.log(q.a / p.a)).toFixed(2) + '</b><br>';
-        else if (Math.abs(p.a - q.a) < 1e-9 && Math.abs(p.b - q.b) > 1e-9) txt += 'শেষৰ দুটা পৰীক্ষাত [' + rx.a + '] একে; [' + rx.b + '] ' + (q.b / p.b).toFixed(2) + ' গুণ হ\'লে গতিবেগ <b>' + ratio.toFixed(2) + ' গুণ</b> → ' + rx.b + ' সাপেক্ষে ক্ৰম y = <b>' + (Math.log(ratio) / Math.log(q.b / p.b)).toFixed(2) + '</b><br>';
-        else txt += '<span class="en">ক্ৰম নিৰ্ণয়ৰ বাবে এবাৰত কেৱল এটা গাঢ়তা সলনি কৰক।</span><br>';
+        if (Math.abs(p.b - q.b) < 1e-9 && Math.abs(p.a - q.a) > 1e-9) txt += L('শেষৰ দুটা পৰীক্ষাত [' + rx.b + '] একে; [' + rx.a + '] ' + (q.a / p.a).toFixed(2) + ' গুণ হ\'লে গতিবেগ <b>' + ratio.toFixed(2) + ' গুণ</b> → ' + rx.a + ' সাপেক্ষে ক্ৰম x = log(', 'In the last two experiments [' + rx.b + '] is the same; when [' + rx.a + '] becomes ' + (q.a / p.a).toFixed(2) + ' times, the rate becomes <b>' + ratio.toFixed(2) + ' times</b> → order with respect to ' + rx.a + ' x = log(') + ratio.toFixed(2) + ') / log(' + (q.a / p.a).toFixed(2) + ') = <b>' + (Math.log(ratio) / Math.log(q.a / p.a)).toFixed(2) + '</b><br>';
+        else if (Math.abs(p.a - q.a) < 1e-9 && Math.abs(p.b - q.b) > 1e-9) txt += L('শেষৰ দুটা পৰীক্ষাত [' + rx.a + '] একে; [' + rx.b + '] ' + (q.b / p.b).toFixed(2) + ' গুণ হ\'লে গতিবেগ <b>' + ratio.toFixed(2) + ' গুণ</b> → ' + rx.b + ' সাপেক্ষে ক্ৰম y = <b>', 'In the last two experiments [' + rx.a + '] is the same; when [' + rx.b + '] becomes ' + (q.b / p.b).toFixed(2) + ' times, the rate becomes <b>' + ratio.toFixed(2) + ' times</b> → order with respect to ' + rx.b + ' y = <b>') + (Math.log(ratio) / Math.log(q.b / p.b)).toFixed(2) + '</b><br>';
+        else txt += '<span class="en">' + L('ক্ৰম নিৰ্ণয়ৰ বাবে এবাৰত কেৱল এটা গাঢ়তা সলনি কৰক।', 'To find the order, change only one concentration at a time.') + '</span><br>';
       }
-      if (reveal) txt += '<b>গতি সূত্ৰ: গতিবেগ = k [' + rx.a + ']<sup>' + rx.x + '</sup> [' + rx.b + ']<sup>' + rx.y + '</sup></b> · সামগ্ৰিক ক্ৰম = ' + (rx.x + rx.y) + ' (k = ' + rx.k + ')';
+      if (reveal) txt += '<b>' + L('গতি সূত্ৰ: গতিবেগ', 'Rate law: rate') + ' = k [' + rx.a + ']<sup>' + rx.x + '</sup> [' + rx.b + ']<sup>' + rx.y + '</sup></b> · ' + L('সামগ্ৰিক ক্ৰম', 'overall order') + ' = ' + (rx.x + rx.y) + ' (k = ' + rx.k + ')';
       info.innerHTML = txt;
     }
     var sA = k.slider('[A] (mol/L)', 0.1, 1, 0.1, A0, function (v) { A0 = v; paint(); });
@@ -168,7 +169,7 @@
 
   /* ================================================================== 4. integrated rate laws (zero and first order) */
   A.register('integrated', function (root, k) {
-    var h = k.h, W = 480, H = 300, ctx = mkCanvas(root, k, 'শূন্য আৰু প্ৰথম ক্ৰমৰ বিক্ৰিয়াৰ অনুকলিত গতি সূত্ৰৰ লেখ', W, H);
+    var h = k.h, W = 480, H = 300, ctx = mkCanvas(root, k, L('শূন্য আৰু প্ৰথম ক্ৰমৰ বিক্ৰিয়াৰ অনুকলিত গতি সূত্ৰৰ লেখ', 'Graphs of the integrated rate equations of zero and first order reactions'), W, H);
     var st = { ord: 1, k: 0.05, R0: 1, plot: 'conc' };
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     function conc(t) { return st.ord === 0 ? Math.max(0, st.R0 - st.k * t) : st.R0 * Math.exp(-st.k * t); }
@@ -176,23 +177,23 @@
     function draw() {
       var tm = tmax(), org = k.cssVar('--alpha'), teal = k.cssVar('--brand'), tx = k.cssVar('--text'), P;
       if (st.plot === 'conc') {
-        P = plot(ctx, k, W, H, 0, tm, 0, st.R0 * 1.05, 'সময় t (s) →', '[R] (mol L⁻¹)');
+        P = plot(ctx, k, W, H, 0, tm, 0, st.R0 * 1.05, L('সময় t (s) →', 'Time t (s) →'), '[R] (mol L⁻¹)');
         curve(ctx, P, conc, 0, tm, st.ord === 0 ? teal : org, 3.5);
         ctx.fillStyle = tx; ctx.font = '600 12px "Noto Sans Bengali", sans-serif';
-        ctx.fillText(st.ord === 0 ? 'সৰলৰেখা: ঢাল = −k' : 'সূচকীয় হ্ৰাস', P.X(tm * 0.45), P.Y(st.R0 * 0.8));
+        ctx.fillText(st.ord === 0 ? L('সৰলৰেখা: ঢাল = −k', 'straight line: slope = −k') : L('সূচকীয় হ্ৰাস', 'exponential decrease'), P.X(tm * 0.45), P.Y(st.R0 * 0.8));
       } else {
         var lo = Math.log(st.R0 * 0.02), hi = Math.log(st.R0) + 0.1;
-        P = plot(ctx, k, W, H, 0, tm, lo, hi, 'সময় t (s) →', 'ln [R]', { yf: function (v) { return v.toFixed(1); } });
+        P = plot(ctx, k, W, H, 0, tm, lo, hi, L('সময় t (s) →', 'Time t (s) →'), 'ln [R]', { yf: function (v) { return v.toFixed(1); } });
         curve(ctx, P, function (t) { var c = conc(t); return c > st.R0 * 0.02 ? Math.log(c) : NaN; }, 0, tm, st.ord === 1 ? teal : org, 3.5);
         ctx.fillStyle = tx; ctx.font = '600 12px "Noto Sans Bengali", sans-serif';
-        ctx.fillText(st.ord === 1 ? 'সৰলৰেখা: ঢাল = −k' : 'সৰলৰেখা নহয়', P.X(tm * 0.45), P.Y(Math.log(st.R0) - 0.4));
+        ctx.fillText(st.ord === 1 ? L('সৰলৰেখা: ঢাল = −k', 'straight line: slope = −k') : L('সৰলৰেখা নহয়', 'not a straight line'), P.X(tm * 0.45), P.Y(Math.log(st.R0) - 0.4));
       }
     }
     function paint() {
       var t12 = st.ord === 0 ? st.R0 / (2 * st.k) : Math.log(2) / st.k;
       info.innerHTML = (st.ord === 0 ?
-        '<b>শূন্য ক্ৰম:</b> [R] = [R]<sub>0</sub> − kt, k = ([R]<sub>0</sub> − [R])/t · k ৰ একক mol L<sup>−1</sup> s<sup>−1</sup><br>[R] বনাম t ৰ লেখ সৰলৰেখা (ঢাল −k)<br>অৰ্ধ-জীৱন কাল t<sub>½</sub> = [R]<sub>0</sub> / 2k = <b>' + t12.toFixed(1) + ' s</b> (প্ৰাৰম্ভিক গাঢ়তাৰ সমানুপাতিক)' :
-        '<b>প্ৰথম ক্ৰম:</b> ln[R] = ln[R]<sub>0</sub> − kt, k = (2.303/t) log([R]<sub>0</sub>/[R]) · k ৰ একক s<sup>−1</sup><br>ln[R] বনাম t ৰ লেখ সৰলৰেখা (ঢাল −k)<br>অৰ্ধ-জীৱন কাল t<sub>½</sub> = 0.693 / k = <b>' + t12.toFixed(1) + ' s</b> (প্ৰাৰম্ভিক গাঢ়তাৰ ওপৰত নিৰ্ভৰ নকৰে)') +
+        L('<b>শূন্য ক্ৰম:</b> [R] = [R]<sub>0</sub> − kt, k = ([R]<sub>0</sub> − [R])/t · k ৰ একক mol L<sup>−1</sup> s<sup>−1</sup><br>[R] বনাম t ৰ লেখ সৰলৰেখা (ঢাল −k)<br>অৰ্ধ-জীৱন কাল t<sub>½</sub> = [R]<sub>0</sub> / 2k = <b>', '<b>Zero order:</b> [R] = [R]<sub>0</sub> − kt, k = ([R]<sub>0</sub> − [R])/t · unit of k: mol L<sup>−1</sup> s<sup>−1</sup><br>The graph of [R] against t is a straight line (slope −k)<br>Half-life t<sub>½</sub> = [R]<sub>0</sub> / 2k = <b>') + t12.toFixed(1) + L(' s</b> (প্ৰাৰম্ভিক গাঢ়তাৰ সমানুপাতিক)', ' s</b> (proportional to the initial concentration)') :
+        L('<b>প্ৰথম ক্ৰম:</b> ln[R] = ln[R]<sub>0</sub> − kt, k = (2.303/t) log([R]<sub>0</sub>/[R]) · k ৰ একক s<sup>−1</sup><br>ln[R] বনাম t ৰ লেখ সৰলৰেখা (ঢাল −k)<br>অৰ্ধ-জীৱন কাল t<sub>½</sub> = 0.693 / k = <b>', '<b>First order:</b> ln[R] = ln[R]<sub>0</sub> − kt, k = (2.303/t) log([R]<sub>0</sub>/[R]) · unit of k: s<sup>−1</sup><br>The graph of ln[R] against t is a straight line (slope −k)<br>Half-life t<sub>½</sub> = 0.693 / k = <b>') + t12.toFixed(1) + L(' s</b> (প্ৰাৰম্ভিক গাঢ়তাৰ ওপৰত নিৰ্ভৰ নকৰে)', ' s</b> (independent of the initial concentration)')) +
         '<br>[R]<sub>0</sub> = ' + st.R0.toFixed(1) + ' mol L<sup>−1</sup>, k = ' + st.k + (st.ord === 0 ? ' mol L<sup>−1</sup> s<sup>−1</sup>' : ' s<sup>−1</sup>');
       draw();
     }
@@ -211,7 +212,7 @@
 
   /* ================================================================== 5. half-life: dots decay */
   A.register('halflife', function (root, k) {
-    var h = k.h, W = 480, H = 260, ctx = mkCanvas(root, k, 'অৰ্ধ-জীৱন কালত বিক্ৰিয়কৰ আধা শেষ হোৱা', W, H);
+    var h = k.h, W = 480, H = 260, ctx = mkCanvas(root, k, L('অৰ্ধ-জীৱন কালত বিক্ৰিয়কৰ আধা শেষ হোৱা', 'Half of the reactant is used up in each half-life'), W, H);
     var st = { ord: 1, k: 0.1, n0: 120 }, t = 0, DOT = 0.01, order = [], marks = [], lastN = 0;
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     function build() { order = []; for (var i = 0; i < st.n0; i++) order.push(i); for (i = order.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), x = order[i]; order[i] = order[j]; order[j] = x; } t = 0; marks = []; }
@@ -241,12 +242,12 @@
       if (marks.length) {
         var prev = 0, parts = [];
         marks.forEach(function (m) { parts.push((m - prev).toFixed(1) + ' s'); prev = m; });
-        hl = '<br>পৰ্যবেক্ষিত অৰ্ধ-জীৱন কাল (ক্ৰমান্বয়ে): <b>' + parts.join(' → ') + '</b>';
+        hl = L('<br>পৰ্যবেক্ষিত অৰ্ধ-জীৱন কাল (ক্ৰমান্বয়ে): <b>', '<br>Observed half-lives (in succession): <b>') + parts.join(' → ') + '</b>';
       }
-      info.innerHTML = 'সময় t = <b>' + t.toFixed(1) + ' s</b><br>' + (st.ord === 1 ?
-        '<b>প্ৰথম ক্ৰম:</b> t<sub>½</sub> = 0.693/k = ' + t12.toFixed(1) + ' s — প্ৰতিটো অৰ্ধ-জীৱন কাল একে।' :
-        '<b>শূন্য ক্ৰম:</b> t<sub>½</sub> = [R]<sub>0</sub>/2k = ' + t12.toFixed(1) + ' s — পৰৱৰ্তী অৰ্ধ-জীৱন কাল ক্ৰমান্বয়ে আধা আধা হয়।') +
-        '<br>বৰ্তমান [R] = <b>' + (n * DOT).toFixed(3) + '</b> mol L<sup>−1</sup> (প্ৰাৰম্ভিক ' + R0.toFixed(2) + ')' + hl;
+      info.innerHTML = L('সময় t = <b>', 'Time t = <b>') + t.toFixed(1) + ' s</b><br>' + (st.ord === 1 ?
+        L('<b>প্ৰথম ক্ৰম:</b> t<sub>½</sub> = 0.693/k = ', '<b>First order:</b> t<sub>½</sub> = 0.693/k = ') + t12.toFixed(1) + L(' s — প্ৰতিটো অৰ্ধ-জীৱন কাল একে।', ' s — every half-life is the same.') :
+        L('<b>শূন্য ক্ৰম:</b> t<sub>½</sub> = [R]<sub>0</sub>/2k = ', '<b>Zero order:</b> t<sub>½</sub> = [R]<sub>0</sub>/2k = ') + t12.toFixed(1) + L(' s — পৰৱৰ্তী অৰ্ধ-জীৱন কাল ক্ৰমান্বয়ে আধা আধা হয়।', ' s — each following half-life becomes half as long.')) +
+        L('<br>বৰ্তমান [R] = <b>', '<br>Present [R] = <b>') + (n * DOT).toFixed(3) + L('</b> mol L<sup>−1</sup> (প্ৰাৰম্ভিক ', '</b> mol L<sup>−1</sup> (initial ') + R0.toFixed(2) + ')' + hl;
     }
     var b0 = k.button('Zero order', function () { st.ord = 0; st.k = 0.02; ks.input.value = 0.02; ks.out.textContent = 0.02; ks.input.min = 0.01; ks.input.max = 0.1; paintB(); build(); });
     var b1 = k.button('First order', function () { st.ord = 1; st.k = 0.1; ks.input.min = 0.02; ks.input.max = 0.3; ks.input.value = 0.1; ks.out.textContent = 0.1; paintB(); build(); });
@@ -255,14 +256,14 @@
     var ns = k.slider('Initial dots', 40, 200, 20, st.n0, function (v) { st.n0 = v; build(); });
     root.appendChild(h('div', { 'class': 'row' }, [b0, b1, k.button('Restart', build)])); root.appendChild(h('div', { 'class': 'row' }, [ks.el, ns.el]));
     root.appendChild(info);
-    root.appendChild(h('div', { 'class': 'legend' }, [h('span', { text: 'প্ৰতিটো বিন্দু = 0.01 mol L⁻¹ বিক্ৰিয়ক' }), h('span', { text: 'গতি ২× দ্ৰুত কৰি দেখুওৱা হৈছে' })]));
+    root.appendChild(h('div', { 'class': 'legend' }, [h('span', { text: L('প্ৰতিটো বিন্দু = 0.01 mol L⁻¹ বিক্ৰিয়ক', 'each dot = 0.01 mol L⁻¹ of reactant') }), h('span', { text: L('গতি ২× দ্ৰুত কৰি দেখুওৱা হৈছে', 'shown at 2× speed') })]));
     var lp = k.loop(root, tick);
     paintB(); build(); lp.start();
   });
 
   /* ================================================================== 6. Maxwell-Boltzmann distribution and Ea */
   A.register('boltzmann', function (root, k) {
-    var h = k.h, W = 480, H = 290, ctx = mkCanvas(root, k, 'অণুৰ গতিশক্তিৰ বিতৰণ আৰু সক্ৰিয়ন শক্তিৰ ওপৰৰ অংশ', W, H);
+    var h = k.h, W = 480, H = 290, ctx = mkCanvas(root, k, L('অণুৰ গতিশক্তিৰ বিতৰণ আৰু সক্ৰিয়ন শক্তিৰ ওপৰৰ অংশ', 'Distribution of molecular kinetic energy and the part above the activation energy'), W, H);
     var st = { T: 300, Ea: 50, log: true };
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     function f(E, T) { var rt = R * T / 1000; return 2 * Math.sqrt(E / Math.PI) * Math.pow(rt, -1.5) * Math.exp(-E / rt); }
@@ -272,7 +273,7 @@
       if (st.log) {
         EM = Math.max(80, st.Ea * 1.4);
         var lo = Math.log10(f(EM, st.T)) - 0.5, hi = Math.max(Math.log10(f(1, st.T + 10)), -1) + 0.3;
-        P = plot(ctx, k, W, H, 0, EM, lo, hi, 'গতিশক্তি E (kJ mol⁻¹) →', 'log₁₀ (বিতৰণ)', { yf: function (v) { return String(Math.round(v) || 0); } });
+        P = plot(ctx, k, W, H, 0, EM, lo, hi, L('গতিশক্তি E (kJ mol⁻¹) →', 'Kinetic energy E (kJ mol⁻¹) →'), L('log₁₀ (বিতৰণ)', 'log₁₀ (distribution)'), { yf: function (v) { return String(Math.round(v) || 0); } });
         curve(ctx, P, function (e) { return Math.log10(f(e, st.T)); }, 0.3, EM, blue, 3.5); curve(ctx, P, function (e) { return Math.log10(f(e, st.T + 10)); }, 0.3, EM, org, 3);
         var y1 = Math.log10(f(st.Ea, st.T)), y2 = Math.log10(f(st.Ea, st.T + 10));
         dot(ctx, P.X(st.Ea), P.Y(y1), blue, 5); dot(ctx, P.X(st.Ea), P.Y(y2), org, 5);
@@ -280,7 +281,7 @@
       } else {
         EM = Math.max(st.Ea * 1.6, 14 * rt2);
         var ymax = 0; for (E = 0.2; E < EM; E += 0.2) ymax = Math.max(ymax, f(E, st.T), f(E, st.T + 10));
-        P = plot(ctx, k, W, H, 0, EM, 0, ymax * 1.1, 'গতিশক্তি E (kJ mol⁻¹) →', 'অণুৰ ভগ্নাংশ', { yf: function (v) { return v.toFixed(3); } });
+        P = plot(ctx, k, W, H, 0, EM, 0, ymax * 1.1, L('গতিশক্তি E (kJ mol⁻¹) →', 'Kinetic energy E (kJ mol⁻¹) →'), L('অণুৰ ভগ্নাংশ', 'Fraction of molecules'), { yf: function (v) { return v.toFixed(3); } });
         [[st.T + 10, org, 0.32], [st.T, blue, 0.45]].forEach(function (c) {
           ctx.fillStyle = c[1]; ctx.globalAlpha = c[2]; ctx.beginPath(); ctx.moveTo(P.X(st.Ea), P.Y(0));
           for (var e = st.Ea; e <= EM; e += EM / 200) ctx.lineTo(P.X(e), P.Y(f(e, c[0]))); ctx.lineTo(P.X(EM), P.Y(0)); ctx.closePath(); ctx.fill(); ctx.globalAlpha = 1;
@@ -293,9 +294,9 @@
     function paint() {
       var f1 = frac(st.Ea, st.T), f2 = frac(st.Ea, st.T + 10), rt = R * st.T / 1000;
       info.innerHTML = 'E<sub>a</sub> = ' + st.Ea + ' kJ mol<sup>−1</sup> · RT = ' + rt.toFixed(2) + ' kJ mol<sup>−1</sup> (E<sub>a</sub>/RT = ' + (st.Ea / rt).toFixed(1) + ')<br>' +
-        'E<sub>a</sub> বা তাতকৈ বেছি শক্তিৰ অণুৰ ভগ্নাংশ — T ত: <b>' + sci(f1, 2) + '</b> · (T+10) ত: <b>' + sci(f2, 2) + '</b><br>' +
-        '10 K বঢ়ালে এই ভগ্নাংশ <b>' + (f2 / f1).toFixed(2) + ' গুণ</b> হয়। <span class="en">(সেয়ে প্ৰায়ে বিক্ৰিয়াৰ গতিবেগ প্ৰতি 10 K ত প্ৰায় দুগুণ হয়।)</span>' +
-        (st.log ? '<br><span class="en">লগ স্কেলত দুয়োটা বক্ৰৰ E<sub>a</sub> ত থকা উচ্চতাৰ পাৰ্থক্যই এই অনুপাত দেখুৱায়। ৰৈখিক স্কেলত ছাঁযুক্ত অংশ চাবলৈ ‘Linear’ বাছক (E<sub>a</sub> কম কৰি চাওক)।</span>' : '');
+        L('E<sub>a</sub> বা তাতকৈ বেছি শক্তিৰ অণুৰ ভগ্নাংশ — T ত: <b>', 'Fraction of molecules with energy ≥ E<sub>a</sub> — at T: <b>') + sci(f1, 2) + L('</b> · (T+10) ত: <b>', '</b> · at (T+10): <b>') + sci(f2, 2) + '</b><br>' +
+        L('10 K বঢ়ালে এই ভগ্নাংশ <b>', 'For a 10 K rise this fraction becomes <b>') + (f2 / f1).toFixed(2) + L(' গুণ</b> হয়। <span class="en">(সেয়ে প্ৰায়ে বিক্ৰিয়াৰ গতিবেগ প্ৰতি 10 K ত প্ৰায় দুগুণ হয়।)</span>', ' times</b> as large. <span class="en">(So the rate of a reaction often roughly doubles for every 10 K.)</span>') +
+        (st.log ? L('<br><span class="en">লগ স্কেলত দুয়োটা বক্ৰৰ E<sub>a</sub> ত থকা উচ্চতাৰ পাৰ্থক্যই এই অনুপাত দেখুৱায়। ৰৈখিক স্কেলত ছাঁযুক্ত অংশ চাবলৈ ‘Linear’ বাছক (E<sub>a</sub> কম কৰি চাওক)।</span>', '<br><span class="en">On the log scale the difference in height of the two curves at E<sub>a</sub> shows this ratio. To see the shaded area on a linear scale choose ‘Linear’ (try a small E<sub>a</sub>).</span>') : '');
       draw();
     }
     var vl = k.button('Log scale', function () { st.log = true; pB(); paint(); }), vn = k.button('Linear (shaded area)', function () { st.log = false; if (st.Ea > 20) { st.Ea = 10; es.input.value = 10; es.out.textContent = 10; } pB(); paint(); });
@@ -306,7 +307,7 @@
     var legT = h('span', {}), legT10 = h('span', {});
     root.appendChild(h('div', { 'class': 'legend' }, [
       h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), legT]), h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), legT10]),
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--proton)' }), 'ৰঙা ডেশ = E_a'])]));
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--proton)' }), L('ৰঙা ডেশ = E_a', 'red dashes = E_a')])]));
     root.appendChild(info);
     var paint0 = paint; paint = function () { legT.textContent = 'T = ' + st.T + ' K'; legT10.textContent = 'T + 10 = ' + (st.T + 10) + ' K'; paint0(); };
     pB(); paint();
@@ -314,27 +315,27 @@
 
   /* ================================================================== 7. Arrhenius equation */
   A.register('arrhenius', function (root, k) {
-    var h = k.h, W = 480, H = 290, ctx = mkCanvas(root, k, 'আৰ্হেনিয়াছ সমীকৰণ: k বনাম T আৰু ln k বনাম 1/T', W, H);
+    var h = k.h, W = 480, H = 290, ctx = mkCanvas(root, k, L('আৰ্হেনিয়াছ সমীকৰণ: k বনাম T আৰু ln k বনাম 1/T', 'Arrhenius equation: k against T and ln k against 1/T'), W, H);
     var st = { Ea: 60, logA: 12, T: 320, view: 'k' };
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     function kk(T) { return Math.pow(10, st.logA) * Math.exp(-st.Ea * 1000 / (R * T)); }
     function draw() {
       var blue = k.cssVar('--electron'), org = k.cssVar('--alpha'), tx = k.cssVar('--text'), P;
       if (st.view === 'k') {
-        P = plot(ctx, k, W, H, 280, 500, 0, kk(500) * 1.05, 'উষ্ণতা T (K) →', 'k', { yf: function (v) { return sci(v, 1).replace(/<\/?sup>/g, function (m) { return m === '<sup>' ? '^' : ''; }); } });
+        P = plot(ctx, k, W, H, 280, 500, 0, kk(500) * 1.05, L('উষ্ণতা T (K) →', 'Temperature T (K) →'), 'k', { yf: function (v) { return sci(v, 1).replace(/<\/?sup>/g, function (m) { return m === '<sup>' ? '^' : ''; }); } });
         curve(ctx, P, kk, 280, 500, blue, 3.5); dot(ctx, P.X(st.T), P.Y(kk(st.T)), org, 6);
       } else {
         var lo = Math.log(kk(500)) - 0.5, hi = Math.log(kk(280)) + 0.5;
         P = plot(ctx, k, W, H, 2.0, 3.6, Math.log(kk(500)) - 1, Math.log(kk(280)) + 1, '1000 / T (K⁻¹) →', 'ln k', { yf: function (v) { return v.toFixed(1); }, xf: function (v) { return v.toFixed(2); } });
         curve(ctx, P, function (x) { return Math.log(Math.pow(10, st.logA)) - st.Ea * 1000 / R * (x / 1000); }, 2.0, 3.6, blue, 3.5);
         dot(ctx, P.X(1000 / st.T), P.Y(Math.log(kk(st.T))), org, 6);
-        ctx.fillStyle = tx; ctx.font = '600 12px "Noto Sans Bengali", sans-serif'; ctx.fillText('ঢাল = −E_a/R = ' + (-st.Ea * 1000 / R).toFixed(0) + ' K', P.X(2.2), P.m.t + 14);
+        ctx.fillStyle = tx; ctx.font = '600 12px "Noto Sans Bengali", sans-serif'; ctx.fillText(L('ঢাল', 'slope') + ' = −E_a/R = ' + (-st.Ea * 1000 / R).toFixed(0) + ' K', P.X(2.2), P.m.t + 14);
       }
     }
     function paint() {
       var k1 = kk(st.T), k2 = kk(st.T + 10), EaCalc = R * Math.log(k2 / k1) / (1 / st.T - 1 / (st.T + 10)) / 1000;
-      info.innerHTML = 'k = A e<sup>−E<sub>a</sub>/RT</sup> · ln k = −E<sub>a</sub>/RT + ln A<br>T = ' + st.T + ' K ত k = <b>' + sci(k1, 2) + '</b>, (T+10) = ' + (st.T + 10) + ' K ত k = <b>' + sci(k2, 2) + '</b> → অনুপাত <b>' + (k2 / k1).toFixed(2) + '</b><br>' +
-        'দুই উষ্ণতাৰ k ৰ পৰা গণনা: log(k<sub>2</sub>/k<sub>1</sub>) = (E<sub>a</sub>/2.303R)·(T<sub>2</sub>−T<sub>1</sub>)/(T<sub>1</sub>T<sub>2</sub>) ⇒ E<sub>a</sub> = <b>' + EaCalc.toFixed(1) + ' kJ mol<sup>−1</sup></b> ✔';
+      info.innerHTML = 'k = A e<sup>−E<sub>a</sub>/RT</sup> · ln k = −E<sub>a</sub>/RT + ln A<br>T = ' + st.T + L(' K ত k = <b>', ' K: k = <b>') + sci(k1, 2) + '</b>, (T+10) = ' + (st.T + 10) + L(' K ত k = <b>', ' K: k = <b>') + sci(k2, 2) + L('</b> → অনুপাত <b>', '</b> → ratio <b>') + (k2 / k1).toFixed(2) + '</b><br>' +
+        L('দুই উষ্ণতাৰ k ৰ পৰা গণনা: log(k<sub>2</sub>/k<sub>1</sub>) = (E<sub>a</sub>/2.303R)·(T<sub>2</sub>−T<sub>1</sub>)/(T<sub>1</sub>T<sub>2</sub>) ⇒ E<sub>a</sub> = <b>', 'Calculated from k at the two temperatures: log(k<sub>2</sub>/k<sub>1</sub>) = (E<sub>a</sub>/2.303R)·(T<sub>2</sub>−T<sub>1</sub>)/(T<sub>1</sub>T<sub>2</sub>) ⇒ E<sub>a</sub> = <b>') + EaCalc.toFixed(1) + ' kJ mol<sup>−1</sup></b> ✔';
       draw();
     }
     var vk = k.button('Plot k vs T', function () { st.view = 'k'; pB(); paint(); }), vl = k.button('Plot ln k vs 1/T', function () { st.view = 'ln'; pB(); paint(); });
@@ -349,7 +350,7 @@
 
   /* ================================================================== 8. energy profile and catalyst */
   A.register('energy-profile', function (root, k) {
-    var h = k.h, W = 480, H = 290, ctx = mkCanvas(root, k, 'বিক্ৰিয়াৰ শক্তি প্ৰোফাইল আৰু অনুঘটকৰ প্ৰভাৱ', W, H);
+    var h = k.h, W = 480, H = 290, ctx = mkCanvas(root, k, L('বিক্ৰিয়াৰ শক্তি প্ৰোফাইল আৰু অনুঘটকৰ প্ৰভাৱ', 'Energy profile of a reaction and the effect of a catalyst'), W, H);
     var st = { Ea: 80, dH: -40, cat: true, drop: 30, T: 300 }, ball = 0;
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     var AMP = {};
@@ -370,23 +371,23 @@
     function draw() {
       var blue = k.cssVar('--electron'), org = k.cssVar('--alpha'), tx = k.cssVar('--text'), pr = k.cssVar('--proton'), mu = k.cssVar('--muted');
       var ymin = -Math.ceil((-Math.min(st.dH, 0) + 5) / 20) * 20, ymax = ymin + Math.ceil((150 - ymin) / 40) * 40;
-      var P = plot(ctx, k, W, H, 0, 1, ymin, ymax, 'বিক্ৰিয়া স্থানাংক →', 'স্থিতি শক্তি (kJ mol⁻¹)', { xf: function () { return ''; }, yf: function (v) { return String(Math.round(v) || 0); } });
+      var P = plot(ctx, k, W, H, 0, 1, ymin, ymax, L('বিক্ৰিয়া স্থানাংক →', 'Reaction coordinate →'), L('স্থিতি শক্তি (kJ mol⁻¹)', 'Potential energy (kJ mol⁻¹)'), { xf: function () { return ''; }, yf: function (v) { return String(Math.round(v) || 0); } });
       curve(ctx, P, function (x) { return prof(x, st.Ea, st.dH); }, 0, 1, blue, 3.5);
       if (st.cat) curve(ctx, P, function (x) { return prof(x, eac(), st.dH); }, 0, 1, org, 3.5, [7, 4]);
       ctx.strokeStyle = mu; ctx.lineWidth = 1; ctx.setLineDash([3, 4]);
       ctx.beginPath(); ctx.moveTo(P.X(0), P.Y(0)); ctx.lineTo(P.X(1), P.Y(0)); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(P.X(0.65), P.Y(st.dH)); ctx.lineTo(P.X(1), P.Y(st.dH)); ctx.stroke(); ctx.setLineDash([]);
       ctx.fillStyle = tx; ctx.font = '600 12px "Noto Sans Bengali", sans-serif';
-      ctx.textAlign = 'left'; ctx.fillText('বিক্ৰিয়ক', P.X(0.01), P.Y(0) - 8);
-      ctx.textAlign = 'right'; ctx.fillText('বিক্ৰিয়াজাত', P.X(1), P.Y(st.dH) - 8);
+      ctx.textAlign = 'left'; ctx.fillText(L('বিক্ৰিয়ক', 'Reactants'), P.X(0.01), P.Y(0) - 8);
+      ctx.textAlign = 'right'; ctx.fillText(L('বিক্ৰিয়াজাত', 'Products'), P.X(1), P.Y(st.dH) - 8);
       ctx.textAlign = 'center'; ctx.fillStyle = blue; ctx.fillText('E_a = ' + st.Ea, P.X(0.42), P.Y(st.Ea) - 9);
       ctx.textAlign = 'start';
       var fn = st.cat ? eac() : st.Ea, x = ball; dot(ctx, P.X(x), P.Y(prof(x, fn, st.dH)), tx, 6);
     }
     function paint() {
       var rt = R * st.T / 1000, ratio = Math.exp(st.drop / rt);
-      info.innerHTML = 'অগ্ৰগামী বিক্ৰিয়াৰ E<sub>a</sub> = <b>' + st.Ea + '</b> kJ mol<sup>−1</sup> · ΔH = <b>' + st.dH + '</b> kJ mol<sup>−1</sup> (' + (st.dH < 0 ? 'তাপবৰ্জী' : 'তাপগ্ৰাহী') + ') · পশ্চাদগামী বিক্ৰিয়াৰ E<sub>a</sub> = ' + (st.Ea - st.dH) + ' kJ mol<sup>−1</sup>' +
-        (st.cat ? '<br>অনুঘটক সহ: E<sub>a</sub> = <b>' + eac() + '</b> kJ mol<sup>−1</sup> → ' + st.T + ' K ত গতি ধ্ৰুৱক প্ৰায় <b>' + sci(ratio, 1) + ' গুণ</b> বাঢ়ে (e<sup>ΔE<sub>a</sub>/RT</sup>)<br>দুয়োটা বক্ৰতে ΔH একে — অনুঘটকে ΔH বা ΔG সলনি নকৰে আৰু সাম্য ধ্ৰুৱক সলনি নকৰে।' : '<br>অনুঘটক নাই।');
+      info.innerHTML = L('অগ্ৰগামী বিক্ৰিয়াৰ E<sub>a</sub> = <b>', 'E<sub>a</sub> of the forward reaction = <b>') + st.Ea + '</b> kJ mol<sup>−1</sup> · ΔH = <b>' + st.dH + '</b> kJ mol<sup>−1</sup> (' + (st.dH < 0 ? L('তাপবৰ্জী', 'exothermic') : L('তাপগ্ৰাহী', 'endothermic')) + L(') · পশ্চাদগামী বিক্ৰিয়াৰ E<sub>a</sub> = ', ') · E<sub>a</sub> of the reverse reaction = ') + (st.Ea - st.dH) + ' kJ mol<sup>−1</sup>' +
+        (st.cat ? L('<br>অনুঘটক সহ: E<sub>a</sub> = <b>', '<br>With catalyst: E<sub>a</sub> = <b>') + eac() + '</b> kJ mol<sup>−1</sup> → ' + st.T + L(' K ত গতি ধ্ৰুৱক প্ৰায় <b>', ' K: the rate constant rises by about <b>') + sci(ratio, 1) + L(' গুণ</b> বাঢ়ে (e<sup>ΔE<sub>a</sub>/RT</sup>)<br>দুয়োটা বক্ৰতে ΔH একে — অনুঘটকে ΔH বা ΔG সলনি নকৰে আৰু সাম্য ধ্ৰুৱক সলনি নকৰে।', ' times</b> (e<sup>ΔE<sub>a</sub>/RT</sup>)<br>ΔH is the same on both curves — the catalyst does not change ΔH or ΔG, nor the equilibrium constant.') : L('<br>অনুঘটক নাই।', '<br>No catalyst.'));
     }
     function tick(dt) { ball = (ball + dt * 0.22) % 1; draw(); }
     var es = k.slider('Eₐ (kJ/mol)', 40, 130, 5, st.Ea, function (v) { st.Ea = v; paint(); });
@@ -396,8 +397,8 @@
     cb.setAttribute('aria-pressed', 'true');
     root.appendChild(h('div', { 'class': 'row' }, [es.el, hs.el])); root.appendChild(h('div', { 'class': 'row' }, [cb, ds.el]));
     root.appendChild(h('div', { 'class': 'legend' }, [
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), 'অনুঘটক নোহোৱাকৈ']),
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), 'অনুঘটক সহ (ডেশ)']), h('span', { text: 'ΔH = বিক্ৰিয়াজাত − বিক্ৰিয়কৰ শক্তি' })]));
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), L('অনুঘটক নোহোৱাকৈ', 'without catalyst')]),
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), L('অনুঘটক সহ (ডেশ)', 'with catalyst (dashed)')]), h('span', { text: L('ΔH = বিক্ৰিয়াজাত − বিক্ৰিয়কৰ শক্তি', 'ΔH = energy of products − energy of reactants') })]));
     root.appendChild(info);
     var lp = k.loop(root, tick);
     paint(); draw(); if (!k.reduceMotion) lp.start();
@@ -405,7 +406,7 @@
 
   /* ================================================================== 9. collision theory */
   A.register('collision', function (root, k) {
-    var h = k.h, W = 480, H = 290, ctx = mkCanvas(root, k, 'সংঘৰ্ষ তত্ত্ব: অণুৰ সংঘৰ্ষ, সক্ৰিয়ন শক্তি আৰু দিকবিন্যাস', W, H);
+    var h = k.h, W = 480, H = 290, ctx = mkCanvas(root, k, L('সংঘৰ্ষ তত্ত্ব: অণুৰ সংঘৰ্ষ, সক্ৰিয়ন শক্তি আৰু দিকবিন্যাস', 'Collision theory: collisions of molecules, activation energy and orientation'), W, H);
     var st = { T: 300, Ea: 5, P: 0.5, run: true }, parts = [], cnt, S0 = 55, RAD = 7;
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     function reset() {
@@ -455,9 +456,9 @@
     function paint() {
       var nA = parts.filter(function (p) { return p.alive && p.t === 'A'; }).length, nP = parts.filter(function (p) { return p.t === 'P'; }).length;
       var theory = Math.exp(-st.Ea / (0.008314 * st.T));
-      info.innerHTML = 'মুঠ সংঘৰ্ষ: <b>' + cnt.tot + '</b> · শক্তি ≥ E<sub>a</sub> থকা সংঘৰ্ষ: <b>' + cnt.en + '</b> (' + (cnt.tot ? (100 * cnt.en / cnt.tot).toFixed(0) : 0) + '%) · কাৰ্যকৰী সংঘৰ্ষ (শক্তি আৰু উপযুক্ত দিকবিন্যাস): <b>' + cnt.eff + '</b><br>' +
-        'E<sub>a</sub> ৰ ওপৰৰ শক্তিৰ অণুৰ ভগ্নাংশ e<sup>−E<sub>a</sub>/RT</sup> = ' + (100 * theory).toFixed(0) + '% (দ্ৰুত অণুৱে বেছি সংঘৰ্ষ কৰে, সেয়ে সংঘৰ্ষৰ মাজত এই ভগ্নাংশ কিছু বেছি) · স্টেৰিক গুণাংক P = ' + st.P + ' · বিক্ৰিয়াৰ গতিবেগ = P · Z<sub>AB</sub> · e<sup>−E<sub>a</sub>/RT</sup><br>' +
-        'বিক্ৰিয়াজাত (সেউজীয়া): ' + nP + ' · বাকী A: ' + nA;
+      info.innerHTML = L('মুঠ সংঘৰ্ষ: <b>', 'Total collisions: <b>') + cnt.tot + L('</b> · শক্তি ≥ E<sub>a</sub> থকা সংঘৰ্ষ: <b>', '</b> · collisions with energy ≥ E<sub>a</sub>: <b>') + cnt.en + '</b> (' + (cnt.tot ? (100 * cnt.en / cnt.tot).toFixed(0) : 0) + L('%) · কাৰ্যকৰী সংঘৰ্ষ (শক্তি আৰু উপযুক্ত দিকবিন্যাস): <b>', '%) · effective collisions (enough energy and proper orientation): <b>') + cnt.eff + '</b><br>' +
+        L('E<sub>a</sub> ৰ ওপৰৰ শক্তিৰ অণুৰ ভগ্নাংশ e<sup>−E<sub>a</sub>/RT</sup> = ', 'Fraction of molecules with energy above E<sub>a</sub>, e<sup>−E<sub>a</sub>/RT</sup> = ') + (100 * theory).toFixed(0) + L('% (দ্ৰুত অণুৱে বেছি সংঘৰ্ষ কৰে, সেয়ে সংঘৰ্ষৰ মাজত এই ভগ্নাংশ কিছু বেছি) · স্টেৰিক গুণাংক P = ', '% (fast molecules collide more often, so this fraction is somewhat higher among collisions) · steric factor P = ') + st.P + L(' · বিক্ৰিয়াৰ গতিবেগ = P · Z<sub>AB</sub> · e<sup>−E<sub>a</sub>/RT</sup><br>', ' · rate of reaction = P · Z<sub>AB</sub> · e<sup>−E<sub>a</sub>/RT</sup><br>') +
+        L('বিক্ৰিয়াজাত (সেউজীয়া): ', 'Products (green): ') + nP + L(' · বাকী A: ', ' · A remaining: ') + nA;
     }
     var ts = k.slider('T (K)', 250, 500, 10, st.T, function (v) { setT(v); });
     var es = k.slider('Eₐ (kJ/mol)', 0, 15, 1, st.Ea, function (v) { st.Ea = v; });
@@ -466,14 +467,14 @@
     root.appendChild(info);
     root.appendChild(h('div', { 'class': 'legend' }, [
       h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), 'A']), h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), 'B']),
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--ok)' }), 'বিক্ৰিয়াজাত AB']), h('span', { text: 'ৰঙা ৰিং = সংঘৰ্ষ' })]));
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--ok)' }), L('বিক্ৰিয়াজাত AB', 'product AB')]), h('span', { text: L('ৰঙা ৰিং = সংঘৰ্ষ', 'red ring = collision') })]));
     var lp = k.loop(root, tick);
     reset(); draw(); paint(); if (!k.reduceMotion) lp.start();
   });
 
   /* ================================================================== 10. rate-determining step */
   A.register('rds', function (root, k) {
-    var h = k.h, W = 480, H = 280, ctx = mkCanvas(root, k, 'দুটা খাপৰ বিক্ৰিয়াত মন্থৰতম খাপে গতি নিৰ্ণয় কৰে', W, H);
+    var h = k.h, W = 480, H = 280, ctx = mkCanvas(root, k, L('দুটা খাপৰ বিক্ৰিয়াত মন্থৰতম খাপে গতি নিৰ্ণয় কৰে', 'In a two-step reaction the slowest step decides the rate'), W, H);
     var st = { k1: 0.1, k2: 2 };
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     function conc(t) {
@@ -484,15 +485,15 @@
     function tm() { return 5 / Math.min(st.k1, st.k2); }
     function draw() {
       var blue = k.cssVar('--electron'), org = k.cssVar('--alpha'), ok = k.cssVar('--ok');
-      var P = plot(ctx, k, W, H, 0, tm(), 0, 1.05, 'সময় (s) →', 'আপেক্ষিক গাঢ়তা');
+      var P = plot(ctx, k, W, H, 0, tm(), 0, 1.05, L('সময় (s) →', 'Time (s) →'), L('আপেক্ষিক গাঢ়তা', 'Relative concentration'));
       curve(ctx, P, function (t) { return conc(t).a; }, 0, tm(), blue, 3.2); curve(ctx, P, function (t) { return conc(t).i; }, 0, tm(), org, 3.2); curve(ctx, P, function (t) { return conc(t).p; }, 0, tm(), ok, 3.2);
     }
     function paint() {
       var slow = st.k1 < st.k2 ? 1 : (st.k2 < st.k1 ? 2 : 0), imax = 0, t90 = null, t;
       for (t = 0; t < tm() * 2; t += tm() / 400) { var c = conc(t); imax = Math.max(imax, c.i); if (t90 === null && c.p >= 0.9) t90 = t; }
-      info.innerHTML = 'A →<sup>k₁</sup> I →<sup>k₂</sup> P &nbsp; (যেনে H<sub>2</sub>O<sub>2</sub> + I<sup>−</sup> → H<sub>2</sub>O + IO<sup>−</sup> ; H<sub>2</sub>O<sub>2</sub> + IO<sup>−</sup> → H<sub>2</sub>O + O<sub>2</sub> + I<sup>−</sup>)<br>' +
-        'k<sub>1</sub> = ' + st.k1 + ' · k<sub>2</sub> = ' + st.k2 + ' — ' + (slow === 1 ? '<b>প্ৰথম খাপ মন্থৰ: ই গতি নিৰ্ধাৰক খাপ</b>; মধ্যৱৰ্তী I সৃষ্টি হোৱাৰ লগে লগে শেষ হয় (I ৰ সৰ্বোচ্চ গাঢ়তা মাত্ৰ ' + imax.toFixed(2) + ')' : (slow === 2 ? '<b>দ্বিতীয় খাপ মন্থৰ: ই গতি নিৰ্ধাৰক খাপ</b>; মধ্যৱৰ্তী I জমা হয় (সৰ্বোচ্চ ' + imax.toFixed(2) + ')' : 'দুয়োটা খাপ সমান গতিৰ')) +
-        '<br>90% বিক্ৰিয়াজাত পাবলৈ সময় ≈ <b>' + (t90 ? t90.toFixed(1) : '—') + ' s</b><span class="en"> — মন্থৰ খাপ দ্ৰুত কৰিলে মুঠ বিক্ৰিয়া দ্ৰুত হয়; দ্ৰুত খাপ আৰু দ্ৰুত কৰিলে প্ৰায় কোনো প্ৰভাৱ নপৰে।</span>';
+      info.innerHTML = 'A →<sup>k₁</sup> I →<sup>k₂</sup> P &nbsp; (' + L('যেনে', 'e.g.') + ' H<sub>2</sub>O<sub>2</sub> + I<sup>−</sup> → H<sub>2</sub>O + IO<sup>−</sup> ; H<sub>2</sub>O<sub>2</sub> + IO<sup>−</sup> → H<sub>2</sub>O + O<sub>2</sub> + I<sup>−</sup>)<br>' +
+        'k<sub>1</sub> = ' + st.k1 + ' · k<sub>2</sub> = ' + st.k2 + ' — ' + (slow === 1 ? L('<b>প্ৰথম খাপ মন্থৰ: ই গতি নিৰ্ধাৰক খাপ</b>; মধ্যৱৰ্তী I সৃষ্টি হোৱাৰ লগে লগে শেষ হয় (I ৰ সৰ্বোচ্চ গাঢ়তা মাত্ৰ ', '<b>Step 1 is slow: it is the rate determining step</b>; the intermediate I is used up as soon as it forms (its maximum concentration is only ') + imax.toFixed(2) + ')' : (slow === 2 ? L('<b>দ্বিতীয় খাপ মন্থৰ: ই গতি নিৰ্ধাৰক খাপ</b>; মধ্যৱৰ্তী I জমা হয় (সৰ্বোচ্চ ', '<b>Step 2 is slow: it is the rate determining step</b>; the intermediate I accumulates (maximum ') + imax.toFixed(2) + ')' : L('দুয়োটা খাপ সমান গতিৰ', 'both steps have the same speed'))) +
+        L('<br>90% বিক্ৰিয়াজাত পাবলৈ সময় ≈ <b>', '<br>Time to get 90% of the product ≈ <b>') + (t90 ? t90.toFixed(1) : '—') + L(' s</b><span class="en"> — মন্থৰ খাপ দ্ৰুত কৰিলে মুঠ বিক্ৰিয়া দ্ৰুত হয়; দ্ৰুত খাপ আৰু দ্ৰুত কৰিলে প্ৰায় কোনো প্ৰভাৱ নপৰে।</span>', ' s</b><span class="en"> — making the slow step faster speeds up the whole reaction; making the fast step still faster has almost no effect.</span>');
       draw();
     }
     var k1 = k.slider('k₁', 0.05, 2, 0.05, st.k1, function (v) { st.k1 = v; paint(); });
@@ -501,9 +502,9 @@
     root.appendChild(h('div', { 'class': 'row' }, [k.button('Step 1 slow', preset(0.1, 2)), k.button('Step 2 slow', preset(2, 0.1)), k.button('Equal', preset(0.5, 0.5))]));
     root.appendChild(h('div', { 'class': 'row' }, [k1.el, k2.el]));
     root.appendChild(h('div', { 'class': 'legend' }, [
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), 'A বিক্ৰিয়ক']),
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), 'I মধ্যৱৰ্তী']),
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--ok)' }), 'P বিক্ৰিয়াজাত'])]));
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), L('A বিক্ৰিয়ক', 'A reactant')]),
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), L('I মধ্যৱৰ্তী', 'I intermediate')]),
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--ok)' }), L('P বিক্ৰিয়াজাত', 'P product')])]));
     root.appendChild(info);
     paint();
   });

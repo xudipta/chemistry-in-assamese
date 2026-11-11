@@ -23,7 +23,10 @@
             "as": "দ্ৰৱ",
             "en": "Solutions"
           },
-          "langs": ["as", "en"],
+          "langs": [
+            "as",
+            "en"
+          ],
           "part": 1
         },
         {
@@ -34,7 +37,10 @@
             "as": "বিদ্যুৎৰসায়নবিজ্ঞান",
             "en": "Electrochemistry"
           },
-          "langs": ["as", "en"],
+          "langs": [
+            "as",
+            "en"
+          ],
           "part": 1
         },
         {
@@ -45,7 +51,10 @@
             "as": "ৰাসায়নিক গতিবিজ্ঞান",
             "en": "Chemical Kinetics"
           },
-          "langs": ["as", "en"],
+          "langs": [
+            "as",
+            "en"
+          ],
           "part": 1
         },
         {
@@ -56,7 +65,10 @@
             "as": "d- আৰু f- গোষ্ঠীৰ মৌল",
             "en": "The d- and f-Block Elements"
           },
-          "langs": ["as", "en"],
+          "langs": [
+            "as",
+            "en"
+          ],
           "part": 1
         },
         {
@@ -72,6 +84,60 @@
             "as",
             "en"
           ]
+        },
+        {
+          "id": "class-12/ch06-haloalkanes-haloarenes",
+          "no": 6,
+          "status": "ready",
+          "title": {
+            "as": "হেল'এলকেন আৰু হেল'এৰিন",
+            "en": "Haloalkanes and Haloarenes"
+          },
+          "part": 2,
+          "langs": [
+            "as",
+            "en"
+          ]
+        },
+        {
+          "id": "class-12/ch07-alcohols-phenols-ethers",
+          "no": 7,
+          "status": "soon",
+          "title": {
+            "as": "এলকহল, ফিনল আৰু ইথাৰ",
+            "en": "Alcohols, Phenols and Ethers"
+          },
+          "part": 2
+        },
+        {
+          "id": "class-12/ch08-aldehydes-ketones-acids",
+          "no": 8,
+          "status": "soon",
+          "title": {
+            "as": "এলডিহাইড, কিট'ন আৰু কাৰ্বক্সিলিক এছিড",
+            "en": "Aldehydes, Ketones and Carboxylic Acids"
+          },
+          "part": 2
+        },
+        {
+          "id": "class-12/ch09-amines",
+          "no": 9,
+          "status": "soon",
+          "title": {
+            "as": "এমাইন",
+            "en": "Amines"
+          },
+          "part": 2
+        },
+        {
+          "id": "class-12/ch10-biomolecules",
+          "no": 10,
+          "status": "soon",
+          "title": {
+            "as": "জীৱ অণু",
+            "en": "Biomolecules"
+          },
+          "part": 2
         }
       ]
     },

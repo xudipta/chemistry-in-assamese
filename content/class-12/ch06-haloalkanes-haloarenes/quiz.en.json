@@ -1,0 +1,180 @@
+{
+ "questions": [
+  {
+   "q": "What is the IUPAC name of (CH₃)₃C–Br?",
+   "options": [
+    "1-bromobutane",
+    "2-bromo-2-methylpropane",
+    "2-bromobutane",
+    "1-bromo-2-methylpropane"
+   ],
+   "answer": 1,
+   "explain": "The parent chain is propane with both –Br and –CH₃ on C-2; so 2-bromo-2-methylpropane (tertiary)."
+  },
+  {
+   "q": "Which of the following is a vinylic halide?",
+   "options": [
+    "CH₂=CHCl",
+    "CH₂=CHCH₂Cl",
+    "C₆H₅CH₂Cl",
+    "CH₃CH₂Cl"
+   ],
+   "answer": 0,
+   "explain": "In a vinylic halide the halogen is on an sp² carbon of C=C. CH₂=CHCH₂Cl is allylic and C₆H₅CH₂Cl is benzylic."
+  },
+  {
+   "q": "What is the advantage of using SOCl₂ to prepare an alkyl chloride from an alcohol?",
+   "options": [
+    "It is cheap",
+    "The by-products SO₂ and HCl are gases, so the product is pure",
+    "It also gives aryl chlorides",
+    "It needs a catalyst"
+   ],
+   "answer": 1,
+   "explain": "SO₂ and HCl escape as gases, so a pure alkyl chloride is obtained."
+  },
+  {
+   "q": "What is the name of the reaction in which an alkyl chloride reacts with NaI in dry acetone to give an alkyl iodide?",
+   "options": [
+    "Swarts reaction",
+    "Finkelstein reaction",
+    "Wurtz reaction",
+    "Sandmeyer reaction"
+   ],
+   "answer": 1,
+   "explain": "NaCl is insoluble in acetone and precipitates, so the reaction goes forward. The Swarts reaction gives fluorides."
+  },
+  {
+   "q": "Which of the following has the highest boiling point?",
+   "options": [
+    "CH₃CH₂Cl",
+    "CH₃CH₂Br",
+    "CH₃CH₂I",
+    "CH₃CH₂F"
+   ],
+   "answer": 2,
+   "explain": "For the same group RI > RBr > RCl > RF, because van der Waals forces grow with size."
+  },
+  {
+   "q": "What is the order of reactivity of alkyl halides in SN2?",
+   "options": [
+    "3° > 2° > 1° > CH₃X",
+    "CH₃X > 1° > 2° > 3°",
+    "1° > 3° > 2°",
+    "All equal"
+   ],
+   "answer": 1,
+   "explain": "The less the steric hindrance the faster the SN2; the tertiary halide has the most hindrance."
+  },
+  {
+   "q": "What is the rate law of an SN2 reaction?",
+   "options": [
+    "Rate = k [R–X]",
+    "Rate = k [R–X][Nu⁻]",
+    "Rate = k [Nu⁻]",
+    "Rate = k [R–X]²"
+   ],
+   "answer": 1,
+   "explain": "SN2 is second order — the rate depends on the concentrations of both the halide and the nucleophile."
+  },
+  {
+   "q": "What is the rate determining step in an SN1 reaction?",
+   "options": [
+    "Attack of the nucleophile",
+    "Formation of the carbocation",
+    "Loss of a proton",
+    "Attack of the base"
+   ],
+   "answer": 1,
+   "explain": "The first step, in which the C–X bond breaks and the carbocation forms, is slow, so it determines the rate."
+  },
+  {
+   "q": "What does optically active (+)-2-bromooctane give with OH⁻ in an SN2 reaction?",
+   "options": [
+    "A racemic mixture",
+    "A product with retained configuration",
+    "A product with inverted configuration",
+    "No reaction"
+   ],
+   "answer": 2,
+   "explain": "In SN2 back-side attack inverts the configuration — the (+)-bromide gives the (−)-alcohol."
+  },
+  {
+   "q": "Which of the following compounds is chiral?",
+   "options": [
+    "Propan-2-ol",
+    "Butan-2-ol",
+    "Ethanol",
+    "2-chloropropane"
+   ],
+   "answer": 1,
+   "explain": "C-2 of butan-2-ol carries four different groups: –H, –OH, –CH₃ and –C₂H₅."
+  },
+  {
+   "q": "Why is a racemic mixture optically inactive?",
+   "options": [
+    "It has no asymmetric carbon",
+    "It contains equal amounts of two enantiomers whose rotations cancel",
+    "Its molecules break up",
+    "It absorbs light"
+   ],
+   "answer": 1,
+   "explain": "Rotations of equal magnitude and opposite direction make the total rotation zero."
+  },
+  {
+   "q": "What is the major product when 2-bromopentane is heated with alcoholic KOH?",
+   "options": [
+    "Pent-1-ene",
+    "Pent-2-ene",
+    "Pentan-2-ol",
+    "Pentane"
+   ],
+   "answer": 1,
+   "explain": "By Zaitsev's rule the more substituted alkene (pent-2-ene, 81 %) is the major product."
+  },
+  {
+   "q": "Why is a Grignard reagent kept away from water?",
+   "options": [
+    "It is insoluble in water",
+    "It reacts with water to give a hydrocarbon",
+    "It forms ice",
+    "It explodes in water"
+   ],
+   "answer": 1,
+   "explain": "RMgX + H₂O → RH + Mg(OH)X; the reagent is destroyed."
+  },
+  {
+   "q": "Why is chlorobenzene less reactive in nucleophilic substitution?",
+   "options": [
+    "Cl is small",
+    "Because of resonance the C–Cl bond has partial double bond character",
+    "It has an asymmetric carbon",
+    "It is soluble in water"
+   ],
+   "answer": 1,
+   "explain": "The lone pair of the halogen conjugates with the ring and strengthens the C–Cl bond."
+  },
+  {
+   "q": "Which of the following is the most reactive in nucleophilic substitution?",
+   "options": [
+    "Chlorobenzene",
+    "m-nitrochlorobenzene",
+    "p-nitrochlorobenzene",
+    "2,4,6-trinitrochlorobenzene"
+   ],
+   "answer": 3,
+   "explain": "The more –NO₂ groups at ortho and para positions, the easier the reaction; the trinitro compound reacts even with warm water."
+  },
+  {
+   "q": "What is the main environmental problem with the use of Freon-12 (CCl₂F₂)?",
+   "options": [
+    "It burns in air",
+    "It depletes the ozone layer",
+    "It pollutes water",
+    "It increases soil acidity"
+   ],
+   "answer": 1,
+   "explain": "In the stratosphere it produces free radicals that destroy ozone."
+  }
+ ]
+}

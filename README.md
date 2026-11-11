@@ -17,7 +17,8 @@ English term in brackets. Installable as a web app and works offline.
 | 12 | 3 · ৰাসায়নিক গতিবিজ্ঞান (Chemical Kinetics) | ✅ 5 sections, 10 animations, 14-question quiz; **also available in English** |
 | 12 | 4 · d- আৰু f- গোষ্ঠীৰ মৌল (d- and f-Block Elements) | ✅ 6 sections, 8 animations, 14-question quiz; **also available in English** |
 | 12 | 5 · সমন্বয়ী যৌগ (Coordination Compounds) | ✅ 7 sections, 8 animations, 15-question quiz — completes Part I; **also available in English** |
-| 12 | Part II (organic chemistry, biomolecules) | not listed yet: waiting for the Part II book |
+| 12 | 6 · হেল'এলকেন আৰু হেল'এৰিন (Haloalkanes and Haloarenes) | ✅ 7 sections, 6 animations, 14-question quiz; Assamese + English (Part II) |
+| 12 | Chapters 7–10 (Part II) | listed as "Coming soon": alcohols/phenols/ethers, aldehydes/ketones/acids, amines, biomolecules |
 
 The Assamese text is a first draft and still needs review by a chemistry teacher.
 

@@ -15,8 +15,8 @@ English term in brackets. Installable as a web app and works offline.
 | 12 | 1 · দ্ৰৱ (Solutions) | ✅ 7 sections, 9 animations, 12-question quiz; terminology checked against the Assamese textbook |
 | 12 | 2 · বিদ্যুৎৰসায়নবিজ্ঞান (Electrochemistry) | ✅ 8 sections, 10 animations, 14-question quiz |
 | 12 | 3 · ৰাসায়নিক গতিবিজ্ঞান (Chemical Kinetics) | ✅ 5 sections, 10 animations, 14-question quiz |
-| 12 | 4 · d- আৰু f- গোষ্ঠীৰ মৌল (d- and f-Block Elements) | ✅ 6 sections, 8 animations, 14-question quiz |
-| 12 | 5 · সমন্বয়ী যৌগ (Coordination Compounds) | ✅ 7 sections, 8 animations, 15-question quiz — completes Part I; **also available in English** (first bilingual chapter) |
+| 12 | 4 · d- আৰু f- গোষ্ঠীৰ মৌল (d- and f-Block Elements) | ✅ 6 sections, 8 animations, 14-question quiz; **also available in English** |
+| 12 | 5 · সমন্বয়ী যৌগ (Coordination Compounds) | ✅ 7 sections, 8 animations, 15-question quiz — completes Part I; **also available in English** |
 | 12 | Part II (organic chemistry, biomolecules) | not listed yet: waiting for the Part II book |
 
 The Assamese text is a first draft and still needs review by a chemistry teacher.

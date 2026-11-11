@@ -1,0 +1,418 @@
+{
+ "id": "class-12/ch04-d-f-block",
+ "class": 12,
+ "number": 4,
+ "title": {
+  "as": "d- আৰু f- গোষ্ঠীৰ মৌল",
+  "en": "The d- and f-Block Elements"
+ },
+ "scripts": [
+  "anim.js"
+ ],
+ "goals": [
+  "Locate the d- and f-blocks in the periodic table and write the electronic configurations of [[transition]] and [[inner-transition]] elements",
+  "Explain the trends and the exceptions in enthalpy of atomisation, ionisation enthalpy, radius and E° across the 3d series",
+  "Explain the variety of oxidation states, coloured ions, paramagnetism, catalytic action and complex formation",
+  "Know the preparation, structure and oxidising properties of K₂Cr₂O₇ and KMnO₄",
+  "Describe the properties of the [[lanthanoid]]s and [[actinoid]]s and explain the [[lanthanoid-contraction]]"
+ ],
+ "glossary": {
+  "transition": {
+   "as": "সংক্ৰমণশীল মৌল",
+   "en": "transition element",
+   "def": "A metal that has an incomplete d subshell in the ground state or in a common oxidation state (d-block). Zn, Cd and Hg are not included."
+  },
+  "inner-transition": {
+   "as": "আন্তঃসংক্ৰমণশীল মৌল",
+   "en": "inner transition element",
+   "def": "The f-block elements: the lanthanoids and actinoids, in which the 4f or 5f orbitals are being filled."
+  },
+  "series": {
+   "as": "3d, 4d, 5d শ্ৰেণী",
+   "en": "first, second, third series",
+   "def": "The four series of transition elements: 3d (Sc–Zn), 4d (Y–Cd), 5d (La, Hf–Hg), 6d (Ac, Rf–Cn)."
+  },
+  "atomisation": {
+   "as": "পৰমাণুকৰণ এনথালপি",
+   "en": "enthalpy of atomisation",
+   "def": "The energy needed to convert 1 mol of a solid metal into gaseous atoms."
+  },
+  "oxidation-state": {
+   "as": "জাৰণ অৱস্থা",
+   "en": "oxidation state",
+   "def": "The hypothetical charge of an element in a compound."
+  },
+  "paramagnetic": {
+   "as": "অনুচুম্বকীয়",
+   "en": "paramagnetic",
+   "def": "A substance with unpaired electrons, which is attracted by a magnet."
+  },
+  "bm": {
+   "as": "বোৰ মেগনেটন",
+   "en": "Bohr magneton (BM)",
+   "def": "The unit of magnetic moment. Spin-only formula: μ = √(n(n+2)) BM."
+  },
+  "interstitial": {
+   "as": "অন্তৰ্বৰ্তী যৌগ",
+   "en": "interstitial compound",
+   "def": "A non-stoichiometric compound formed when small atoms such as H, C or N are trapped in the spaces of a metal's crystal lattice."
+  },
+  "alloy": {
+   "as": "সংকৰ ধাতু",
+   "en": "alloy",
+   "def": "A homogeneous solid mixture of two or more metals (a solid solution)."
+  },
+  "disproportionation": {
+   "as": "অসমঞ্জস বিক্ৰিয়া",
+   "en": "disproportionation",
+   "def": "A reaction in which one substance is oxidised and reduced at the same time, e.g. 2Cu⁺ → Cu²⁺ + Cu."
+  },
+  "lanthanoid": {
+   "as": "লেন্থেনয়ড",
+   "en": "lanthanoid",
+   "def": "The 14 elements from Ce to Lu (15 with lanthanum), in which the 4f orbitals are filled."
+  },
+  "actinoid": {
+   "as": "এক্টিনয়ড",
+   "en": "actinoid",
+   "def": "The 14 elements from Th to Lr (15 with actinium), in which the 5f orbitals are filled; all are radioactive."
+  },
+  "lanthanoid-contraction": {
+   "as": "লেন্থেনয়ড সংকোচন",
+   "en": "lanthanoid contraction",
+   "def": "The regular decrease in atomic and ionic radius from La to Lu as the atomic number rises; the poor shielding by 4f electrons is the cause."
+  },
+  "dichromate": {
+   "as": "পটাছিয়াম ডাইক্ৰ'মেট",
+   "en": "potassium dichromate",
+   "def": "K₂Cr₂O₇ — an orange, strong oxidising agent; a primary standard in volumetric analysis."
+  },
+  "permanganate": {
+   "as": "পটাছিয়াম পাৰমেংগানেট",
+   "en": "potassium permanganate",
+   "def": "KMnO₄ — a deep purple, strong oxidising agent that gives different products depending on the medium."
+  }
+ },
+ "sections": [
+  {
+   "id": "position",
+   "title": "Position in the Periodic Table and Electronic Configuration",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The elements of groups 3 to 12 of the periodic table are called the **d-block elements**. In their atoms the electrons enter the d orbitals of the penultimate (second-outermost) shell. This gives four series: 3d (Sc–Zn), 4d (Y–Cd), 5d (La and Hf–Hg) and 6d (Ac and Rf–Cn). The elements in which the 4f or 5f orbitals are filled are the **f-block elements**, which are placed separately at the bottom of the periodic table."
+    },
+    {
+     "type": "p",
+     "text": "By the IUPAC definition, a [[transition]] is a metal that has an incomplete d subshell either in the ground state or in one of its common oxidation states. Zn, Cd and Hg have a full d subshell (d¹⁰) both in the ground state and in the +2 state, so these three are not transition elements (although they are studied along with them). The f-block elements are called [[inner-transition]]s."
+    },
+    {
+     "type": "formula",
+     "label": "General configuration of the d-block",
+     "text": "(n−1) d^{1–10} ns^{1–2}\nExceptions: Cr = 3d^{5}4s^{1}, Cu = 3d^{10}4s^{1} — half-filled (d⁵) and fully filled (d¹⁰) subshells are more stable. Because 3d and 4s are close in energy, an electron moves easily from 4s to 3d."
+    },
+    {
+     "type": "p",
+     "text": "All transition elements are metals. Their properties change gradually along a series or period, generally not down a group (although a group also shows some similarity). Their interatomic interactions are strong because both the (n−1)d and the ns electrons take part in bonding."
+    },
+    {
+     "type": "anim",
+     "name": "periodic-d",
+     "title": "Map of the d-block",
+     "caption": "Click any element to see its configuration. Elements with an orange outline have an exceptional configuration; the dimmed Zn, Cd, Hg and Cn are not transition elements."
+    },
+    {
+     "type": "note",
+     "label": "Note",
+     "text": "Here the configuration of Tc is given as [Kr] 4d^{5} 5s^{2} (from modern research). Table 4.1 in the textbook writes it as 5s¹4d⁶; check with your teacher before following that value in an examination."
+    }
+   ]
+  },
+  {
+   "id": "properties",
+   "title": "General Properties of the First-Series (3d) Transition Elements",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "**Physical properties:** Except for Zn, Cd and Hg, the transition metals are hard and of low volatility, and they have high melting and boiling points. They show the typical properties of metals (high tensile strength, ductility, malleability, thermal and electrical conductivity, lustre). Melting points are generally highest at the d⁵ configuration (Mn and Tc are exceptions)."
+    },
+    {
+     "type": "p",
+     "text": "**Enthalpy of atomisation:** Transition metals have a high [[atomisation]]. Many unpaired electrons make the interatomic bonding strong, so the value is highest in the middle of each series. The values for the second and third series are higher than for the first."
+    },
+    {
+     "type": "p",
+     "text": "**Ionic and atomic size:** Radius generally decreases as Z increases, but because d electrons shield less effectively, the change across a series is small. The 4d and 5d elements have almost equal radii — the reason is the lanthanoid contraction (in a later section)."
+    },
+    {
+     "type": "p",
+     "text": "**Ionisation enthalpy:** The first ionisation enthalpy rises slowly with Z — not as markedly as for main-group elements, because the 3d electrons shield the 4s electrons. The second and third rise progressively more. The second ionisation enthalpies of Cr and Cu are unusually high (a d⁵ or d¹⁰ subshell must be broken); the third of Mn is very high (the d⁵ of Mn²⁺ is stable)."
+    },
+    {
+     "type": "anim",
+     "name": "trend-plot",
+     "title": "Change of properties from Sc to Zn",
+     "caption": "Choose a property and move the element slider. Notice the exceptional points (Mn, Cr, Cu, Zn) — the reasons are given in the explanation below. (Data from Tables 4.2 and 4.4 of the textbook.)"
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "Choose ‘enthalpy of atomisation’ and go from V to Mn and Zn. Why are their values low? Then choose ‘E° (M²⁺|M)’ and notice the positive value for Cu."
+    }
+   ]
+  },
+  {
+   "id": "ox-colour",
+   "title": "Oxidation States, Coloured Ions and Magnetic Properties",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "**Oxidation states:** Transition elements show a variety of [[oxidation-state]]s — a remarkable feature. The reason is that the (n−1)d and ns orbitals are close in energy, so electrons from both can be used in bonding. Mn shows the most states, from +2 to +7; the start (Sc) and the end (Cu, Zn) of the series show fewer. Up to Mn, the highest oxidation state equals the total number of ns and (n−1)d electrons (Ti^{IV}O₂, V^{V}O₂⁺, Cr^{VI}O₄²⁻, Mn^{VII}O₄⁻)."
+    },
+    {
+     "type": "p",
+     "text": "The oxidation states of transition elements usually differ by one unit (+2, +3, +4, …), whereas in the p-block they differ by two (e.g. P^{III}, P^{V}). In groups 4 to 10, the heavier p-block elements show lower oxidation states because of the inert pair effect, but in the d-block the reverse is true: in group 6, Mo(VI) and W(VI) are more stable than Cr(VI), so Cr(VI) in dichromate is a strong oxidising agent."
+    },
+    {
+     "type": "p",
+     "text": "**High oxidation states:** Fluorine and oxygen stabilise the highest oxidation states (CrF₆, VF₅, Mn₂O₇). The reasons are fluorine's high lattice energy and the high enthalpy of its covalent bonds. The highest simple fluoride of Mn is MnF₄, but its oxide in the highest oxidation state is Mn₂O₇ — because oxygen can form double bonds (M=O) with the metal."
+    },
+    {
+     "type": "p",
+     "text": "**Magnetic properties:** Most transition metal ions are [[paramagnetic]] because of unpaired electrons. In the first series the orbital contribution is small, so the magnetic moment depends only on the number of unpaired electrons, n:"
+    },
+    {
+     "type": "formula",
+     "label": "Spin-only formula",
+     "text": "μ = √( n (n + 2) )  [[bm]]\nFor n = 1, 2, 3, 4, 5: μ = 1.73, 2.84, 3.87, 4.90, 5.92 BM"
+    },
+    {
+     "type": "note",
+     "label": "Example 1",
+     "text": "Mn²⁺ (Z = 25) has the configuration 3d⁵ — 5 unpaired electrons. μ = √(5 × 7) = **5.92 BM**."
+    },
+    {
+     "type": "note",
+     "label": "Example 2",
+     "text": "Spin-only magnetic moment of Co²⁺ (Z = 27). Co²⁺ = 3d⁷: 7 electrons in 5 orbitals — 2 paired and 3 unpaired, so n = 3. μ = √(3 × 5) = **3.87 BM**."
+    },
+    {
+     "type": "p",
+     "text": "**Coloured ions:** An electron in a lower-energy d orbital can absorb a photon of visible light and jump to a higher-energy d orbital (a d–d transition). We see the complementary colour of the light absorbed. d⁰ (Sc³⁺, Ti⁴⁺) and d¹⁰ (Zn²⁺, Cu⁺) ions are colourless — there is no partly filled d subshell to make the transition. Colours of aqueous ions: Ti³⁺ purple, V³⁺ green, Cr³⁺ violet, Mn²⁺ pink, Fe³⁺ yellow, Fe²⁺ green, Co²⁺ pink, Ni²⁺ green, Cu²⁺ blue."
+    },
+    {
+     "type": "anim",
+     "name": "tm-ion",
+     "title": "Electrons, magnetic moment and colour of an ion",
+     "caption": "Choose an element and a charge. The 4s electrons leave first. See μ from the unpaired electrons and the colour from the d count."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "Choose Mn and +2 (d⁵, 5.92 BM, pink). Then choose Zn and +2, and Sc and +3 — why are they colourless? Then compare Cu +1 with +2."
+    },
+    {
+     "type": "anim",
+     "name": "ox-states",
+     "title": "Oxidation states in the first series",
+     "caption": "Change the element to see the common (solid) and less common (hollow) states. The red dashed line shows the sum of s + d electrons — up to Mn the highest oxidation number matches it."
+    },
+    {
+     "type": "p",
+     "text": "**Standard electrode potentials of M²⁺|M and M³⁺|M²⁺, and chemical reactivity:** The more negative E° (M²⁺|M) is, the more reactive the metal. All first-series metals except Cu dissolve in mineral acids (although Ti and V do so not rapidly). Cu does not liberate H₂ from H⁺ — its enthalpy of atomisation is high and its enthalpy of hydration is low, so its E° is positive (+0.34 V). The E° values for Mn and Zn are more negative because Mn²⁺ (d⁵) and Zn²⁺ (d¹⁰) are stable. E°(Mn³⁺|Mn²⁺) = +1.57 V and E°(Co³⁺|Co²⁺) = +1.97 V — these are very strong oxidising agents; E°(Cr³⁺|Cr²⁺) = −0.41 V — Cr²⁺ is a strong reducing agent."
+    },
+    {
+     "type": "note",
+     "label": "Example 3",
+     "text": "Cr²⁺ and Mn³⁺ both have the configuration d⁴, yet Cr²⁺ is a reducing agent and Mn³⁺ is an oxidising agent. Why?\nOxidising Cr²⁺ to Cr³⁺ (d³) leaves a half-filled t₂g set — stable; so Cr²⁺ is a reducing agent. Reducing Mn³⁺ to Mn²⁺ (d⁵) gives a half-filled d⁵ — even more stable; so Mn³⁺ is an oxidising agent."
+    }
+   ]
+  },
+  {
+   "id": "other",
+   "title": "Other Characteristics of Transition Elements",
+   "blocks": [
+    {
+     "type": "list",
+     "items": [
+      "**Complex formation:** Transition metal ions are small, highly charged and have vacant d orbitals, so they bind ligands to form complexes (e.g. [Fe(CN)₆]³⁻, [Fe(CN)₆]⁴⁻, [Cu(NH₃)₄]²⁺, [PtCl₄]²⁻). This is discussed in Chapter 5.",
+      "**Catalytic properties:** These elements and their compounds are important catalysts — because of their many oxidation states and their ability to form complexes. Examples: V₂O₅ (SO₂ → SO₃ in the Contact process), finely divided iron (N₂ + H₂ → NH₃ in the Haber process), nickel (catalytic hydrogenation). On a solid surface the concentration of the reactants increases, and bonds form with the metal's surface atoms, which weakens the bonds in the reactants (E_a falls). In solution Fe(III) catalyses the reaction 2I⁻ + S₂O₈²⁻ → I₂ + 2SO₄²⁻: 2Fe³⁺ + 2I⁻ → 2Fe²⁺ + I₂ and 2Fe²⁺ + S₂O₈²⁻ → 2Fe³⁺ + 2SO₄²⁻.",
+      "**Interstitial compounds:** When small atoms such as H, C or N are trapped in the spaces of a metal's crystal lattice, an [[interstitial]] results (TiC, Mn₄N, Fe₃H, VH₀.₅₆, TiH₁.₇). They are non-stoichiometric. They have higher melting points than the pure metal, are very hard (some as hard as diamond), keep metallic conductivity and are chemically inert.",
+      "**Alloys:** Transition metals form [[alloy]]s readily when their atomic radii differ by less than 15 %. Ferrous alloys (steel, stainless steel — mixed with Cr, V, W, Mo, Mn); brass (Cu + Zn) and bronze (Cu + Sn)."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "**Disproportionation:** A reaction in which one substance is oxidised and reduced at the same time is called [[disproportionation]]. Example: Cu⁺ is unstable in aqueous solution — 2Cu⁺ → Cu²⁺ + Cu. The reason is that the hydration enthalpy of Cu²⁺ is more negative than that of Cu⁺ (Cu²⁺ has the higher charge), and it makes up for the second ionisation enthalpy of Cu. Similarly, Mn(VI) disproportionates in acid solution: 3MnO₄²⁻ + 4H⁺ → 2MnO₄⁻ + MnO₂ + 2H₂O."
+    }
+   ]
+  },
+  {
+   "id": "compounds",
+   "title": "Some Important Compounds — K₂Cr₂O₇ and KMnO₄",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "**Oxides and oxo-anions:** In the highest oxide of a transition metal, the oxidation number of the metal equals its group number (from Sc₂O₃ to Mn₂O₇). As the oxidation number rises, ionic character falls: the lower oxides are basic (MnO, CrO), the intermediate ones amphoteric (Cr₂O₃, V₂O₅) and the highest acidic (Mn₂O₇ → HMnO₄, CrO₃ → H₂CrO₄ and H₂Cr₂O₇). Mn₂O₇ is a covalent green oil."
+    },
+    {
+     "type": "p",
+     "text": "**Potassium dichromate (K₂Cr₂O₇):** Chromate is prepared by fusing chromite ore (FeCr₂O₄) with alkali in the presence of air:"
+    },
+    {
+     "type": "formula",
+     "text": "4FeCr_{2}O_{4} + 8Na_{2}CO_{3} + 7O_{2} → 8Na_{2}CrO_{4} + 2Fe_{2}O_{3} + 8CO_{2}\n2Na_{2}CrO_{4} + 2H^{+} → Na_{2}Cr_{2}O_{7} + 2Na^{+} + H_{2}O\nNa_{2}Cr_{2}O_{7} + 2KCl → K_{2}Cr_{2}O_{7} + 2NaCl"
+    },
+    {
+     "type": "p",
+     "text": "Depending on the pH of the solution, chromate and dichromate are in equilibrium (the oxidation state of Cr is +6 in both): 2CrO₄²⁻ + 2H⁺ ⇌ Cr₂O₇²⁻ + H₂O; Cr₂O₇²⁻ + 2OH⁻ ⇌ 2CrO₄²⁻ + H₂O. Chromate is tetrahedral; in dichromate two tetrahedra are joined through one O (Cr–O–Cr angle ≈ 126°)."
+    },
+    {
+     "type": "anim",
+     "name": "chromate-ph",
+     "title": "pH and chromate ⇌ dichromate",
+     "caption": "Move the pH slider, or press ‘Add acid / Add alkali’, to see the colour and the form of the ion."
+    },
+    {
+     "type": "p",
+     "text": "Potassium dichromate is a very strong oxidising agent; it is used as a primary standard in volumetric analysis. In acid solution: Cr₂O₇²⁻ + 14H⁺ + 6e⁻ → 2Cr³⁺ + 7H₂O (E° = 1.33 V). It oxidises I⁻ to I₂, H₂S to S, Sn²⁺ to Sn⁴⁺ and Fe²⁺ to Fe³⁺."
+    },
+    {
+     "type": "anim",
+     "name": "dichromate",
+     "title": "Oxidising action of acidified dichromate",
+     "caption": "Choose a reducing agent and press ‘Add reducing agent’ — orange Cr₂O₇²⁻ turns into green Cr³⁺. The equation of the reaction is shown below."
+    },
+    {
+     "type": "p",
+     "text": "**Potassium permanganate (KMnO₄):** Fusing MnO₂ with alkali and an oxidising agent such as KNO₃ gives K₂MnO₄ (green); electrolytic oxidation of its alkaline solution, or disproportionation in neutral or acidic medium, gives KMnO₄: 2MnO₂ + 4KOH + O₂ → 2K₂MnO₄ + 2H₂O; 3MnO₄²⁻ + 4H⁺ → 2MnO₄⁻ + MnO₂ + 2H₂O. Both manganate and permanganate ions are tetrahedral; permanganate is diamagnetic (Mn VII, d⁰) and manganate is paramagnetic (Mn VI, d¹)."
+    },
+    {
+     "type": "p",
+     "text": "The oxidising action of KMnO₄ depends on the medium. In acidic medium MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O (E° = +1.52 V); in neutral or weakly alkaline medium the product is MnO₂ (E° = +1.69 V in its acidic form); in strongly alkaline medium it is MnO₄²⁻ (E° = +0.56 V)."
+    },
+    {
+     "type": "anim",
+     "name": "kmno4",
+     "title": "KMnO₄ in different media",
+     "caption": "Choose the medium and a reducing agent and press ‘Add reducing agent’. See how the colour of the purple solution changes and what the equation looks like."
+    },
+    {
+     "type": "note",
+     "label": "Example 4",
+     "text": "Reaction of Fe²⁺ with acidified KMnO₄: MnO₄⁻ + 8H⁺ + 5Fe²⁺ → Mn²⁺ + 4H₂O + 5Fe³⁺. In this reaction 1 mol of MnO₄⁻ oxidises 5 mol of Fe²⁺; so for 25 mL of 0.02 M KMnO₄, moles of Fe²⁺ = 5 × (0.02 × 0.025) = 5 × 5 × 10⁻⁴ = **2.5 × 10⁻³ mol**."
+    },
+    {
+     "type": "note",
+     "label": "Uses",
+     "text": "KMnO₄ is used as an oxidising agent in analytical chemistry and organic chemistry, and for bleaching wool, cotton, jute and so on. It is not used with HCl, because MnO₄⁻ oxidises Cl⁻ to Cl₂."
+    }
+   ]
+  },
+  {
+   "id": "f-block",
+   "title": "Inner Transition Elements (f-block)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The f-block has two series: the [[lanthanoid]]s (the 14 elements after lanthanum, Ce–Lu; La is often included) and the [[actinoid]]s (the 14 elements after actinium, Th–Lr)."
+    },
+    {
+     "type": "p",
+     "text": "**Lanthanoids:** All have 6s² electrons but differ in the number of electrons in 4f. The trivalent ion (Ln³⁺, the most stable oxidation state is +3) has the configuration 4fⁿ (n = 0 to 14). They are silvery-white, soft metals that tarnish in air. Hardness increases with atomic number. Their melting points are around 1000–1200 K. They are good conductors of heat and electricity. Most Ln³⁺ ions are coloured and paramagnetic; La³⁺ (f⁰) and Lu³⁺ (f¹⁴) are colourless."
+    },
+    {
+     "type": "p",
+     "text": "**Oxidation states:** Ln(III) predominates. Sometimes +2 and +4 occur (Ce⁴⁺, Eu²⁺, Yb²⁺) — because of the extra stability of empty, half-filled and filled f subshells. Ce⁴⁺ (f⁰) is a strong oxidising agent (E°(Ce⁴⁺|Ce³⁺) = +1.74 V) and Eu²⁺ (f⁷) is a strong reducing agent."
+    },
+    {
+     "type": "p",
+     "text": "**Lanthanoid contraction:** From La to Lu the atomic and ionic radii decrease regularly (La³⁺ 106 pm → Lu³⁺ 85 pm). The reason is that 4f electrons shield one another poorly (less than d electrons do), so the pull of the nuclear charge increases as Z increases. As a result, the third-series (5d) elements have radii almost equal to those of the corresponding second-series (4d) elements — for example Zr (160 pm) and Hf (159 pm). Their chemistry is therefore almost identical and they are hard to separate."
+    },
+    {
+     "type": "anim",
+     "name": "lanthanoid",
+     "title": "Lanthanoid contraction",
+     "caption": "Move the slider from La to Lu. The 4f orbitals fill and the radius decreases (data from Table 4.9 of the textbook)."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "Go from La to Gd (4f⁷, half-filled) and to Lu (4f¹⁴). Which ion is colourless? Which has the most unpaired electrons?"
+    },
+    {
+     "type": "p",
+     "text": "**Chemistry of the lanthanoids:** First ionisation enthalpy ≈ 600 kJ mol⁻¹, second ≈ 1200 kJ mol⁻¹ — like calcium. They are reactive: with water they give Ln(OH)₃ + H₂, with dilute acids H₂, with halogens LnX₃, burning in O₂ gives Ln₂O₃, and heating with C gives carbides. E° ≈ −2.2 to −2.4 V. Uses: misch metal (Ln ~ 95 % + Fe ~ 5 %) alloy in bullets and lighter flints; alloys with Mg; mixed oxides as catalysts in petroleum cracking; Ln oxides as phosphors in television screens."
+    },
+    {
+     "type": "p",
+     "text": "**Actinoids:** 14 elements from Th to Lr, all radioactive. The 5f, 6d and 7s orbitals are close in energy, so the range of oxidation states is wide (besides +3 there are +4, +5, +6, +7 — e.g. Pa +5, U +6, Np +7). The 5f electrons feel less attraction from the nucleus and take a larger part in bonding. There is also an actinoid contraction (larger than the lanthanoid contraction, because shielding by 5f is even poorer)."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Property",
+      "Lanthanoids",
+      "Actinoids"
+     ],
+     "rows": [
+      [
+       "Orbitals being filled",
+       "4f",
+       "5f"
+      ],
+      [
+       "Oxidation states",
+       "Mainly +3 (sometimes +2, +4)",
+       "+3 predominant, but a wide range up to +4, +5, +6, +7"
+      ],
+      [
+       "Radioactivity",
+       "Non-radioactive except Pm",
+       "All are radioactive"
+      ],
+      [
+       "Role of 4f / 5f in bonding",
+       "Small (f orbitals lie deep inside)",
+       "Greater (5f is more outward)"
+      ],
+      [
+       "Contraction",
+       "Lanthanoid contraction",
+       "Actinoid contraction (greater)"
+      ],
+      [
+       "Magnetic properties",
+       "Simple, more predictable",
+       "Complex"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "uses",
+   "title": "Some Applications of d- and f-Block Elements",
+   "blocks": [
+    {
+     "type": "list",
+     "items": [
+      "Iron and steel — the most important construction materials. Steels with different properties are made by mixing in Cr, Mn, Ni and so on.",
+      "TiO₂ in the paint industry; MnO₂ in dry cells; Zn and Ni/Cd in batteries.",
+      "The group 11 metals (Cu, Ag, Au) are coinage metals — very valuable.",
+      "Catalysts: V₂O₅ (Contact process for H₂SO₄), TiCl₄ + Al(CH₃)₃ (Ziegler catalyst, for polythene), Fe (Haber process), Ni (hydrogenation of fats), PdCl₂ (Wacker process, ethene to ethanal).",
+      "AgBr — light-sensitive, used in photography."
+     ]
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "In the d-block (groups 3–12) the (n−1)d orbitals are filled; in the f-block the 4f / 5f. The general configuration of a [[transition]] element is (n−1)d^{1–10} ns^{1–2}; Cr and Cu are exceptions. Zn, Cd and Hg are not transition elements.",
+  "High melting points, high [[atomisation]], many [[oxidation-state]]s, coloured ions, [[paramagnetic]] behaviour, catalytic action, complex formation and the formation of [[interstitial]] compounds and [[alloy]]s are characteristics of transition elements.",
+  "μ = √(n(n+2)) BM; colour arises from d–d transitions; d⁰ and d¹⁰ ions are colourless.",
+  "The irregularities in E° (M²⁺|M) come from ionisation enthalpy and sublimation / hydration enthalpy; Mn²⁺ (d⁵) and Zn²⁺ (d¹⁰) are stable.",
+  "[[dichromate]] (orange → green Cr³⁺) and [[permanganate]] (purple; gives Mn²⁺, MnO₂ or MnO₄²⁻ depending on the medium) are strong oxidising agents.",
+  "[[lanthanoid-contraction]]: the radius falls from La to Lu because of the poor shielding by 4f; Zr ≈ Hf. All actinoids are radioactive and show a wide range of oxidation states."
+ ]
+}

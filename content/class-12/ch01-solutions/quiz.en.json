@@ -1,0 +1,136 @@
+{
+ "questions": [
+  {
+   "q": "0.5 mol of glucose is dissolved in 250 g of water. What is the molality of the solution?",
+   "options": [
+    "0.5 m",
+    "1 m",
+    "2 m",
+    "4 m"
+   ],
+   "answer": 2,
+   "explain": "Molality = moles of solute ÷ mass of solvent (kg) = 0.5 / 0.250 = 2 mol kg^{−1}."
+  },
+  {
+   "q": "Which of the following units of concentration depends on temperature?",
+   "options": [
+    "Molality",
+    "Mole fraction",
+    "Molarity",
+    "Mass percentage"
+   ],
+   "answer": 2,
+   "explain": "Molarity involves the volume of the solution, and volume changes with temperature. The others depend on mass."
+  },
+  {
+   "q": "What happens to the solubility of a gas in water if its partial pressure is doubled at constant temperature?",
+   "options": [
+    "It is halved",
+    "It stays the same",
+    "It doubles",
+    "It becomes four times"
+   ],
+   "answer": 2,
+   "explain": "By Henry's law p = K_{H} x; so x (solubility) is proportional to p."
+  },
+  {
+   "q": "K_{H} of N_{2} is 76.48 kbar at 293 K and 88.84 kbar at 303 K. At which temperature is N_{2} more soluble?",
+   "options": [
+    "At 293 K",
+    "At 303 K",
+    "Equal at both",
+    "Cannot be said"
+   ],
+   "answer": 0,
+   "explain": "The smaller K_{H} is, the greater the solubility at the same pressure. K_{H} is smaller at 293 K, so the solubility is greater."
+  },
+  {
+   "q": "In an ideal solution of A and B, p°_{A} = 400 mm Hg, p°_{B} = 100 mm Hg and x_{A} = 0.5. What is the total vapour pressure?",
+   "options": [
+    "150 mm Hg",
+    "200 mm Hg",
+    "250 mm Hg",
+    "500 mm Hg"
+   ],
+   "answer": 2,
+   "explain": "p = 0.5 × 400 + 0.5 × 100 = 200 + 50 = 250 mm Hg."
+  },
+  {
+   "q": "Which is correct for a solution showing positive deviation?",
+   "options": [
+    "Δ_{mix}H < 0 and Δ_{mix}V < 0",
+    "Δ_{mix}H > 0 and Δ_{mix}V > 0",
+    "Δ_{mix}H = 0 and Δ_{mix}V = 0",
+    "Δ_{mix}H > 0 and Δ_{mix}V < 0"
+   ],
+   "answer": 1,
+   "explain": "In a positive deviation the A–B attraction is weaker than A–A and B–B; so heat is absorbed on mixing and the volume increases."
+  },
+  {
+   "q": "Which of the following is NOT a colligative property?",
+   "options": [
+    "Elevation of boiling point",
+    "Depression of freezing point",
+    "Osmotic pressure",
+    "Density of the solution"
+   ],
+   "answer": 3,
+   "explain": "Density depends on the nature of the solute. Colligative properties depend only on the number of particles."
+  },
+  {
+   "q": "What is the ratio (NaCl : glucose) of the depressions of freezing point of 0.1 m glucose and 0.1 m NaCl solutions (assume NaCl to be completely dissociated)?",
+   "options": [
+    "1 : 1",
+    "2 : 1",
+    "1 : 2",
+    "3 : 1"
+   ],
+   "answer": 1,
+   "explain": "i for NaCl = 2, for glucose = 1. ΔT_{f} = i K_{f} m, so the ratio is 2 : 1."
+  },
+  {
+   "q": "What is the osmotic pressure of a 0.2 mol L^{−1} glucose solution at 300 K? (R = 0.083 L bar K^{−1} mol^{−1})",
+   "options": [
+    "2.49 bar",
+    "4.98 bar",
+    "9.96 bar",
+    "49.8 bar"
+   ],
+   "answer": 1,
+   "explain": "Π = cRT = 0.2 × 0.083 × 300 = 4.98 bar."
+  },
+  {
+   "q": "When does reverse osmosis take place?",
+   "options": [
+    "When the pressure applied to the solution is less than the osmotic pressure",
+    "When the applied pressure equals the osmotic pressure",
+    "When the applied pressure is greater than the osmotic pressure",
+    "When two solutions are mixed without a membrane"
+   ],
+   "answer": 2,
+   "explain": "If P > Π, solvent goes from the solution to the pure solvent. This is what is used in desalination."
+  },
+  {
+   "q": "What is the approximate value of the van't Hoff factor (i) when acetic acid forms dimers in benzene?",
+   "options": [
+    "2",
+    "1",
+    "0.5",
+    "3"
+   ],
+   "answer": 2,
+   "explain": "When two molecules join to form one particle the number of particles is halved, so i ≈ 0.5; the molar mass becomes nearly double the true value."
+  },
+  {
+   "q": "What will be the van't Hoff factor (i) if K_{2}SO_{4} is completely dissociated?",
+   "options": [
+    "1",
+    "2",
+    "3",
+    "4"
+   ],
+   "answer": 2,
+   "explain": "K_{2}SO_{4} → 2K^{+} + SO_{4}^{2−}; one formula unit gives 3 ions, so i = 3."
+  }
+ ]
+}

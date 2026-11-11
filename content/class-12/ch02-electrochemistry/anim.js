@@ -1,9 +1,10 @@
 /* Animations for Class 12, Chapter 2: Electrochemistry (বিদ্যুৎৰসায়নবিজ্ঞান).
    Registered: external-voltage, galvanic, nernst, conductance, kohlrausch, faraday, electrolysis, corrosion, battery, fuelcell
-   Controls are English (app UI); read-outs are Assamese (subject content). */
+   Controls are English (app UI); read-outs follow the reader's language: L('assamese', 'english'). */
 (function () {
   'use strict';
   var A = window.ChemAnim;
+  var L = A.t;   /* L(assamese, english): the string for the reader's language */
   var TAU = Math.PI * 2, F = 96500;
 
   function sci(x, d) {
@@ -32,10 +33,10 @@
   /* ================================================================== external voltage on a Daniell cell */
   A.register('external-voltage', function (root, k) {
     var h = k.h, s = k.s, E0 = 1.10, ext = 0.5, phase = 0;
-    var svg = s('svg', { viewBox: '0 0 420 240', 'class': 'anim-svg', role: 'img', 'aria-label': 'ডেনিয়েল কোষত বাহ্যিক বিভৱৰ প্ৰভাৱ' });
+    var svg = s('svg', { viewBox: '0 0 420 240', 'class': 'anim-svg', role: 'img', 'aria-label': L('ডেনিয়েল কোষত বাহ্যিক বিভৱৰ প্ৰভাৱ', 'Effect of an external potential on a Daniell cell') });
     root.appendChild(svg);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
-    var W = [[105, 70], [105, 30], [315, 30], [315, 70]], L = PATH_LEN(W);
+    var W = [[105, 70], [105, 30], [315, 30], [315, 70]], PLEN = PATH_LEN(W);
     var dots = [], el = [];
     function build() {
       svg.innerHTML = '';
@@ -49,24 +50,24 @@
       svg.appendChild(s('text', { x: 210, y: 34, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, style: 'fill:var(--text)', text: ext.toFixed(2) + ' V' }));
       svg.appendChild(s('text', { x: 105, y: 236, 'text-anchor': 'middle', 'font-size': 13, style: 'fill:var(--text)', text: 'Zn' }));
       svg.appendChild(s('text', { x: 315, y: 236, 'text-anchor': 'middle', 'font-size': 13, style: 'fill:var(--text)', text: 'Cu' }));
-      svg.appendChild(s('text', { x: 210, y: 12, 'text-anchor': 'middle', 'font-size': 11, style: 'fill:var(--muted)', text: 'E বাহ্যিক' }));
+      svg.appendChild(s('text', { x: 210, y: 12, 'text-anchor': 'middle', 'font-size': 11, style: 'fill:var(--muted)', text: L('E বাহ্যিক', 'E external') }));
       dots = [];
       for (var i = 0; i < 9; i++) { var c = s('circle', { r: 4.5, style: 'fill:var(--electron)' }); svg.appendChild(c); dots.push(c); }
     }
     function mode() { return ext < E0 - 0.02 ? 'g' : (ext > E0 + 0.02 ? 'e' : 'eq'); }
     function paint() {
       var m = mode(), t;
-      if (m === 'g') t = '<b>E বাহ্যিক &lt; 1.10 V</b> — কোষটো <b>গেলভেনীয়</b> হিচাপে কাম কৰে। ইলেক্ট্ৰন Zn ৰ পৰা Cu লৈ যায়; Zn দ্ৰবীভূত হয় (এন\'ড) আৰু Cu জমা হয় (কেথ\'ড)।';
-      else if (m === 'eq') t = '<b>E বাহ্যিক ≈ 1.10 V</b> — দুয়োফালৰ বিভৱ সমান; <b>বিদ্যুৎ প্ৰবাহ নাই</b> আৰু কোনো বিক্ৰিয়া নঘটে।';
-      else t = '<b>E বাহ্যিক &gt; 1.10 V</b> — কোষটো <b>বিদ্যুৎবিশ্লেষণী</b> হৈ পৰে। বিক্ৰিয়া উলোটা দিশত: Cu দ্ৰবীভূত হয় আৰু Zn জমা হয়।';
-      info.innerHTML = 'কোষৰ নিজা emf (E°<sub>cell</sub>) = <b>1.10 V</b>; বাহ্যিক বিভৱ = <b>' + ext.toFixed(2) + ' V</b><br>' + t;
+      if (m === 'g') t = L('<b>E বাহ্যিক &lt; 1.10 V</b> — কোষটো <b>গেলভেনীয়</b> হিচাপে কাম কৰে। ইলেক্ট্ৰন Zn ৰ পৰা Cu লৈ যায়; Zn দ্ৰবীভূত হয় (এন\'ড) আৰু Cu জমা হয় (কেথ\'ড)।', '<b>E external &lt; 1.10 V</b> — the cell works as a <b>galvanic</b> cell. Electrons go from Zn to Cu; Zn dissolves (anode) and Cu is deposited (cathode).');
+      else if (m === 'eq') t = L('<b>E বাহ্যিক ≈ 1.10 V</b> — দুয়োফালৰ বিভৱ সমান; <b>বিদ্যুৎ প্ৰবাহ নাই</b> আৰু কোনো বিক্ৰিয়া নঘটে।', '<b>E external ≈ 1.10 V</b> — the potentials on both sides are equal; <b>no current flows</b> and no reaction takes place.');
+      else t = L('<b>E বাহ্যিক &gt; 1.10 V</b> — কোষটো <b>বিদ্যুৎবিশ্লেষণী</b> হৈ পৰে। বিক্ৰিয়া উলোটা দিশত: Cu দ্ৰবীভূত হয় আৰু Zn জমা হয়।', '<b>E external &gt; 1.10 V</b> — the cell becomes <b>electrolytic</b>. The reaction goes in the opposite direction: Cu dissolves and Zn is deposited.');
+      info.innerHTML = L('কোষৰ নিজা emf (E°<sub>cell</sub>) = <b>1.10 V</b>; বাহ্যিক বিভৱ = <b>', 'Own emf of the cell (E°<sub>cell</sub>) = <b>1.10 V</b>; external potential = <b>') + ext.toFixed(2) + ' V</b><br>' + t;
       build();
     }
     function tick(dt) {
       var m = mode(), diff = Math.abs(ext - E0), dir = ext < E0 ? 1 : -1;
       var speed = m === 'eq' ? 0 : clamp(diff / 0.8, 0.15, 1) * 90;
       phase += dir * speed * dt;
-      dots.forEach(function (d, i) { var p = polyline(W, phase + i * L / dots.length); d.setAttribute('cx', p[0]); d.setAttribute('cy', p[1]); d.setAttribute('visibility', m === 'eq' ? 'hidden' : 'visible'); });
+      dots.forEach(function (d, i) { var p = polyline(W, phase + i * PLEN / dots.length); d.setAttribute('cx', p[0]); d.setAttribute('cy', p[1]); d.setAttribute('visibility', m === 'eq' ? 'hidden' : 'visible'); });
     }
     var sl = k.slider('External voltage (V)', 0, 2, 0.02, ext, function (v) { ext = v; paint(); });
     root.appendChild(h('div', { 'class': 'row' }, [sl.el]));
@@ -84,10 +85,10 @@
       Cu: { z: 2, E: 0.34, c: '#c46a2d' }, Ag: { z: 1, E: 0.80, c: '#d7dbe0' }
     };
     var st = { m1: 'Zn', c1: 1, m2: 'Cu', c2: 1 };
-    var svg = s('svg', { viewBox: '0 0 420 270', 'class': 'anim-svg', role: 'img', 'aria-label': 'গেলভেনীয় কোষ: এন\'ড, কেথ\'ড, লৱণ সেতু আৰু ইলেক্ট্ৰনৰ প্ৰবাহ' });
+    var svg = s('svg', { viewBox: '0 0 420 270', 'class': 'anim-svg', role: 'img', 'aria-label': L('গেলভেনীয় কোষ: এন\'ড, কেথ\'ড, লৱণ সেতু আৰু ইলেক্ট্ৰনৰ প্ৰবাহ', 'Galvanic cell: anode, cathode, salt bridge and flow of electrons') });
     root.appendChild(svg);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
-    var W = [[105, 70], [105, 36], [315, 36], [315, 70]], L = PATH_LEN(W), SB = [[160, 100], [260, 100]];
+    var W = [[105, 70], [105, 36], [315, 36], [315, 70]], PLEN = PATH_LEN(W), SB = [[160, 100], [260, 100]];
     var eDots = [], iDots = [], phase = 0, calc = null;
 
     function compute() {
@@ -109,8 +110,8 @@
       svg.appendChild(s('polyline', { points: W.map(function (p) { return p.join(','); }).join(' '), fill: 'none', style: 'stroke:var(--text)', 'stroke-width': 2 }));
       svg.appendChild(s('circle', { cx: 210, cy: 36, r: 22, style: 'fill:var(--canvas);stroke:var(--text)', 'stroke-width': 2 }));
       svg.appendChild(s('text', { x: 210, y: 40, 'text-anchor': 'middle', 'font-size': 11, 'font-weight': 700, style: 'fill:var(--text)', text: calc.E.toFixed(2) + ' V' }));
-      svg.appendChild(s('text', { x: 105, y: 262, 'text-anchor': 'middle', 'font-size': 13, 'font-weight': 700, style: 'fill:var(--text)', text: 'এন\'ড (−) ' + a.m }));
-      svg.appendChild(s('text', { x: 315, y: 262, 'text-anchor': 'middle', 'font-size': 13, 'font-weight': 700, style: 'fill:var(--text)', text: 'কেথ\'ড (+) ' + b.m }));
+      svg.appendChild(s('text', { x: 105, y: 262, 'text-anchor': 'middle', 'font-size': 13, 'font-weight': 700, style: 'fill:var(--text)', text: L('এন\'ড (−) ', 'Anode (−) ') + a.m }));
+      svg.appendChild(s('text', { x: 315, y: 262, 'text-anchor': 'middle', 'font-size': 13, 'font-weight': 700, style: 'fill:var(--text)', text: L('কেথ\'ড (+) ', 'Cathode (+) ') + b.m }));
       svg.appendChild(s('text', { x: 105, y: 232, 'text-anchor': 'middle', 'font-size': 11, style: 'fill:var(--muted)', text: a.c + ' M' }));
       svg.appendChild(s('text', { x: 315, y: 232, 'text-anchor': 'middle', 'font-size': 11, style: 'fill:var(--muted)', text: b.c + ' M' }));
       eDots = []; iDots = [];
@@ -126,10 +127,10 @@
       var dG = -n * F * calc.E / 1000, logK = n * calc.E0 / 0.0591;
       var same = a.m === b.m;
       info.innerHTML =
-        (same ? '<b>ঘনত্ব কোষ (concentration cell)</b> — দুয়োফালে একে ধাতু; কম গাঢ়তাৰ ফাল এন\'ড হয়।<br>' : '') +
-        'এন\'ড (জাৰণ): ' + (ca > 1 ? ca + ' ' : '') + a.m + '(s) → ' + (ca > 1 ? ca + ' ' : '') + ion(a.m, a.z) + ' + ' + n + 'e<sup>−</sup><br>' +
-        'কেথ\'ড (বিজাৰণ): ' + (cb > 1 ? cb + ' ' : '') + ion(b.m, b.z) + ' + ' + n + 'e<sup>−</sup> → ' + (cb > 1 ? cb + ' ' : '') + b.m + '(s)<br>' +
-        'কোষ: ' + a.m + '(s) | ' + ion(a.m, a.z) + '(' + a.c + ' M) || ' + ion(b.m, b.z) + '(' + b.c + ' M) | ' + b.m + '(s)<br>' +
+        (same ? L('<b>ঘনত্ব কোষ (concentration cell)</b> — দুয়োফালে একে ধাতু; কম গাঢ়তাৰ ফাল এন\'ড হয়।<br>', '<b>Concentration cell</b> — the same metal on both sides; the side with the lower concentration becomes the anode.<br>') : '') +
+        L('এন\'ড (জাৰণ): ', 'Anode (oxidation): ') + (ca > 1 ? ca + ' ' : '') + a.m + '(s) → ' + (ca > 1 ? ca + ' ' : '') + ion(a.m, a.z) + ' + ' + n + 'e<sup>−</sup><br>' +
+        L('কেথ\'ড (বিজাৰণ): ', 'Cathode (reduction): ') + (cb > 1 ? cb + ' ' : '') + ion(b.m, b.z) + ' + ' + n + 'e<sup>−</sup> → ' + (cb > 1 ? cb + ' ' : '') + b.m + '(s)<br>' +
+        L('কোষ: ', 'Cell: ') + a.m + '(s) | ' + ion(a.m, a.z) + '(' + a.c + ' M) || ' + ion(b.m, b.z) + '(' + b.c + ' M) | ' + b.m + '(s)<br>' +
         'E°<sub>cell</sub> = ' + (same ? 0 : MET[b.m].E.toFixed(2)) + (same ? '' : ' − (' + MET[a.m].E.toFixed(2) + ')') + ' = <b>' + calc.E0.toFixed(2) + ' V</b> · n = ' + n + ' · Q = ' + (calc.Q < 1e-3 || calc.Q > 1e3 ? sci(calc.Q, 2) : calc.Q.toFixed(3)) + '<br>' +
         'E<sub>cell</sub> = E° − (0.0591/n) log Q = <b>' + calc.E.toFixed(3) + ' V</b> · Δ<sub>r</sub>G = −nFE = <b>' + dG.toFixed(1) + ' kJ mol<sup>−1</sup></b>' +
         (same ? '' : '<br>K<sub>c</sub> = 10<sup>nE°/0.0591</sup> ≈ <b>' + sci(Math.pow(10, logK), 1) + '</b>');
@@ -137,7 +138,7 @@
     function tick(dt) {
       var v = clamp(calc.E / 1.2, 0, 1), speed = v * 90;
       phase += speed * dt;
-      eDots.forEach(function (d, i) { var p = polyline(W, phase + i * L / eDots.length); d.setAttribute('cx', p[0]); d.setAttribute('cy', p[1]); d.setAttribute('visibility', calc.E > 0.002 ? 'visible' : 'hidden'); });
+      eDots.forEach(function (d, i) { var p = polyline(W, phase + i * PLEN / eDots.length); d.setAttribute('cx', p[0]); d.setAttribute('cy', p[1]); d.setAttribute('visibility', calc.E > 0.002 ? 'visible' : 'hidden'); });
       iDots.forEach(function (d) {
         d.u = (d.u + dt * v * 0.35 + 1) % 1;
         var u = d.cat ? d.u : 1 - d.u;
@@ -154,8 +155,8 @@
     root.appendChild(h('div', { 'class': 'row' }, [s2.el, c2.el]));
     root.appendChild(info);
     root.appendChild(h('div', { 'class': 'legend' }, [
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), 'ইলেক্ট্ৰন (এন\'ডৰ পৰা কেথ\'ডলৈ)']),
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), 'ধনায়ন']), h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--proton)' }), 'ঋণায়ন (লৱণ সেতুত)'])]));
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), L('ইলেক্ট্ৰন (এন\'ডৰ পৰা কেথ\'ডলৈ)', 'electrons (anode to cathode)')]),
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), L('ধনায়ন', 'cation')]), h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--proton)' }), L('ঋণায়ন (লৱণ সেতুত)', 'anion (in the salt bridge)')])]));
     var lp = k.loop(root, tick);
     build(); lp.start();
   });
@@ -164,7 +165,7 @@
   A.register('nernst', function (root, k) {
     var h = k.h, W = 480, H = 280, PL = 56, PR = 16, PT = 18, PB = 40;
     var st = { E0: 1.10, n: 2, logQ: 0 };
-    var canvas = h('canvas', { 'class': 'anim-canvas', role: 'img', 'aria-label': 'নাৰ্ন্‌ষ্ট সমীকৰণ: E বনাম log Q' });
+    var canvas = h('canvas', { 'class': 'anim-canvas', role: 'img', 'aria-label': L('নাৰ্ন্‌ষ্ট সমীকৰণ: E বনাম log Q', 'Nernst equation: E against log Q') });
     root.appendChild(canvas);
     var ctx = k.hiDpiCanvas(canvas, W, H);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
@@ -183,16 +184,16 @@
       ctx.beginPath(); ctx.moveTo(X(0), PT); ctx.lineTo(X(0), H - PB); ctx.strokeStyle = mu; ctx.setLineDash([3, 4]); ctx.stroke(); ctx.setLineDash([]);
       ctx.strokeStyle = teal; ctx.lineWidth = 3.5; ctx.beginPath(); ctx.moveTo(X(xmin), Y(E(xmin))); ctx.lineTo(X(xmax), Y(E(xmax))); ctx.stroke();
       ctx.fillStyle = bad; ctx.beginPath(); ctx.arc(X(logK()), Y(0), 6, 0, TAU); ctx.fill();
-      ctx.font = '600 12px "Noto Sans Bengali", sans-serif'; ctx.fillText('সাম্য (E = 0, Q = K)', PL + 8, Y(0) + 18);
+      ctx.font = '600 12px "Noto Sans Bengali", sans-serif'; ctx.fillText(L('সাম্য (E = 0, Q = K)', 'equilibrium (E = 0, Q = K)'), PL + 8, Y(0) + 18);
       ctx.fillStyle = org; ctx.beginPath(); ctx.arc(X(st.logQ), Y(E(st.logQ)), 6, 0, TAU); ctx.fill();
       ctx.fillStyle = txt; ctx.fillText('log Q →', W / 2 - 20, H - 6);
-      ctx.save(); ctx.translate(12, H / 2 + 20); ctx.rotate(-Math.PI / 2); ctx.fillText('E কোষ (V)', 0, 0); ctx.restore();
+      ctx.save(); ctx.translate(12, H / 2 + 20); ctx.rotate(-Math.PI / 2); ctx.fillText(L('E কোষ (V)', 'E cell (V)'), 0, 0); ctx.restore();
     }
     function paint() {
       var e = E(st.logQ), dG = -st.n * F * e / 1000;
       info.innerHTML = 'E = E° − (0.0591 / n) log Q = ' + st.E0.toFixed(2) + ' − (0.0591 / ' + st.n + ') × ' + st.logQ.toFixed(1) + ' = <b>' + e.toFixed(3) + ' V</b><br>' +
-        'Δ<sub>r</sub>G = −nFE = <b>' + dG.toFixed(1) + ' kJ mol<sup>−1</sup></b> · সাম্য ধ্ৰুৱক: log K = nE° / 0.0591 = <b>' + logK().toFixed(1) + '</b> (K = ' + sci(Math.pow(10, logK()), 1) + ')<br>' +
-        (e > 0.002 ? 'E &gt; 0 — কোষটোৱে বিদ্যুৎ দিয়ে (বিক্ৰিয়া আগবাঢ়ি আছে)' : (e < -0.002 ? 'E &lt; 0 — বিক্ৰিয়া উলোটা দিশত স্বতঃস্ফূৰ্ত' : '<b>E = 0 — সাম্য; বেটাৰি ‘শেষ’</b>'));
+        'Δ<sub>r</sub>G = −nFE = <b>' + dG.toFixed(1) + L(' kJ mol<sup>−1</sup></b> · সাম্য ধ্ৰুৱক: log K = nE° / 0.0591 = <b>', ' kJ mol<sup>−1</sup></b> · equilibrium constant: log K = nE° / 0.0591 = <b>') + logK().toFixed(1) + '</b> (K = ' + sci(Math.pow(10, logK()), 1) + ')<br>' +
+        (e > 0.002 ? L('E &gt; 0 — কোষটোৱে বিদ্যুৎ দিয়ে (বিক্ৰিয়া আগবাঢ়ি আছে)', 'E &gt; 0 — the cell gives current (the reaction can proceed)') : (e < -0.002 ? L('E &lt; 0 — বিক্ৰিয়া উলোটা দিশত স্বতঃস্ফূৰ্ত', 'E &lt; 0 — the reaction is spontaneous in the opposite direction') : L('<b>E = 0 — সাম্য; বেটাৰি ‘শেষ’</b>', '<b>E = 0 — equilibrium; the battery is ‘dead’</b>')));
       draw();
     }
     var e0 = k.slider('E° (V)', 0.1, 2.0, 0.05, st.E0, function (v) { st.E0 = v; paint(); });
@@ -208,7 +209,7 @@
   A.register('conductance', function (root, k) {
     var h = k.h, W = 480, H = 280, PL = 56, PR = 16, PT = 18, PB = 40;
     var L0 = 150.0, AK = 87.46, L0W = 390.5, KA = 1.78e-5, logc = -2.5;
-    var canvas = h('canvas', { 'class': 'anim-canvas', role: 'img', 'aria-label': 'গাঢ়তাৰ লগত ম\'লাৰ পৰিবাহিতাৰ পৰিৱৰ্তন' });
+    var canvas = h('canvas', { 'class': 'anim-canvas', role: 'img', 'aria-label': L('গাঢ়তাৰ লগত ম\'লাৰ পৰিবাহিতাৰ পৰিৱৰ্তন', 'Change of molar conductivity with concentration') });
     root.appendChild(canvas);
     var ctx = k.hiDpiCanvas(canvas, W, H);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
@@ -236,22 +237,22 @@
       ctx.fillStyle = txt; ctx.font = '600 12px "Noto Sans Bengali", sans-serif';
       ctx.fillText('√c (mol L⁻¹)^½ →', W / 2 - 40, H - 6);
       ctx.save(); ctx.translate(12, H / 2 + 50); ctx.rotate(-Math.PI / 2); ctx.fillText('Λm (S cm² mol⁻¹)', 0, 0); ctx.restore();
-      ctx.fillStyle = teal; ctx.fillText('তীব্ৰ (KCl)', X(0.2), Y(strong(0.04)) - 10);
-      ctx.fillStyle = org; ctx.fillText('মৃদু (CH₃COOH)', X(0.05) + 6, Y(weak(0.0025)) - 8);
+      ctx.fillStyle = teal; ctx.fillText(L('তীব্ৰ (KCl)', 'strong (KCl)'), X(0.2), Y(strong(0.04)) - 10);
+      ctx.fillStyle = org; ctx.fillText(L('মৃদু (CH₃COOH)', 'weak (CH₃COOH)'), X(0.05) + 6, Y(weak(0.0025)) - 8);
     }
     function paint() {
       var c = Math.pow(10, logc), ls = strong(c), lw = weak(c), a = alpha(c);
       var ks = ls * c / 1000 * 100, kw = lw * c / 1000 * 100;     /* S m^-1 */
-      info.innerHTML = 'গাঢ়তা c = <b>' + sci(c, 2) + ' mol L<sup>−1</sup></b><br>' +
-        'KCl (তীব্ৰ): Λ<sub>m</sub> = Λ°<sub>m</sub> − A√c = <b>' + ls.toFixed(1) + '</b> S cm² mol⁻¹ · পৰিবহনতা κ = Λ<sub>m</sub>c/1000 = <b>' + sci(ks, 2) + '</b> S m<sup>−1</sup><br>' +
-        'CH<sub>3</sub>COOH (মৃদু): বিয়োজন মাত্ৰা α = <b>' + a.toFixed(3) + '</b> · Λ<sub>m</sub> = αΛ°<sub>m</sub> = <b>' + lw.toFixed(1) + '</b> S cm² mol⁻¹ · κ = <b>' + sci(kw, 2) + '</b> S m<sup>−1</sup><br>' +
-        '<span class="en">লঘু কৰিলে (c কমিলে) κ কমে, কিন্তু Λ<sub>m</sub> বাঢ়ে — মৃদু বিদ্যুৎবিশ্লেষ্যত অতি বেছিকৈ।</span>';
+      info.innerHTML = L('গাঢ়তা c = <b>', 'Concentration c = <b>') + sci(c, 2) + ' mol L<sup>−1</sup></b><br>' +
+        L('KCl (তীব্ৰ): Λ<sub>m</sub> = Λ°<sub>m</sub> − A√c = <b>', 'KCl (strong): Λ<sub>m</sub> = Λ°<sub>m</sub> − A√c = <b>') + ls.toFixed(1) + L('</b> S cm² mol⁻¹ · পৰিবহনতা κ = Λ<sub>m</sub>c/1000 = <b>', '</b> S cm² mol⁻¹ · conductivity κ = Λ<sub>m</sub>c/1000 = <b>') + sci(ks, 2) + '</b> S m<sup>−1</sup><br>' +
+        L('CH<sub>3</sub>COOH (মৃদু): বিয়োজন মাত্ৰা α = <b>', 'CH<sub>3</sub>COOH (weak): degree of dissociation α = <b>') + a.toFixed(3) + '</b> · Λ<sub>m</sub> = αΛ°<sub>m</sub> = <b>' + lw.toFixed(1) + '</b> S cm² mol⁻¹ · κ = <b>' + sci(kw, 2) + '</b> S m<sup>−1</sup><br>' +
+        L('<span class="en">লঘু কৰিলে (c কমিলে) κ কমে, কিন্তু Λ<sub>m</sub> বাঢ়ে — মৃদু বিদ্যুৎবিশ্লেষ্যত অতি বেছিকৈ।</span>', '<span class="en">On dilution (as c falls) κ decreases but Λ<sub>m</sub> increases — much more steeply for a weak electrolyte.</span>');
       draw(c);
     }
     var sl = k.slider('log₁₀ c', -4, -1, 0.05, logc, function (v) { logc = v; paint(); });
     root.appendChild(h('div', { 'class': 'row' }, [sl.el]));
     root.appendChild(info);
-    root.appendChild(h('div', { 'class': 'legend' }, [h('span', { text: 'Λ°ₘ(KCl) = 150.0, A = 87.46 (সূত্ৰ: Λm = Λ°m − A√c)' }), h('span', { text: 'Λ°ₘ(CH₃COOH) = 390.5, Kₐ = 1.78 × 10⁻⁵' })]));
+    root.appendChild(h('div', { 'class': 'legend' }, [h('span', { text: L('Λ°ₘ(KCl) = 150.0, A = 87.46 (সূত্ৰ: Λm = Λ°m − A√c)', 'Λ°ₘ(KCl) = 150.0, A = 87.46 (formula: Λm = Λ°m − A√c)') }), h('span', { text: 'Λ°ₘ(CH₃COOH) = 390.5, Kₐ = 1.78 × 10⁻⁵' })]));
     paint();
   });
 
@@ -261,7 +262,7 @@
     var CAT = { 'H+': { z: 1, l: 349.6, f: 'H' }, 'Na+': { z: 1, l: 50.1, f: 'Na' }, 'K+': { z: 1, l: 73.5, f: 'K' }, 'Ca2+': { z: 2, l: 119.0, f: 'Ca' }, 'Mg2+': { z: 2, l: 106.0, f: 'Mg' } };
     var ANI = { 'OH-': { z: 1, l: 199.1, f: 'OH', poly: true }, 'Cl-': { z: 1, l: 76.3, f: 'Cl' }, 'Br-': { z: 1, l: 78.1, f: 'Br' }, 'CH3COO-': { z: 1, l: 40.9, f: 'CH₃COO', poly: true }, 'SO4 2-': { z: 2, l: 160.0, f: 'SO₄', poly: true } };
     var st = { c: 'Na+', a: 'Cl-' };
-    var svg = s('svg', { viewBox: '0 0 400 150', 'class': 'anim-svg', role: 'img', 'aria-label': 'আয়নৰ চৰম ম\'লাৰ পৰিবাহিতাৰ যোগফল' });
+    var svg = s('svg', { viewBox: '0 0 400 150', 'class': 'anim-svg', role: 'img', 'aria-label': L('আয়নৰ চৰম ম\'লাৰ পৰিবাহিতাৰ যোগফল', 'Sum of the limiting molar conductivities of the ions') });
     root.appendChild(svg);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     function paint() {
@@ -271,14 +272,14 @@
       if (st.c === 'H+' && st.a === 'CH3COO-') formula = 'CH₃COOH'; else if (st.c === 'H+' && st.a === 'OH-') formula = 'H₂O';
       var maxL = 520, bw = function (v) { return Math.min(340, v / maxL * 340); };
       svg.innerHTML = '';
-      svg.appendChild(s('text', { x: 10, y: 22, 'font-size': 13, style: 'fill:var(--text)', text: 'ধনায়ন λ°₊ × ' + nc + ' = ' + (nc * c.l).toFixed(1) }));
+      svg.appendChild(s('text', { x: 10, y: 22, 'font-size': 13, style: 'fill:var(--text)', text: L('ধনায়ন', 'Cation') + ' λ°₊ × ' + nc + ' = ' + (nc * c.l).toFixed(1) }));
       svg.appendChild(s('rect', { x: 10, y: 30, width: bw(nc * c.l), height: 26, rx: 4, style: 'fill:var(--electron)' }));
-      svg.appendChild(s('text', { x: 10, y: 80, 'font-size': 13, style: 'fill:var(--text)', text: 'ঋণায়ন λ°₋ × ' + na + ' = ' + (na * a.l).toFixed(1) }));
+      svg.appendChild(s('text', { x: 10, y: 80, 'font-size': 13, style: 'fill:var(--text)', text: L('ঋণায়ন', 'Anion') + ' λ°₋ × ' + na + ' = ' + (na * a.l).toFixed(1) }));
       svg.appendChild(s('rect', { x: 10, y: 88, width: bw(na * a.l), height: 26, rx: 4, style: 'fill:var(--proton)' }));
-      svg.appendChild(s('text', { x: 10, y: 140, 'font-size': 12, style: 'fill:var(--muted)', text: 'সম্পূৰ্ণ দৈৰ্ঘ্য = Λ°ₘ (স্কেল: 520 S cm² mol⁻¹)' }));
-      info.innerHTML = 'বিদ্যুৎবিশ্লেষ্য: <b>' + formula + '</b> → ν<sub>+</sub> = ' + nc + ', ν<sub>−</sub> = ' + na + '<br>' +
+      svg.appendChild(s('text', { x: 10, y: 140, 'font-size': 12, style: 'fill:var(--muted)', text: L('সম্পূৰ্ণ দৈৰ্ঘ্য = Λ°ₘ (স্কেল: 520 S cm² mol⁻¹)', 'full length = Λ°ₘ (scale: 520 S cm² mol⁻¹)') }));
+      info.innerHTML = L('বিদ্যুৎবিশ্লেষ্য: <b>', 'Electrolyte: <b>') + formula + '</b> → ν<sub>+</sub> = ' + nc + ', ν<sub>−</sub> = ' + na + '<br>' +
         'Λ°<sub>m</sub> = ν<sub>+</sub>λ°<sub>+</sub> + ν<sub>−</sub>λ°<sub>−</sub> = ' + nc + ' × ' + c.l + ' + ' + na + ' × ' + a.l + ' = <b>' + lam.toFixed(1) + ' S cm² mol<sup>−1</sup></b>' +
-        ((st.c === 'H+' && st.a === 'CH3COO-') ? '<br><span class="en">ইয়াৰ পৰা মৃদু এছিড CH₃COOH ৰ Λ°ₘ = 349.6 + 40.9 = 390.5 পোৱা যায়।</span>' : '');
+        ((st.c === 'H+' && st.a === 'CH3COO-') ? L('<br><span class="en">ইয়াৰ পৰা মৃদু এছিড CH₃COOH ৰ Λ°ₘ = 349.6 + 40.9 = 390.5 পোৱা যায়।</span>', '<br><span class="en">From this, Λ°ₘ of the weak acid CH₃COOH = 349.6 + 40.9 = 390.5.</span>') : '');
     }
     var cs = k.select('Cation', Object.keys(CAT).map(function (n) { return { value: n, label: n.replace('2+', '²⁺').replace('+', '⁺') + ' (λ° = ' + CAT[n].l + ')' }; }), st.c, function (v) { st.c = v; paint(); });
     var as = k.select('Anion', Object.keys(ANI).map(function (n) { return { value: n, label: n.replace('2-', '²⁻').replace('-', '⁻') + ' (λ° = ' + ANI[n].l + ')' }; }), st.a, function (v) { st.a = v; paint(); });
@@ -292,7 +293,7 @@
     var h = k.h, s = k.s;
     var MET = { Ag: { z: 1, M: 108 }, Cu: { z: 2, M: 63.5 }, Ni: { z: 2, M: 58.7 }, Zn: { z: 2, M: 65.4 }, Al: { z: 3, M: 27 }, Mg: { z: 2, M: 24.3 } };
     var st = { m: 'Cu', I: 2, t: 30 }, sim = 0, playing = false;
-    var svg = s('svg', { viewBox: '0 0 400 210', 'class': 'anim-svg', role: 'img', 'aria-label': 'ফেৰাডেৰ সূত্ৰ: বিদ্যুৎবিশ্লেষণত ধাতুৰ জমা' });
+    var svg = s('svg', { viewBox: '0 0 400 210', 'class': 'anim-svg', role: 'img', 'aria-label': L('ফেৰাডেৰ সূত্ৰ: বিদ্যুৎবিশ্লেষণত ধাতুৰ জমা', 'Faraday\'s laws: deposition of metal in electrolysis') });
     root.appendChild(svg);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     var bubbles = [], depo = s('rect', { x: 262, width: 20, rx: 3 }), bub = s('g');
@@ -300,8 +301,8 @@
     svg.appendChild(s('rect', { x: 118, y: 40, width: 16, height: 150, style: 'fill:var(--muted)' }));
     svg.appendChild(s('rect', { x: 266, y: 40, width: 16, height: 150, style: 'fill:var(--muted)' }));
     svg.appendChild(depo); svg.appendChild(bub);
-    svg.appendChild(s('text', { x: 126, y: 206, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--text)', text: 'এন\'ড (+)' }));
-    svg.appendChild(s('text', { x: 274, y: 206, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--text)', text: 'কেথ\'ড (−)' }));
+    svg.appendChild(s('text', { x: 126, y: 206, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--text)', text: L('এন\'ড (+)', 'Anode (+)') }));
+    svg.appendChild(s('text', { x: 274, y: 206, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--text)', text: L('কেথ\'ড (−)', 'Cathode (−)') }));
     svg.appendChild(s('path', { d: 'M126 40 V16 H274 V40', fill: 'none', style: 'stroke:var(--text)', 'stroke-width': 2 }));
     svg.appendChild(s('text', { x: 200, y: 12, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, style: 'fill:var(--text)', id: 'ftxt', text: '' }));
     var lab = svg.lastChild;
@@ -313,10 +314,10 @@
       var hgt = clamp(g * 40, 0, 118);
       depo.setAttribute('x', 262); depo.setAttribute('width', 8); depo.setAttribute('y', 190 - hgt); depo.setAttribute('height', hgt); depo.setAttribute('style', 'fill:var(--alpha)');
       var tm = st.t, Qf = st.I * tm * 60, gf = mass(tm);
-      info.innerHTML = '<b>' + st.m + '</b>: ' + ion(st.m, m.z) + ' + ' + m.z + 'e<sup>−</sup> → ' + st.m + ' (ম\'লাৰ ভৰ ' + m.M + ' g mol<sup>−1</sup>)<br>' +
-        'আধান Q = I × t = ' + st.I + ' A × ' + (tm * 60) + ' s = <b>' + Qf.toFixed(0) + ' C</b> = ' + (Qf / F).toFixed(3) + ' F<br>' +
-        'জমা হোৱা ' + st.m + ' = (M × Q) / (z × F) = (' + m.M + ' × ' + Qf.toFixed(0) + ') / (' + m.z + ' × 96500) = <b>' + gf.toFixed(3) + ' g</b>' +
-        (playing ? '<br><span class="en">এতিয়া: ' + t.toFixed(0) + ' মিনিটত ' + g.toFixed(3) + ' g</span>' : '');
+      info.innerHTML = '<b>' + st.m + '</b>: ' + ion(st.m, m.z) + ' + ' + m.z + 'e<sup>−</sup> → ' + st.m + L(' (ম\'লাৰ ভৰ ', ' (molar mass ') + m.M + ' g mol<sup>−1</sup>)<br>' +
+        L('আধান Q = I × t = ', 'Charge Q = I × t = ') + st.I + ' A × ' + (tm * 60) + ' s = <b>' + Qf.toFixed(0) + ' C</b> = ' + (Qf / F).toFixed(3) + ' F<br>' +
+        L('জমা হোৱা ', 'Deposited ') + st.m + ' = (M × Q) / (z × F) = (' + m.M + ' × ' + Qf.toFixed(0) + ') / (' + m.z + ' × 96500) = <b>' + gf.toFixed(3) + ' g</b>' +
+        (playing ? '<br><span class="en">' + L('এতিয়া: ' + t.toFixed(0) + ' মিনিটত ' + g.toFixed(3) + ' g', 'Now: ' + g.toFixed(3) + ' g in ' + t.toFixed(0) + ' minutes') + '</span>' : '');
     }
     function tick(dt) {
       if (playing) { sim += st.t * dt / 4; if (sim >= st.t) { sim = st.t; playing = false; } }
@@ -341,23 +342,23 @@
   A.register('electrolysis', function (root, k) {
     var h = k.h, s = k.s;
     var CASES = [
-      { n: 'Molten NaCl (inert electrodes)', c: { p: 'Na ধাতু', t: 'metal', col: '#c9ced6' }, a: { p: 'Cl₂ গেছ', t: 'gas', col: '#9be15d' },
-        why: 'গলিত অৱস্থাত কেৱল Na⁺ আৰু Cl⁻ থাকে। কেথ\'ডত Na⁺ + e⁻ → Na; এন\'ডত Cl⁻ → ½Cl₂ + e⁻।' },
-      { n: 'Aqueous NaCl (inert electrodes)', c: { p: 'H₂ গেছ (দ্ৰৱত OH⁻ বাঢ়ে)', t: 'gas', col: '#8ecae6' }, a: { p: 'Cl₂ গেছ', t: 'gas', col: '#9be15d' },
-        why: 'কেথ\'ডত Na⁺ (E° = −2.71 V) ৰ বিজাৰণতকৈ পানীৰ বিজাৰণ (E° = −0.83 V) সহজ, গতিকে H₂ ওলায়। এন\'ডত O₂ ৰ (E° = 1.23 V) পৰিৱৰ্তে অধিবিভৱৰ বাবে Cl₂ (1.36 V) ওলায়। ফলত NaOH, Cl₂, H₂ পোৱা যায়।' },
-      { n: 'Aqueous CuSO₄ (Pt electrodes)', c: { p: 'Cu ধাতু জমা', t: 'metal', col: '#c46a2d' }, a: { p: 'O₂ গেছ', t: 'gas', col: '#ffd6a5' },
-        why: 'কেথ\'ডত Cu²⁺ (E° = +0.34 V) পানীতকৈ সহজে বিজাৰিত হয়। এন\'ডত SO₄²⁻ জাৰিত নহয়; পানী জাৰিত হৈ O₂ ওলায়।' },
-      { n: 'Aqueous CuSO₄ (Cu electrodes)', c: { p: 'Cu ধাতু জমা', t: 'metal', col: '#c46a2d' }, a: { p: 'Cu এন\'ড দ্ৰবীভূত হয় (Cu → Cu²⁺ + 2e⁻)', t: 'dissolve', col: '#c46a2d' },
-        why: 'ক্ৰিয়াশীল ইলেক্ট্ৰ\'ড (Cu) নিজেই জাৰিত হয়: ইয়াৰ জাৰণ বিভৱ পানীৰ তকৈ কম। এইটোৱেই অশুদ্ধ কপাৰ বিশুদ্ধকৰণৰ নীতি।' },
-      { n: 'Dilute H₂SO₄ (Pt electrodes)', c: { p: 'H₂ গেছ', t: 'gas', col: '#8ecae6' }, a: { p: 'O₂ গেছ', t: 'gas', col: '#ffd6a5' },
-        why: 'লঘু H₂SO₄ ত পানীৰ বিদ্যুৎবিশ্লেষণ হয়: কেথ\'ডত 2H⁺ + 2e⁻ → H₂, এন\'ডত 2H₂O → O₂ + 4H⁺ + 4e⁻। (H₂ : O₂ = 2 : 1)' },
-      { n: 'Aqueous AgNO₃ (Pt electrodes)', c: { p: 'Ag ধাতু জমা', t: 'metal', col: '#e5e9ee' }, a: { p: 'O₂ গেছ', t: 'gas', col: '#ffd6a5' },
-        why: 'Ag⁺ (E° = +0.80 V) সহজে বিজাৰিত হয়। এন\'ডত পানী জাৰিত হৈ O₂ ওলায়।' },
-      { n: 'Aqueous AgNO₃ (Ag electrodes)', c: { p: 'Ag ধাতু জমা', t: 'metal', col: '#e5e9ee' }, a: { p: 'Ag এন\'ড দ্ৰবীভূত হয়', t: 'dissolve', col: '#e5e9ee' },
-        why: 'Ag ইলেক্ট্ৰ\'ড সক্ৰিয়: এন\'ডত Ag → Ag⁺ + e⁻। এন\'ডৰ Ag দ্ৰবীভূত হয় আৰু কেথ\'ডত সমপৰিমাণ Ag জমা হয় (ইলেক্ট্ৰ\'ডপ্লেটিং)।' }
+      { n: 'Molten NaCl (inert electrodes)', c: { p: L('Na ধাতু', 'Na metal'), t: 'metal', col: '#c9ced6' }, a: { p: L('Cl₂ গেছ', 'Cl₂ gas'), t: 'gas', col: '#9be15d' },
+        why: L('গলিত অৱস্থাত কেৱল Na⁺ আৰু Cl⁻ থাকে। কেথ\'ডত Na⁺ + e⁻ → Na; এন\'ডত Cl⁻ → ½Cl₂ + e⁻।', 'In the molten state only Na⁺ and Cl⁻ are present. Cathode: Na⁺ + e⁻ → Na; anode: Cl⁻ → ½Cl₂ + e⁻.') },
+      { n: 'Aqueous NaCl (inert electrodes)', c: { p: L('H₂ গেছ (দ্ৰৱত OH⁻ বাঢ়ে)', 'H₂ gas (OH⁻ builds up in the solution)'), t: 'gas', col: '#8ecae6' }, a: { p: L('Cl₂ গেছ', 'Cl₂ gas'), t: 'gas', col: '#9be15d' },
+        why: L('কেথ\'ডত Na⁺ (E° = −2.71 V) ৰ বিজাৰণতকৈ পানীৰ বিজাৰণ (E° = −0.83 V) সহজ, গতিকে H₂ ওলায়। এন\'ডত O₂ ৰ (E° = 1.23 V) পৰিৱৰ্তে অধিবিভৱৰ বাবে Cl₂ (1.36 V) ওলায়। ফলত NaOH, Cl₂, H₂ পোৱা যায়।', 'At the cathode, reduction of water (E° = −0.83 V) is easier than reduction of Na⁺ (E° = −2.71 V), so H₂ is released. At the anode, because of overpotential, Cl₂ (1.36 V) is released instead of O₂ (E° = 1.23 V). So NaOH, Cl₂ and H₂ are obtained.') },
+      { n: 'Aqueous CuSO₄ (Pt electrodes)', c: { p: L('Cu ধাতু জমা', 'Cu metal deposited'), t: 'metal', col: '#c46a2d' }, a: { p: L('O₂ গেছ', 'O₂ gas'), t: 'gas', col: '#ffd6a5' },
+        why: L('কেথ\'ডত Cu²⁺ (E° = +0.34 V) পানীতকৈ সহজে বিজাৰিত হয়। এন\'ডত SO₄²⁻ জাৰিত নহয়; পানী জাৰিত হৈ O₂ ওলায়।', 'At the cathode Cu²⁺ (E° = +0.34 V) is reduced more easily than water. At the anode SO₄²⁻ is not oxidised; water is oxidised and O₂ is released.') },
+      { n: 'Aqueous CuSO₄ (Cu electrodes)', c: { p: L('Cu ধাতু জমা', 'Cu metal deposited'), t: 'metal', col: '#c46a2d' }, a: { p: L('Cu এন\'ড দ্ৰবীভূত হয় (Cu → Cu²⁺ + 2e⁻)', 'Cu anode dissolves (Cu → Cu²⁺ + 2e⁻)'), t: 'dissolve', col: '#c46a2d' },
+        why: L('ক্ৰিয়াশীল ইলেক্ট্ৰ\'ড (Cu) নিজেই জাৰিত হয়: ইয়াৰ জাৰণ বিভৱ পানীৰ তকৈ কম। এইটোৱেই অশুদ্ধ কপাৰ বিশুদ্ধকৰণৰ নীতি।', 'The active electrode (Cu) is itself oxidised: its oxidation potential is lower than that of water. This is the principle of purification of impure copper.') },
+      { n: 'Dilute H₂SO₄ (Pt electrodes)', c: { p: L('H₂ গেছ', 'H₂ gas'), t: 'gas', col: '#8ecae6' }, a: { p: L('O₂ গেছ', 'O₂ gas'), t: 'gas', col: '#ffd6a5' },
+        why: L('লঘু H₂SO₄ ত পানীৰ বিদ্যুৎবিশ্লেষণ হয়: কেথ\'ডত 2H⁺ + 2e⁻ → H₂, এন\'ডত 2H₂O → O₂ + 4H⁺ + 4e⁻। (H₂ : O₂ = 2 : 1)', 'In dilute H₂SO₄ water is electrolysed: cathode 2H⁺ + 2e⁻ → H₂, anode 2H₂O → O₂ + 4H⁺ + 4e⁻. (H₂ : O₂ = 2 : 1)') },
+      { n: 'Aqueous AgNO₃ (Pt electrodes)', c: { p: L('Ag ধাতু জমা', 'Ag metal deposited'), t: 'metal', col: '#e5e9ee' }, a: { p: L('O₂ গেছ', 'O₂ gas'), t: 'gas', col: '#ffd6a5' },
+        why: L('Ag⁺ (E° = +0.80 V) সহজে বিজাৰিত হয়। এন\'ডত পানী জাৰিত হৈ O₂ ওলায়।', 'Ag⁺ (E° = +0.80 V) is reduced easily. At the anode water is oxidised and O₂ is released.') },
+      { n: 'Aqueous AgNO₃ (Ag electrodes)', c: { p: L('Ag ধাতু জমা', 'Ag metal deposited'), t: 'metal', col: '#e5e9ee' }, a: { p: L('Ag এন\'ড দ্ৰবীভূত হয়', 'Ag anode dissolves'), t: 'dissolve', col: '#e5e9ee' },
+        why: L('Ag ইলেক্ট্ৰ\'ড সক্ৰিয়: এন\'ডত Ag → Ag⁺ + e⁻। এন\'ডৰ Ag দ্ৰবীভূত হয় আৰু কেথ\'ডত সমপৰিমাণ Ag জমা হয় (ইলেক্ট্ৰ\'ডপ্লেটিং)।', 'The Ag electrode is active: at the anode Ag → Ag⁺ + e⁻. The Ag of the anode dissolves and an equal amount of Ag is deposited at the cathode (electroplating).') }
     ];
     var cur = 0, bubbles = [], growth = 0;
-    var svg = s('svg', { viewBox: '0 0 400 220', 'class': 'anim-svg', role: 'img', 'aria-label': 'বিদ্যুৎবিশ্লেষণৰ ফলত এন\'ড আৰু কেথ\'ডত উৎপন্ন পদাৰ্থ' });
+    var svg = s('svg', { viewBox: '0 0 400 220', 'class': 'anim-svg', role: 'img', 'aria-label': L('বিদ্যুৎবিশ্লেষণৰ ফলত এন\'ড আৰু কেথ\'ডত উৎপন্ন পদাৰ্থ', 'Products formed at the anode and cathode by electrolysis') });
     root.appendChild(svg);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     var gB = s('g'), anode, cathode, depo;
@@ -371,12 +372,12 @@
       depo = s('rect', { x: 280, y: 188, width: 5, height: 0, style: 'fill:' + c.c.col });
       svg.appendChild(depo);
       svg.appendChild(s('path', { d: 'M129 40 V14 H271 V40', fill: 'none', style: 'stroke:var(--text)', 'stroke-width': 2 }));
-      svg.appendChild(s('text', { x: 200, y: 10, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, style: 'fill:var(--text)', text: 'DC উৎস' }));
-      svg.appendChild(s('text', { x: 129, y: 216, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--text)', text: 'এন\'ড (+)' }));
-      svg.appendChild(s('text', { x: 271, y: 216, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--text)', text: 'কেথ\'ড (−)' }));
+      svg.appendChild(s('text', { x: 200, y: 10, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, style: 'fill:var(--text)', text: L('DC উৎস', 'DC source') }));
+      svg.appendChild(s('text', { x: 129, y: 216, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--text)', text: L('এন\'ড (+)', 'Anode (+)') }));
+      svg.appendChild(s('text', { x: 271, y: 216, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--text)', text: L('কেথ\'ড (−)', 'Cathode (−)') }));
       svg.appendChild(gB);
       gB.innerHTML = '';
-      info.innerHTML = '<b>এন\'ড:</b> ' + c.a.p + '<br><b>কেথ\'ড:</b> ' + c.c.p + '<br><span class="en">' + c.why + '</span>';
+      info.innerHTML = L('<b>এন\'ড:</b> ', '<b>Anode:</b> ') + c.a.p + L('<br><b>কেথ\'ড:</b> ', '<br><b>Cathode:</b> ') + c.c.p + '<br><span class="en">' + c.why + '</span>';
     }
     function tick(dt) {
       var c = CASES[cur];
@@ -401,13 +402,13 @@
   A.register('corrosion', function (root, k) {
     var h = k.h, s = k.s;
     var CASES = [
-      { n: 'Bare iron + water drop', rust: 1, txt: 'বিন্দুৰ মাজত Fe এন\'ড হিচাপে কাম কৰে: Fe → Fe²⁺ + 2e⁻ (E° = −0.44 V)। ইলেক্ট্ৰন ধাতুৰ মাজেৰে প্ৰান্তলৈ যায়, য\'ত বায়ুৰ O₂ বিজাৰিত হয়: O₂ + 4H⁺ + 4e⁻ → 2H₂O (E° = 1.23 V)। Fe²⁺ ক O₂ য়ে Fe³⁺ লৈ জাৰিত কৰে — ফলত মামৰ (Fe₂O₃·xH₂O) জমা হয়।' },
-      { n: 'Painted iron', rust: 0, txt: 'ৰঙৰ স্তৰে আইৰণক পানী আৰু বায়ুৰ সংস্পৰ্শৰ পৰা আঁতৰাই ৰাখে। বিদ্যুৎৰাসায়নিক কোষ গঠন নহয়, গতিকে মামৰ নধৰে।' },
-      { n: 'Zinc-coated (galvanised), scratched', rust: 0, txt: 'Zn (E° = −0.76 V) Fe (−0.44 V) তকৈ বেছি সক্ৰিয়। আঁচোৰ লাগিলেও Zn এন\'ড হয় আৰু নিজে ক্ষয় হয়; Fe কেথ\'ড হোৱাৰ বাবে সুৰক্ষিত থাকে। ইয়াক বলিদানকাৰী সুৰক্ষা (sacrificial protection) বোলে।' },
-      { n: 'Tin-coated, scratched', rust: 2, txt: 'Sn (E° = −0.14 V) Fe তকৈ কম সক্ৰিয়। আঁচোৰ লাগিলে Fe এন\'ড হয় আৰু Sn কেথ\'ড; ফলত আইৰণ খোলা অৱস্থাতকৈও দ্ৰুতগতিত ক্ষয় হয়।' }
+      { n: 'Bare iron + water drop', rust: 1, txt: L('বিন্দুৰ মাজত Fe এন\'ড হিচাপে কাম কৰে: Fe → Fe²⁺ + 2e⁻ (E° = −0.44 V)। ইলেক্ট্ৰন ধাতুৰ মাজেৰে প্ৰান্তলৈ যায়, য\'ত বায়ুৰ O₂ বিজাৰিত হয়: O₂ + 4H⁺ + 4e⁻ → 2H₂O (E° = 1.23 V)। Fe²⁺ ক O₂ য়ে Fe³⁺ লৈ জাৰিত কৰে — ফলত মামৰ (Fe₂O₃·xH₂O) জমা হয়।', 'In the middle of the drop Fe acts as the anode: Fe → Fe²⁺ + 2e⁻ (E° = −0.44 V). Electrons go through the metal to the edge, where O₂ from the air is reduced: O₂ + 4H⁺ + 4e⁻ → 2H₂O (E° = 1.23 V). O₂ oxidises Fe²⁺ to Fe³⁺ — so rust (Fe₂O₃·xH₂O) is deposited.') },
+      { n: 'Painted iron', rust: 0, txt: L('ৰঙৰ স্তৰে আইৰণক পানী আৰু বায়ুৰ সংস্পৰ্শৰ পৰা আঁতৰাই ৰাখে। বিদ্যুৎৰাসায়নিক কোষ গঠন নহয়, গতিকে মামৰ নধৰে।', 'The layer of paint keeps the iron away from water and air. No electrochemical cell forms, so the iron does not rust.') },
+      { n: 'Zinc-coated (galvanised), scratched', rust: 0, txt: L('Zn (E° = −0.76 V) Fe (−0.44 V) তকৈ বেছি সক্ৰিয়। আঁচোৰ লাগিলেও Zn এন\'ড হয় আৰু নিজে ক্ষয় হয়; Fe কেথ\'ড হোৱাৰ বাবে সুৰক্ষিত থাকে। ইয়াক বলিদানকাৰী সুৰক্ষা (sacrificial protection) বোলে।', 'Zn (E° = −0.76 V) is more reactive than Fe (−0.44 V). Even when scratched, Zn becomes the anode and corrodes itself; Fe stays protected because it is the cathode. This is called sacrificial protection.') },
+      { n: 'Tin-coated, scratched', rust: 2, txt: L('Sn (E° = −0.14 V) Fe তকৈ কম সক্ৰিয়। আঁচোৰ লাগিলে Fe এন\'ড হয় আৰু Sn কেথ\'ড; ফলত আইৰণ খোলা অৱস্থাতকৈও দ্ৰুতগতিত ক্ষয় হয়।', 'Sn (E° = −0.14 V) is less reactive than Fe. When scratched, Fe becomes the anode and Sn the cathode; so the iron corrodes even faster than bare iron.') }
     ];
     var cur = 0, t = 0, phase = 0;
-    var svg = s('svg', { viewBox: '0 0 400 220', 'class': 'anim-svg', role: 'img', 'aria-label': 'আইৰণৰ ক্ষয়ীভৱন আৰু সুৰক্ষা' });
+    var svg = s('svg', { viewBox: '0 0 400 220', 'class': 'anim-svg', role: 'img', 'aria-label': L('আইৰণৰ ক্ষয়ীভৱন আৰু সুৰক্ষা', 'Corrosion and protection of iron') });
     root.appendChild(svg);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     var rustG = s('rect'), dots = [], PATH = [];
@@ -420,22 +421,22 @@
       if (cur === 1) {
         svg.appendChild(s('rect', { x: 20, y: 130, width: 360, height: 10, style: 'fill:var(--alpha)' }));
         svg.appendChild(s('ellipse', { cx: 200, cy: 118, rx: 70, ry: 14, style: 'fill:var(--electron);opacity:.35' }));
-        svg.appendChild(s('text', { x: 200, y: 60, 'text-anchor': 'middle', 'font-size': 13, style: 'fill:var(--text)', text: 'ৰং — পানী আৰু Fe ৰ সংস্পৰ্শ নাই' }));
+        svg.appendChild(s('text', { x: 200, y: 60, 'text-anchor': 'middle', 'font-size': 13, style: 'fill:var(--text)', text: L('ৰং — পানী আৰু Fe ৰ সংস্পৰ্শ নাই', 'paint — no contact between water and Fe') }));
       } else {
         if (cur === 2 || cur === 3) {
           svg.appendChild(s('rect', { x: 20, y: 128, width: 360, height: 12, style: 'fill:' + (cur === 2 ? '#8a93a0' : '#d7dbe0') }));
           svg.appendChild(s('rect', { x: 188, y: 126, width: 24, height: 16, style: 'fill:var(--canvas)' }));   /* scratch */
-          svg.appendChild(s('text', { x: 30, y: 122, 'font-size': 12, style: 'fill:var(--muted)', text: cur === 2 ? 'Zn আৱৰণ' : 'Sn আৱৰণ' }));
+          svg.appendChild(s('text', { x: 30, y: 122, 'font-size': 12, style: 'fill:var(--muted)', text: cur === 2 ? L('Zn আৱৰণ', 'Zn coating') : L('Sn আৱৰণ', 'Sn coating') }));
         }
         svg.appendChild(s('path', { d: 'M110 140 Q110 70 200 70 Q290 70 290 140 Z', style: 'fill:var(--electron);opacity:.3;stroke:var(--electron)', 'stroke-width': 1.5 }));
-        svg.appendChild(s('text', { x: 200, y: 56, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--muted)', text: 'O₂ (বায়ুৰ)' }));
+        svg.appendChild(s('text', { x: 200, y: 56, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--muted)', text: L('O₂ (বায়ুৰ)', 'O₂ (from air)') }));
         /* anode / cathode labels */
         var anodeX = cur === 2 ? 130 : 200, cathX = cur === 2 ? 200 : 118;
         if (cur === 0) { anodeX = 200; cathX = 125; }
         if (cur === 3) { anodeX = 200; cathX = 125; }
         if (cur === 2) { anodeX = 125; cathX = 200; }
-        svg.appendChild(s('text', { x: anodeX, y: 205, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, style: 'fill:var(--proton)', text: cur === 2 ? 'এন\'ড: Zn' : 'এন\'ড: Fe' }));
-        svg.appendChild(s('text', { x: cathX, y: 205, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, style: 'fill:var(--electron)', text: cur === 2 ? 'কেথ\'ড: Fe' : (cur === 3 ? 'কেথ\'ড: Sn' : 'কেথ\'ড: O₂ বিজাৰণ') }));
+        svg.appendChild(s('text', { x: anodeX, y: 205, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, style: 'fill:var(--proton)', text: cur === 2 ? L('এন\'ড: Zn', 'Anode: Zn') : L('এন\'ড: Fe', 'Anode: Fe') }));
+        svg.appendChild(s('text', { x: cathX, y: 205, 'text-anchor': 'middle', 'font-size': 12, 'font-weight': 700, style: 'fill:var(--electron)', text: cur === 2 ? L('কেথ\'ড: Fe', 'Cathode: Fe') : (cur === 3 ? L('কেথ\'ড: Sn', 'Cathode: Sn') : L('কেথ\'ড: O₂ বিজাৰণ', 'Cathode (O₂)')) }));
         PATH = [[anodeX, 190], [anodeX, 196], [cathX, 196], [cathX, 190]];
         for (var i = 0; i < 6; i++) { var d = s('circle', { r: 3.6, style: 'fill:var(--electron)' }); svg.appendChild(d); dots.push(d); }
       }
@@ -447,8 +448,8 @@
       var c = CASES[cur]; t += dt;
       phase += dt * 60;
       if (dots.length) {
-        var L = PATH_LEN(PATH);
-        dots.forEach(function (d, i) { var p = polyline(PATH, phase + i * L / dots.length); d.setAttribute('cx', p[0]); d.setAttribute('cy', p[1] - 8); });
+        var PLEN = PATH_LEN(PATH);
+        dots.forEach(function (d, i) { var p = polyline(PATH, phase + i * PLEN / dots.length); d.setAttribute('cx', p[0]); d.setAttribute('cy', p[1] - 8); });
       }
       var rate = c.rust === 1 ? 5 : (c.rust === 2 ? 11 : 0);
       var hh = Math.min(46, t * rate);
@@ -466,7 +467,7 @@
   /* ================================================================== lead storage battery */
   A.register('battery', function (root, k) {
     var h = k.h, W = 480, H = 280;
-    var canvas = h('canvas', { 'class': 'anim-canvas', role: 'img', 'aria-label': 'লেড ষ্ট\'ৰেজ বেটাৰিৰ আধান আৰু নিৰ্গমন' });
+    var canvas = h('canvas', { 'class': 'anim-canvas', role: 'img', 'aria-label': L('লেড ষ্ট\'ৰেজ বেটাৰিৰ আধান আৰু নিৰ্গমন', 'Charging and discharging of a lead storage battery') });
     root.appendChild(canvas);
     var ctx = k.hiDpiCanvas(canvas, W, H);
     var soc = 100, mode = 'idle';
@@ -486,15 +487,15 @@
         ctx.fillStyle = txt; ctx.textAlign = 'center'; ctx.fillText(b[0], x + 35, 222); ctx.textAlign = 'start';
       });
       ctx.fillStyle = mu; ctx.font = '12px "Noto Sans Bengali", sans-serif';
-      ctx.fillText('পদাৰ্থৰ পৰিমাণ (আপেক্ষিক)', 40, 28);
+      ctx.fillText(L('পদাৰ্থৰ পৰিমাণ (আপেক্ষিক)', 'Amount of substance (relative)'), 40, 28);
       ctx.fillStyle = txt; ctx.font = '700 15px "Noto Sans Bengali", sans-serif';
-      ctx.fillText('এটা কোষ: ' + volt().toFixed(2) + ' V   ·   6 কোষ: ' + (6 * volt()).toFixed(1) + ' V', 40, 255);
+      ctx.fillText(L('এটা কোষ: ', 'One cell: ') + volt().toFixed(2) + L(' V   ·   6 কোষ: ', ' V   ·   6 cells: ') + (6 * volt()).toFixed(1) + ' V', 40, 255);
     }
     function paint() {
-      var m = mode === 'charge' ? 'আধান (charging) — বাহ্যিক উৎসৰ বিদ্যুৎ প্ৰয়োগ; বিক্ৰিয়া উলোটা' : (mode === 'discharge' ? 'নিৰ্গমন (discharging) — বেটাৰিৰ পৰা বিদ্যুৎ পোৱা যায়' : 'বিশ্ৰাম');
-      info.innerHTML = '<b>' + m + '</b><br>আধানৰ মাত্ৰা: <b>' + soc.toFixed(0) + '%</b> · H<sub>2</sub>SO<sub>4</sub> ৰ ঘনত্ব ≈ <b>' + dens().toFixed(2) + ' g mL<sup>−1</sup></b> (ইয়াৰ পৰা বেটাৰিৰ অৱস্থা জনা যায়)<br>' +
-        'নিৰ্গমনত: এন\'ড Pb + SO<sub>4</sub><sup>2−</sup> → PbSO<sub>4</sub> + 2e<sup>−</sup>; কেথ\'ড PbO<sub>2</sub> + SO<sub>4</sub><sup>2−</sup> + 4H<sup>+</sup> + 2e<sup>−</sup> → PbSO<sub>4</sub> + 2H<sub>2</sub>O<br>' +
-        'সম্পূৰ্ণ: Pb + PbO<sub>2</sub> + 2H<sub>2</sub>SO<sub>4</sub> ⇌ 2PbSO<sub>4</sub> + 2H<sub>2</sub>O (আধান কৰিলে ডেউকালে)';
+      var m = mode === 'charge' ? L('আধান (charging) — বাহ্যিক উৎসৰ বিদ্যুৎ প্ৰয়োগ; বিক্ৰিয়া উলোটা', 'Charging — current from an external source is applied; the reaction is reversed') : (mode === 'discharge' ? L('নিৰ্গমন (discharging) — বেটাৰিৰ পৰা বিদ্যুৎ পোৱা যায়', 'Discharging — current is obtained from the battery') : L('বিশ্ৰাম', 'Resting'));
+      info.innerHTML = '<b>' + m + '</b><br>' + L('আধানৰ মাত্ৰা', 'State of charge') + ': <b>' + soc.toFixed(0) + '%</b> · ' + L('H<sub>2</sub>SO<sub>4</sub> ৰ ঘনত্ব', 'density of H<sub>2</sub>SO<sub>4</sub>') + ' ≈ <b>' + dens().toFixed(2) + L(' g mL<sup>−1</sup></b> (ইয়াৰ পৰা বেটাৰিৰ অৱস্থা জনা যায়)<br>', ' g mL<sup>−1</sup></b> (this tells the state of the battery)<br>') +
+        L('নিৰ্গমনত: এন\'ড Pb + SO<sub>4</sub><sup>2−</sup> → PbSO<sub>4</sub> + 2e<sup>−</sup>; কেথ\'ড PbO<sub>2</sub> + SO<sub>4</sub><sup>2−</sup> + 4H<sup>+</sup> + 2e<sup>−</sup> → PbSO<sub>4</sub> + 2H<sub>2</sub>O<br>', 'On discharge: anode Pb + SO<sub>4</sub><sup>2−</sup> → PbSO<sub>4</sub> + 2e<sup>−</sup>; cathode PbO<sub>2</sub> + SO<sub>4</sub><sup>2−</sup> + 4H<sup>+</sup> + 2e<sup>−</sup> → PbSO<sub>4</sub> + 2H<sub>2</sub>O<br>') +
+        L('সম্পূৰ্ণ: Pb + PbO<sub>2</sub> + 2H<sub>2</sub>SO<sub>4</sub> ⇌ 2PbSO<sub>4</sub> + 2H<sub>2</sub>O (আধান কৰিলে ডেউকালে)', 'Overall: Pb + PbO<sub>2</sub> + 2H<sub>2</sub>SO<sub>4</sub> ⇌ 2PbSO<sub>4</sub> + 2H<sub>2</sub>O (on charging it goes the other way)');
       draw();
     }
     function tick(dt) {
@@ -514,19 +515,19 @@
   /* ================================================================== H2-O2 fuel cell */
   A.register('fuelcell', function (root, k) {
     var h = k.h, s = k.s, run = true, water = 0, phase = 0;
-    var svg = s('svg', { viewBox: '0 0 420 240', 'class': 'anim-svg', role: 'img', 'aria-label': 'হাইড্ৰজেন-অক্সিজেন ইন্ধন কোষ' });
+    var svg = s('svg', { viewBox: '0 0 420 240', 'class': 'anim-svg', role: 'img', 'aria-label': L('হাইড্ৰজেন-অক্সিজেন ইন্ধন কোষ', 'Hydrogen–oxygen fuel cell') });
     root.appendChild(svg);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     svg.appendChild(s('rect', { x: 150, y: 60, width: 120, height: 130, style: 'fill:var(--electron);opacity:.2;stroke:var(--electron)' }));
     svg.appendChild(s('rect', { x: 140, y: 60, width: 14, height: 130, style: 'fill:#4f5560' }));
     svg.appendChild(s('rect', { x: 266, y: 60, width: 14, height: 130, style: 'fill:#4f5560' }));
-    svg.appendChild(s('text', { x: 210, y: 128, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--text)', text: 'জলীয় KOH' }));
+    svg.appendChild(s('text', { x: 210, y: 128, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--text)', text: L('জলীয় KOH', 'aqueous KOH') }));
     svg.appendChild(s('text', { x: 60, y: 130, 'text-anchor': 'middle', 'font-size': 14, 'font-weight': 700, style: 'fill:var(--electron)', text: 'H₂ →' }));
     svg.appendChild(s('text', { x: 360, y: 130, 'text-anchor': 'middle', 'font-size': 14, 'font-weight': 700, style: 'fill:var(--proton)', text: '← O₂' }));
-    svg.appendChild(s('text', { x: 147, y: 208, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--text)', text: 'এন\'ড (−)' }));
-    svg.appendChild(s('text', { x: 273, y: 208, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--text)', text: 'কেথ\'ড (+)' }));
-    svg.appendChild(s('text', { x: 335, y: 58, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--muted)', text: 'H₂O (বাষ্প) ↑' }));
-    var W = [[147, 60], [147, 28], [273, 28], [273, 60]], L = PATH_LEN(W), dots = [];
+    svg.appendChild(s('text', { x: 147, y: 208, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--text)', text: L('এন\'ড (−)', 'Anode (−)') }));
+    svg.appendChild(s('text', { x: 273, y: 208, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--text)', text: L('কেথ\'ড (+)', 'Cathode (+)') }));
+    svg.appendChild(s('text', { x: 335, y: 58, 'text-anchor': 'middle', 'font-size': 12, style: 'fill:var(--muted)', text: L('H₂O (বাষ্প) ↑', 'H₂O (steam) ↑') }));
+    var W = [[147, 60], [147, 28], [273, 28], [273, 60]], PLEN = PATH_LEN(W), dots = [];
     svg.appendChild(s('polyline', { points: W.map(function (p) { return p.join(','); }).join(' '), fill: 'none', style: 'stroke:var(--text)', 'stroke-width': 2 }));
     svg.appendChild(s('circle', { cx: 210, cy: 28, r: 14, style: 'fill:var(--canvas);stroke:var(--text)', 'stroke-width': 2 }));
     svg.appendChild(s('text', { x: 210, y: 32, 'text-anchor': 'middle', 'font-size': 10, 'font-weight': 700, style: 'fill:var(--text)', text: '≈1V' }));
@@ -534,7 +535,7 @@
     var gas = []; var gG = s('g'); svg.appendChild(gG);
     function tick(dt) {
       if (run) { phase += dt * 70; water += dt * 0.6; if (Math.random() < 0.3) gas.push({ x: 20 + rnd(0, 10), y: rnd(80, 170), t: 0, h: true }); if (Math.random() < 0.3) gas.push({ x: 400 - rnd(0, 10), y: rnd(80, 170), t: 0, h: false }); }
-      dots.forEach(function (d, i) { var p = polyline(W, phase + i * L / dots.length); d.setAttribute('cx', p[0]); d.setAttribute('cy', p[1]); d.setAttribute('visibility', run ? 'visible' : 'hidden'); });
+      dots.forEach(function (d, i) { var p = polyline(W, phase + i * PLEN / dots.length); d.setAttribute('cx', p[0]); d.setAttribute('cy', p[1]); d.setAttribute('visibility', run ? 'visible' : 'hidden'); });
       gas.forEach(function (g) { g.t += dt * 0.5; });
       gas = gas.filter(function (g) { return g.t < 1; });
       gG.innerHTML = '';
@@ -542,9 +543,9 @@
         var x = g.h ? 20 + g.t * (140 - 20) : 400 - g.t * (400 - 282);
         gG.appendChild(s('circle', { cx: x, cy: g.y, r: 4, style: 'fill:' + (g.h ? 'var(--electron)' : 'var(--proton)') + ';opacity:' + (1 - g.t * 0.6) }));
       });
-      info.innerHTML = 'এন\'ড: 2H<sub>2</sub>(g) + 4OH<sup>−</sup> → 4H<sub>2</sub>O(l) + 4e<sup>−</sup><br>কেথ\'ড: O<sub>2</sub>(g) + 2H<sub>2</sub>O(l) + 4e<sup>−</sup> → 4OH<sup>−</sup><br>' +
-        'কোষ বিক্ৰিয়া: <b>2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O</b> (প্ৰদূষণ নাই) · উৎপন্ন পানী: ' + water.toFixed(1) + ' একক<br>' +
-        'দক্ষতা: ইন্ধন কোষ ≈ <b>70 %</b>, তাপবিদ্যুৎ কেন্দ্ৰ ≈ 40 %';
+      info.innerHTML = L('এন\'ড', 'Anode') + ': 2H<sub>2</sub>(g) + 4OH<sup>−</sup> → 4H<sub>2</sub>O(l) + 4e<sup>−</sup><br>' + L('কেথ\'ড', 'Cathode') + ': O<sub>2</sub>(g) + 2H<sub>2</sub>O(l) + 4e<sup>−</sup> → 4OH<sup>−</sup><br>' +
+        L('কোষ বিক্ৰিয়া', 'Cell reaction') + ': <b>2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O</b> (' + L('প্ৰদূষণ নাই', 'no pollution') + ') · ' + L('উৎপন্ন পানী', 'water produced') + ': ' + water.toFixed(1) + ' ' + L('একক', 'units') + '<br>' +
+        L('দক্ষতা: ইন্ধন কোষ ≈ <b>70 %</b>, তাপবিদ্যুৎ কেন্দ্ৰ ≈ 40 %', 'Efficiency: fuel cell ≈ <b>70 %</b>, thermal power station ≈ 40 %');
     }
     var lp = k.loop(root, tick);
     root.appendChild(h('div', { 'class': 'row' }, [k.button('Start / Stop', function () { run = !run; })]));

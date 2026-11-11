@@ -1,0 +1,693 @@
+{
+ "id": "class-12/ch02-electrochemistry",
+ "class": 12,
+ "number": 2,
+ "title": {
+  "as": "বিদ্যুৎৰসায়নবিজ্ঞান",
+  "en": "Electrochemistry"
+ },
+ "scripts": [
+  "anim.js"
+ ],
+ "goals": [
+  "Understand the difference between a [[galvanic-cell]] and an [[electrolytic-cell]]; identify the [[anode]] and the [[cathode]]",
+  "Calculate the cell potential using [[electrode-potential]], the [[she]] and the [[emf]]",
+  "Use the [[nernst]] to find how cell potential changes with concentration, and its relation to the equilibrium constant and Gibbs energy",
+  "Understand and apply [[conductivity]], [[molar-conductivity]] and the [[kohlrausch]]",
+  "Do electrolysis calculations using [[faraday]]; predict the products of electrolysis",
+  "Explain the [[battery]], the [[fuel-cell]] and [[corrosion]]"
+ ],
+ "glossary": {
+  "electrochemical-cell": {
+   "as": "বিদ্যুৎৰাসায়নিক কোষ",
+   "en": "electrochemical cell",
+   "def": "A device that converts chemical energy into electrical energy (galvanic cell) or electrical energy into chemical energy (electrolytic cell)."
+  },
+  "galvanic-cell": {
+   "as": "গেলভেনীয় কোষ",
+   "en": "galvanic (voltaic) cell",
+   "def": "A cell that converts the chemical energy of a spontaneous redox reaction into electrical energy."
+  },
+  "electrolytic-cell": {
+   "as": "বিদ্যুৎবিশ্লেষণী কোষ",
+   "en": "electrolytic cell",
+   "def": "A cell in which an external source of electrical energy is used to bring about a non-spontaneous chemical reaction."
+  },
+  "half-cell": {
+   "as": "অৰ্ধ কোষ",
+   "en": "half cell",
+   "def": "The part made of a metal rod and a solution of its ions; an oxidation or reduction half reaction takes place in it."
+  },
+  "salt-bridge": {
+   "as": "লৱণ সেতু",
+   "en": "salt bridge",
+   "def": "A tube that connects the solutions of the two half cells, completes the electrical circuit and allows ions to move."
+  },
+  "anode": {
+   "as": "এন'ড",
+   "en": "anode",
+   "def": "The electrode at which oxidation takes place; in a galvanic cell it is negative."
+  },
+  "cathode": {
+   "as": "কেথ'ড",
+   "en": "cathode",
+   "def": "The electrode at which reduction takes place; in a galvanic cell it is positive."
+  },
+  "electrode-potential": {
+   "as": "ইলেক্ট্ৰ'ড বিভৱ",
+   "en": "electrode potential",
+   "def": "The potential difference that develops between a metal rod and the solution of its ions. By IUPAC convention it is written as a reduction potential."
+  },
+  "she": {
+   "as": "প্ৰমাণ হাইড্ৰজেন ইলেক্ট্ৰ'ড",
+   "en": "standard hydrogen electrode (SHE)",
+   "def": "Pt | H₂ (1 bar) | H⁺ (1 M); its potential is taken as 0.00 V at all temperatures."
+  },
+  "emf": {
+   "as": "বিদ্যুচ্চালক বল",
+   "en": "electromotive force (emf)",
+   "def": "The potential difference between the two electrodes when no current flows in the cell."
+  },
+  "nernst": {
+   "as": "নাৰ্ন্‌ষ্ট সমীকৰণ",
+   "en": "Nernst equation",
+   "def": "The equation that relates the electrode or cell potential to the concentrations of ions or the pressure of gases."
+  },
+  "resistivity": {
+   "as": "ৰোধকতা",
+   "en": "resistivity (ρ)",
+   "def": "The resistance of a material 1 m long with a cross-section of 1 m² (Ω m)."
+  },
+  "conductivity": {
+   "as": "পৰিবহনতা",
+   "en": "conductivity (κ)",
+   "def": "The reciprocal of resistivity: κ = 1/ρ; unit S m⁻¹."
+  },
+  "cell-constant": {
+   "as": "কোষ ধ্ৰুৱক",
+   "en": "cell constant (G*)",
+   "def": "The quantity l/A of a conductivity cell; G* = resistance × conductivity (unit m⁻¹)."
+  },
+  "molar-conductivity": {
+   "as": "ম'লাৰ পৰিবাহিতা",
+   "en": "molar conductivity (Λm)",
+   "def": "Λm = κ/c; the conductivity of a solution containing 1 mol of electrolyte."
+  },
+  "limiting": {
+   "as": "চৰম ম'লাৰ পৰিবাহিতা",
+   "en": "limiting molar conductivity (Λ°m)",
+   "def": "The molar conductivity at infinite dilution (c → 0)."
+  },
+  "strong-electrolyte": {
+   "as": "তীব্ৰ বিদ্যুৎবিশ্লেষ্য",
+   "en": "strong electrolyte",
+   "def": "A substance that is completely dissociated into ions in solution (e.g. KCl)."
+  },
+  "weak-electrolyte": {
+   "as": "মৃদু বিদ্যুৎবিশ্লেষ্য",
+   "en": "weak electrolyte",
+   "def": "A substance that is only partly dissociated in solution (e.g. CH₃COOH)."
+  },
+  "kohlrausch": {
+   "as": "ক'লৰাশ্চ নীতি",
+   "en": "Kohlrausch law",
+   "def": "The law of independent migration of ions: Λ°m of an electrolyte = ν₊λ°₊ + ν₋λ°₋."
+  },
+  "faraday": {
+   "as": "ফেৰাডেৰ সূত্ৰ",
+   "en": "Faraday's laws",
+   "def": "The amount of substance produced at an electrode during electrolysis is proportional to the charge passed; 1 F = 96500 C mol⁻¹."
+  },
+  "battery": {
+   "as": "বেটাৰি",
+   "en": "battery",
+   "def": "A source of electricity made of one or more galvanic cells connected in series."
+  },
+  "fuel-cell": {
+   "as": "ইন্ধন কোষ",
+   "en": "fuel cell",
+   "def": "A galvanic cell that converts the energy of combustion of a fuel such as H₂ or CH₄ directly into electrical energy."
+  },
+  "corrosion": {
+   "as": "ক্ষয়ীভৱন",
+   "en": "corrosion",
+   "def": "The slow formation of an oxide or another salt on the surface of a metal, e.g. the rusting of iron; it is an electrochemical phenomenon."
+  },
+  "overpotential": {
+   "as": "অধিবিভৱ",
+   "en": "overpotential",
+   "def": "The extra potential that must be applied, above the theoretical potential, to make a reaction occur."
+  }
+ },
+ "sections": [
+  {
+   "id": "cells",
+   "title": "Electrochemical Cells",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The energy released in a spontaneous chemical reaction can be converted into electrical energy; conversely, electrical energy can be used to bring about a non-spontaneous reaction. The study of both processes is electrochemistry. It is used in batteries, fuel cells, and the extraction and purification of metals. Even the signals in our nerves are basically electrochemical processes."
+    },
+    {
+     "type": "p",
+     "text": "When a zinc (Zn) rod is dipped in a CuSO₄ solution this reaction takes place:"
+    },
+    {
+     "type": "formula",
+     "text": "Zn(s) + Cu^{2+}(aq) → Zn^{2+}(aq) + Cu(s)"
+    },
+    {
+     "type": "p",
+     "text": "In the solution electrons pass directly from Zn to Cu²⁺ and the energy is released as heat. But if the Zn rod is placed in ZnSO₄ solution and the Cu rod in CuSO₄ solution separately, the two solutions are joined by a [[salt-bridge]] and the rods are connected by a wire, the electrons flow through the wire. Such an arrangement is called a **Daniell cell**. When both solutions are 1 M its potential is about **1.10 V**."
+    },
+    {
+     "type": "p",
+     "text": "A cell in which the energy of a spontaneous chemical reaction gives electrical energy is called a [[galvanic-cell]] (or voltaic cell). A cell in which an external electric current is used to bring about a non-spontaneous reaction is called an [[electrolytic-cell]]. Both are [[electrochemical-cell]]s."
+    },
+    {
+     "type": "anim",
+     "name": "external-voltage",
+     "title": "Effect of an external potential — the Daniell cell",
+     "caption": "Move the external potential (E external) from 0 to 2 V. What happens at 1.10 V? And above it?"
+    },
+    {
+     "type": "list",
+     "items": [
+      "E external < 1.10 V: electrons go from Zn to Cu; the cell is galvanic.",
+      "E external = 1.10 V: no current flows; no reaction takes place.",
+      "E external > 1.10 V: the reaction occurs in the opposite direction; the cell becomes electrolytic."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "galvanic",
+   "title": "Galvanic Cells and Electrode Potential",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The cell reaction can be split into two half reactions. In the Daniell cell:"
+    },
+    {
+     "type": "formula",
+     "text": "Reduction (copper electrode):  Cu^{2+} + 2e^{−} → Cu(s)\nOxidation (zinc electrode):  Zn(s) → Zn^{2+} + 2e^{−}"
+    },
+    {
+     "type": "p",
+     "text": "Each part is called a [[half-cell]] (or redox couple). The electrode at which oxidation takes place is the [[anode]], and the one at which reduction takes place is the [[cathode]]. In a galvanic cell the anode is negative and the cathode is positive; electrons go from the anode to the cathode through the external wire, and the direction of current is opposite to this. Ions move through the salt bridge and keep both solutions electrically neutral."
+    },
+    {
+     "type": "p",
+     "text": "When a metal rod is dipped in a solution of its own ions, two opposite processes take place: metal atoms go into solution as ions (the rod becomes negative) and ions from the solution deposit on the rod (the rod becomes positive). Whichever is stronger decides the charge of the rod, and a potential difference arises between the rod and the solution. This is the [[electrode-potential]]. When the ion concentration is 1 M and the temperature is 298 K it is called the **standard electrode potential** (E°). By the IUPAC convention E° is written as a reduction potential."
+    },
+    {
+     "type": "p",
+     "text": "The actual potential of a single electrode cannot be measured; we can measure only the difference between the potentials of two electrodes. So the potential of the [[she]] (Pt | H₂ (1 bar) | H⁺ (1 M)) is taken as **0.00 V** at all temperatures. Other electrodes are connected to it to find their E°. For a combination of two half cells the electromotive force ([[emf]]) is:"
+    },
+    {
+     "type": "formula",
+     "label": "Cell potential",
+     "text": "E°_{cell} = E°_{cathode} − E°_{anode}  (= E°_{right} − E°_{left})\nWriting a cell: anode (on the left) | solution || solution | cathode (on the right)\nExample: Zn(s) | Zn^{2+}(1 M) || Cu^{2+}(1 M) | Cu(s)    E°_{cell} = 0.34 − (−0.76) = 1.10 V"
+    },
+    {
+     "type": "table",
+     "head": [
+      "Reduction half reaction",
+      "E° (V) at 298 K"
+     ],
+     "rows": [
+      [
+       "F_{2} + 2e^{−} → 2F^{−}",
+       "+2.87"
+      ],
+      [
+       "Cl_{2} + 2e^{−} → 2Cl^{−}",
+       "+1.36"
+      ],
+      [
+       "Ag^{+} + e^{−} → Ag",
+       "+0.80"
+      ],
+      [
+       "Cu^{2+} + 2e^{−} → Cu",
+       "+0.34"
+      ],
+      [
+       "2H^{+} + 2e^{−} → H_{2}",
+       "0.00"
+      ],
+      [
+       "Pb^{2+} + 2e^{−} → Pb",
+       "−0.13"
+      ],
+      [
+       "Ni^{2+} + 2e^{−} → Ni",
+       "−0.25"
+      ],
+      [
+       "Fe^{2+} + 2e^{−} → Fe",
+       "−0.44"
+      ],
+      [
+       "Zn^{2+} + 2e^{−} → Zn",
+       "−0.76"
+      ],
+      [
+       "Al^{3+} + 3e^{−} → Al",
+       "−1.66"
+      ],
+      [
+       "Mg^{2+} + 2e^{−} → Mg",
+       "−2.36"
+      ],
+      [
+       "Li^{+} + e^{−} → Li",
+       "−3.05"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "**Meaning of the table:** The more positive E° is, the stronger the oxidising agent (on the left) of that couple. F₂ is the strongest oxidising agent. On the other hand, the more negative E° is, the stronger the reducing metal of that couple; Li is the strongest reducing agent. If E° is negative the metal can reduce H⁺ ions to H₂ (e.g. Zn with dilute acid). If E° is positive it cannot — so Cu does not liberate H₂ from dilute HCl."
+    },
+    {
+     "type": "note",
+     "label": "Example 1",
+     "text": "Can Cu displace Ag from a solution of Ag⁺? (Cu + 2Ag⁺ → Cu²⁺ + 2Ag)\nE°_{cell} = E°_{Ag⁺|Ag} − E°_{Cu²⁺|Cu} = 0.80 − 0.34 = **+0.46 V**. The value is positive, so the reaction is spontaneous: yes, Cu displaces Ag⁺."
+    },
+    {
+     "type": "anim",
+     "name": "galvanic",
+     "title": "Build your own galvanic cell",
+     "caption": "Choose two metals. The anode, cathode, E° and reaction are worked out for you. Move the concentration sliders to see how E changes (you will learn this later as the Nernst equation)."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "Start with ‘Zn’ and ‘Cu’ (E° = 1.10 V). Then choose ‘Mg’ and ‘Ag’; which metal became the anode? Choose the same metal on both sides (e.g. Cu and Cu) and set different concentrations — you will see a concentration cell."
+    }
+   ]
+  },
+  {
+   "id": "nernst",
+   "title": "The Nernst Equation",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "In the discussion above we assumed the ion concentrations to be 1 M. In reality the concentration can be anything. The [[nernst]] expresses this change. For the reaction a A + b B → c C + d D:"
+    },
+    {
+     "type": "formula",
+     "label": "Nernst equation",
+     "text": "E_{cell} = E°_{cell} − (RT / nF) ln Q\nAt 298 K:  E_{cell} = E°_{cell} − (0.0591 / n) log Q\nQ = [C]^{c}[D]^{d} / ([A]^{a}[B]^{b})   (the concentrations of solids and pure liquids are taken as 1)"
+    },
+    {
+     "type": "p",
+     "text": "At equilibrium the emf of the cell is zero (E = 0, Q = K), so E°_{cell} = (0.0591 / n) log K. That is, the equilibrium constant of a reaction can be calculated from the E° of the cell. As the cell is used, the cell reaction proceeds and Q increases; finally when Q = K, E = 0 — that is when the battery is said to be ‘dead’."
+    },
+    {
+     "type": "formula",
+     "label": "Relation to Gibbs energy",
+     "text": "Δ_{r}G = −nFE_{cell}    ;    Δ_{r}G° = −nFE°_{cell} = −RT ln K\nF = 96500 C mol^{−1}\nE_{cell} is an intensive property (does not depend on n); Δ_{r}G is an extensive property (changes with n)"
+    },
+    {
+     "type": "note",
+     "label": "Example 2",
+     "text": "What is E_{cell} for the cell Zn | Zn^{2+}(0.010 M) || Cu^{2+}(1.0 M) | Cu? (E° = 1.10 V, 298 K)\nn = 2; Q = [Zn²⁺]/[Cu²⁺] = 0.010 / 1.0 = 0.010\nE = 1.10 − (0.0591 / 2) × log 0.010 = 1.10 + 0.059 = **1.16 V**\n(When Zn²⁺ is lower, E is greater than E°.)"
+    },
+    {
+     "type": "note",
+     "label": "Example 3",
+     "text": "Calculate Δ_{r}G° and K for the reaction Fe(s) + Cu^{2+}(aq) → Fe^{2+}(aq) + Cu(s). (E°_{Cu²⁺|Cu} = 0.34 V, E°_{Fe²⁺|Fe} = −0.44 V)\nE° = 0.34 − (−0.44) = 0.78 V; n = 2\nΔ_{r}G° = −2 × 96500 × 0.78 = −1.505 × 10^{5} J = **−150.5 kJ mol^{−1}**\nlog K = nE° / 0.0591 = 2 × 0.78 / 0.0591 = 26.4 → K ≈ **2.5 × 10^{26}**"
+    },
+    {
+     "type": "anim",
+     "name": "nernst",
+     "title": "E against log Q",
+     "caption": "Change E° and n. The slope of the line is −0.0591/n. The point where the line cuts the x-axis is equilibrium (Q = K). The log Q slider shows the present state."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "Set E° = 1.10 V and n = 2 and increase log Q from zero. To what value does E fall? At what value is E = 0? (Answer: about 37)"
+    }
+   ]
+  },
+  {
+   "id": "conductance",
+   "title": "Conductance of Electrolytic Solutions",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "In an electrolytic solution electricity is conducted by the movement of ions. To understand this we must become familiar with some quantities:"
+    },
+    {
+     "type": "formula",
+     "label": "Resistance, resistivity, conductance, conductivity",
+     "text": "Resistance  R = ρ · l / A    (unit Ω;  ρ = resistivity, unit Ω m)\nConductance  G = 1/R = κ · A / l    (unit S = Ω^{−1})\nConductivity  κ = 1/ρ    (unit S m^{−1};  1 S cm^{−1} = 100 S m^{−1})"
+    },
+    {
+     "type": "table",
+     "head": [
+      "Solution (298 K)",
+      "Conductivity κ (S m^{−1})"
+     ],
+     "rows": [
+      [
+       "Pure water",
+       "3.5 × 10^{−5}"
+      ],
+      [
+       "0.01 M NaCl",
+       "0.12"
+      ],
+      [
+       "0.01 M KCl",
+       "0.14"
+      ],
+      [
+       "0.01 M CH_{3}COOH",
+       "0.016"
+      ],
+      [
+       "0.1 M CH_{3}COOH",
+       "0.047"
+      ],
+      [
+       "0.1 M HCl",
+       "3.91"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "We use a Wheatstone bridge to measure the resistance of a solution, but if direct current is used with an electrolyte the composition of the solution changes. So **alternating current** (AC) and a **conductivity cell** made with platinum-coated electrodes are used. The quantity l/A of the cell is called the [[cell-constant]] (G*). It is determined with a solution of KCl of known conductivity:"
+    },
+    {
+     "type": "formula",
+     "text": "G* = l / A = R × κ          κ = G* / R"
+    },
+    {
+     "type": "note",
+     "label": "Example 4",
+     "text": "In a conductivity cell the resistance of 0.1 M KCl (κ = 1.29 S m^{−1}) is 200 Ω. If the resistance of another solution (concentration 0.05 M) in this cell is 430 Ω, what are its κ and Λ_{m}?\nG* = 200 × 1.29 = 258 m^{−1}\nκ = 258 / 430 = **0.60 S m^{−1}**\nc = 0.05 M = 50 mol m^{−3}, so Λ_{m} = κ/c = 0.60 / 50 = 0.012 S m² mol^{−1} = **120 S cm² mol^{−1}**"
+    },
+    {
+     "type": "formula",
+     "label": "Molar conductivity",
+     "text": "Λ_{m} = κ / c   (κ: S m^{−1}, c: mol m^{−3}  →  Λ_{m}: S m² mol^{−1})\nΛ_{m} = 1000 κ / c   (κ: S cm^{−1}, c: mol L^{−1}  →  Λ_{m}: S cm² mol^{−1})\n1 S m² mol^{−1} = 10^{4} S cm² mol^{−1}"
+    },
+    {
+     "type": "p",
+     "text": "**Variation with concentration:** When a solution is diluted, the number of ions per unit volume decreases, so the conductivity (κ) decreases. But the molar conductivity (Λ_{m}) increases, because as the volume increases the attraction between ions decreases (and, for weak electrolytes, dissociation also increases). Λ_{m} at c → 0 is called the [[limiting]] (Λ°_{m})."
+    },
+    {
+     "type": "list",
+     "items": [
+      "[[strong-electrolyte]]: Λ_{m} rises slowly as dilution increases, according to Λ_{m} = Λ°_{m} − A c^{1/2}. A graph against √c is a straight line, and its intercept gives Λ°_{m}. The value of A depends on the type of electrolyte (NaCl 1-1, CaCl₂ 2-1, MgSO₄ 2-2).",
+      "[[weak-electrolyte]]: On dilution the degree of dissociation increases, so Λ_{m} rises very steeply. Near zero concentration the graph is almost vertical, so Λ°_{m} cannot be measured directly."
+     ]
+    },
+    {
+     "type": "anim",
+     "name": "conductance",
+     "title": "Λ_{m} and κ against concentration",
+     "caption": "Move the log c slider. Notice the difference in behaviour of a strong (KCl) and a weak (CH₃COOH) electrolyte."
+    },
+    {
+     "type": "p",
+     "text": "**Kohlrausch law**"
+    },
+    {
+     "type": "formula",
+     "label": "Kohlrausch law of independent migration of ions",
+     "text": "The limiting molar conductivity of an electrolyte is the sum of the limiting molar conductivities of its cation and anion.\nΛ°_{m} = ν_{+} λ°_{+} + ν_{−} λ°_{−}"
+    },
+    {
+     "type": "table",
+     "head": [
+      "Ion",
+      "λ° (S cm² mol^{−1})",
+      "Ion",
+      "λ° (S cm² mol^{−1})"
+     ],
+     "rows": [
+      [
+       "H^{+}",
+       "349.6",
+       "OH^{−}",
+       "199.1"
+      ],
+      [
+       "Na^{+}",
+       "50.1",
+       "Cl^{−}",
+       "76.3"
+      ],
+      [
+       "K^{+}",
+       "73.5",
+       "Br^{−}",
+       "78.1"
+      ],
+      [
+       "Ca^{2+}",
+       "119.0",
+       "CH_{3}COO^{−}",
+       "40.9"
+      ],
+      [
+       "Mg^{2+}",
+       "106.0",
+       "SO_{4}^{2−}",
+       "160.0"
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "label": "Example 5",
+     "text": "Λ°_{m} of Na₂SO₄ = 2 × λ°(Na⁺) + λ°(SO₄²⁻) = 2 × 50.1 + 160.0 = **260.2 S cm² mol^{−1}**"
+    },
+    {
+     "type": "p",
+     "text": "The Kohlrausch law is very useful for weak electrolytes: their Λ°_{m} can be calculated from the λ° of the ions. Then, by measuring Λ_{m} at some concentration, the degree of dissociation and the dissociation constant can be found:"
+    },
+    {
+     "type": "formula",
+     "text": "α = Λ_{m} / Λ°_{m}          K_{a} = c α² / (1 − α)"
+    },
+    {
+     "type": "note",
+     "label": "Example 6",
+     "text": "κ of 0.010 M CH₃COOH = 0.016 S m^{−1}. Λ°_{m} = 349.6 + 40.9 = 390.5 S cm² mol^{−1}. What are the degree of dissociation and K_{a}?\nc = 10 mol m^{−3}; Λ_{m} = 0.016 / 10 = 1.6 × 10^{−3} S m² mol^{−1} = 16 S cm² mol^{−1}\nα = 16 / 390.5 = **0.041**\nK_{a} = 0.010 × (0.041)² / (1 − 0.041) = **1.75 × 10^{−5}**"
+    },
+    {
+     "type": "anim",
+     "name": "kohlrausch",
+     "title": "Add up the ionic conductivities",
+     "caption": "Choose any cation and anion; the Λ°ₘ of the electrolyte is calculated automatically. Choose H⁺ and CH₃COO⁻ to see Λ°ₘ of the weak acid."
+    }
+   ]
+  },
+  {
+   "id": "electrolysis",
+   "title": "Electrolysis and Faraday's Laws",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Bringing about a chemical reaction by passing an external electric current in an [[electrolytic-cell]] is called **electrolysis**. If two copper plates are dipped in copper sulphate solution and a DC potential is applied, at the cathode Cu²⁺ + 2e⁻ → Cu (copper is deposited) and at the anode Cu → Cu²⁺ + 2e⁻ (copper dissolves). By this principle pure copper is obtained from impure copper (impure copper as anode, pure copper as cathode). Very reactive metals such as Na, Mg and Al are also extracted by electrolysis of molten salts or oxides (for Al, Al₂O₃ mixed with cryolite)."
+    },
+    {
+     "type": "p",
+     "text": "**Faraday's laws** (1833–34)"
+    },
+    {
+     "type": "list",
+     "items": [
+      "**First law:** The amount of chemical reaction at an electrode (the mass of substance produced or dissolved) is proportional to the quantity of electricity passed through the electrolyte.",
+      "**Second law:** When the same quantity of electricity is passed through different electrolytes, the amounts of substances produced are proportional to their chemical equivalent masses."
+     ]
+    },
+    {
+     "type": "formula",
+     "label": "Formulae for calculation",
+     "text": "Charge  Q = I × t     (I in amperes, t in seconds, Q in coulombs)\nCharge of 1 mol of electrons = 1 faraday (F) = 96500 C mol^{−1}\nMass deposited in a reaction involving z electrons  m = (M × Q) / (z × F)"
+    },
+    {
+     "type": "p",
+     "text": "For example, 1 mol of Ag needs 1 F in Ag⁺ + e⁻ → Ag, 2 F in Mg²⁺ + 2e⁻ → Mg and 3 F in Al³⁺ + 3e⁻ → Al."
+    },
+    {
+     "type": "note",
+     "label": "Example 7",
+     "text": "How much copper will be deposited at the cathode if a current of 2.0 A is passed through a CuSO₄ solution for 30 minutes? (Cu = 63.5 g mol^{−1})\nQ = 2.0 × 30 × 60 = 3600 C\nm = (63.5 × 3600) / (2 × 96500) = **1.18 g**"
+    },
+    {
+     "type": "note",
+     "label": "Example 8",
+     "text": "How long will it take to deposit 5.4 g of Ag with a current of 1.5 A? (Ag = 108 g mol^{−1})\nMoles = 5.4 / 108 = 0.050 mol; Ag⁺ + e⁻ → Ag, so 0.050 F is needed\nQ = 0.050 × 96500 = 4825 C; t = Q / I = 4825 / 1.5 = 3217 s ≈ **54 minutes**"
+    },
+    {
+     "type": "anim",
+     "name": "faraday",
+     "title": "Faraday's laws calculator",
+     "caption": "Change the metal, current and time. Press ‘Run electrolysis’ to see the metal deposit on the cathode."
+    },
+    {
+     "type": "p",
+     "text": "**Products of electrolysis**"
+    },
+    {
+     "type": "p",
+     "text": "What is produced at the electrodes depends on two things: (i) the nature of the electrolyte and (ii) the nature of the electrodes. **Inert electrodes** such as Pt or Au only conduct electrons and take no part in the reaction. **Active electrodes** (e.g. Cu, Ag) may themselves be oxidised. If a solution contains several oxidising and reducing species, the reaction with the **higher E°** (more easily reduced) occurs at the cathode and the one with the **lower E°** (more easily oxidised) at the anode. Some reactions are slow and need an extra [[overpotential]], so sometimes a reaction occurs even though its E° is not the lower one (e.g. Cl₂ at the anode in aqueous NaCl)."
+    },
+    {
+     "type": "anim",
+     "name": "electrolysis",
+     "title": "What is produced at the electrodes?",
+     "caption": "Choose different electrolytes and read the products at the anode and cathode and the reasons."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "Compare ‘Molten NaCl’ and ‘Aqueous NaCl’. Although Na⁺ is the same at the cathode, why is Na produced in one and H₂ in the other? Think about the E° of water (−0.83 V) and of Na⁺ (−2.71 V)."
+    }
+   ]
+  },
+  {
+   "id": "batteries",
+   "title": "Batteries",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "When one or more cells are connected in series a [[battery]] is obtained. A good battery is light and small, and its potential should stay nearly constant during use. They are of two kinds:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "**Primary batteries:** The cell reaction takes place in one direction only. When the reactants are used up the battery is useless and cannot be used again. E.g. the dry cell and the mercury cell.",
+      "**Secondary batteries:** They can be recharged by passing current in the opposite direction and used many times. E.g. the lead storage battery and the nickel–cadmium cell."
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Cell",
+      "Anode",
+      "Cathode",
+      "Potential"
+     ],
+     "rows": [
+      [
+       "Dry cell (Leclanché)",
+       "Zn container: Zn → Zn^{2+} + 2e^{−}",
+       "Graphite rod, MnO_{2} + C: MnO_{2} + NH_{4}^{+} + e^{−} → MnO(OH) + NH_{3}",
+       "≈ 1.5 V"
+      ],
+      [
+       "Mercury cell",
+       "Zn–Hg: Zn(Hg) + 2OH^{−} → ZnO + H_{2}O + 2e^{−}",
+       "HgO + C: HgO + H_{2}O + 2e^{−} → Hg + 2OH^{−}",
+       "≈ 1.35 V (constant)"
+      ],
+      [
+       "Lead storage battery (discharge)",
+       "Pb + SO_{4}^{2−} → PbSO_{4} + 2e^{−}",
+       "PbO_{2} + SO_{4}^{2−} + 4H^{+} + 2e^{−} → PbSO_{4} + 2H_{2}O",
+       "≈ 2 V (per cell)"
+      ],
+      [
+       "Nickel–cadmium",
+       "Cd",
+       "NiO(OH)",
+       "Secondary; long life"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The lead storage battery is used in motor vehicles and inverters. Its anode is Pb, its cathode PbO₂ and its electrolyte about 38 % H₂SO₄. On discharge PbSO₄ is deposited on both electrodes and the concentration of H₂SO₄ falls (so the density falls). On charging the reaction takes place in the opposite direction: Pb and PbO₂ are re-formed from PbSO₄ and the concentration of H₂SO₄ rises."
+    },
+    {
+     "type": "anim",
+     "name": "battery",
+     "title": "Discharge and charge of a lead storage battery",
+     "caption": "Press ‘Discharge’ and ‘Charge’ and see how the amounts of Pb, PbO₂, PbSO₄ and H₂SO₄ change."
+    }
+   ]
+  },
+  {
+   "id": "fuel-cells",
+   "title": "Fuel Cells",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "In a thermal power station fuel is burnt to give heat, from which steam is made and electricity is produced with a turbine; the efficiency is low (about 40 %) and the pollution is high. A galvanic cell in which the energy of combustion of a fuel such as H₂, CH₄ or methanol is converted directly into electrical energy is called a [[fuel-cell]]. Fuel and oxidising agent are supplied continuously and the products are allowed to leave, so it keeps working all the time."
+    },
+    {
+     "type": "formula",
+     "label": "H₂–O₂ fuel cell (carbon electrodes, aqueous KOH)",
+     "text": "Anode:  2H_{2}(g) + 4OH^{−}(aq) → 4H_{2}O(l) + 4e^{−}\nCathode:  O_{2}(g) + 2H_{2}O(l) + 4e^{−} → 4OH^{−}(aq)\nCell reaction:  2H_{2}(g) + O_{2}(g) → 2H_{2}O(l)"
+    },
+    {
+     "type": "p",
+     "text": "Its efficiency is about 70 %, and the only product is water, so there is no pollution. In the Apollo space missions electricity was obtained from this cell and the water produced was used by the astronauts for drinking."
+    },
+    {
+     "type": "note",
+     "label": "The Hydrogen Economy",
+     "text": "The burning of fossil fuels produces CO₂, which is a major cause of global warming. Burning hydrogen gives only water, so it is regarded as the fuel of the future. Producing H₂ by electrolysis of water with solar energy and using it in a fuel cell — both processes are based on electrochemistry."
+    },
+    {
+     "type": "anim",
+     "name": "fuelcell",
+     "title": "Hydrogen–oxygen fuel cell",
+     "caption": "Run or stop the cell with the ‘Start / Stop’ button. See the cell reaction and the comparison of efficiency."
+    }
+   ]
+  },
+  {
+   "id": "corrosion",
+   "title": "Corrosion",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "As a result of [[corrosion]] an oxide or another salt forms on the surface of a metal: rust on iron, tarnishing on silver, a green deposit on copper, and so on. As a result bridges, railway lines, ships and so on are damaged, and the country loses crores of rupees every year. It is an **electrochemical phenomenon**."
+    },
+    {
+     "type": "p",
+     "text": "Iron corrodes in the presence of water and air. One spot on the surface of the iron acts as the anode and another as the cathode (a small galvanic cell):"
+    },
+    {
+     "type": "formula",
+     "text": "Anode:  2Fe(s) → 2Fe^{2+} + 4e^{−}         E° = −0.44 V\nCathode:  O_{2}(g) + 4H^{+}(aq) + 4e^{−} → 2H_{2}O(l)   E° = +1.23 V\nOverall:  2Fe(s) + O_{2}(g) + 4H^{+} → 2Fe^{2+} + 2H_{2}O(l)     E°_{cell} = 1.67 V\nLater: Fe^{2+} → Fe^{3+} → Fe_{2}O_{3}·xH_{2}O (rust)"
+    },
+    {
+     "type": "p",
+     "text": "**Prevention of corrosion:** (i) keeping the metal surface away from air and water — by applying paint, varnish or bisphenol; (ii) coating with another metal (Sn, Zn); (iii) connecting to a more reactive metal such as Mg or Zn — it corrodes itself and protects the iron (**sacrificial protection**)."
+    },
+    {
+     "type": "anim",
+     "name": "corrosion",
+     "title": "How iron corrodes and how it is protected",
+     "caption": "Compare the four conditions. What happens when a zinc coating and a tin coating are scratched?"
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "Compare ‘Zinc-coated, scratched’ and ‘Tin-coated, scratched’. With the help of E° (Zn −0.76, Fe −0.44, Sn −0.14) can you say which metal becomes the anode and why?"
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "In a [[galvanic-cell]] electricity is obtained from a spontaneous redox reaction; in an [[electrolytic-cell]] an external current brings about a non-spontaneous reaction. Oxidation at the anode, reduction at the cathode.",
+  "E°_{cell} = E°_{cathode} − E°_{anode}; E° of the [[she]] = 0.00 V. The more positive E° is, the stronger the oxidising agent; the more negative, the stronger the reducing agent.",
+  "[[nernst]]: E = E° − (0.0591/n) log Q; at equilibrium E = 0; Δ_{r}G° = −nFE° = −RT ln K.",
+  "κ = 1/ρ, Λ_{m} = κ/c. On dilution κ decreases and Λ_{m} increases. [[kohlrausch]]: Λ°_{m} = ν_{+}λ°_{+} + ν_{−}λ°_{−}; for a weak electrolyte α = Λ_{m}/Λ°_{m}.",
+  "[[faraday]]: m = MQ/(zF), Q = It, 1 F = 96500 C. The products at the electrodes depend on the electrolyte, the nature of the electrodes and E°.",
+  "Primary batteries (dry cell) cannot be recharged; secondary ones (lead storage) can. In a [[fuel-cell]] the energy of a fuel is converted directly into electricity.",
+  "[[corrosion]] is an electrochemical phenomenon; it can be prevented by paint, coatings and sacrificial protection."
+ ]
+}

@@ -1,0 +1,774 @@
+{
+ "id": "class-12/ch01-solutions",
+ "class": 12,
+ "number": 1,
+ "title": {
+  "as": "দ্ৰৱ",
+  "en": "Solutions"
+ },
+ "scripts": [
+  "anim.js"
+ ],
+ "goals": [
+  "Understand and calculate the composition of different kinds of [[solution]] and the units of concentration (mass percentage, ppm, [[mole-fraction]], [[molarity]], [[molality]])",
+  "Explain the solubility of solids and gases, [[henry-law]] and its applications",
+  "Understand [[raoult-law]] and the difference between ideal and non-ideal solutions; know what an [[azeotrope]] is",
+  "Use the [[colligative]] — relative lowering of vapour pressure, elevation of boiling point, depression of freezing point and [[osmotic-pressure]] — to find molar mass",
+  "Explain the [[vant-hoff]] and the reason for [[abnormal-mass]]"
+ ],
+ "glossary": {
+  "solution": {
+   "as": "দ্ৰৱ",
+   "en": "solution",
+   "def": "A homogeneous mixture of two or more substances. Homogeneous means that the composition and properties are the same in every part of the mixture."
+  },
+  "solute": {
+   "as": "দ্ৰাৱ",
+   "en": "solute",
+   "def": "The component dissolved in the solution (usually present in the smaller amount)."
+  },
+  "solvent": {
+   "as": "দ্ৰাৱক",
+   "en": "solvent",
+   "def": "The component present in the largest amount in the solution; it decides the physical state (gas, liquid or solid) of the solution."
+  },
+  "binary": {
+   "as": "দ্বিউপাংশযুক্ত দ্ৰৱ",
+   "en": "binary solution",
+   "def": "A solution with only two components (one solute and one solvent)."
+  },
+  "mole-fraction": {
+   "as": "ম'ল ভগ্নাংশ",
+   "en": "mole fraction",
+   "def": "The number of moles of one component ÷ the total number of moles of all components of the solution. The mole fractions of all components add up to 1."
+  },
+  "molarity": {
+   "as": "ম'লাৰিটি",
+   "en": "molarity (M)",
+   "def": "The number of moles of solute dissolved in one litre of solution (mol L⁻¹)."
+  },
+  "molality": {
+   "as": "ম'লালিটি",
+   "en": "molality (m)",
+   "def": "The number of moles of solute dissolved in one kilogram of solvent (mol kg⁻¹)."
+  },
+  "saturated": {
+   "as": "সংপৃক্ত দ্ৰৱ",
+   "en": "saturated solution",
+   "def": "A solution that cannot dissolve any more solute at a given temperature and pressure; the rates of dissolution and crystallisation are equal in it."
+  },
+  "unsaturated": {
+   "as": "অসংপৃক্ত দ্ৰৱ",
+   "en": "unsaturated solution",
+   "def": "A solution that can dissolve more solute at the same temperature."
+  },
+  "henry-law": {
+   "as": "হেনৰিৰ সূত্ৰ",
+   "en": "Henry's law",
+   "def": "At constant temperature the solubility of a gas in a solution (mole fraction) is proportional to the partial pressure of the gas above the solution: p = Kₕ x."
+  },
+  "raoult-law": {
+   "as": "ৰাউল্টৰ সূত্ৰ",
+   "en": "Raoult's law",
+   "def": "For a solution of volatile components, the partial vapour pressure of each component is proportional to its mole fraction: pᵢ = xᵢ pᵢ°."
+  },
+  "volatile": {
+   "as": "উদ্বায়ী",
+   "en": "volatile",
+   "def": "Able to evaporate easily (having a high vapour pressure)."
+  },
+  "ideal": {
+   "as": "আদৰ্শ দ্ৰৱ",
+   "en": "ideal solution",
+   "def": "A solution that obeys Raoult's law at all concentrations and temperatures; for it ΔmixH = 0 and ΔmixV = 0."
+  },
+  "azeotrope": {
+   "as": "এজিঅ'ট্ৰ'প",
+   "en": "azeotrope",
+   "def": "A binary mixture that has the same composition in the liquid and vapour phases when it boils at a certain temperature; it cannot be separated by fractional distillation."
+  },
+  "colligative": {
+   "as": "সংখ্যাগত ধৰ্ম",
+   "en": "colligative properties",
+   "def": "Properties that depend on the number of solute particles and not on their nature."
+  },
+  "osmosis": {
+   "as": "ৰসাকৰ্ষণ",
+   "en": "osmosis",
+   "def": "The flow of solvent particles through a semipermeable membrane from pure solvent (or a dilute solution) to a concentrated solution."
+  },
+  "spm": {
+   "as": "অৰ্ধভেদ্য আৱৰণ",
+   "en": "semipermeable membrane",
+   "def": "A membrane that lets small solvent particles pass but not the large particles of the solute."
+  },
+  "osmotic-pressure": {
+   "as": "ৰসাকৰ্ষী চাপ",
+   "en": "osmotic pressure (Π)",
+   "def": "The minimum pressure that must be applied to a solution to stop osmosis: Π = cRT."
+  },
+  "isotonic": {
+   "as": "সমৰসাকৰ্ষী দ্ৰৱ",
+   "en": "isotonic solution",
+   "def": "Two solutions that have the same osmotic pressure at the same temperature."
+  },
+  "reverse-osmosis": {
+   "as": "উৎক্ৰমন ৰসাকৰ্ষণ",
+   "en": "reverse osmosis",
+   "def": "The process in which a pressure greater than the osmotic pressure is applied to a solution so that solvent flows out of the solution into pure solvent."
+  },
+  "vant-hoff": {
+   "as": "ভান্ট হফৰ গুণক",
+   "en": "van't Hoff factor (i)",
+   "def": "i = observed colligative property ÷ calculated colligative property = total moles of particles after dissociation / association ÷ moles before."
+  },
+  "abnormal-mass": {
+   "as": "অস্বাভাৱিক ম'লাৰ ভৰ",
+   "en": "abnormal molar mass",
+   "def": "The molar mass obtained from a colligative property when the solute dissociates or associates, which differs from the true value."
+  }
+ },
+ "sections": [
+  {
+   "id": "types",
+   "title": "Types of Solutions",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A homogeneous mixture of two or more substances is called a [[solution]]. The component present in the larger amount is the [[solvent]], and the other (or others) dissolved in the solvent is the [[solute]]. The state of the solvent decides whether the solution is gaseous, liquid or solid. In this chapter we shall discuss only a [[binary]], with two components, and especially liquid solutions."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Type of solution",
+      "Solute",
+      "Solvent",
+      "Example"
+     ],
+     "rows": [
+      [
+       "Gaseous solution",
+       "Gas",
+       "Gas",
+       "Air (O_{2} and N_{2})"
+      ],
+      [
+       "Gaseous solution",
+       "Liquid",
+       "Gas",
+       "Chloroform vapour in nitrogen"
+      ],
+      [
+       "Gaseous solution",
+       "Solid",
+       "Gas",
+       "Camphor vapour in air"
+      ],
+      [
+       "Liquid solution",
+       "Gas",
+       "Liquid",
+       "CO_{2} in water (soda water)"
+      ],
+      [
+       "Liquid solution",
+       "Liquid",
+       "Liquid",
+       "Ethanol in water"
+      ],
+      [
+       "Liquid solution",
+       "Solid",
+       "Liquid",
+       "Sugar in water"
+      ],
+      [
+       "Solid solution",
+       "Gas",
+       "Solid",
+       "H_{2} in palladium"
+      ],
+      [
+       "Solid solution",
+       "Liquid",
+       "Solid",
+       "Mercury in gold (amalgam)"
+      ],
+      [
+       "Solid solution",
+       "Solid",
+       "Solid",
+       "Brass (Cu and Zn)"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "concentration",
+   "title": "Expressing the Concentration of Solutions",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Expressing in numbers how much solute a solution contains is called concentration. There are several units for it:"
+    },
+    {
+     "type": "formula",
+     "label": "Mass percentage (w/w)",
+     "text": "Mass percentage of a component = (mass of the component ÷ total mass of the solution) × 100"
+    },
+    {
+     "type": "formula",
+     "label": "Volume percentage (V/V) and mass-by-volume percentage (w/V)",
+     "text": "Volume percentage = (volume of the component ÷ total volume of the solution) × 100\nMass-by-volume percentage = mass (g) of solute dissolved in 100 mL of solution"
+    },
+    {
+     "type": "formula",
+     "label": "Parts per million (ppm)",
+     "text": "ppm = (parts of the component ÷ total parts of the solution) × 10^{6}\nThis unit is used when the solute is present in a very small amount."
+    },
+    {
+     "type": "formula",
+     "label": "Mole fraction (x)",
+     "text": "x_{A} = n_{A} ÷ (n_{A} + n_{B})\nx_{A} + x_{B} = 1"
+    },
+    {
+     "type": "formula",
+     "label": "Molarity (M) and molality (m)",
+     "text": "Molarity (M) = moles of solute ÷ volume of solution (in litres)  [mol L^{−1}]\nMolality (m) = moles of solute ÷ mass of solvent (in kg)  [mol kg^{−1}]"
+    },
+    {
+     "type": "note",
+     "label": "Example 1",
+     "text": "36 g of glucose (molar mass 180 g mol^{−1}) is dissolved in 400 g of water. What are the molality and the mole fraction of glucose?\nMoles of glucose = 36 / 180 = 0.20 mol; moles of water = 400 / 18 = 22.2 mol\nMolality = 0.20 mol ÷ 0.400 kg = **0.50 mol kg^{−1}**\nx_{glucose} = 0.20 / (0.20 + 22.2) = **0.0089**"
+    },
+    {
+     "type": "note",
+     "label": "Example 2",
+     "text": "4.0 g of NaOH is dissolved to make 250 mL of solution. What is the molarity?\nMoles of NaOH = 4.0 / 40 = 0.10 mol; volume = 0.250 L\nMolarity = 0.10 / 0.250 = **0.40 mol L^{−1}**"
+    },
+    {
+     "type": "note",
+     "label": "Important",
+     "text": "Molarity depends on the volume of the solution, and the volume changes when the temperature changes; so molarity depends on temperature. Mass percentage, ppm, mole fraction and molality depend on mass, so they do not depend on temperature."
+    },
+    {
+     "type": "anim",
+     "name": "concentration",
+     "title": "The same solution, different units of concentration",
+     "caption": "Change the amounts of solute and water and see the values of the five units. Then move the Temp slider."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "Raise the temperature from 298 K to 338 K. Which unit changes and which stay the same? Why?"
+    }
+   ]
+  },
+  {
+   "id": "solubility",
+   "title": "Solubility",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The maximum amount of a substance that can dissolve in a given amount of solvent at a given temperature is called the solubility of that substance. It depends on the nature of the solute and the solvent, the temperature and the pressure."
+    },
+    {
+     "type": "p",
+     "text": "**Solubility of a solid in a liquid**"
+    },
+    {
+     "type": "p",
+     "text": "Polar substances dissolve easily in polar solvents and non-polar substances in non-polar solvents. For example, NaCl and sugar dissolve in water but not in benzene; naphthalene dissolves in benzene but not in water. In short — substances of a similar nature dissolve each other (like dissolves like)."
+    },
+    {
+     "type": "p",
+     "text": "When a solid is added to a solvent some of it dissolves — this process is called **dissolution**. Some of the particles in the solution come back out and deposit on the surface of the solid — this is called **crystallisation**. After some time the rates of the two processes become equal and a dynamic equilibrium is established."
+    },
+    {
+     "type": "formula",
+     "text": "Solid solute + solvent ⇌ solution"
+    },
+    {
+     "type": "p",
+     "text": "In this state the solution is called [[saturated]]. It cannot dissolve any more solute. On the other hand, if more solute can be dissolved at the same temperature, the solution is [[unsaturated]]."
+    },
+    {
+     "type": "p",
+     "text": "**Effect of temperature and pressure:** The equilibrium is dynamic, so it obeys Le Chatelier's principle. If dissolution is endothermic (Δ_{sol}H > 0), solubility increases with a rise in temperature; if exothermic (Δ_{sol}H < 0), solubility decreases with a rise in temperature. Solids and liquids are almost incompressible, so the effect of pressure is not noticeable."
+    },
+    {
+     "type": "anim",
+     "name": "solubility",
+     "title": "Dynamic equilibrium of dissolution and crystallisation",
+     "caption": "Press the ‘Add solute’ button to add solute. What happens when solid solute is left over? Try changing the temperature."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "After the solution is saturated the bars for the two rates are equal — but neither is zero. So the equilibrium is not ‘static’ but ‘dynamic’. Choose ‘Dissolving releases heat’, raise the temperature and see what happens."
+    },
+    {
+     "type": "p",
+     "text": "**Solubility of a gas in a liquid — Henry's law**"
+    },
+    {
+     "type": "p",
+     "text": "Oxygen dissolves in water in a very small amount, yet that is enough for aquatic life. The solubility of a gas is influenced especially by pressure and temperature. When the pressure is raised, gas particles strike the surface of the liquid more often and more particles enter the solution; so the solubility increases."
+    },
+    {
+     "type": "formula",
+     "label": "Henry's law",
+     "text": "At constant temperature the solubility of a gas is proportional to the partial pressure of the gas.\np = K_{H} · x\n(x = mole fraction of the gas in the solution, K_{H} = Henry's law constant)"
+    },
+    {
+     "type": "p",
+     "text": "The value of K_{H} depends on the nature of the gas and the temperature. At the same pressure, the larger K_{H} is, the lower the solubility of the gas. K_{H} increases when the temperature rises, that is, the solubility of the gas falls; this is why aquatic animals get more oxygen in cold water than in warm water."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Gas",
+      "K_{H} at 293 K (kbar, in water)"
+     ],
+     "rows": [
+      [
+       "He",
+       "144.97"
+      ],
+      [
+       "N_{2}",
+       "76.48"
+      ],
+      [
+       "O_{2}",
+       "34.86"
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "label": "Example 3",
+     "text": "If the partial pressure of nitrogen at 293 K is 2.0 bar, how many moles of N_{2} will dissolve in 1 L of water? (K_{H} = 76.48 kbar)\nx = p / K_{H} = 2.0 / (76.48 × 10^{3}) = 2.6 × 10^{−5}\n1 L of water contains about 55.5 mol of water, and x is very small; so n ≈ x × 55.5 = **1.45 × 10^{−3} mol** (≈ 1.45 mmol)."
+    },
+    {
+     "type": "anim",
+     "name": "henry",
+     "title": "More gas dissolves as the pressure is raised",
+     "caption": "Move the Pressure slider and change the gas or the temperature. The number of dots in the picture is proportional to p / K_{H} (scaled down for display)."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "For N₂ compare the number of dissolved particles at 293 K and 303 K at the same pressure. Look at O₂ and He too."
+    },
+    {
+     "type": "p",
+     "text": "**Applications of Henry's law**"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Soda water and soft-drink bottles are sealed with CO_{2} at high pressure so that more CO_{2} stays dissolved. When the bottle is opened the pressure falls and the gas comes out as bubbles.",
+      "Scuba divers breathe at high pressure deep in the sea, so more nitrogen dissolves in their blood. If they rise suddenly the pressure falls and bubbles of nitrogen form in the blood; this is called ‘bends’ or decompression sickness. To avoid it, air diluted with helium is used, because helium is less soluble in blood.",
+      "At high altitudes (on mountains) the partial pressure of oxygen is low. So the solubility of oxygen in blood is low and climbers suffer from weakness and loss of the ability to think clearly — this is called anoxia."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "vapour-pressure",
+   "title": "Vapour Pressure of Liquid Solutions and Raoult's Law",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A solution may contain more than one [[volatile]] component. When a solution of two volatile liquid components 1 and 2 is kept in a closed vessel, after some time an equilibrium of evaporation and condensation is established. Let the partial vapour pressures of components 1 and 2 be p_{1} and p_{2}, and their mole fractions x_{1} and x_{2}."
+    },
+    {
+     "type": "formula",
+     "label": "Raoult's law",
+     "text": "For a solution of volatile components, the partial vapour pressure of each component is proportional to its mole fraction.\np_{1} = x_{1} p_{1}°  ,  p_{2} = x_{2} p_{2}°\n(p° = vapour pressure in the pure state at the same temperature)"
+    },
+    {
+     "type": "formula",
+     "label": "Dalton's law of partial pressures",
+     "text": "p_{total} = p_{1} + p_{2} = x_{1} p_{1}° + x_{2} p_{2}°\n    = p_{1}° + (p_{2}° − p_{1}°) x_{2}\nIn the vapour phase the mole fraction of component i is y_{i} = p_{i} / p_{total}"
+    },
+    {
+     "type": "p",
+     "text": "From this it is clear that p_{total} changes linearly with x_{2}. The vapour always contains a larger fraction of the **more volatile component**."
+    },
+    {
+     "type": "p",
+     "text": "If the solute is non-volatile (e.g. sugar, salt) the vapour pressure of the solution is due only to the solvent: p_{1} = x_{1} p_{1}°. Since x_{1} < 1, the vapour pressure of the solution is less than that of the pure solvent; because the solute molecules occupy part of the surface and reduce the evaporation of solvent molecules."
+    },
+    {
+     "type": "note",
+     "label": "Raoult's law — a special case of Henry's law",
+     "text": "When a gas dissolves in a liquid, p = K_{H} x. Comparing with Raoult's law p = x p°, we see that in both the partial pressure is proportional to the mole fraction. Raoult's law is the special case of Henry's law in which K_{H} = p°."
+    },
+    {
+     "type": "note",
+     "label": "Example 4",
+     "text": "At a certain temperature the vapour pressures of pure liquids 1 and 2 are 300 and 100 mm Hg. When 2 mol of liquid 1 and 3 mol of liquid 2 are mixed (ideal solution):\nx_{1} = 2/5 = 0.4, x_{2} = 0.6\np_{1} = 0.4 × 300 = 120 mm Hg; p_{2} = 0.6 × 100 = 60 mm Hg\np_{total} = **180 mm Hg**\nIn the vapour y_{1} = 120 / 180 = **0.67** (in the solution x_{1} = 0.4 — component 1 is more volatile, so there is more of it in the vapour)."
+    },
+    {
+     "type": "anim",
+     "name": "raoult",
+     "title": "Vapour pressure against mole fraction",
+     "caption": "Change x₂ and the vapour pressures of the pure components (p°₁, p°₂). Why are the graphs of p₁, p₂ and p total straight lines?"
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "Set p°₁ = 300 and p°₂ = 100 and take x₂ from 0 to 1. From what value to what value does p total change? See how the composition of the vapour (y₁, y₂) changes along with it."
+    }
+   ]
+  },
+  {
+   "id": "ideal",
+   "title": "Ideal and Non-ideal Solutions",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Solutions that obey Raoult's law over the whole range of concentration are called [[ideal]]. Those that do not are **non-ideal solutions**. The actual vapour pressure of a non-ideal solution is higher (positive deviation) or lower (negative deviation) than the value given by Raoult's law."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Property",
+      "Ideal solution",
+      "Positive deviation",
+      "Negative deviation"
+     ],
+     "rows": [
+      [
+       "Intermolecular attraction",
+       "A–B = A–A and B–B",
+       "A–B weaker",
+       "A–B stronger"
+      ],
+      [
+       "Δ_{mix}H",
+       "0",
+       "> 0 (endothermic)",
+       "< 0 (exothermic)"
+      ],
+      [
+       "Δ_{mix}V",
+       "0",
+       "> 0 (volume increases)",
+       "< 0 (volume decreases)"
+      ],
+      [
+       "Vapour pressure",
+       "Same as by Raoult's law",
+       "Higher than by the law",
+       "Lower than by the law"
+      ],
+      [
+       "Example",
+       "n-hexane + n-heptane; benzene + toluene",
+       "ethanol + acetone; CS_{2} + acetone",
+       "chloroform + acetone; phenol + aniline"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "In a positive deviation the A–B attraction is weaker, so the molecules evaporate more easily; for example, when acetone molecules enter the hydrogen bonds of ethanol, some hydrogen bonds are broken. In a negative deviation chloroform and acetone form hydrogen bonds, so the tendency of the molecules to escape falls and the vapour pressure falls."
+    },
+    {
+     "type": "anim",
+     "name": "deviations",
+     "title": "Ideal, positive and negative deviation",
+     "caption": "Press the three buttons and compare the shapes of the graphs. The dashed line shows the ideal (Raoult's law) case."
+    },
+    {
+     "type": "p",
+     "text": "**Azeotropes**"
+    },
+    {
+     "type": "p",
+     "text": "Some liquid mixtures form an [[azeotrope]] at a particular composition. When it boils, the liquid and the vapour have the same composition, so the components cannot be separated by fractional distillation. They are of two kinds:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "**Minimum-boiling azeotrope** — formed by solutions showing a large positive deviation from Raoult's law. Example: ethanol and water (about 95 % ethanol by volume).",
+      "**Maximum-boiling azeotrope** — formed by solutions showing a large negative deviation. Example: nitric acid and water (about 68 % HNO_{3} by mass, boiling point 393.5 K)."
+     ]
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "Press ‘Positive deviation’ and notice the azeotrope point marked with a red dashed line on the graph. Why is p total lowest at this point in a negative deviation?"
+    }
+   ]
+  },
+  {
+   "id": "colligative",
+   "title": "Colligative Properties and Determination of Molar Mass",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "When a non-volatile solute is dissolved in a solvent, some properties of the solution change. The change depends on the **number of solute particles** and not on their nature. Such properties are called [[colligative]]. There are four: (i) relative lowering of vapour pressure, (ii) elevation of boiling point, (iii) depression of freezing point and (iv) osmotic pressure. By measuring these properties the molar mass of the solute can be found."
+    },
+    {
+     "type": "p",
+     "text": "**1. Relative lowering of vapour pressure**"
+    },
+    {
+     "type": "p",
+     "text": "By Raoult's law the vapour pressure of the solvent in a solution with a non-volatile solute is p_{1} = x_{1} p_{1}°. So the lowering Δp_{1} = p_{1}° − p_{1} = x_{2} p_{1}°."
+    },
+    {
+     "type": "formula",
+     "label": "Relative lowering",
+     "text": "(p_{1}° − p_{1}) / p_{1}° = x_{2} = n_{2} / (n_{1} + n_{2})\nIn a dilute solution (n_{2} ≪ n_{1}):  (p_{1}° − p_{1}) / p_{1}° ≈ n_{2} / n_{1} = (w_{2} × M_{1}) / (M_{2} × w_{1})"
+    },
+    {
+     "type": "note",
+     "label": "Example 5",
+     "text": "5.0 g of urea (60 g mol^{−1}) is dissolved in 95 g of water. If the vapour pressure of pure water at 298 K is 23.8 mm Hg, what is the vapour pressure of the solution?\nn_{urea} = 5/60 = 0.0833 mol; n_{water} = 95/18 = 5.28 mol\nx_{urea} = 0.0833 / (0.0833 + 5.28) = 0.0155\nΔp = 0.0155 × 23.8 = 0.37 mm Hg → p = 23.8 − 0.37 = **23.43 mm Hg**"
+    },
+    {
+     "type": "p",
+     "text": "**2. Elevation of boiling point**"
+    },
+    {
+     "type": "p",
+     "text": "The temperature at which the vapour pressure of a liquid equals the atmospheric pressure is its boiling point. A non-volatile solute lowers the vapour pressure; so to make the vapour pressure of the solution equal to the atmospheric pressure the temperature must be raised further. So the boiling point of the solution is higher than that of the pure solvent. In a dilute solution ΔT_{b} = T_{b} − T_{b}° is proportional to the molality."
+    },
+    {
+     "type": "formula",
+     "label": "Elevation of boiling point",
+     "text": "ΔT_{b} = K_{b} · m\nM_{2} = (1000 × w_{2} × K_{b}) / (ΔT_{b} × w_{1})\nK_{b} = molal boiling point elevation constant (K kg mol^{−1}, ebullioscopic constant)"
+    },
+    {
+     "type": "p",
+     "text": "**3. Depression of freezing point**"
+    },
+    {
+     "type": "p",
+     "text": "Because the vapour pressure of the solution is lowered, its freezing point is lower than that of the pure solvent (the freezing point is the temperature at which the vapour pressures of the liquid and the solid solvent are equal). In a dilute solution ΔT_{f} = T_{f}° − T_{f} is proportional to the molality. Because of this property ethylene glycol (antifreeze) is added to the radiator of a car to stop the water from freezing."
+    },
+    {
+     "type": "formula",
+     "label": "Depression of freezing point",
+     "text": "ΔT_{f} = K_{f} · m\nM_{2} = (1000 × w_{2} × K_{f}) / (ΔT_{f} × w_{1})\nK_{f} = molal depression constant (cryoscopic constant, K kg mol^{−1})"
+    },
+    {
+     "type": "table",
+     "head": [
+      "Solvent",
+      "Boiling point (K)",
+      "K_{b}",
+      "Freezing point (K)",
+      "K_{f}"
+     ],
+     "rows": [
+      [
+       "Water",
+       "373.15",
+       "0.52",
+       "273.15",
+       "1.86"
+      ],
+      [
+       "Ethanol",
+       "351.5",
+       "1.20",
+       "155.7",
+       "1.99"
+      ],
+      [
+       "Benzene",
+       "353.3",
+       "2.53",
+       "278.6",
+       "5.12"
+      ],
+      [
+       "Chloroform",
+       "334.4",
+       "3.63",
+       "209.6",
+       "4.79"
+      ],
+      [
+       "Acetic acid",
+       "391.1",
+       "2.93",
+       "290.0",
+       "3.90"
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "label": "Example 6",
+     "text": "12 g of urea (60 g mol^{−1}) is dissolved in 400 g of water. What will be the freezing point of the solution? (K_{f} = 1.86 K kg mol^{−1})\nm = (12/60) / 0.400 = 0.50 mol kg^{−1}\nΔT_{f} = 1.86 × 0.50 = 0.93 K\nFreezing point = 273.15 − 0.93 = **272.22 K** (≈ −0.93 °C)"
+    },
+    {
+     "type": "anim",
+     "name": "colligative",
+     "title": "How much do the boiling point and freezing point change?",
+     "caption": "Change the solvent, the molality and i. Notice the sizes of ΔT_{b} and ΔT_{f} in the picture."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "Keep the molality at 1.0 and change the solvent from ‘Water’ to ‘Benzene’. In which is ΔT_{f} larger? Why? Then set i = 2 and see."
+    },
+    {
+     "type": "p",
+     "text": "**4. Osmosis and osmotic pressure**"
+    },
+    {
+     "type": "p",
+     "text": "A piece of raw mango shrinks when placed in salt water, and dried flowers become fresh again when placed in pure water. At the root of these is the [[spm]] — through which small molecules such as water can pass, but not the large particles of the solute. If pure solvent and a solution are placed on the two sides of such a membrane, solvent particles flow spontaneously from the pure solvent into the solution; this is called [[osmosis]]."
+    },
+    {
+     "type": "p",
+     "text": "The minimum extra pressure that must be applied to the solution to stop osmosis is the [[osmotic-pressure]] of the solution. This pressure is proportional to the molarity and is a colligative property."
+    },
+    {
+     "type": "formula",
+     "label": "Osmotic pressure",
+     "text": "Π = c R T = (n_{2} / V) R T\nM_{2} = (w_{2} R T) / (Π V)\nR = 0.083 L bar K^{−1} mol^{−1}"
+    },
+    {
+     "type": "p",
+     "text": "Osmotic pressure is used to find the molar mass of large molecules such as proteins and polymers, because it can be measured at room temperature, and even for a very dilute solution the measured value is large enough (the change in boiling point or freezing point would be very small)."
+    },
+    {
+     "type": "note",
+     "label": "Example 7",
+     "text": "250 mL of an aqueous solution contains 0.50 g of a protein. The osmotic pressure at 300 K is 1.2 × 10^{−3} bar. What is the molar mass of the protein?\nM_{2} = w_{2} R T / (Π V) = (0.50 × 0.083 × 300) / (1.2 × 10^{−3} × 0.250) = **4.15 × 10^{4} g mol^{−1}**"
+    },
+    {
+     "type": "anim",
+     "name": "osmosis",
+     "title": "Osmosis and reverse osmosis",
+     "caption": "Pure solvent on the left, solution on the right. Increase the concentration (c) of the solution, then increase the applied pressure (P) above Π."
+    },
+    {
+     "type": "p",
+     "text": "Two solutions with the same osmotic pressure are called [[isotonic]]. The osmotic pressure of the fluid inside red blood cells equals that of a 0.9 % (mass/volume) NaCl solution; so a normal saline solution of this concentration can be injected into a vein. In a solution more concentrated than 0.9 % water leaves the cell and the cell shrinks (hypertonic); in a solution less concentrated water enters the cell and the cell swells up (hypotonic)."
+    },
+    {
+     "type": "anim",
+     "name": "cell-osmosis",
+     "title": "Red blood cells and NaCl solution",
+     "caption": "Change the concentration of NaCl outside and see what happens to the cell."
+    },
+    {
+     "type": "p",
+     "text": "If a pressure greater than the osmotic pressure is applied to the solution, the flow of solvent is reversed: now pure solvent comes out of the solution through the semipermeable membrane. This is called [[reverse-osmosis]]. An important application is obtaining pure water from sea water (desalination); a membrane of cellulose acetate is used."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "In the osmosis animation set c = 0.5 and P = 0 and see whether the level on the solution side rises. Then raise P above Π (shown in the readout) — does the direction of flow reverse?"
+    }
+   ]
+  },
+  {
+   "id": "abnormal",
+   "title": "Abnormal Molar Mass",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The equations for colligative properties assume that the solute molecules neither associate nor dissociate in the solution. But some solutes break up into ions in solution (dissociation) or their molecules join to form larger particles (association). Then the number of particles changes and so does the value of the colligative property. As a result the molar mass obtained differs from the true value; this is called [[abnormal-mass]]."
+    },
+    {
+     "type": "list",
+     "items": [
+      "**Dissociation:** When 1 mol of KCl dissolves in water, 1 mol of K^{+} and 1 mol of Cl^{−} are obtained, that is, nearly twice as many particles. As a result ΔT_{f} and similar values become nearly double, and the calculated molar mass is nearly half the true value.",
+      "**Association:** In benzene, acetic acid molecules form dimers through hydrogen bonds. The number of particles is halved; as a result ΔT_{f} is halved and the molar mass becomes nearly double the true value."
+     ]
+    },
+    {
+     "type": "formula",
+     "label": "van't Hoff factor (i)",
+     "text": "i = normal molar mass ÷ abnormal molar mass\n  = observed colligative property ÷ calculated colligative property\n  = total moles of particles after dissociation / association ÷ moles before\nFor dissociation i > 1; for association i < 1; for an ordinary non-volatile solute i = 1"
+    },
+    {
+     "type": "formula",
+     "label": "Equations for colligative properties with i",
+     "text": "(p_{1}° − p_{1}) / p_{1}° = i · n_{2} / n_{1}\nΔT_{b} = i K_{b} m\nΔT_{f} = i K_{f} m\nΠ = i n_{2} R T / V"
+    },
+    {
+     "type": "table",
+     "head": [
+      "Salt",
+      "0.1 m",
+      "0.01 m",
+      "0.001 m",
+      "For complete dissociation"
+     ],
+     "rows": [
+      [
+       "NaCl",
+       "1.87",
+       "1.94",
+       "1.97",
+       "2.00"
+      ],
+      [
+       "KCl",
+       "1.85",
+       "1.94",
+       "1.98",
+       "2.00"
+      ],
+      [
+       "MgSO_{4}",
+       "1.21",
+       "1.53",
+       "1.82",
+       "2.00"
+      ],
+      [
+       "K_{2}SO_{4}",
+       "2.32",
+       "2.70",
+       "2.84",
+       "3.00"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Notice: the more dilute the solution, the closer the value of i comes to the value for complete dissociation, because in a dilute solution the attraction between ions is smaller."
+    },
+    {
+     "type": "note",
+     "label": "Example 8",
+     "text": "The freezing point of a 0.050 m aqueous solution of a weak monobasic acid is lowered by 0.0975 K. K_{f} = 1.86 K kg mol^{−1}. What is the degree of dissociation (α)?\nIf undissociated, ΔT_{f} = 1.86 × 0.050 = 0.093 K\ni = 0.0975 / 0.093 = 1.048\nFor HA ⇌ H^{+} + A^{−}, i = 1 + α, so α = **0.048** (about 4.8 %)"
+    },
+    {
+     "type": "anim",
+     "name": "vanthoff",
+     "title": "Number of particles in dissociation and association",
+     "caption": "Change the salt and the concentration. Notice how the dissociated fraction and the value of i change."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "For MgSO₄ go from 0.1 m to 0.001 m. At which concentration are more ions separated? Choose acetic acid (in benzene) and think about what i = 0.5 means."
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "A [[solution]] is a homogeneous mixture of two or more substances. Concentration is expressed as mass percentage, ppm, [[mole-fraction]], [[molarity]] and [[molality]]; except for molarity, the others do not depend on temperature.",
+  "The solubility of a solid depends on temperature; in a saturated solution the rates of dissolution and crystallisation are equal (dynamic equilibrium).",
+  "[[henry-law]]: p = K_{H} x. The solubility of a gas increases with pressure and decreases with temperature.",
+  "[[raoult-law]]: p_{i} = x_{i} p_{i}°; in an ideal solution Δ_{mix}H = 0 and Δ_{mix}V = 0. Positive or negative deviations can give an [[azeotrope]] at a particular composition.",
+  "[[colligative]]: (p°−p)/p° = x₂, ΔT_{b} = K_{b} m, ΔT_{f} = K_{f} m, Π = cRT. From these the molar mass of the solute can be found.",
+  "Applying a pressure greater than Π causes [[reverse-osmosis]] — used in desalination.",
+  "If the solute dissociates i > 1, if it associates i < 1. Equations with the [[vant-hoff]]: ΔT = i K m, Π = i c R T."
+ ]
+}

@@ -1,9 +1,10 @@
 /* Animations for Class 12, Chapter 1: Solutions (দ্ৰৱ).
    Registered names: concentration, solubility, henry, raoult, deviations, colligative, osmosis, cell-osmosis, vanthoff
-   Controls are in English (app UI); read-outs are in Assamese (subject content). */
+   Controls are in English (app UI); read-outs follow the reader's language: L('assamese', 'english'). */
 (function () {
   'use strict';
   var A = window.ChemAnim;
+  var L = A.t;   /* L(assamese, english): the string for the reader's language */
   var TAU = Math.PI * 2;
 
   function sci(x, d) {
@@ -22,7 +23,7 @@
       { name: 'NaOH (40 g/mol)', M: 40 }, { name: 'Ethylene glycol (62 g/mol)', M: 62 }
     ];
     var st = { i: 0, ws: 36, ww: 400, rho: 1.05, T: 298 };
-    var svg = s('svg', { viewBox: '0 0 300 240', 'class': 'anim-svg', role: 'img', 'aria-label': 'দ্ৰৱৰ বীকাৰ: দ্ৰাৱৰ কণা আৰু দ্ৰাৱক' });
+    var svg = s('svg', { viewBox: '0 0 300 240', 'class': 'anim-svg', role: 'img', 'aria-label': L('দ্ৰৱৰ বীকাৰ: দ্ৰাৱৰ কণা আৰু দ্ৰাৱক', 'Beaker of solution: solute and solvent particles') });
     svg.appendChild(s('path', { d: 'M70 24 L70 208 Q70 220 82 220 L218 220 Q230 220 230 208 L230 24', fill: 'none', stroke: 'var(--muted)', 'stroke-width': 3 }));
     var liquid = s('rect', { x: 73, width: 154, rx: 6, style: 'fill:var(--electron);opacity:.18' });
     var dotsG = s('g');
@@ -57,13 +58,13 @@
       var hot = Math.abs(st.T - 298) > 0.5 ? ' style="color:var(--accent);font-weight:700"' : '';
       readout.innerHTML =
         '<table style="width:100%;border-collapse:collapse">' +
-        '<tr><td>ভৰ শতাংশ (w/w)</td><td><b>' + c.pct.toFixed(2) + ' %</b></td></tr>' +
-        '<tr><td>ম\'ল ভগ্নাংশ</td><td>x<sub>দ্ৰাৱ</sub> = <b>' + c.xs.toFixed(4) + '</b>, x<sub>দ্ৰাৱক</sub> = <b>' + c.xw.toFixed(4) + '</b></td></tr>' +
-        '<tr><td>ম\'লালিটি (m)</td><td><b>' + c.m.toFixed(3) + ' mol kg<sup>−1</sup></b></td></tr>' +
-        '<tr' + hot + '><td>ম\'লাৰিটি (M)</td><td><b>' + c.Mol.toFixed(3) + ' mol L<sup>−1</sup></b></td></tr>' +
-        '<tr><td>নিযুতাংশ (ppm)</td><td><b>' + (c.ppm >= 1e5 ? sci(c.ppm, 2) : Math.round(c.ppm)) + '</b></td></tr></table>' +
-        '<div style="margin-top:6px">দ্ৰৱৰ আয়তন ≈ ' + c.V.toFixed(0) + ' mL (T = ' + st.T + ' K)' +
-        (hot ? '<br><b style="color:var(--accent)">লক্ষ্য কৰক: উষ্ণতা সলনি কৰিলে কেৱল ম\'লাৰিটি সলনি হয়; ম\'লালিটি, ম\'ল ভগ্নাংশ আৰু ভৰ শতাংশ একে থাকে।</b>' : '') + '</div>';
+        '<tr><td>' + L('ভৰ শতাংশ (w/w)', 'Mass percentage (w/w)') + '</td><td><b>' + c.pct.toFixed(2) + ' %</b></td></tr>' +
+        '<tr><td>' + L('ম\'ল ভগ্নাংশ', 'Mole fraction') + '</td><td>x<sub>' + L('দ্ৰাৱ', 'solute') + '</sub> = <b>' + c.xs.toFixed(4) + '</b>, x<sub>' + L('দ্ৰাৱক', 'solvent') + '</sub> = <b>' + c.xw.toFixed(4) + '</b></td></tr>' +
+        '<tr><td>' + L('ম\'লালিটি (m)', 'Molality (m)') + '</td><td><b>' + c.m.toFixed(3) + ' mol kg<sup>−1</sup></b></td></tr>' +
+        '<tr' + hot + '><td>' + L('ম\'লাৰিটি (M)', 'Molarity (M)') + '</td><td><b>' + c.Mol.toFixed(3) + ' mol L<sup>−1</sup></b></td></tr>' +
+        '<tr><td>' + L('নিযুতাংশ (ppm)', 'Parts per million (ppm)') + '</td><td><b>' + (c.ppm >= 1e5 ? sci(c.ppm, 2) : Math.round(c.ppm)) + '</b></td></tr></table>' +
+        '<div style="margin-top:6px">' + L('দ্ৰৱৰ আয়তন', 'Volume of solution') + ' ≈ ' + c.V.toFixed(0) + ' mL (T = ' + st.T + ' K)' +
+        (hot ? '<br><b style="color:var(--accent)">' + L('লক্ষ্য কৰক: উষ্ণতা সলনি কৰিলে কেৱল ম\'লাৰিটি সলনি হয়; ম\'লালিটি, ম\'ল ভগ্নাংশ আৰু ভৰ শতাংশ একে থাকে।', 'Notice: when the temperature changes only the molarity changes; molality, mole fraction and mass percentage stay the same.') + '</b>' : '') + '</div>';
     }
     function tick(dt) {
       dots.forEach(function (d) {
@@ -87,7 +88,7 @@
   /* ================================================================== 2. solubility (dynamic equilibrium) */
   A.register('solubility', function (root, k) {
     var h = k.h, W = 480, H = 300;
-    var canvas = h('canvas', { 'class': 'anim-canvas', role: 'img', 'aria-label': 'কঠিন পদাৰ্থ দ্ৰবীভূত হোৱা আৰু স্ফটিকীকৰণ হোৱাৰ গতিশীল সাম্য' });
+    var canvas = h('canvas', { 'class': 'anim-canvas', role: 'img', 'aria-label': L('কঠিন পদাৰ্থ দ্ৰবীভূত হোৱা আৰু স্ফটিকীকৰণ হোৱাৰ গতিশীল সাম্য', 'Dynamic equilibrium of dissolution and crystallisation of a solid') });
     root.appendChild(canvas);
     var ctx = k.hiDpiCanvas(canvas, W, H);
     var LQ = { x: 16, y: 50, w: 300, h: 220 };
@@ -115,9 +116,9 @@
       draw();
     }
     function status() {
-      if (S === 0) return { t: 'অসংপৃক্ত দ্ৰৱ (unsaturated) — আৰু দ্ৰাৱ দ্ৰবীভূত কৰিব পাৰি', c: '--electron' };
-      if (Math.abs(rd - rc) < 0.15 * Math.max(rd, 0.1)) return { t: 'সংপৃক্ত দ্ৰৱ (saturated) — গতিশীল সাম্য', c: '--ok' };
-      return { t: 'দ্ৰৱণ চলি আছে…', c: '--alpha' };
+      if (S === 0) return { t: L('অসংপৃক্ত দ্ৰৱ (unsaturated) — আৰু দ্ৰাৱ দ্ৰবীভূত কৰিব পাৰি', 'Unsaturated solution — more solute can be dissolved'), c: '--electron' };
+      if (Math.abs(rd - rc) < 0.15 * Math.max(rd, 0.1)) return { t: L('সংপৃক্ত দ্ৰৱ (saturated) — গতিশীল সাম্য', 'Saturated solution — dynamic equilibrium'), c: '--ok' };
+      return { t: L('দ্ৰৱণ চলি আছে…', 'Dissolving…'), c: '--alpha' };
     }
     function draw() {
       var bg = k.cssVar('--canvas'), br = k.cssVar('--border'), txt = k.cssVar('--text'), mu = k.cssVar('--muted'),
@@ -130,12 +131,12 @@
       /* rate bars */
       var bx = 330, MAXR = 22;
       ctx.font = '600 13px "Noto Sans Bengali", sans-serif'; ctx.fillStyle = txt;
-      ctx.fillText('দ্ৰৱণৰ হাৰ', bx, 70); ctx.fillText('স্ফটিকীকৰণৰ হাৰ', bx, 130);
+      ctx.fillText(L('দ্ৰৱণৰ হাৰ', 'Rate of dissolution'), bx, 70); ctx.fillText(L('স্ফটিকীকৰণৰ হাৰ', 'Rate of crystallisation'), bx, 130);
       ctx.fillStyle = br; ctx.fillRect(bx, 78, 130, 16); ctx.fillRect(bx, 138, 130, 16);
       ctx.fillStyle = org; ctx.fillRect(bx, 78, 130 * clamp(rd / MAXR, 0, 1), 16);
       ctx.fillStyle = teal; ctx.fillRect(bx, 138, 130 * clamp(rc / MAXR, 0, 1), 16);
       ctx.fillStyle = mu; ctx.font = '12px sans-serif';
-      ctx.fillText('কঠিন: ' + S + ' · দ্ৰবীভূত: ' + D.length, bx, 190);
+      ctx.fillText(L('কঠিন: ', 'Solid: ') + S + L(' · দ্ৰবীভূত: ', ' · dissolved: ') + D.length, bx, 190);
       var st = status();
       ctx.fillStyle = k.cssVar(st.c); ctx.font = '700 13px "Noto Sans Bengali", sans-serif';
       var words = st.t.split(' — '), yy = 216;
@@ -150,7 +151,7 @@
       }
       wrap(words[0], 13, '700'); if (words[1]) { ctx.fillStyle = mu; wrap(words[1], 12, '400'); }
       ctx.fillStyle = mu; ctx.font = '600 13px "Noto Sans Bengali", sans-serif';
-      ctx.fillText('কঠিন দ্ৰাৱ + দ্ৰাৱক ⇌ দ্ৰৱ', LQ.x, 24);
+      ctx.fillText(L('কঠিন দ্ৰাৱ + দ্ৰাৱক ⇌ দ্ৰৱ', 'Solid solute + solvent ⇌ solution'), LQ.x, 24);
     }
 
     var tSlider = k.slider('Temp (K)', 283, 333, 5, T, function (v) { T = v; });
@@ -171,7 +172,7 @@
     var h = k.h, W = 480, H = 300;
     var KH = { He: { 293: 144.97 }, N2: { 293: 76.48, 303: 88.84 }, O2: { 293: 34.86, 303: 46.82 } };
     var st = { gas: 'N2', T: 293, p: 2 };
-    var canvas = h('canvas', { 'class': 'anim-canvas', role: 'img', 'aria-label': 'হেনৰিৰ সূত্ৰ: চাপ বঢ়ালে দ্ৰবীভূত গেছ বাঢ়ে' });
+    var canvas = h('canvas', { 'class': 'anim-canvas', role: 'img', 'aria-label': L('হেনৰিৰ সূত্ৰ: চাপ বঢ়ালে দ্ৰবীভূত গেছ বাঢ়ে', 'Henry\'s law: more gas dissolves as the pressure is raised') });
     root.appendChild(canvas);
     var ctx = k.hiDpiCanvas(canvas, W, H);
     var BX = 90, BW = 300, SURF = 180, BOT = 285;
@@ -222,16 +223,16 @@
       ctx.fillStyle = org; gasP.forEach(function (p) { ctx.beginPath(); ctx.arc(p.x, p.y, 4.5, 0, TAU); ctx.fill(); });
       ctx.fillStyle = k.cssVar('--proton'); dis.forEach(function (p) { ctx.beginPath(); ctx.arc(p.x, p.y, 4, 0, TAU); ctx.fill(); });
       ctx.fillStyle = mu; ctx.font = '13px "Noto Sans Bengali", sans-serif';
-      ctx.fillText('গেছ', 14, SURF - 30); ctx.fillText('দ্ৰৱ (পানী)', 14, SURF + 30);
-      ctx.fillText('দ্ৰবীভূত গেছ', 14, SURF + 50);
+      ctx.fillText(L('গেছ', 'Gas'), 14, SURF - 30); ctx.fillText(L('দ্ৰৱ (পানী)', 'Solution (water)'), 14, SURF + 30);
+      ctx.fillText(L('দ্ৰবীভূত গেছ', 'Dissolved gas'), 14, SURF + 50);
     }
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     function paintInfo() {
       var K = kh(), x = st.p / (K * 1000), n = x * 55.5;
       info.innerHTML = 'K<sub>H</sub> (' + st.gas + ', ' + st.T + ' K) = <b>' + K + ' kbar</b><br>' +
         'x = p / K<sub>H</sub> = ' + st.p + ' bar / ' + (K * 1000).toFixed(0) + ' bar = <b>' + sci(x, 2) + '</b><br>' +
-        '1 L পানীত (≈ 55.5 mol) দ্ৰবীভূত গেছ ≈ x × 55.5 = <b>' + (n * 1000).toFixed(2) + ' mmol</b>' +
-        (target() >= 110 ? '<br><span class="en">(ছবিত বিন্দুৰ সংখ্যা সীমিত কৰা হৈছে; প্ৰকৃত মান সমানুপাতিক।)</span>' : '');
+        L('1 L পানীত (≈ 55.5 mol) দ্ৰবীভূত গেছ ≈ x × 55.5 = <b>', 'Gas dissolved in 1 L of water (≈ 55.5 mol) ≈ x × 55.5 = <b>') + (n * 1000).toFixed(2) + ' mmol</b>' +
+        (target() >= 110 ? L('<br><span class="en">(ছবিত বিন্দুৰ সংখ্যা সীমিত কৰা হৈছে; প্ৰকৃত মান সমানুপাতিক।)</span>', '<br><span class="en">(The number of dots in the picture is limited; the actual value is proportional.)</span>') : '');
     }
     var gasSel = k.select('Gas', [{ value: 'He', label: 'He' }, { value: 'N2', label: 'N₂' }, { value: 'O2', label: 'O₂' }], st.gas, function (v) {
       st.gas = v; if (!KH[v][st.T]) { st.T = 293; paintT(); } paintT(); paintInfo();
@@ -251,7 +252,7 @@
     return function (root, k) {
       var h = k.h, W = 480, H = 300, PL = 58, PR = 16, PT = 16, PB = 46;
       var st = { x2: 0.4, p1: mode === 'dev' ? 300 : 300, p2: mode === 'dev' ? 250 : 100, A: mode === 'dev' ? 1.5 : 0 };
-      var canvas = h('canvas', { 'class': 'anim-canvas', role: 'img', 'aria-label': 'বাষ্পীয় চাপ আৰু ম\'ল ভগ্নাংশৰ লেখ' });
+      var canvas = h('canvas', { 'class': 'anim-canvas', role: 'img', 'aria-label': L('বাষ্পীয় চাপ আৰু ম\'ল ভগ্নাংশৰ লেখ', 'Graph of vapour pressure against mole fraction') });
       root.appendChild(canvas);
       var ctx = k.hiDpiCanvas(canvas, W, H);
 
@@ -285,7 +286,7 @@
         [0, 0.5, 1].forEach(function (v) { ctx.fillText(v, X(v) - 6, H - PB + 16); });
         ctx.font = '600 12px "Noto Sans Bengali", sans-serif';
         ctx.fillText('x₂ →   (x₁ = 1 − x₂)', W / 2 - 62, H - 8);
-        ctx.save(); ctx.translate(12, H / 2 + 30); ctx.rotate(-Math.PI / 2); ctx.fillText('বাষ্পীয় চাপ (mm Hg)', 0, 0); ctx.restore();
+        ctx.save(); ctx.translate(12, H / 2 + 30); ctx.rotate(-Math.PI / 2); ctx.fillText(L('বাষ্পীয় চাপ (mm Hg)', 'Vapour pressure (mm Hg)'), 0, 0); ctx.restore();
         function line(fn, color, w, dash) {
           ctx.strokeStyle = color; ctx.lineWidth = w; ctx.setLineDash(dash || []); ctx.beginPath();
           for (var j = 0; j <= 100; j++) { var v = fn(j / 100); if (j === 0) ctx.moveTo(X(j / 100), Y(v)); else ctx.lineTo(X(j / 100), Y(v)); }
@@ -303,7 +304,7 @@
         if (az) {
           ctx.strokeStyle = k.cssVar('--proton'); ctx.setLineDash([3, 4]); ctx.lineWidth = 1.5;
           ctx.beginPath(); ctx.moveTo(X(az.x), PT); ctx.lineTo(X(az.x), H - PB); ctx.stroke(); ctx.setLineDash([]);
-          ctx.fillStyle = k.cssVar('--proton'); ctx.font = '600 12px "Noto Sans Bengali", sans-serif'; ctx.fillText('এজিঅ\'ট্ৰ\'প', X(az.x) + 5, PT + 14);
+          ctx.fillStyle = k.cssVar('--proton'); ctx.font = '600 12px "Noto Sans Bengali", sans-serif'; ctx.fillText(L('এজিঅ\'ট্ৰ\'প', 'azeotrope'), X(az.x) + 5, PT + 14);
         }
         var c = pp(st.x2, st.A);
         ctx.strokeStyle = txt; ctx.lineWidth = 1; ctx.setLineDash([2, 3]); ctx.beginPath(); ctx.moveTo(X(st.x2), PT); ctx.lineTo(X(st.x2), H - PB); ctx.stroke(); ctx.setLineDash([]);
@@ -313,14 +314,14 @@
       function paint() {
         var c = pp(st.x2, st.A), y1 = c.p1 / c.t, az = azeo(), extra = '';
         if (mode === 'dev') {
-          var kind = st.A > 0.05 ? 'ধনাত্মক বিচ্যুতি: A–B আকৰ্ষণ দুৰ্বল, Δ<sub>mix</sub>H > 0, Δ<sub>mix</sub>V > 0'
-            : (st.A < -0.05 ? 'ঋণাত্মক বিচ্যুতি: A–B আকৰ্ষণ প্ৰবল, Δ<sub>mix</sub>H < 0, Δ<sub>mix</sub>V < 0' : 'আদৰ্শ দ্ৰৱ: Δ<sub>mix</sub>H = 0, Δ<sub>mix</sub>V = 0');
-          extra = kind + '<br>' + (az ? (az.type === 'max' ? '<b>ন্যূনতম উতলাংকযুক্ত এজিঅ\'ট্ৰ\'প</b> (minimum boiling) — x₂ ≈ ' : '<b>উচ্চতম উতলাংকযুক্ত এজিঅ\'ট্ৰ\'প</b> (maximum boiling) — x₂ ≈ ') + az.x.toFixed(2) + ' ত' : 'এজিঅ\'ট্ৰ\'প গঠন নহয়') + '<br>';
+          var kind = st.A > 0.05 ? L('ধনাত্মক বিচ্যুতি: A–B আকৰ্ষণ দুৰ্বল, Δ<sub>mix</sub>H > 0, Δ<sub>mix</sub>V > 0', 'Positive deviation: A–B attraction weaker, Δ<sub>mix</sub>H > 0, Δ<sub>mix</sub>V > 0')
+            : (st.A < -0.05 ? L('ঋণাত্মক বিচ্যুতি: A–B আকৰ্ষণ প্ৰবল, Δ<sub>mix</sub>H < 0, Δ<sub>mix</sub>V < 0', 'Negative deviation: A–B attraction stronger, Δ<sub>mix</sub>H < 0, Δ<sub>mix</sub>V < 0') : L('আদৰ্শ দ্ৰৱ: Δ<sub>mix</sub>H = 0, Δ<sub>mix</sub>V = 0', 'Ideal solution: Δ<sub>mix</sub>H = 0, Δ<sub>mix</sub>V = 0'));
+          extra = kind + '<br>' + (az ? (az.type === 'max' ? L('<b>ন্যূনতম উতলাংকযুক্ত এজিঅ\'ট্ৰ\'প</b> (minimum boiling) — x₂ ≈ ', '<b>Minimum-boiling azeotrope</b> — x₂ ≈ ') : L('<b>উচ্চতম উতলাংকযুক্ত এজিঅ\'ট্ৰ\'প</b> (maximum boiling) — x₂ ≈ ', '<b>Maximum-boiling azeotrope</b> — x₂ ≈ ')) + az.x.toFixed(2) + L(' ত', '') : L('এজিঅ\'ট্ৰ\'প গঠন নহয়', 'No azeotrope is formed')) + '<br>';
         }
         info.innerHTML = extra +
-          'p₁ = <b>' + c.p1.toFixed(1) + '</b> · p₂ = <b>' + c.p2.toFixed(1) + '</b> · p<sub>মুঠ</sub> = <b>' + c.t.toFixed(1) + '</b> mm Hg<br>' +
-          'বাষ্পীয় অৱস্থাত সংযুতি: y₁ = <b>' + y1.toFixed(3) + '</b>, y₂ = <b>' + (1 - y1).toFixed(3) + '</b>' +
-          (mode === 'ideal' ? '<br>' + (st.p1 > st.p2 ? 'উপাংশ 1 বেছি উদ্বায়ী, গতিকে বাষ্পত ইয়াৰ ভগ্নাংশ (y₁) দ্ৰৱতকৈ (x₁) বেছি।' : 'উপাংশ 2 বেছি উদ্বায়ী, গতিকে বাষ্পত ইয়াৰ ভগ্নাংশ দ্ৰৱতকৈ বেছি।') : '');
+          'p₁ = <b>' + c.p1.toFixed(1) + '</b> · p₂ = <b>' + c.p2.toFixed(1) + '</b> · p<sub>' + L('মুঠ', 'total') + '</sub> = <b>' + c.t.toFixed(1) + '</b> mm Hg<br>' +
+          L('বাষ্পীয় অৱস্থাত সংযুতি', 'Composition in the vapour') + ': y₁ = <b>' + y1.toFixed(3) + '</b>, y₂ = <b>' + (1 - y1).toFixed(3) + '</b>' +
+          (mode === 'ideal' ? '<br>' + (st.p1 > st.p2 ? L('উপাংশ 1 বেছি উদ্বায়ী, গতিকে বাষ্পত ইয়াৰ ভগ্নাংশ (y₁) দ্ৰৱতকৈ (x₁) বেছি।', 'Component 1 is more volatile, so its fraction in the vapour (y₁) is greater than in the solution (x₁).') : L('উপাংশ 2 বেছি উদ্বায়ী, গতিকে বাষ্পত ইয়াৰ ভগ্নাংশ দ্ৰৱতকৈ বেছি।', 'Component 2 is more volatile, so its fraction in the vapour is greater than in the solution.')) : '');
         draw();
       }
       var xs = k.slider('x₂', 0, 1, 0.01, st.x2, function (v) { st.x2 = v; paint(); });
@@ -338,8 +339,8 @@
       root.appendChild(h('div', { 'class': 'legend' }, [
         h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), 'p₁']),
         h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), 'p₂']),
-        h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--brand)' }), 'p মুঠ = p₁ + p₂']),
-        h('span', { text: mode === 'dev' ? 'ডেশ লাইন = ৰাউল্টৰ সূত্ৰ (আদৰ্শ)' : '' })]));
+        h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--brand)' }), L('p মুঠ = p₁ + p₂', 'p total = p₁ + p₂')]),
+        h('span', { text: mode === 'dev' ? L('ডেশ লাইন = ৰাউল্টৰ সূত্ৰ (আদৰ্শ)', 'dashed line = Raoult\'s law (ideal)') : '' })]));
       paint();
     };
   }
@@ -357,7 +358,7 @@
       'Acetic acid': { Tb: 391.1, Kb: 2.93, Tf: 290.0, Kf: 3.90, M: 60 }
     };
     var st = { sv: 'Water', m: 0.5, i: 1 };
-    var svg = s('svg', { viewBox: '0 0 400 240', 'class': 'anim-svg', role: 'img', 'aria-label': 'উতলাংক আৰু হিমাংকৰ পৰিৱৰ্তন' });
+    var svg = s('svg', { viewBox: '0 0 400 240', 'class': 'anim-svg', role: 'img', 'aria-label': L('উতলাংক আৰু হিমাংকৰ পৰিৱৰ্তন', 'Change in boiling point and freezing point') });
     root.appendChild(svg);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
 
@@ -376,9 +377,9 @@
       }
       var xp = scale(lo, hi, pure), xs = scale(lo, hi, sol);
       g.appendChild(s('line', { x1: xp, x2: xp, y1: y - 30, y2: y, style: 'stroke:var(--neutron)', 'stroke-width': 3 }));
-      g.appendChild(lab(xp, y - 35, 'বিশুদ্ধ ' + pure.toFixed(2), 'var(--muted)', false));
+      g.appendChild(lab(xp, y - 35, L('বিশুদ্ধ ', 'Pure ') + pure.toFixed(2), 'var(--muted)', false));
       g.appendChild(s('line', { x1: xs, x2: xs, y1: y - 20, y2: y + 6, style: 'stroke:' + color, 'stroke-width': 3 }));
-      g.appendChild(lab(xs, y + 34, 'দ্ৰৱ ' + sol.toFixed(2), color, true));
+      g.appendChild(lab(xs, y + 34, L('দ্ৰৱ ', 'Solution ') + sol.toFixed(2), color, true));
       g.appendChild(s('line', { x1: xp, x2: xs, y1: y - 12, y2: y - 12, style: 'stroke:' + color, 'stroke-width': 2, 'stroke-dasharray': '3 2' }));
       return g;
     }
@@ -386,13 +387,13 @@
       var p = SOLV[st.sv], dTb = st.i * p.Kb * st.m, dTf = st.i * p.Kf * st.m;
       var maxB = p.Kb * 6 * 1.05, maxF = p.Kf * 6 * 1.05;
       svg.innerHTML = '';
-      svg.appendChild(line(78, p.Tb - 0.3 * p.Kb, p.Tb + maxB, p.Tb, p.Tb + dTb, 'উতলাংক (K) →', true, 'var(--alpha)'));
-      svg.appendChild(line(190, p.Tf - maxF, p.Tf + 0.3 * p.Kf, p.Tf, p.Tf - dTf, 'হিমাংক (K) →', false, 'var(--electron)'));
+      svg.appendChild(line(78, p.Tb - 0.3 * p.Kb, p.Tb + maxB, p.Tb, p.Tb + dTb, L('উতলাংক (K) →', 'Boiling point (K) →'), true, 'var(--alpha)'));
+      svg.appendChild(line(190, p.Tf - maxF, p.Tf + 0.3 * p.Kf, p.Tf, p.Tf - dTf, L('হিমাংক (K) →', 'Freezing point (K) →'), false, 'var(--electron)'));
       var n2 = st.i * st.m, n1 = 1000 / p.M, rel = n2 / (n1 + n2);
-      info.innerHTML = 'ম\'লালিটি m = <b>' + st.m.toFixed(2) + '</b>, ভান্ট হফৰ গুণক i = <b>' + st.i + '</b><br>' +
-        'ΔT<sub>b</sub> = i K<sub>b</sub> m = ' + st.i + ' × ' + p.Kb + ' × ' + st.m.toFixed(2) + ' = <b>' + dTb.toFixed(3) + ' K</b> → দ্ৰৱৰ উতলাংক ' + (p.Tb + dTb).toFixed(2) + ' K<br>' +
-        'ΔT<sub>f</sub> = i K<sub>f</sub> m = ' + st.i + ' × ' + p.Kf + ' × ' + st.m.toFixed(2) + ' = <b>' + dTf.toFixed(3) + ' K</b> → দ্ৰৱৰ হিমাংক ' + (p.Tf - dTf).toFixed(2) + ' K<br>' +
-        'বাষ্পীয় চাপৰ আপেক্ষিক অৱনমন (p°−p)/p° ≈ <b>' + rel.toFixed(4) + '</b> (= দ্ৰাৱৰ ম\'ল ভগ্নাংশ)';
+      info.innerHTML = L('ম\'লালিটি m = <b>', 'Molality m = <b>') + st.m.toFixed(2) + L('</b>, ভান্ট হফৰ গুণক i = <b>', '</b>, van\'t Hoff factor i = <b>') + st.i + '</b><br>' +
+        'ΔT<sub>b</sub> = i K<sub>b</sub> m = ' + st.i + ' × ' + p.Kb + ' × ' + st.m.toFixed(2) + ' = <b>' + dTb.toFixed(3) + L(' K</b> → দ্ৰৱৰ উতলাংক ', ' K</b> → boiling point of the solution ') + (p.Tb + dTb).toFixed(2) + ' K<br>' +
+        'ΔT<sub>f</sub> = i K<sub>f</sub> m = ' + st.i + ' × ' + p.Kf + ' × ' + st.m.toFixed(2) + ' = <b>' + dTf.toFixed(3) + L(' K</b> → দ্ৰৱৰ হিমাংক ', ' K</b> → freezing point of the solution ') + (p.Tf - dTf).toFixed(2) + ' K<br>' +
+        L('বাষ্পীয় চাপৰ আপেক্ষিক অৱনমন (p°−p)/p° ≈ <b>', 'Relative lowering of vapour pressure (p°−p)/p° ≈ <b>') + rel.toFixed(4) + L('</b> (= দ্ৰাৱৰ ম\'ল ভগ্নাংশ)', '</b> (= mole fraction of the solute)');
     }
     var sel = k.select('Solvent', Object.keys(SOLV).map(function (n) { return { value: n, label: n }; }), st.sv, function (v) { st.sv = v; paint(); });
     var ms = k.slider('Molality m', 0, 2, 0.05, st.m, function (v) { st.m = v; paint(); });
@@ -405,14 +406,14 @@
   /* ================================================================== 7. osmosis / reverse osmosis */
   A.register('osmosis', function (root, k) {
     var h = k.h, W = 480, H = 300;
-    var canvas = h('canvas', { 'class': 'anim-canvas', role: 'img', 'aria-label': 'অৰ্ধভেদ্য আৱৰণেৰে ৰসাকৰ্ষণ আৰু উৎক্ৰমন ৰসাকৰ্ষণ' });
+    var canvas = h('canvas', { 'class': 'anim-canvas', role: 'img', 'aria-label': L('অৰ্ধভেদ্য আৱৰণেৰে ৰসাকৰ্ষণ আৰু উৎক্ৰমন ৰসাকৰ্ষণ', 'Osmosis and reverse osmosis through a semipermeable membrane') });
     root.appendChild(canvas);
     var ctx = k.hiDpiCanvas(canvas, W, H);
     var R = 0.083, MEM = 240, TOP = 70, BOT = 280, TANK_H = BOT - TOP, XL = 30, XR = 450;
-    var st = { c: 0.3, T: 300, P: 0 }, L = 60, Rt = 60, solute = [], cross = [], acc = { lr: 0, rl: 0 }, permeate = 0;
+    var st = { c: 0.3, T: 300, P: 0 }, Lt = 60, Rt = 60, solute = [], cross = [], acc = { lr: 0, rl: 0 }, permeate = 0;
 
     function pi() { return st.c * R * st.T; }
-    function hydro() { return 0.25 * (Rt - L); }
+    function hydro() { return 0.25 * (Rt - Lt); }
     function net() { return pi() - st.P - hydro(); }
     function lvl(n) { return BOT - n * TANK_H / 130; }
     function syncSolute() {
@@ -424,10 +425,10 @@
       var n = net(), base = 2.5, gain = Math.min(22, 1.4 * Math.abs(n));
       var rlr = base + (n > 0 ? gain : 0), rrl = base + (n < 0 ? gain : 0);
       acc.lr += rlr * dt; acc.rl += rrl * dt;
-      while (acc.lr >= 1) { acc.lr -= 1; if (L > 6) { L--; cross.push({ dir: 1, t: 0, y: rnd(lvl(Math.min(L, Rt)) + 8, BOT - 8) }); Rt++; } }
-      while (acc.rl >= 1) { acc.rl -= 1; if (Rt > 6) { Rt--; cross.push({ dir: -1, t: 0, y: rnd(lvl(Math.min(L, Rt)) + 8, BOT - 8) }); L++; } }
+      while (acc.lr >= 1) { acc.lr -= 1; if (Lt > 6) { Lt--; cross.push({ dir: 1, t: 0, y: rnd(lvl(Math.min(Lt, Rt)) + 8, BOT - 8) }); Rt++; } }
+      while (acc.rl >= 1) { acc.rl -= 1; if (Rt > 6) { Rt--; cross.push({ dir: -1, t: 0, y: rnd(lvl(Math.min(Lt, Rt)) + 8, BOT - 8) }); Lt++; } }
       if (st.P > pi()) {                         /* reverse osmosis: pure water is drawn off, feed is topped up */
-        if (L > 60) { permeate += L - 60; L = 60; }
+        if (Lt > 60) { permeate += Lt - 60; Lt = 60; }
         if (Rt < 60) Rt = 60;
       }
       cross.forEach(function (c) { c.t += dt * 2.2; }); cross = cross.filter(function (c) { return c.t < 1; });
@@ -444,7 +445,7 @@
     function draw() {
       var bg = k.cssVar('--canvas'), mu = k.cssVar('--muted'), blue = k.cssVar('--electron'), org = k.cssVar('--alpha'), txt = k.cssVar('--text');
       ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
-      ctx.fillStyle = blue; ctx.globalAlpha = .2; ctx.fillRect(XL, lvl(L), MEM - XL, BOT - lvl(L)); ctx.fillRect(MEM, lvl(Rt), XR - MEM, BOT - lvl(Rt)); ctx.globalAlpha = 1;
+      ctx.fillStyle = blue; ctx.globalAlpha = .2; ctx.fillRect(XL, lvl(Lt), MEM - XL, BOT - lvl(Lt)); ctx.fillRect(MEM, lvl(Rt), XR - MEM, BOT - lvl(Rt)); ctx.globalAlpha = 1;
       ctx.strokeStyle = mu; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(XL, TOP - 20); ctx.lineTo(XL, BOT); ctx.lineTo(XR, BOT); ctx.lineTo(XR, TOP - 20); ctx.stroke();
       ctx.strokeStyle = txt; ctx.lineWidth = 3; ctx.setLineDash([6, 5]); ctx.beginPath(); ctx.moveTo(MEM, TOP + 20); ctx.lineTo(MEM, BOT); ctx.stroke(); ctx.setLineDash([]);
       ctx.fillStyle = org; solute.forEach(function (p) { ctx.beginPath(); ctx.arc(p.x, p.y, 5.5, 0, TAU); ctx.fill(); });
@@ -461,24 +462,24 @@
         ctx.beginPath(); ctx.moveTo(cx - 6, lvl(Rt) - 20); ctx.lineTo(cx, lvl(Rt) - 11); ctx.lineTo(cx + 6, lvl(Rt) - 20); ctx.fill();
         ctx.font = '600 13px sans-serif'; ctx.fillText('P = ' + P + ' bar', cx + 10, lvl(Rt) - 22 - ln / 2);
       }
-      if (st.P > pi()) { ctx.fillStyle = blue; ctx.font = '600 13px "Noto Sans Bengali", sans-serif'; ctx.fillText('বিশুদ্ধ পানী ↓ নিৰ্গমন', XL + 6, 58); }
+      if (st.P > pi()) { ctx.fillStyle = blue; ctx.font = '600 13px "Noto Sans Bengali", sans-serif'; ctx.fillText(L('বিশুদ্ধ পানী ↓ নিৰ্গমন', 'Pure water ↓ coming out'), XL + 6, 58); }
       ctx.fillStyle = mu; ctx.font = '600 13px "Noto Sans Bengali", sans-serif';
-      ctx.fillText('বিশুদ্ধ দ্ৰাৱক', XL + 6, 38); ctx.fillText('দ্ৰৱ', MEM + 8, 38); ctx.fillText('অৰ্ধভেদ্য আৱৰণ', MEM - 44, 56);
+      ctx.fillText(L('বিশুদ্ধ দ্ৰাৱক', 'Pure solvent'), XL + 6, 38); ctx.fillText(L('দ্ৰৱ', 'Solution'), MEM + 8, 38); ctx.fillText(L('অৰ্ধভেদ্য আৱৰণ', 'Semipermeable membrane'), MEM - 44, 56);
     }
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     function paintInfo() {
       var n = net(), txt;
-      if (Math.abs(n) < 0.25) txt = '<b>সাম্য</b> — দুয়োফালে দ্ৰাৱকৰ গতি সমান';
-      else if (n > 0) txt = '<b>ৰসাকৰ্ষণ (osmosis)</b> — বিশুদ্ধ দ্ৰাৱকৰ পৰা দ্ৰৱলৈ দ্ৰাৱকৰ গতি';
-      else if (st.P > pi()) txt = '<b>উৎক্ৰমন ৰসাকৰ্ষণ (reverse osmosis)</b> — P > Π, গতিকে দ্ৰৱৰ পৰা বিশুদ্ধ দ্ৰাৱক ওলাই আহে (সংগৃহীত: ' + permeate + ' একক)';
-      else txt = 'দ্ৰৱৰ ফালৰ স্তম্ভৰ চাপে দ্ৰাৱকক উভতাই পঠাইছে';
-      info.innerHTML = 'ৰসাকৰ্ষী চাপ Π = cRT = ' + st.c.toFixed(2) + ' × 0.083 × ' + st.T + ' = <b>' + pi().toFixed(2) + ' bar</b><br>' +
-        'প্ৰয়োগ কৰা চাপ P = <b>' + st.P + ' bar</b> · স্তম্ভৰ উচ্চতাৰ চাপ ≈ <b>' + Math.max(0, hydro()).toFixed(2) + ' bar</b><br>' + txt;
+      if (Math.abs(n) < 0.25) txt = L('<b>সাম্য</b> — দুয়োফালে দ্ৰাৱকৰ গতি সমান', '<b>Equilibrium</b> — the movement of solvent is equal on both sides');
+      else if (n > 0) txt = L('<b>ৰসাকৰ্ষণ (osmosis)</b> — বিশুদ্ধ দ্ৰাৱকৰ পৰা দ্ৰৱলৈ দ্ৰাৱকৰ গতি', '<b>Osmosis</b> — solvent moves from the pure solvent into the solution');
+      else if (st.P > pi()) txt = L('<b>উৎক্ৰমন ৰসাকৰ্ষণ (reverse osmosis)</b> — P > Π, গতিকে দ্ৰৱৰ পৰা বিশুদ্ধ দ্ৰাৱক ওলাই আহে (সংগৃহীত: ', '<b>Reverse osmosis</b> — P > Π, so pure solvent comes out of the solution (collected: ') + permeate + L(' একক)', ' units)');
+      else txt = L('দ্ৰৱৰ ফালৰ স্তম্ভৰ চাপে দ্ৰাৱকক উভতাই পঠাইছে', 'The pressure of the liquid column on the solution side is pushing the solvent back');
+      info.innerHTML = L('ৰসাকৰ্ষী চাপ Π = cRT = ', 'Osmotic pressure Π = cRT = ') + st.c.toFixed(2) + ' × 0.083 × ' + st.T + ' = <b>' + pi().toFixed(2) + ' bar</b><br>' +
+        L('প্ৰয়োগ কৰা চাপ P = <b>', 'Applied pressure P = <b>') + st.P + L(' bar</b> · স্তম্ভৰ উচ্চতাৰ চাপ ≈ <b>', ' bar</b> · pressure of the liquid column ≈ <b>') + Math.max(0, hydro()).toFixed(2) + ' bar</b><br>' + txt;
     }
     var cS = k.slider('Concentration c (mol/L)', 0, 1, 0.05, st.c, function (v) { st.c = v; syncSolute(); });
     var tS = k.slider('Temp (K)', 280, 330, 5, st.T, function (v) { st.T = v; });
     var pS = k.slider('Applied pressure P (bar)', 0, 30, 0.5, st.P, function (v) { st.P = v; });
-    var rst = k.button('Reset levels', function () { L = 60; Rt = 60; cross = []; permeate = 0; });
+    var rst = k.button('Reset levels', function () { Lt = 60; Rt = 60; cross = []; permeate = 0; });
     root.appendChild(h('div', { 'class': 'row' }, [cS.el, tS.el]));
     root.appendChild(h('div', { 'class': 'row' }, [pS.el, rst]));
     root.appendChild(info);
@@ -490,7 +491,7 @@
   A.register('cell-osmosis', function (root, k) {
     var h = k.h, s = k.s;
     var c = 0.9, r = 50, amp = 0;
-    var svg = s('svg', { viewBox: '0 0 300 220', 'class': 'anim-svg', role: 'img', 'aria-label': 'ৰক্তকোষ NaCl দ্ৰৱত ফুলে বা কুঁচ খায়' });
+    var svg = s('svg', { viewBox: '0 0 300 220', 'class': 'anim-svg', role: 'img', 'aria-label': L('ৰক্তকোষ NaCl দ্ৰৱত ফুলে বা কুঁচ খায়', 'A red blood cell swells or shrinks in NaCl solution') });
     var path = s('path', { style: 'fill:var(--proton);fill-opacity:.35;stroke:var(--proton)', 'stroke-width': 3 });
     var nuc = s('circle', { cx: 150, cy: 110, r: 9, style: 'fill:var(--proton);opacity:.7' });
     var arrows = s('g');
@@ -513,11 +514,11 @@
     }
     function paint() {
       burst = c <= 0.2;
-      var state = c < 0.85 ? 'হাইপ\'টনিক দ্ৰৱ (hypotonic) — বাহিৰৰ গাঢ়তা কম; পানী কোষৰ ভিতৰলৈ সোমায়, কোষ ফুলি উঠে'
-        : (c > 0.95 ? 'হাইপাৰটনিক দ্ৰৱ (hypertonic) — বাহিৰৰ গাঢ়তা বেছি; কোষৰ পৰা পানী ওলাই যায়, কোষ কুঁচ খায়'
-          : 'সমৰসাকৰ্ষী দ্ৰৱ (isotonic) — ৰসাকৰ্ষী চাপ সমান; পানীৰ নিগ্ৰ গতি নাই');
-      info.innerHTML = 'বাহিৰৰ NaCl = <b>' + c.toFixed(2) + ' % (w/V)</b> · ৰক্তকোষৰ ভিতৰৰ ৰসাকৰ্ষী চাপ 0.9 % NaCl ৰ সমান<br>' + state +
-        (burst ? '<br><b style="color:var(--bad)">কোষ ফাটি যোৱাৰ আশংকা (lysis)</b>' : '');
+      var state = c < 0.85 ? L('হাইপ\'টনিক দ্ৰৱ (hypotonic) — বাহিৰৰ গাঢ়তা কম; পানী কোষৰ ভিতৰলৈ সোমায়, কোষ ফুলি উঠে', 'Hypotonic solution — the outside concentration is low; water enters the cell and the cell swells up')
+        : (c > 0.95 ? L('হাইপাৰটনিক দ্ৰৱ (hypertonic) — বাহিৰৰ গাঢ়তা বেছি; কোষৰ পৰা পানী ওলাই যায়, কোষ কুঁচ খায়', 'Hypertonic solution — the outside concentration is high; water leaves the cell and the cell shrinks')
+          : L('সমৰসাকৰ্ষী দ্ৰৱ (isotonic) — ৰসাকৰ্ষী চাপ সমান; পানীৰ নিগ্ৰ গতি নাই', 'Isotonic solution — equal osmotic pressure; no net movement of water'));
+      info.innerHTML = L('বাহিৰৰ NaCl = <b>', 'NaCl outside = <b>') + c.toFixed(2) + L(' % (w/V)</b> · ৰক্তকোষৰ ভিতৰৰ ৰসাকৰ্ষী চাপ 0.9 % NaCl ৰ সমান<br>', ' % (w/V)</b> · the osmotic pressure inside red blood cells equals that of 0.9 % NaCl<br>') + state +
+        (burst ? L('<br><b style="color:var(--bad)">কোষ ফাটি যোৱাৰ আশংকা (lysis)</b>', '<br><b style="color:var(--bad)">Danger of the cell bursting (lysis)</b>') : '');
       arrows.innerHTML = '';
       var dirIn = c < 0.85, dirOut = c > 0.95;
       if (dirIn || dirOut) {
@@ -553,7 +554,7 @@
       Acid: { n: 0, M: 60, i: { 0.1: 0.5, 0.01: 0.5, 0.001: 0.5 } }
     };
     var st = { sub: 'NaCl', m: 0.1 };
-    var svg = s('svg', { viewBox: '0 0 400 210', 'class': 'anim-svg', role: 'img', 'aria-label': 'বিয়োজন আৰু যোজনৰ ফলত দ্ৰৱত কণাৰ সংখ্যা সলনি হয়' });
+    var svg = s('svg', { viewBox: '0 0 400 210', 'class': 'anim-svg', role: 'img', 'aria-label': L('বিয়োজন আৰু যোজনৰ ফলত দ্ৰৱত কণাৰ সংখ্যা সলনি হয়', 'Number of particles in solution changes with dissociation and association') });
     root.appendChild(svg);
     var info = h('div', { 'class': 'readout', 'aria-live': 'polite' });
     var units = [], t0 = 0;
@@ -586,12 +587,12 @@
       }
       var m = st.m, iV = iv, normal = d.M, ab = normal / iV;
       var kf = assoc ? 5.12 : 1.86, calcDT = kf * m, obsDT = iV * calcDT;
-      info.innerHTML = (assoc ? 'CH<sub>3</sub>COOH বেনজিনত <b>যোজন</b> (association) হৈ দ্বিযোগী (dimer) গঠন কৰে — কণাৰ সংখ্যা আধা হয়।<br>' :
-        'বিয়োজিত অংশ α = (i − 1)/(ν − 1) = <b>' + alpha.toFixed(2) + '</b> (ν = ' + d.n + ' টা আয়ন)<br>') +
-        'ভান্ট হফৰ গুণক i = <b>' + iV + '</b> (' + (m) + ' m)<br>' +
-        'ΔT<sub>f</sub> (গণনা, i = 1) = ' + calcDT.toFixed(3) + ' K · ΔT<sub>f</sub> (পৰীক্ষালব্ধ) = <b>' + obsDT.toFixed(3) + ' K</b><br>' +
-        'স্বাভাৱিক ম\'লাৰ ভৰ = ' + normal + ' · অস্বাভাৱিক ম\'লাৰ ভৰ = ' + normal + ' / ' + iV + ' = <b>' + ab.toFixed(1) + ' g mol<sup>−1</sup></b>' +
-        (assoc ? '<br><span class="en">(অৰ্থাৎ প্ৰকৃত মানৰ প্ৰায় দুগুণ)</span>' : '<br><span class="en">(লঘু দ্ৰৱত বিয়োজন বেছি, গতিকে i ৰ মান ' + d.n + ' ৰ ওচৰ চাপে)</span>');
+      info.innerHTML = (assoc ? L('CH<sub>3</sub>COOH বেনজিনত <b>যোজন</b> (association) হৈ দ্বিযোগী (dimer) গঠন কৰে — কণাৰ সংখ্যা আধা হয়।<br>', 'CH<sub>3</sub>COOH <b>associates</b> in benzene to form dimers — the number of particles is halved.<br>') :
+        L('বিয়োজিত অংশ α = (i − 1)/(ν − 1) = <b>', 'Dissociated fraction α = (i − 1)/(ν − 1) = <b>') + alpha.toFixed(2) + '</b> (ν = ' + d.n + L(' টা আয়ন)<br>', ' ions)<br>')) +
+        L('ভান্ট হফৰ গুণক i = <b>', 'van\'t Hoff factor i = <b>') + iV + '</b> (' + (m) + ' m)<br>' +
+        L('ΔT<sub>f</sub> (গণনা, i = 1) = ', 'ΔT<sub>f</sub> (calculated, i = 1) = ') + calcDT.toFixed(3) + L(' K · ΔT<sub>f</sub> (পৰীক্ষালব্ধ) = <b>', ' K · ΔT<sub>f</sub> (observed) = <b>') + obsDT.toFixed(3) + ' K</b><br>' +
+        L('স্বাভাৱিক ম\'লাৰ ভৰ = ', 'Normal molar mass = ') + normal + L(' · অস্বাভাৱিক ম\'লাৰ ভৰ = ', ' · abnormal molar mass = ') + normal + ' / ' + iV + ' = <b>' + ab.toFixed(1) + ' g mol<sup>−1</sup></b>' +
+        (assoc ? L('<br><span class="en">(অৰ্থাৎ প্ৰকৃত মানৰ প্ৰায় দুগুণ)</span>', '<br><span class="en">(that is, nearly double the true value)</span>') : L('<br><span class="en">(লঘু দ্ৰৱত বিয়োজন বেছি, গতিকে i ৰ মান ', '<br><span class="en">(in a dilute solution dissociation is greater, so i approaches ') + d.n + L(' ৰ ওচৰ চাপে)</span>', ')</span>'));
     }
     function tick(dt, t) {
       units.forEach(function (u) {
@@ -604,9 +605,9 @@
     root.appendChild(h('div', { 'class': 'row' }, [sub.el, conc.el]));
     root.appendChild(info);
     root.appendChild(h('div', { 'class': 'legend' }, [
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), 'ধনায়ন (cation)']),
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--proton)' }), 'ঋণায়ন (anion)']),
-      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), 'অবিয়োজিত / যোজিত অণু'])]));
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--electron)' }), L('ধনায়ন (cation)', 'cation')]),
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--proton)' }), L('ঋণায়ন (anion)', 'anion')]),
+      h('span', {}, [h('span', { 'class': 'dot', style: 'background:var(--alpha)' }), L('অবিয়োজিত / যোজিত অণু', 'undissociated / associated molecule')])]));
     var lp = k.loop(root, tick);
     build(); if (!k.reduceMotion) lp.start();
   });

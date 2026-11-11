@@ -1,0 +1,158 @@
+{
+ "questions": [
+  {
+   "q": "What is the IUPAC name of (CH₃)₂CHOH?",
+   "options": [
+    "propan-1-ol",
+    "propan-2-ol",
+    "2-methylethanol",
+    "isopropanol"
+   ],
+   "answer": 1,
+   "explain": "The carbon with –OH is C-2; so propan-2-ol (a secondary alcohol)."
+  },
+  {
+   "q": "Which one is tert-butyl alcohol?",
+   "options": [
+    "CH₃CH₂CH₂CH₂OH",
+    "(CH₃)₂CHCH₂OH",
+    "CH₃CH(OH)CH₂CH₃",
+    "(CH₃)₃COH"
+   ],
+   "answer": 3,
+   "explain": "–OH is on a tertiary carbon: (CH₃)₃C–OH."
+  },
+  {
+   "q": "Why is the boiling point of ethanol (351 K) higher than that of methoxymethane (248 K)?",
+   "options": [
+    "Ethanol has a higher molecular mass",
+    "There is hydrogen bonding between ethanol molecules",
+    "Ethers are not polar",
+    "Ethanol is ionic"
+   ],
+   "answer": 1,
+   "explain": "Both have molecular mass 46 u; –OH forms hydrogen bonds, the ether does not."
+  },
+  {
+   "q": "Which alcohol is obtained from propene by hydroboration–oxidation?",
+   "options": [
+    "propan-1-ol",
+    "propan-2-ol",
+    "2-methylpropan-2-ol",
+    "ethanol"
+   ],
+   "answer": 0,
+   "explain": "Hydroboration gives the anti-Markovnikov product — the primary alcohol."
+  },
+  {
+   "q": "What is obtained after hydrolysis when the Grignard reagent CH₃MgBr reacts with acetone (CH₃COCH₃)?",
+   "options": [
+    "propan-2-ol",
+    "butan-2-ol",
+    "2-methylpropan-2-ol",
+    "ethanol"
+   ],
+   "answer": 2,
+   "explain": "A ketone gives a tertiary alcohol: (CH₃)₃C–OH."
+  },
+  {
+   "q": "What is the by-product in the preparation of phenol from cumene?",
+   "options": [
+    "Acetone",
+    "Ethanol",
+    "Methanol",
+    "Benzene"
+   ],
+   "answer": 0,
+   "explain": "Cumene hydroperoxide + dilute acid → phenol + acetone."
+  },
+  {
+   "q": "Which of the following is the most acidic?",
+   "options": [
+    "Ethanol",
+    "Phenol",
+    "p-cresol",
+    "p-nitrophenol"
+   ],
+   "answer": 3,
+   "explain": "–NO₂ is electron-withdrawing and stabilises the phenoxide ion (pKₐ 7.1)."
+  },
+  {
+   "q": "Why is phenol more acidic than an alcohol?",
+   "options": [
+    "The negative charge of the phenoxide ion is spread over the ring by resonance",
+    "Phenol has more hydrogen",
+    "Phenol is insoluble in water",
+    "Phenol has a higher molecular mass"
+   ],
+   "answer": 0,
+   "explain": "Resonance stabilises the phenoxide ion, so the proton leaves easily."
+  },
+  {
+   "q": "Which turns cloudy at once with the Lucas reagent at room temperature?",
+   "options": [
+    "A primary alcohol",
+    "A secondary alcohol",
+    "A tertiary alcohol",
+    "An ether"
+   ],
+   "answer": 2,
+   "explain": "A tertiary alcohol reacts at once because of the stable carbocation."
+  },
+  {
+   "q": "Which oxidising agent stops the oxidation of a primary alcohol at the aldehyde stage?",
+   "options": [
+    "Acidified KMnO₄",
+    "PCC",
+    "Acidified K₂Cr₂O₇ (hot)",
+    "Concentrated HNO₃"
+   ],
+   "answer": 1,
+   "explain": "PCC is a mild oxidising agent; a primary alcohol stops at the aldehyde with it."
+  },
+  {
+   "q": "What is obtained when phenol reacts with bromine water?",
+   "options": [
+    "p-bromophenol",
+    "o-bromophenol",
+    "A white precipitate of 2,4,6-tribromophenol",
+    "Bromobenzene"
+   ],
+   "answer": 2,
+   "explain": "In bromine water all three ortho/para positions of phenol are substituted."
+  },
+  {
+   "q": "What is obtained from phenol + NaOH, then CO₂ and H⁺?",
+   "options": [
+    "Benzene",
+    "Salicylaldehyde",
+    "Salicylic acid",
+    "Picric acid"
+   ],
+   "answer": 2,
+   "explain": "This is Kolbe's reaction: 2-hydroxybenzoic acid (salicylic acid)."
+  },
+  {
+   "q": "What is the main product of tert-butyl bromide and CH₃ONa in the Williamson synthesis?",
+   "options": [
+    "tert-butyl methyl ether",
+    "2-methylpropene",
+    "Methanol",
+    "Ethene"
+   ],
+   "answer": 1,
+   "explain": "With a tertiary halide the alkoxide acts as a strong base and causes elimination."
+  },
+  {
+   "q": "What is obtained when anisole is heated with HI?",
+   "options": [
+    "Phenol and CH₃I",
+    "Iodobenzene and CH₃OH",
+    "Phenol and CH₃OH",
+    "Benzene"
+   ],
+   "answer": 0,
+   "explain": "The O–CH₃ bond breaks; the O–C₆H₅ bond does not because of its partial double bond character."
+  }
+ ]
+}

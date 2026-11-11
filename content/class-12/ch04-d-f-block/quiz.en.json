@@ -1,0 +1,158 @@
+{
+ "questions": [
+  {
+   "q": "Which of the following is NOT a transition element?",
+   "options": [
+    "Sc",
+    "Fe",
+    "Cu",
+    "Zn"
+   ],
+   "answer": 3,
+   "explain": "Zn has a full d subshell both in the ground state (3d¹⁰4s²) and in its common oxidation state (Zn²⁺, 3d¹⁰). So it is not a transition element."
+  },
+  {
+   "q": "What is the ground-state configuration of Cr (Z = 24)?",
+   "options": [
+    "[Ar] 3d⁴ 4s²",
+    "[Ar] 3d⁵ 4s¹",
+    "[Ar] 3d⁶",
+    "[Ar] 4s² 4p⁴"
+   ],
+   "answer": 1,
+   "explain": "A half-filled d⁵ subshell is more stable, so one electron moves from 4s to 3d."
+  },
+  {
+   "q": "Which element of the first (3d) series shows the largest number of oxidation states?",
+   "options": [
+    "Sc",
+    "Mn",
+    "Ni",
+    "Zn"
+   ],
+   "answer": 1,
+   "explain": "Mn shows +2 to +7 — it has the most unpaired d electrons, in the middle of the series."
+  },
+  {
+   "q": "What is the spin-only magnetic moment of Mn²⁺?",
+   "options": [
+    "2.84 BM",
+    "3.87 BM",
+    "4.90 BM",
+    "5.92 BM"
+   ],
+   "answer": 3,
+   "explain": "Mn²⁺ = 3d⁵, n = 5; μ = √(5 × 7) = 5.92 BM."
+  },
+  {
+   "q": "How many unpaired electrons does Ni²⁺ (3d⁸) have, and what is μ?",
+   "options": [
+    "n = 2, μ = 2.84 BM",
+    "n = 3, μ = 3.87 BM",
+    "n = 1, μ = 1.73 BM",
+    "n = 0, μ = 0"
+   ],
+   "answer": 0,
+   "explain": "3d⁸ has 3 pairs and 2 unpaired electrons; μ = √(2 × 4) = 2.84 BM."
+  },
+  {
+   "q": "Which of these ions is colourless in aqueous solution?",
+   "options": [
+    "Ti³⁺",
+    "Cr³⁺",
+    "Sc³⁺",
+    "Cu²⁺"
+   ],
+   "answer": 2,
+   "explain": "Sc³⁺ = d⁰ — a d–d transition is not possible, so it is colourless. The others have partly filled d subshells."
+  },
+  {
+   "q": "Why is Cu⁺ unstable in aqueous solution?",
+   "options": [
+    "Cu⁺ has an unpaired electron",
+    "It disproportionates, 2Cu⁺ → Cu²⁺ + Cu, because the hydration enthalpy of Cu²⁺ is much more negative",
+    "Cu⁺ is very small",
+    "Cu⁺ has a very high charge"
+   ],
+   "answer": 1,
+   "explain": "The high hydration enthalpy of Cu²⁺ makes up for the second ionisation enthalpy of Cu, so Cu²⁺ is more stable."
+  },
+  {
+   "q": "Why is the enthalpy of atomisation of Zn (126 kJ mol⁻¹) the lowest in the first series?",
+   "options": [
+    "Zn is small",
+    "Zn is 3d¹⁰ — no unpaired electrons, so the interatomic interaction is weak",
+    "Zn is not a solid",
+    "The oxidation state of Zn is +1"
+   ],
+   "answer": 1,
+   "explain": "Many unpaired d electrons make interatomic bonding strong; Zn has none."
+  },
+  {
+   "q": "Why does Cu not liberate H₂ from dilute HCl?",
+   "options": [
+    "E°(Cu²⁺|Cu) = +0.34 V is positive",
+    "Cu is large",
+    "Cu is an alkali metal",
+    "The oxidation state of Cu is +3"
+   ],
+   "answer": 0,
+   "explain": "With a positive E° the metal is a weaker reducing agent than H₂; it cannot reduce H⁺."
+  },
+  {
+   "q": "What is the colour change when alkali (OH⁻) is added to an orange K₂Cr₂O₇ solution?",
+   "options": [
+    "Green",
+    "Yellow (CrO₄²⁻)",
+    "Purple",
+    "No change"
+   ],
+   "answer": 1,
+   "explain": "Cr₂O₇²⁻ + 2OH⁻ → 2CrO₄²⁻ + H₂O; chromate is yellow. The oxidation state of Cr (+6) stays the same."
+  },
+  {
+   "q": "In the reduction of KMnO₄ in acidic medium, how many electrons does manganese gain, and what is the product?",
+   "options": [
+    "1; MnO₄²⁻",
+    "3; MnO₂",
+    "5; Mn²⁺",
+    "7; Mn"
+   ],
+   "answer": 2,
+   "explain": "MnO₄⁻ + 8H⁺ + 5e⁻ → Mn²⁺ + 4H₂O (E° = +1.52 V). The oxidation number of Mn goes from +7 to +2."
+  },
+  {
+   "q": "What is the main cause of the lanthanoid contraction?",
+   "options": [
+    "Poor shielding by 4f electrons",
+    "Strong shielding by 4f electrons",
+    "Nuclear charge decreases",
+    "6s electrons are lost"
+   ],
+   "answer": 0,
+   "explain": "4f electrons shield one another poorly; so as Z increases the nuclear attraction grows and the size falls."
+  },
+  {
+   "q": "Why are the radii of Zr (160 pm) and Hf (159 pm) almost equal?",
+   "options": [
+    "Both have the same number of electrons",
+    "The lanthanoid contraction",
+    "They are not in the same group",
+    "Both are non-metals"
+   ],
+   "answer": 1,
+   "explain": "On going from Zr to Hf the 4f orbitals are filled, and the resulting contraction cancels the normal increase in size of 5d."
+  },
+  {
+   "q": "Which statement about actinoids is correct?",
+   "options": [
+    "All actinoids are non-radioactive",
+    "The range of oxidation states is wider than for lanthanoids, and all are radioactive",
+    "Only the +2 oxidation state occurs",
+    "The 5f orbitals are not filled"
+   ],
+   "answer": 1,
+   "explain": "5f, 6d and 7s are close in energy, so the range is wide (from +4 to +7 besides +3); all are radioactive."
+  }
+ ]
+}

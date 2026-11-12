@@ -1,0 +1,202 @@
+{
+ "questions": [
+  {
+   "q": "What is the IUPAC name of (CH₃)₂CHNH₂?",
+   "options": [
+    "Propan-1-amine",
+    "Propan-2-amine",
+    "N-methylethanamine",
+    "Butanamine"
+   ],
+   "answer": 1,
+   "explain": "The –NH₂ is on the middle carbon (C-2) — propan-2-amine."
+  },
+  {
+   "q": "What kind of amine is (C₂H₅)₂NH?",
+   "options": [
+    "Primary",
+    "Secondary (simple)",
+    "Tertiary",
+    "Quaternary"
+   ],
+   "answer": 1,
+   "explain": "Two (identical) alkyl groups on N — a secondary simple amine."
+  },
+  {
+   "q": "What is the hybridisation of nitrogen in amines?",
+   "options": [
+    "sp",
+    "sp²",
+    "sp³",
+    "dsp²"
+   ],
+   "answer": 2,
+   "explain": "Three bonds + one lone pair — sp³, pyramidal."
+  },
+  {
+   "q": "Which method gives a pure primary amine?",
+   "options": [
+    "Alkyl halide + NH₃",
+    "Gabriel phthalimide synthesis",
+    "Alkyl halide + (CH₃)₃N",
+    "Reduction of an alkene"
+   ],
+   "answer": 1,
+   "explain": "The Gabriel synthesis gives no 2° or 3° amines."
+  },
+  {
+   "q": "What does propanamide give in the Hoffmann bromamide degradation?",
+   "options": [
+    "Propan-1-amine",
+    "Ethanamine",
+    "Methanamine",
+    "Butanamine"
+   ],
+   "answer": 1,
+   "explain": "One carbon fewer — CH₃CH₂CONH₂ → CH₃CH₂NH₂ (ethanamine)."
+  },
+  {
+   "q": "How is aniline obtained from benzamide?",
+   "options": [
+    "Br₂ + NaOH",
+    "H₂/Ni",
+    "LiAlH₄",
+    "NaNO₂/HCl"
+   ],
+   "answer": 0,
+   "explain": "C₆H₅CONH₂ → C₆H₅NH₂ (6 carbons) — Hoffmann degradation."
+  },
+  {
+   "q": "Among compounds of similar molar mass, which has the highest boiling point?",
+   "options": [
+    "n-Butylamine",
+    "Diethylamine",
+    "Ethyldimethylamine",
+    "2-Methylbutane"
+   ],
+   "answer": 0,
+   "explain": "The 1° amine has the most hydrogen bonding."
+  },
+  {
+   "q": "Why do alcohols boil higher than amines of similar mass?",
+   "options": [
+    "O–H···O bonds are stronger than N–H···N",
+    "Alcohols are heavier",
+    "Alcohols are ionic",
+    "Amines have no hydrogen bonds"
+   ],
+   "answer": 0,
+   "explain": "Oxygen is more electronegative than nitrogen."
+  },
+  {
+   "q": "Which is the strongest base in aqueous solution?",
+   "options": [
+    "C₆H₅NH₂",
+    "NH₃",
+    "(C₂H₅)₂NH",
+    "C₆H₅NHCH₃"
+   ],
+   "answer": 2,
+   "explain": "The aliphatic 2° amine has the lowest pKb (3.00)."
+  },
+  {
+   "q": "Why is aniline a weaker base than NH₃?",
+   "options": [
+    "The lone pair is delocalised into the ring",
+    "It is bigger",
+    "It has no N",
+    "It is electron-releasing"
+   ],
+   "answer": 0,
+   "explain": "The lone pair is less available for protonation."
+  },
+  {
+   "q": "Which is the test for primary amines?",
+   "options": [
+    "Carbylamine test (CHCl₃ + KOH)",
+    "Lucas test",
+    "Tollens test",
+    "Iodoform test"
+   ],
+   "answer": 0,
+   "explain": "Only 1° amines give the foul-smelling isocyanide."
+  },
+  {
+   "q": "With Hinsberg's reagent, the product of a primary amine is … in alkali?",
+   "options": [
+    "Soluble",
+    "Insoluble",
+    "No reaction",
+    "A gas"
+   ],
+   "answer": 0,
+   "explain": "The N–H is acidic, so it forms a soluble salt in alkali."
+  },
+  {
+   "q": "Aniline + bromine water → ?",
+   "options": [
+    "p-Bromoaniline",
+    "2,4,6-Tribromoaniline",
+    "m-Bromoaniline",
+    "No reaction"
+   ],
+   "answer": 1,
+   "explain": "–NH₂ is strongly activating; all three o/p positions are substituted."
+  },
+  {
+   "q": "Why does aniline not undergo the Friedel–Crafts reaction?",
+   "options": [
+    "It forms a salt with AlCl₃ and the ring is deactivated",
+    "It has no ring",
+    "It is too reactive",
+    "It is a gas"
+   ],
+   "answer": 0,
+   "explain": "The Lewis acid AlCl₃ bonds to the N of aniline."
+  },
+  {
+   "q": "What are the conditions of diazotisation of aniline?",
+   "options": [
+    "NaNO₂ + HCl, 273–278 K",
+    "NaNO₂ + HCl, 373 K",
+    "NaOH, 273 K",
+    "Br₂/NaOH"
+   ],
+   "answer": 0,
+   "explain": "At higher temperature the salt decomposes to phenol."
+  },
+  {
+   "q": "What converts ArN₂⁺Cl⁻ to ArCl?",
+   "options": [
+    "CuCl/HCl",
+    "KI",
+    "H₃PO₂",
+    "NaOH"
+   ],
+   "answer": 0,
+   "explain": "The Sandmeyer reaction."
+  },
+  {
+   "q": "ArN₂⁺Cl⁻ + H₃PO₂ + H₂O → ?",
+   "options": [
+    "ArH",
+    "ArOH",
+    "ArI",
+    "ArCN"
+   ],
+   "answer": 0,
+   "explain": "Hypophosphorous acid replaces the diazo group by H."
+  },
+  {
+   "q": "What is formed in the coupling of a diazonium salt with phenol?",
+   "options": [
+    "An azo dye (p-hydroxyazobenzene)",
+    "Benzene",
+    "Aniline",
+    "Chlorobenzene"
+   ],
+   "answer": 0,
+   "explain": "Electrophilic substitution at the para position; –N=N– gives colour."
+  }
+ ]
+}

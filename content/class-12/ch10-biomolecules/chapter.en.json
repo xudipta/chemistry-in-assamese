@@ -1,0 +1,408 @@
+{
+ "id": "class-12/ch10-biomolecules",
+ "class": 12,
+ "number": 10,
+ "title": {
+  "as": "জীৱঅণু",
+  "en": "Biomolecules"
+ },
+ "scripts": [
+  "anim.js"
+ ],
+ "goals": [
+  "Classify [[carbohydrate]]s and understand the structure of glucose, fructose, sucrose, maltose, lactose, starch, cellulose and glycogen",
+  "Explain the open-chain and cyclic (pyranose) structure of glucose and the α- and β- [[anomer]]s",
+  "Understand [[amino-acid]]s, the [[zwitter-ion]], the [[peptide]] bond, the four levels of protein structure (1°, 2°, 3°, 4°) and [[denaturation]]",
+  "Know the role and classification of [[enzyme]]s, vitamins and [[hormone]]s",
+  "Understand the structure of DNA and RNA ([[nucleotide]]s, base pairing) and their biological functions"
+ ],
+ "glossary": {
+  "carbohydrate": {
+   "as": "কাৰ্বহাইড্ৰেট",
+   "en": "carbohydrate",
+   "def": "An optically active polyhydroxy aldehyde or ketone, or a compound that gives these on hydrolysis."
+  },
+  "monosaccharide": {
+   "as": "মন'ছেকাৰাইড",
+   "en": "monosaccharide",
+   "def": "A carbohydrate that cannot be hydrolysed to simpler units — glucose, fructose, ribose."
+  },
+  "reducing-sugar": {
+   "as": "বিজাৰক শৰ্কৰা",
+   "en": "reducing sugar",
+   "def": "A sugar that reduces Fehling's or Tollens' reagent; it has a free aldehyde or ketone group."
+  },
+  "anomer": {
+   "as": "এন'মাৰ",
+   "en": "anomer",
+   "def": "The α- and β- forms that differ in configuration at C1 (the anomeric carbon) of the cyclic structure."
+  },
+  "glycosidic": {
+   "as": "গ্লাইক'ছাইডিক বান্ধনি",
+   "en": "glycosidic linkage",
+   "def": "The C–O–C bond (with loss of water) that joins two monosaccharides through an oxygen bridge."
+  },
+  "invert-sugar": {
+   "as": "প্ৰতীপ শৰ্কৰা",
+   "en": "invert sugar",
+   "def": "The mixture of glucose and fructose from the hydrolysis of sucrose; the rotation changes from dextro to laevo."
+  },
+  "amino-acid": {
+   "as": "এমিন' এছিড",
+   "en": "amino acid",
+   "def": "A compound with an amino (–NH₂) and a carboxyl (–COOH) group; the building block of proteins (α-amino acids)."
+  },
+  "zwitter-ion": {
+   "as": "উভয়ধৰ্মী আয়ন (জুইটাৰ আয়ন)",
+   "en": "zwitter ion",
+   "def": "A dipolar ion with both a positive (–NH₃⁺) and a negative (–COO⁻) charge in one molecule."
+  },
+  "peptide": {
+   "as": "পেপটাইড বান্ধনি",
+   "en": "peptide bond",
+   "def": "The amide bond (–CONH–) formed between the –COOH of one amino acid and the –NH₂ of another with loss of water."
+  },
+  "denaturation": {
+   "as": "প্ৰ'টিনৰ বিকৃতকৰণ",
+   "en": "denaturation",
+   "def": "Loss of the 2° and 3° structure and of biological activity of a protein on a change in temperature or pH; the 1° structure remains."
+  },
+  "enzyme": {
+   "as": "এনজাইম",
+   "en": "enzyme",
+   "def": "A biocatalyst that speeds up reactions in living organisms; mostly globular proteins, specific to a particular reaction."
+  },
+  "vitamin": {
+   "as": "ভিটামিন",
+   "en": "vitamin",
+   "def": "An organic compound required in the diet in very small amounts; its lack causes a specific deficiency disease."
+  },
+  "nucleotide": {
+   "as": "নিউক্লিঅ'টাইড",
+   "en": "nucleotide",
+   "def": "Base + pentose sugar + phosphate; the repeating unit of nucleic acids."
+  },
+  "hormone": {
+   "as": "হৰম'ন",
+   "en": "hormone",
+   "def": "A molecule secreted by an endocrine gland into the blood that regulates biological activity elsewhere in the body."
+  }
+ },
+ "sections": [
+  {
+   "id": "carbohydrates",
+   "title": "Carbohydrates and Their Classification",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The body is made of complex biomolecules — carbohydrates, proteins, nucleic acids, lipids. The chemistry of these molecules is **biochemistry**. Glucose, cane sugar and starch are [[carbohydrate]]s — once thought to have the general formula Cx(H₂O)y (hence ‘hydrates of carbon’), but this formula does not fit all of them (ethanoic acid, C₂(H₂O)₂, is not a carbohydrate; rhamnose, C₆H₁₂O₅, is one but does not fit). Chemically a carbohydrate is an **optically active polyhydroxy aldehyde or ketone**, or a compound that gives these on hydrolysis. Some are sweet (**sugars**, such as sucrose, lactose); polysaccharides are not sweet (non-sugars)."
+    },
+    {
+     "type": "p",
+     "text": "**Classification (by hydrolysis):** (i) **[[monosaccharide]]s** — give no simpler polyhydroxy aldehyde/ketone on hydrolysis (glucose, fructose, ribose). (ii) **Oligosaccharides** — 2–10 monosaccharides on hydrolysis; di-(2), tri-, tetra- and so on. Disaccharides: sucrose → glucose + fructose; maltose → 2 glucose. (iii) **Polysaccharides** — many monosaccharide units (starch, cellulose, glycogen, gums). **Reducing and non-reducing sugars:** sugars that reduce Fehling's solution and Tollens' reagent are [[reducing-sugar]]s — all monosaccharides (aldoses or ketoses) are reducing."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Carbon atoms",
+      "General name",
+      "Aldose",
+      "Ketose"
+     ],
+     "rows": [
+      [
+       "3",
+       "triose",
+       "aldotriose",
+       "ketotriose"
+      ],
+      [
+       "4",
+       "tetrose",
+       "aldotetrose",
+       "ketotetrose"
+      ],
+      [
+       "5",
+       "pentose",
+       "aldopentose",
+       "ketopentose"
+      ],
+      [
+       "6",
+       "hexose",
+       "aldohexose",
+       "ketohexose"
+      ],
+      [
+       "7",
+       "heptose",
+       "aldoheptose",
+       "ketoheptose"
+      ]
+     ]
+    },
+    {
+     "type": "anim",
+     "name": "carb-classes",
+     "title": "Classes and make-up of carbohydrates",
+     "caption": "Choose a carbohydrate; see its class, units, linkage and whether it is reducing."
+    }
+   ]
+  },
+  {
+   "id": "glucose",
+   "title": "Glucose and Fructose",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "**Preparation of glucose:** (1) from sucrose — boiling with dilute HCl or H₂SO₄ in ethanolic solution gives glucose and fructose in equal amounts. (2) from starch — hydrolysis with dilute H₂SO₄ at 393 K and 2–3 atm — (C₆H₁₀O₅)ₙ + nH₂O → nC₆H₁₂O₆ (commercial). Glucose (dextrose) is an **aldohexose**, molecular formula C₆H₁₂O₆."
+    },
+    {
+     "type": "p",
+     "text": "**Evidence for the open-chain structure of glucose:** (1) prolonged heating with HI gives n-hexane — six carbons in a straight chain. (2) it forms an oxime with hydroxylamine and a cyanohydrin with HCN — a carbonyl group (>C=O) is present. (3) oxidation with bromine water gives gluconic acid (6 C) — the carbonyl is an aldehyde. (4) acetic anhydride gives a pentaacetate — five –OH groups, each on a different carbon. (5) oxidation with HNO₃ gives saccharic acid (a dicarboxylic acid) — a primary –OH is present. Structure: CHO–(CHOH)₄–CH₂OH."
+    },
+    {
+     "type": "p",
+     "text": "**Configuration:** the correct name of glucose is **D-(+)-glucose**. ‘D’ and ‘L’ show the relative configuration with respect to glyceraldehyde — in the Fischer projection, D has the –OH of the last asymmetric carbon on the right. ‘(+)’ means dextrorotatory — D/L is not related to d/l."
+    },
+    {
+     "type": "p",
+     "text": "**Cyclic structure:** the open chain does not explain some properties — (1) despite the –CHO, glucose does not give the 2,4-DNP and Schiff's tests and does not form the NaHSO₃ addition product; (2) the pentaacetate does not react with NH₂OH; (3) glucose exists in two crystalline forms — α- (m.p. 419 K, from a concentrated solution at 303 K) and β- (m.p. 423 K, at 371 K). Explanation: the –OH on C-5 reacts with the –CHO on C-1 to form a **cyclic hemiacetal** — a six-membered (pyranose) ring. C-1 is the **anomeric carbon**; the –OH pointing down (right in Fischer) is **α**, pointing up is **β**. The two forms are **[[anomer]]s**, in equilibrium with the open chain in solution."
+    },
+    {
+     "type": "anim",
+     "name": "glucose-ring",
+     "title": "Open-chain and cyclic glucose",
+     "caption": "Use ‘Next step’ for open chain → ring closure; choose α/β and see the direction of the –OH on C-1."
+    },
+    {
+     "type": "p",
+     "text": "**Fructose:** C₆H₁₂O₆, a **ketohexose** (>C=O at C-2); obtained along with glucose on hydrolysis of sucrose. Found in fruits, honey and vegetables; the sweetest sugar. D-(–)-fructose is laevorotatory (configuration D). It also has two cyclic forms — the –OH on C-5 adds to the >C=O (C-2) to form a five-membered **furanose** ring; α- and β-D-(–)-fructofuranose."
+    }
+   ]
+  },
+  {
+   "id": "di-poly",
+   "title": "Disaccharides and Polysaccharides",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "**Disaccharides:** two monosaccharides on hydrolysis, joined through an oxide bridge — the **[[glycosidic]]** linkage — with loss of water. If both reducing groups (aldehyde/ketone carbons) are used the sugar is non-reducing; if one is free it is reducing. (i) **Sucrose** — a glycosidic bond between C1 of α-D-glucose and C2 of β-D-fructose; both reducing groups are involved, so it is **non-reducing**. Hydrolysis gives equal amounts of glucose (+52.5°) and fructose (–92.4°); the mixture is laevorotatory — **[[invert-sugar]]**. (ii) **Maltose** — C1 of α-D-glucose joined to C4 of another glucose (α-1,4); the second glucose has a free C1 — **reducing**. (iii) **Lactose** (milk sugar) — C1 of β-D-galactose joined to C4 of glucose (β-1,4); **reducing**."
+    },
+    {
+     "type": "p",
+     "text": "**Polysaccharides:** many monosaccharides joined by glycosidic bonds — food reserves or structural materials. (i) **Starch** — the storage carbohydrate of plants (the main one in human food); a polymer of α-glucose; 15–20% **amylose** (water soluble; 200–1000 α-D-glucose units in a long unbranched C1–C4 chain) and 80–85% **amylopectin** (water insoluble; branched through C1–C4 and C1–C6 glycosidic bonds). (ii) **Cellulose** — the main component of plant cell walls; a straight chain of β-D-glucose (C1–C4 β links); humans cannot digest it. (iii) **Glycogen** — stored in animals (animal starch); more branched than amylopectin; in liver, muscle and brain — enzymes break it down to glucose when needed."
+    },
+    {
+     "type": "p",
+     "text": "**Importance:** carbohydrates are an essential food and source of energy for living things. Starch is stored in plants and glycogen in animals; cellulose is used for cloth, paper and furniture; carbohydrates are raw materials for industries such as alcohol and medicines. D-ribose and 2-deoxy-D-ribose are parts of nucleic acids."
+    },
+    {
+     "type": "note",
+     "label": "Example 1",
+     "text": "Glucose dissolves in water but benzene (a six-membered ring compound) does not — glucose has five –OH groups that form hydrogen bonds with water; benzene has none."
+    }
+   ]
+  },
+  {
+   "id": "proteins",
+   "title": "Amino Acids and Proteins",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Proteins (Greek proteios, ‘of prime importance’) are the most abundant biomolecules in the body — in milk, cheese, fish, meat and cereals. Their building blocks are [[amino-acid]]s. An amino acid has –NH₂ and –COOH; it is classified α, β, γ, δ by the position of the amino group relative to the carboxyl group. Hydrolysis of proteins gives only **α-amino acids** — R–CH(NH₂)–COOH. Each has a common name and a 3-letter (Gly, Ala…) or 1-letter (G, A…) symbol. Nature uses 20 of them."
+    },
+    {
+     "type": "p",
+     "text": "**Classification:** (a) by the number of NH₂ and COOH groups — **acidic** (more COOH; aspartic, glutamic), **basic** (more NH₂; lysine, arginine, histidine) and **neutral**. (b) by whether the body can make them — **non-essential** (synthesised in the body: glycine, alanine, serine, glutamic acid and so on) and **essential** (not synthesised, must come from food: valine, leucine, isoleucine, lysine, arginine, threonine, methionine, phenylalanine, tryptophan, histidine)."
+    },
+    {
+     "type": "p",
+     "text": "**[[zwitter-ion]]:** amino acids are colourless, crystalline, water-soluble solids with high melting points — they behave like salts. In aqueous solution the –COOH loses a proton and the –NH₂ accepts it: R–CH(NH₃⁺)–COO⁻. This dipolar ion is neutral overall. It reacts with both acids and bases (**amphoteric**). Except glycine, all α-amino acids are optically active (the α-carbon is asymmetric); almost all natural ones have the L-configuration."
+    },
+    {
+     "type": "anim",
+     "name": "amino-zwitter",
+     "title": "Amino acid and pH — charge",
+     "caption": "Move the pH slider; see which form of glycine dominates and its charge."
+    },
+    {
+     "type": "p",
+     "text": "**[[peptide]] bond:** the –COOH of one amino acid and the –NH₂ of another join with loss of water as an amide bond (–CO–NH–) — the **peptide bond**. Two amino acids give a **dipeptide** (glycylalanine); three, a **tripeptide**; four, a tetrapeptide …; more than ten, a **polypeptide**; a polypeptide of molar mass above 10,000 u is a **protein** (insulin is a protein of 51 amino acids). Peptides are named from the N-terminal end (free –NH₂): Gly–Ala ≠ Ala–Gly."
+    },
+    {
+     "type": "anim",
+     "name": "peptide-chain",
+     "title": "The peptide bond",
+     "caption": "Choose two amino acids; see the name of the dipeptide, the peptide bond and the water lost. Swap the order to see the difference."
+    }
+   ]
+  },
+  {
+   "id": "protein-structure",
+   "title": "Protein Structure and Denaturation",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "**By shape:** (a) **fibrous proteins** — polypeptide chains side by side held by hydrogen and disulphide bonds; insoluble in water (keratin — hair, wool; myosin — muscle). (b) **Globular proteins** — chains coiled into a spherical shape; soluble in water (insulin, albumin)."
+    },
+    {
+     "type": "p",
+     "text": "**Four levels:** **(i) Primary (1°)** — the specific sequence of amino acids in the polypeptide chain; change one amino acid and it is a different protein. **(ii) Secondary (2°)** — regular folding of the chain: the **α-helix** (right-handed coil; hydrogen bonds between C=O and the N–H of the fourth amino acid ahead) and the **β-pleated sheet** (almost fully extended chains; intermolecular H-bonds with neighbouring chains). **(iii) Tertiary (3°)** — the overall three-dimensional folding of the chain; hydrogen bonds, disulphide (S–S) bonds, van der Waals forces and electrostatic attraction. **(iv) Quaternary (4°)** — the spatial arrangement of two or more polypeptide sub-units."
+    },
+    {
+     "type": "anim",
+     "name": "protein-levels",
+     "title": "Four levels of protein structure and denaturation",
+     "caption": "Choose a level; press ‘Heat / change pH’ to see which levels break and which survive."
+    },
+    {
+     "type": "p",
+     "text": "**[[denaturation]]:** a protein with its own three-dimensional structure and biological activity in the living body is a **native** protein. A change in temperature or pH loosens the hydrogen bonds, the coils unwind and the protein loses its biological activity. The 2° and 3° structure are destroyed while the **1° structure stays intact**. Examples: coagulation of the white of an egg on boiling; denaturation of milk protein as milk turns to curd (because of lactic acid)."
+    }
+   ]
+  },
+  {
+   "id": "enzymes",
+   "title": "Enzymes",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "In the body countless reactions — digestion, absorption, energy production — occur one after another at ordinary temperature. They take place in the presence of specific biocatalysts — **[[enzyme]]s**. Most enzymes are globular proteins. An enzyme is **specific** for one reaction and one substrate. Naming: by the reaction or substrate, ending in **-ase** — maltase (maltose → 2 glucose), sucrase; an enzyme that oxidises one substrate and reduces another is an **oxidoreductase**."
+    },
+    {
+     "type": "p",
+     "text": "**Mechanism:** an enzyme lowers the **activation energy** of the reaction — for example, the activation energy of acid hydrolysis of sucrose is 6.22 kJ mol⁻¹ and is much lower in the presence of sucrase. The substrate binds to the **active site** of the enzyme (lock-and-key model), the reaction takes place and the product leaves; the enzyme is unchanged. Enzyme action depends on temperature and pH; denaturation inactivates an enzyme."
+    }
+   ]
+  },
+  {
+   "id": "vitamins",
+   "title": "Vitamins",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A **[[vitamin]]** is an organic compound required in the diet in very small amounts for normal growth and health. Most vitamins are not made in the body (plants make them) and must come from food; bacteria in our intestine make some (K, B₁₂). The name — vital + amine (first thought to contain an amino group); the ‘e’ was later dropped. **Classification:** (i) **fat-soluble** — A, D, E, K; stored in the liver and adipose tissue. (ii) **water-soluble** — the B group and C; not stored in the body (except B₁₂), so a regular supply is needed."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Vitamin",
+      "Source",
+      "Deficiency disease"
+     ],
+     "rows": [
+      [
+       "Vitamin A",
+       "fish-liver oil, carrot, butter, milk",
+       "xerophthalmia (hardening of the cornea), night blindness"
+      ],
+      [
+       "Vitamin B₁ (thiamine)",
+       "yeast, milk, green vegetables, cereals",
+       "beri-beri (loss of appetite, retarded growth)"
+      ],
+      [
+       "Vitamin B₂ (riboflavin)",
+       "milk, egg white, liver, kidney",
+       "cheilosis (cracks at the corners of mouth and lips)"
+      ],
+      [
+       "Vitamin B₆ (pyridoxine)",
+       "yeast, milk, egg yolk, cereals",
+       "convulsions"
+      ],
+      [
+       "Vitamin B₁₂",
+       "meat, fish, egg and curd",
+       "pernicious anaemia (RBC deficiency)"
+      ],
+      [
+       "Vitamin C (ascorbic acid)",
+       "citrus fruits, amla, green leafy vegetables",
+       "scurvy (bleeding gums)"
+      ],
+      [
+       "Vitamin D",
+       "sunlight, fish and egg yolk",
+       "rickets (bone deformity in children), osteomalacia (adults)"
+      ],
+      [
+       "Vitamin E",
+       "vegetable oils (wheat germ), sunflower oil",
+       "fragility of RBCs and muscular weakness"
+      ],
+      [
+       "Vitamin K",
+       "green leafy vegetables",
+       "delayed blood clotting"
+      ]
+     ]
+    },
+    {
+     "type": "anim",
+     "name": "vitamin-guide",
+     "title": "Vitamins — source and deficiency",
+     "caption": "Choose a vitamin; see its solubility, source and the deficiency disease."
+    },
+    {
+     "type": "note",
+     "label": "Example 2",
+     "text": "Why is vitamin C not stored in the body? — it is water-soluble, so the excess leaves in urine; it must be supplied regularly in the diet. Vitamins A, D, E and K are fat-soluble and are stored in the liver and adipose tissue."
+    }
+   ]
+  },
+  {
+   "id": "nucleic-acids",
+   "title": "Nucleic Acids",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The carriers of heredity are the chromosomes in the cell nucleus — made of proteins and **nucleic acids**. There are two kinds — **DNA** (deoxyribonucleic acid) and **RNA** (ribonucleic acid). They are long-chain polymers of [[nucleotide]]s (polynucleotides). **Chemical composition:** complete hydrolysis gives a pentose sugar, phosphoric acid and nitrogen-containing bases. In DNA the sugar is **β-D-2-deoxyribose**; in RNA it is **β-D-ribose**. DNA bases: adenine (A), guanine (G) (purines), cytosine (C), thymine (T) (pyrimidines). In RNA **uracil (U)** replaces thymine."
+    },
+    {
+     "type": "p",
+     "text": "**Structure:** base + sugar (at C-1′) = **nucleoside**; with a phosphate at 5′ it is a **nucleotide**. Nucleotides are joined between the 5′ carbon of one and the 3′ carbon of the next by a **phosphodiester linkage** — the chain is sugar–phosphate–sugar… (the backbone) with the bases as side groups. James Watson and Francis Crick proposed the **double helix** of DNA: two polynucleotide strands wound round the same axis in opposite directions, bases pointing inward; **complementary base pairing** — **A = T** (two H-bonds), **G ≡ C** (three H-bonds). RNA is normally single-stranded; of three kinds — **messenger RNA (m-RNA)**, **ribosomal RNA (r-RNA)** and **transfer RNA (t-RNA)**."
+    },
+    {
+     "type": "anim",
+     "name": "dna-pairing",
+     "title": "Base pairing in DNA/RNA",
+     "caption": "Choose a strand and toggle DNA/RNA; see the complementary strand and the number of hydrogen bonds."
+    },
+    {
+     "type": "p",
+     "text": "**Biological functions:** DNA is the chemical basis of heredity and the store of genetic information. At cell division DNA **replicates itself** — the same DNA passes to the two daughter cells. The information in DNA is transcribed into m-RNA (RNA synthesis) and, with t-RNA and r-RNA, **protein synthesis** takes place. DNA fingerprinting is used in forensic identification, paternity testing, identifying bodies and studying biological evolution."
+    },
+    {
+     "type": "note",
+     "label": "Example 3",
+     "text": "There is no relation between the amounts of the various bases from RNA, because RNA is single-stranded and has no base pairing. In DNA, A = T and G = C (Chargaff's rule) because of complementary pairing in the double strand."
+    }
+   ]
+  },
+  {
+   "id": "hormones",
+   "title": "Hormones",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A **[[hormone]]** is a messenger molecule secreted into the blood by an endocrine gland that regulates biological activity elsewhere in the body. **Chemical nature:** steroids (oestrogens, androgens, testosterone), polypeptides (insulin, endorphins) and amino-acid derivatives (epinephrine, norepinephrine, thyroxine)."
+    },
+    {
+     "type": "p",
+     "text": "**Examples:** **insulin** lowers blood glucose and **glucagon** raises it — together they regulate blood glucose. **Thyroxine** (a tyrosine derivative containing iodine) — its deficiency causes **hypothyroidism**; lack of iodine causes goitre; hence iodised salt. **Glucocorticoids** control carbohydrate metabolism; **mineralocorticoids** control water and salt balance — their deficiency causes **Addison's disease**. **Testosterone** in men and **oestradiol** in women develop secondary sex characteristics; **progesterone** maintains pregnancy."
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "[[carbohydrate]]s are polyhydroxy aldehydes/ketones: [[monosaccharide]]s (glucose, fructose), disaccharides (sucrose, maltose, lactose) and polysaccharides (starch, cellulose, glycogen), linked by [[glycosidic]] bonds.",
+  "Glucose is a D-(+)-aldohexose; the cyclic pyranose form has α- and β- [[anomer]]s. Sucrose is non-reducing; its hydrolysis gives [[invert-sugar]]. Starch = amylose + amylopectin.",
+  "Proteins are polymers of [[amino-acid]]s joined by [[peptide]] bonds; amino acids exist as [[zwitter-ion]]s. There are 20 amino acids, 10 essential.",
+  "Protein structure: 1° (sequence), 2° (α-helix, β-sheet), 3° (3-D folding), 4° (arrangement of sub-units). In [[denaturation]] the 2° and 3° are destroyed; the 1° remains.",
+  "An [[enzyme]] is a biocatalyst (a protein) that lowers the activation energy and is specific; [[vitamin]]s are fat-soluble (A, D, E, K) or water-soluble (B, C); a [[hormone]] is a messenger from an endocrine gland.",
+  "Nucleic acids are polymers of [[nucleotide]]s. DNA (2-deoxyribose; A, G, C, T; double helix with A=T, G≡C); RNA (ribose; U; single strand; m-, r-, t-RNA). DNA replicates and directs protein synthesis."
+ ]
+}

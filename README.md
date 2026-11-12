@@ -21,7 +21,7 @@ English term in brackets. Installable as a web app and works offline.
 | 12 | 7 · এলকহল, ফিনল আৰু ইথাৰ (Alcohols, Phenols and Ethers) | ✅ 8 sections, 7 animations, 14-question quiz; Assamese + English (Part II) |
 | 12 | 8 · এলডিহাইড, কিট'ন আৰু কাৰ্বক্সিলিক এছিড (Aldehydes, Ketones and Carboxylic Acids) | ✅ 9 sections, 7 animations, 14-question quiz, Assamese + English |
 | 12 | 9 · এমাইন (Amines) | ✅ 8 sections, 6 animations, 18-question quiz, Assamese + English |
-| 12 | Chapter 10 (Part II) | listed as "Coming soon": biomolecules |
+| 12 | 10 · জীৱঅণু (Biomolecules) | ✅ 9 sections, 7 animations, 19-question quiz, Assamese + English |
 
 The Assamese text is a first draft and still needs review by a chemistry teacher.
 

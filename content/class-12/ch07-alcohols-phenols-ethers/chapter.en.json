@@ -1,0 +1,417 @@
+{
+ "id": "class-12/ch07-alcohols-phenols-ethers",
+ "class": 12,
+ "number": 7,
+ "title": {
+  "as": "এলকহল, ফিনল আৰু ইথাৰ",
+  "en": "Alcohols, Phenols and Ethers"
+ },
+ "scripts": [
+  "anim.js"
+ ],
+ "goals": [
+  "Classify [[alcohol]]s, [[phenol]]s and [[ether]]s and name them by the IUPAC system",
+  "Explain the methods of preparing alcohols, phenols and ethers (alkenes, carbonyl compounds, Grignard reagents, cumene, [[williamson]])",
+  "Understand boiling points and solubility on the basis of hydrogen bonding; compare the acidity of alcohols and phenols",
+  "Write the reactions of alcohols — [[esterification]], with HX ([[lucas]]), [[dehydration]] and oxidation",
+  "Explain the electrophilic substitution of phenols, the [[kolbe]] and [[reimer]] reactions, and the reactions of ethers"
+ ],
+ "glossary": {
+  "alcohol": {
+   "as": "এলকহল",
+   "en": "alcohol",
+   "def": "A compound with one or more –OH groups attached to an aliphatic carbon. It is primary, secondary or tertiary according to the carbon carrying –OH."
+  },
+  "phenol": {
+   "as": "ফিনল",
+   "en": "phenol",
+   "def": "A compound with an –OH group attached directly to a carbon of an aromatic (benzene) ring, e.g. C₆H₅OH."
+  },
+  "ether": {
+   "as": "ইথাৰ",
+   "en": "ether",
+   "def": "A compound with alkyl or aryl groups on both sides of an oxygen atom (R–O–R′). It is simple if the two groups are the same and mixed if they differ."
+  },
+  "hydroboration": {
+   "as": "হাইড্ৰ'ব'ৰেছন-জাৰণ",
+   "en": "hydroboration–oxidation",
+   "def": "A method of making alcohols by adding B₂H₆ to an alkene and then oxidising with H₂O₂/NaOH; the product is anti-Markovnikov."
+  },
+  "phenoxide": {
+   "as": "ফিনক্সাইড আয়ন",
+   "en": "phenoxide ion",
+   "def": "The ion formed when phenol loses a proton; its negative charge is spread over the whole ring by resonance, so it is stable."
+  },
+  "esterification": {
+   "as": "এষ্টাৰীকৰণ",
+   "en": "esterification",
+   "def": "The reaction of an alcohol or phenol with a carboxylic acid, acid chloride or anhydride to form an ester. Acetylation of salicylic acid gives aspirin."
+  },
+  "lucas": {
+   "as": "লুকাছ অভীক্ষণ",
+   "en": "Lucas test",
+   "def": "A test to distinguish primary, secondary and tertiary alcohols with concentrated HCl + ZnCl₂; the time taken for the solution to turn cloudy identifies the class."
+  },
+  "dehydration": {
+   "as": "নিৰ্জলীকৰণ",
+   "en": "dehydration",
+   "def": "The removal of water from an alcohol to give an alkene (higher temperature) or an ether (lower temperature). The ease is 3° > 2° > 1°."
+  },
+  "pcc": {
+   "as": "PCC",
+   "en": "PCC (pyridinium chlorochromate)",
+   "def": "A mild oxidising agent (CrO₃, pyridine, HCl) that oxidises primary alcohols to aldehydes without going on to carboxylic acids."
+  },
+  "kolbe": {
+   "as": "ক'লবৰ বিক্ৰিয়া",
+   "en": "Kolbe's reaction",
+   "def": "The reaction of sodium phenoxide with CO₂ to give o-hydroxybenzoic acid (salicylic acid)."
+  },
+  "reimer": {
+   "as": "ৰাইমাৰ-টাইমেন বিক্ৰিয়া",
+   "en": "Reimer–Tiemann reaction",
+   "def": "The reaction of phenol with CHCl₃ and NaOH that puts a –CHO group in the ortho position to give salicylaldehyde."
+  },
+  "williamson": {
+   "as": "উইলিয়ামছন সংশ্লেষণ",
+   "en": "Williamson synthesis",
+   "def": "The preparation of simple or mixed ethers by the SN2 reaction of an alkyl halide with sodium alkoxide; primary alkyl halides are suitable."
+  },
+  "denaturation": {
+   "as": "প্ৰকৃতিদুষ্টকৰণ",
+   "en": "denaturation",
+   "def": "Making commercial alcohol unfit to drink by adding copper sulphate or pyridine."
+  }
+ },
+ "sections": [
+  {
+   "id": "classify",
+   "title": "Classification and Nomenclature",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Replacing a hydrogen atom of a hydrocarbon by an –OH group gives an [[alcohol]] (on an aliphatic carbon) or a [[phenol]] (on an aromatic ring). Replacing the hydrogen of –OH by an alkyl or aryl group gives an [[ether]] (R–O–R′). These groups occur in wood polish, the cellulose of cloth and paper, medicines and many other substances."
+    },
+    {
+     "type": "p",
+     "text": "**Classification:** By the number of –OH groups: mono-, di-, tri- or polyhydric (C₂H₅OH; ethylene glycol; glycerol). By the hybridisation of the carbon carrying –OH: sp³ C–OH — primary (–CH₂OH), secondary (>CH–OH), tertiary (>C–OH), allylic and benzylic alcohols; sp² C–OH — vinylic alcohol (CH₂=CH–OH) and phenols. Ethers are simple (R = R′, e.g. C₂H₅OC₂H₅) or mixed (CH₃OC₂H₅, C₂H₅OC₆H₅)."
+    },
+    {
+     "type": "p",
+     "text": "**Nomenclature:** In the common system the alkyl group is followed by ‘alcohol’ (methyl alcohol). In IUPAC the ‘e’ of the parent alkane is replaced by ‘ol’; the carbon carrying –OH gets the lowest number (propan-2-ol). In polyhydric alcohols the ‘e’ is kept and di-, tri- are used (ethane-1,2-diol). In cyclic alcohols ‘cyclo’ comes first (cyclohexanol). Substituted phenols use o-, m-, p- or numbers (2-methylphenol = o-cresol). Ethers are named in the common system by the two alkyl groups followed by ‘ether’ (ethyl methyl ether); in IUPAC as alkoxyalkanes (methoxyethane)."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Compound",
+      "Common name",
+      "IUPAC name"
+     ],
+     "rows": [
+      [
+       "CH₃OH",
+       "methyl alcohol",
+       "methanol"
+      ],
+      [
+       "CH₃CH₂CH₂OH",
+       "n-propyl alcohol",
+       "propan-1-ol"
+      ],
+      [
+       "CH₃CH(OH)CH₃",
+       "isopropyl alcohol",
+       "propan-2-ol"
+      ],
+      [
+       "(CH₃)₃C–OH",
+       "tert-butyl alcohol",
+       "2-methylpropan-2-ol"
+      ],
+      [
+       "HOCH₂CH₂OH",
+       "ethylene glycol",
+       "ethane-1,2-diol"
+      ],
+      [
+       "CH₂(OH)CH(OH)CH₂OH",
+       "glycerol",
+       "propane-1,2,3-triol"
+      ],
+      [
+       "C₆H₅OCH₃",
+       "methyl phenyl ether (anisole)",
+       "methoxybenzene"
+      ],
+      [
+       "C₂H₅OC₂H₅",
+       "diethyl ether",
+       "ethoxyethane"
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "label": "Example 1",
+     "text": "IUPAC name of CH₃CH(Cl)CH(CH₃)CH(CH₃)CH₂OH: 4-chloro-2,3-dimethylpentan-1-ol (the carbon with –OH is C-1). CH₃CH(CH₃)–O–CH₂CH₃ — 2-ethoxypropane."
+    }
+   ]
+  },
+  {
+   "id": "physical",
+   "title": "Structure and Physical Properties",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "In alcohols the C–O–H angle (108.9°) is slightly less than the tetrahedral angle because of repulsion by the lone pairs on oxygen. The C–O length is 142 pm and O–H 96 pm. In phenols –OH is attached to an sp² carbon, so the C–O length is shorter (136 pm) — the lone pair on oxygen conjugates with the ring, giving partial double bond character. In ethers the C–O–C angle is 111.7° (more than tetrahedral, because of repulsion between the two alkyl groups) and C–O is 141 pm."
+    },
+    {
+     "type": "p",
+     "text": "**Boiling points:** These rise with molecular mass and fall with branching. The –OH group forms intermolecular **hydrogen bonds**, so alcohols and phenols boil much higher than hydrocarbons, ethers or haloalkanes of similar mass: ethanol (46 u) 351 K, methoxymethane (46 u) 248 K, propane (44 u) 231 K; butan-1-ol 390 K, ethoxyethane 307.6 K, n-pentane 309.1 K. Ethers have no hydrogen bonding between their molecules."
+    },
+    {
+     "type": "anim",
+     "name": "oh-bp",
+     "title": "Hydrogen bonding and boiling point",
+     "caption": "Compare the boiling points of three compounds of similar mass. Why does the alcohol boil highest?"
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "In both sets, by how many kelvin does the alcohol boil higher than the others? Why are the ether and the hydrocarbon so close?"
+    },
+    {
+     "type": "p",
+     "text": "**Solubility:** The oxygen of alcohols, phenols and ethers can form hydrogen bonds with water, so low molecular mass alcohols mix with water in all proportions. Solubility falls as the alkyl group gets larger. Butan-1-ol and ethoxyethane have nearly equal solubility (7.5 g and 9 g per 100 mL of water), but pentane is insoluble in water."
+    }
+   ]
+  },
+  {
+   "id": "preparation",
+   "title": "Preparation of Alcohols and Phenols",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "**Alcohols — 1. From alkenes:** (i) **Acid catalysed hydration:** alkene + H₂O →(H⁺) alcohol; Markovnikov's rule for unsymmetrical alkenes (propene → propan-2-ol). The mechanism has three steps: the alkene takes a proton from H₃O⁺ to give a carbocation, H₂O attacks it, and a proton is lost. (ii) **Hydroboration–oxidation:** alkene + (BH₃)₂ → trialkylborane; then H₂O₂/OH⁻ → alcohol. Here, against Markovnikov's rule, propene gives propan-1-ol."
+    },
+    {
+     "type": "p",
+     "text": "**2. From carbonyl compounds:** reduction of aldehydes and ketones (H₂ with Pd, Pt or Ni, or NaBH₄, LiAlH₄) — aldehydes give primary alcohols and ketones secondary alcohols. Carboxylic acids are reduced by LiAlH₄ to primary alcohols; commercially the ester is made first and reduced with H₂. **3. From Grignard reagents:** nucleophilic addition of RMgX to the carbonyl group, followed by hydrolysis: HCHO → primary; other aldehydes → secondary; ketones → tertiary alcohol."
+    },
+    {
+     "type": "anim",
+     "name": "grignard-alcohol",
+     "title": "Grignard reagent and carbonyl compounds",
+     "caption": "Choose a carbonyl compound and a Grignard reagent; see the adduct first and then the alcohol obtained on hydrolysis, with its class."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "React HCHO with CH₃MgBr; then CH₃CHO and finally CH₃COCH₃. How does the class of the alcohol change?"
+    },
+    {
+     "type": "note",
+     "label": "Example 2",
+     "text": "(a) Catalytic reduction of butanal → butan-1-ol. (b) Hydration of propene in dilute H₂SO₄ → propan-2-ol. (c) Propanone + CH₃MgBr followed by hydrolysis → 2-methylpropan-2-ol."
+    },
+    {
+     "type": "p",
+     "text": "**Preparation of phenols:** 1. From haloarenes — chlorobenzene + NaOH (623 K, 300 atm) → sodium phenoxide → HCl → phenol. 2. From benzenesulphonic acid — fused with NaOH to give the phenoxide, then acid. 3. From diazonium salts — aniline + NaNO₂/HCl (273–278 K) → benzenediazonium chloride; warming gently with water gives phenol. 4. From cumene (industrial) — cumene (isopropylbenzene) is oxidised by air to cumene hydroperoxide; with dilute acid it gives phenol + acetone (a useful by-product)."
+    }
+   ]
+  },
+  {
+   "id": "acidity",
+   "title": "Acidic Character of Alcohols and Phenols",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Alcohols and phenols are Brønsted acids — they break the O–H bond and give up a proton. They react with active metals (Na, K, Al) to give alkoxides/phenoxides and H₂ (2R–OH + 2Na → 2R–ONa + H₂); phenol also reacts with aqueous NaOH to give sodium phenoxide, but alcohols do not — so phenol is more acidic than alcohols."
+    },
+    {
+     "type": "p",
+     "text": "**Acidity of alcohols:** An electron-releasing alkyl group raises the electron density on oxygen and so reduces the polarity of O–H. Hence the acidity order primary > secondary > tertiary. But alcohols are weaker acids than water; the alkoxide ion (RO⁻) is a stronger base than hydroxide. **Acidity of phenols:** The oxygen of –OH is attached to an sp² carbon, which is more electronegative, so the O–H bond is more polar. In addition, in the [[phenoxide]] the negative charge is spread over the whole ring by resonance (in an alkoxide it stays on oxygen) — so the phenoxide is stable and phenol ionises easily."
+    },
+    {
+     "type": "p",
+     "text": "An electron-withdrawing group (–NO₂) increases the acidity of phenol, especially in the ortho and para positions; an electron-releasing group (–CH₃) decreases it (cresols are less acidic than phenol). The smaller the pKₐ, the stronger the acid."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Compound",
+      "pKₐ"
+     ],
+     "rows": [
+      [
+       "o-nitrophenol",
+       "7.2"
+      ],
+      [
+       "m-nitrophenol",
+       "8.3"
+      ],
+      [
+       "p-nitrophenol",
+       "7.1"
+      ],
+      [
+       "phenol",
+       "10.0"
+      ],
+      [
+       "o-cresol",
+       "10.2"
+      ],
+      [
+       "m-cresol",
+       "10.1"
+      ],
+      [
+       "p-cresol",
+       "10.2"
+      ],
+      [
+       "ethanol",
+       "15.9"
+      ]
+     ]
+    },
+    {
+     "type": "anim",
+     "name": "acid-strength",
+     "title": "Comparing acid strength (pKₐ)",
+     "caption": "Choose a compound and see by how many times it is more acidic than ethanol."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "Compare phenol, p-cresol and p-nitrophenol. By how much does the nitro group lower the pKₐ? Why is the effect of m-nitrophenol smaller?"
+    },
+    {
+     "type": "note",
+     "label": "Example 3",
+     "text": "Arrange in increasing order of acidity: propan-1-ol < 4-methylphenol < phenol < 3-nitrophenol < 3,5-dinitrophenol < 2,4,6-trinitrophenol."
+    }
+   ]
+  },
+  {
+   "id": "alcohol-reactions",
+   "title": "Reactions of Alcohols",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "**1. Esterification:** alcohol/phenol + carboxylic acid (H⁺ catalyst, reversible; the water formed is removed to speed it up), anhydride or acid chloride (pyridine as base) → ester. Introducing the acetyl group (CH₃CO–) is acetylation; aspirin is obtained from salicylic acid. **2. Reaction with HX:** ROH + HX → R–X + H₂O. The order is 3° > 2° > 1° — the basis of the **[[lucas]]** (concentrated HCl + ZnCl₂): tertiary alcohols turn cloudy at once, secondary in about 5 minutes, and primary alcohols do not turn cloudy at room temperature (the alkyl halide is insoluble in the reagent). **3.** With PX₃ they give alkyl halides."
+    },
+    {
+     "type": "anim",
+     "name": "lucas-test",
+     "title": "The Lucas test",
+     "caption": "Press ‘Start’ and watch the solutions turn cloudy in the three tubes (time is shown sped up)."
+    },
+    {
+     "type": "p",
+     "text": "**4. [[dehydration]]:** Heating with concentrated H₂SO₄ or H₃PO₄ gives an alkene (ethanol + H₂SO₄, 443 K → ethene; secondary 85 % H₃PO₄ at 440 K; tertiary 20 % H₃PO₄ at 358 K). The ease is 3° > 2° > 1° because the tertiary carbocation is more stable. Mechanism: (1) the alcohol takes up a proton; (2) water leaves to give the carbocation (slow, rate determining); (3) a proton is lost → alkene. (At a lower temperature, 413 K, an ether is obtained.)"
+    },
+    {
+     "type": "p",
+     "text": "**5. Oxidation:** primary alcohol → aldehyde → carboxylic acid. A strong oxidising agent such as acidified KMnO₄ gives the carboxylic acid; CrO₃ in anhydrous medium or the mild [[pcc]] stops at the aldehyde. Secondary alcohol → ketone (CrO₃ or chromic anhydride). Tertiary alcohols are not oxidised easily; with strong oxidising agents and heat the C–C bonds break to give a mixture of carboxylic acids with fewer carbons. When the vapour of a primary/secondary alcohol is passed over heated copper at 573 K, hydrogen is lost to give an aldehyde/ketone; a tertiary alcohol gives an alkene (loss of water)."
+    },
+    {
+     "type": "anim",
+     "name": "alcohol-oxidation",
+     "title": "Oxidation of alcohols",
+     "caption": "Choose the class of the alcohol and the oxidising agent; see the product and the explanation."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "Choose a primary alcohol and change from the mild to the strong oxidising agent. What changes in the product? Then try a tertiary alcohol."
+    },
+    {
+     "type": "note",
+     "label": "Caution",
+     "text": "Methanol is oxidised in the body to methanal and methanoic acid, which can cause blindness or death. A person who has swallowed methanol is given dilute ethanol, which slows the oxidation of methanol and lets the kidneys remove it."
+    }
+   ]
+  },
+  {
+   "id": "phenol-reactions",
+   "title": "Reactions of Phenols",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The –OH group of phenol activates the benzene ring and, by resonance, raises the electron density at the ortho and para positions; so electrophiles enter there. **Nitration:** dilute HNO₃ (298 K) → a mixture of o- and p-nitrophenol; they are separated by steam distillation — o-nitrophenol has intramolecular hydrogen bonding so it is volatile; p- has intermolecular bonding and a higher boiling point. Concentrated HNO₃ → 2,4,6-trinitrophenol (picric acid); in practice phenol is first sulphonated and then nitrated. **Halogenation:** Br₂ in CS₂/CHCl₃ (273 K) → p-bromophenol (major) + o-; bromine water → a white precipitate of 2,4,6-tribromophenol (no Lewis acid is needed because –OH makes the ring so reactive)."
+    },
+    {
+     "type": "p",
+     "text": "**Kolbe's reaction:** phenol + NaOH → phenoxide; CO₂ and then H⁺ → ortho-hydroxybenzoic acid ([[kolbe]]; salicylic acid). **Reimer–Tiemann reaction:** phenol + CHCl₃ + aqueous NaOH → intermediate (–CHCl₂) → salicylaldehyde ([[reimer]]). **Zinc dust:** phenol + Zn → benzene + ZnO. **Oxidation:** Na₂Cr₂O₇/H₂SO₄ → benzoquinone; in air phenol slowly oxidises to a dark mixture containing quinones."
+    },
+    {
+     "type": "anim",
+     "name": "phenol-reactions",
+     "title": "Reactions of phenol",
+     "caption": "Choose a reagent; see where substitution occurs on the ring and the name of the product."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "Compare the products of dilute and concentrated HNO₃. Then compare Br₂/CS₂ with bromine water — why do the products differ when the conditions change?"
+    },
+    {
+     "type": "note",
+     "label": "Example 4",
+     "text": "Mononitration of 3-methylphenol: –OH and –CH₃ are both ortho-para directing; the main products are 3-methyl-4-nitrophenol and 3-methyl-2-nitrophenol (the 6-position is also possible)."
+    }
+   ]
+  },
+  {
+   "id": "ethers",
+   "title": "Ethers",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "**Preparation:** (1) Dehydration of alcohols — with concentrated H₂SO₄ ethene at 443 K and ethoxyethane at 413 K (SN2: one protonated alcohol molecule is attacked by another). It suits only ethers with primary alkyl groups; secondary and tertiary alcohols mainly give alkenes. (2) **[[williamson]]:** R–X + R′–ONa → R–O–R′ + NaX. The alkoxide ion attacks the primary alkyl halide by SN2. With a secondary or tertiary halide the alkoxide (a strong base) causes elimination — tert-butyl bromide + CH₃ONa → 2-methylpropene. Phenols can also be converted into the phenoxide and made into ethers."
+    },
+    {
+     "type": "anim",
+     "name": "williamson",
+     "title": "Williamson synthesis: ether or alkene?",
+     "caption": "Choose a combination of alkoxide and alkyl halide; see the main product and the reason."
+    },
+    {
+     "type": "note",
+     "kind": "try",
+     "text": "To make ethyl tert-butyl ether, which combination is better — C₂H₅ONa + (CH₃)₃CCl or (CH₃)₃CONa + C₂H₅Cl? Why?"
+    },
+    {
+     "type": "p",
+     "text": "**Physical properties:** The C–O bond is polar, so ethers have a small dipole moment; boiling points are similar to those of alkanes of similar mass (much lower than alcohols); solubility is similar to alcohols of similar mass (oxygen forms hydrogen bonds with water). **Reactions:** Ethers are very unreactive. With hot concentrated HI or HBr the C–O bond breaks to give an alkyl halide and an alcohol: R–O–R′ + HX → RX + R′OH (HI > HBr > HCl). In step 1 the ether is protonated; in step 2 I⁻ attacks the simpler alkyl group by SN2. If one group is tertiary, SN1 occurs (a tertiary alkyl iodide). Anisole (C₆H₅OCH₃) + HI → phenol + CH₃I (the C–O bond to the sp² carbon has partial double bond character, so it does not break)."
+    },
+    {
+     "type": "p",
+     "text": "**Electrophilic substitution:** The alkoxy group (–OR) of an ether is ortho-para directing and activating. Bromination of anisole (in ethanoic acid, no iron(III) bromide needed) → about 90 % p-bromoanisole; Friedel–Crafts (anhydrous AlCl₃) → 4-methoxytoluene or 4-methoxyacetophenone (major); nitration (conc. H₂SO₄ + HNO₃) → 4-nitroanisole (major) and 2-nitroanisole."
+    }
+   ]
+  },
+  {
+   "id": "commercial",
+   "title": "Some Commercially Important Alcohols",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "**Methanol:** formerly obtained by destructive distillation of wood (wood spirit); now CO + 2H₂ →(ZnO–Cr₂O₃, 200–300 atm, 573–673 K) CH₃OH. A colourless liquid, boiling point 337 K, highly poisonous. Used as a paint solvent, in varnishes and in making formaldehyde. **Ethanol:** by fermentation — invertase converts sucrose in sugar-cane juice/molasses into glucose and fructose, and zymase converts these into ethanol and CO₂; when ethanol reaches 14 % the zymase stops working. Colourless, boiling point 351 K. Nowadays it is made by hydration of ethene. Commercial alcohol is made unfit to drink by adding copper sulphate or pyridine — [[denaturation]]. In large amounts ethanol harms the central nervous system and the respiratory system."
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "[[alcohol]]s and [[phenol]]s are classified by the number of –OH groups and the hybridisation of the carbon; [[ether]]s by the groups on both sides of oxygen.",
+  "Alcohols and phenols have much higher boiling points because of hydrogen bonding; they are soluble in water.",
+  "Preparation of alcohols: hydration of alkenes, [[hydroboration]], reduction of carbonyl compounds, Grignard reagents. Phenols: haloarenes, sulphonic acid, diazonium salts, cumene.",
+  "Phenol is more acidic than alcohols (the [[phenoxide]] is stabilised by resonance); electron-withdrawing groups increase acidity and electron-releasing groups decrease it.",
+  "Reactions of alcohols: [[esterification]], HX ([[lucas]]), [[dehydration]] (3° > 2° > 1°), oxidation (1° → aldehyde/acid, 2° → ketone, 3° resistant).",
+  "In phenol –OH is ortho-para directing: nitration, halogenation, [[kolbe]] and [[reimer]] reactions.",
+  "Ethers are made by [[williamson]] (SN2, primary halide); HI cleaves the C–O bond; the alkoxy group is ortho-para directing."
+ ]
+}

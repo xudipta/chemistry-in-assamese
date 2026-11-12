@@ -102,12 +102,16 @@
         {
           "id": "class-12/ch07-alcohols-phenols-ethers",
           "no": 7,
-          "status": "soon",
+          "status": "ready",
           "title": {
             "as": "এলকহল, ফিনল আৰু ইথাৰ",
             "en": "Alcohols, Phenols and Ethers"
           },
-          "part": 2
+          "part": 2,
+          "langs": [
+            "as",
+            "en"
+          ]
         },
         {
           "id": "class-12/ch08-aldehydes-ketones-acids",

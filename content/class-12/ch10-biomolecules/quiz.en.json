@@ -1,0 +1,213 @@
+{
+ "questions": [
+  {
+   "q": "Which of the following is a monosaccharide?",
+   "options": [
+    "Sucrose",
+    "Glucose",
+    "Maltose",
+    "Starch"
+   ],
+   "answer": 1,
+   "explain": "Glucose gives no simpler unit on hydrolysis."
+  },
+  {
+   "q": "What kind of carbohydrate is glucose?",
+   "options": [
+    "Ketopentose",
+    "Aldohexose",
+    "Ketohexose",
+    "Aldopentose"
+   ],
+   "answer": 1,
+   "explain": "Six carbons and an aldehyde group."
+  },
+  {
+   "q": "What does glucose give on oxidation with bromine water?",
+   "options": [
+    "Saccharic acid",
+    "Gluconic acid",
+    "n-Hexane",
+    "Cyanohydrin"
+   ],
+   "answer": 1,
+   "explain": "A mild oxidant converts –CHO to –COOH — gluconic acid."
+  },
+  {
+   "q": "Why does glucose not give the 2,4-DNP test?",
+   "options": [
+    "It has no –CHO",
+    "In the cyclic hemiacetal form the free –CHO is absent",
+    "It is a ketone",
+    "It is insoluble in water"
+   ],
+   "answer": 1,
+   "explain": "On ring closure the –CHO forms a hemiacetal with the C-5 –OH."
+  },
+  {
+   "q": "What are α- and β-glucose to each other?",
+   "options": [
+    "Anomers",
+    "Not isomers",
+    "Enantiomers",
+    "The same compound"
+   ],
+   "answer": 0,
+   "explain": "They differ in configuration at C-1 — anomers."
+  },
+  {
+   "q": "Why is sucrose a non-reducing sugar?",
+   "options": [
+    "Both reducing groups are involved in the glycosidic bond",
+    "It has no glucose",
+    "It is a ketone",
+    "It is a polysaccharide"
+   ],
+   "answer": 0,
+   "explain": "C1 of glucose and C2 of fructose are bonded."
+  },
+  {
+   "q": "What is invert sugar?",
+   "options": [
+    "Glucose + fructose from the hydrolysis of sucrose",
+    "Maltose",
+    "Glucose and galactose",
+    "Starch"
+   ],
+   "answer": 0,
+   "explain": "The rotation changes from dextro to laevo."
+  },
+  {
+   "q": "Which component of starch is soluble in water?",
+   "options": [
+    "Amylose",
+    "Amylopectin",
+    "Cellulose",
+    "Glycogen"
+   ],
+   "answer": 0,
+   "explain": "Amylose (15–20%) is water soluble."
+  },
+  {
+   "q": "Which is animal starch?",
+   "options": [
+    "Cellulose",
+    "Amylose",
+    "Glycogen",
+    "Sucrose"
+   ],
+   "answer": 2,
+   "explain": "Stored in the liver and muscles of animals."
+  },
+  {
+   "q": "Which is an essential amino acid?",
+   "options": [
+    "Glycine",
+    "Alanine",
+    "Valine",
+    "Serine"
+   ],
+   "answer": 2,
+   "explain": "Valine is not synthesised in the body."
+  },
+  {
+   "q": "Which is the peptide bond?",
+   "options": [
+    "–CO–NH–",
+    "–CO–O–",
+    "–C–O–C–",
+    "–S–S–"
+   ],
+   "answer": 0,
+   "explain": "An amide bond."
+  },
+  {
+   "q": "Which structure remains intact in denaturation of a protein?",
+   "options": [
+    "Primary",
+    "Secondary",
+    "Tertiary",
+    "Quaternary"
+   ],
+   "answer": 0,
+   "explain": "The amino acid sequence (peptide bonds) is not broken."
+  },
+  {
+   "q": "The α-helix is which level of structure?",
+   "options": [
+    "Primary",
+    "Secondary",
+    "Tertiary",
+    "Quaternary"
+   ],
+   "answer": 1,
+   "explain": "A regular fold held by hydrogen bonds."
+  },
+  {
+   "q": "How does an enzyme work?",
+   "options": [
+    "It lowers the activation energy",
+    "It changes ΔH of the reaction",
+    "It raises the temperature",
+    "It is consumed"
+   ],
+   "answer": 0,
+   "explain": "A biocatalyst; itself unchanged."
+  },
+  {
+   "q": "Deficiency of which vitamin causes scurvy?",
+   "options": [
+    "Vitamin A",
+    "Vitamin B₁",
+    "Vitamin C",
+    "Vitamin D"
+   ],
+   "answer": 2,
+   "explain": "Lack of ascorbic acid."
+  },
+  {
+   "q": "Rickets is caused by a deficiency of which vitamin?",
+   "options": [
+    "Vitamin K",
+    "Vitamin D",
+    "Vitamin E",
+    "Vitamin C"
+   ],
+   "answer": 1,
+   "explain": "Vitamin D — bone deformity."
+  },
+  {
+   "q": "Which base is in DNA but not in RNA?",
+   "options": [
+    "Adenine",
+    "Uracil",
+    "Thymine",
+    "Guanine"
+   ],
+   "answer": 2,
+   "explain": "In RNA uracil replaces thymine."
+  },
+  {
+   "q": "With which base does guanine pair in DNA?",
+   "options": [
+    "Adenine",
+    "Cytosine",
+    "Thymine",
+    "Uracil"
+   ],
+   "answer": 1,
+   "explain": "G ≡ C — three hydrogen bonds."
+  },
+  {
+   "q": "Deficiency of thyroxine causes what?",
+   "options": [
+    "Hypothyroidism (goitre)",
+    "Diabetes",
+    "Addison's disease",
+    "Scurvy"
+   ],
+   "answer": 0,
+   "explain": "Iodised salt is used."
+  }
+ ]
+}

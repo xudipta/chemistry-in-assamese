@@ -144,12 +144,16 @@
         {
           "id": "class-12/ch10-biomolecules",
           "no": 10,
-          "status": "soon",
+          "status": "ready",
           "title": {
             "as": "জীৱ অণু",
             "en": "Biomolecules"
           },
-          "part": 2
+          "part": 2,
+          "langs": [
+            "as",
+            "en"
+          ]
         }
       ]
     },

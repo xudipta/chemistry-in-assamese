@@ -20,7 +20,8 @@ English term in brackets. Installable as a web app and works offline.
 | 12 | 6 · হেল'এলকেন আৰু হেল'এৰিন (Haloalkanes and Haloarenes) | ✅ 7 sections, 6 animations, 14-question quiz; Assamese + English (Part II) |
 | 12 | 7 · এলকহল, ফিনল আৰু ইথাৰ (Alcohols, Phenols and Ethers) | ✅ 8 sections, 7 animations, 14-question quiz; Assamese + English (Part II) |
 | 12 | 8 · এলডিহাইড, কিট'ন আৰু কাৰ্বক্সিলিক এছিড (Aldehydes, Ketones and Carboxylic Acids) | ✅ 9 sections, 7 animations, 14-question quiz, Assamese + English |
-| 12 | Chapters 9–10 (Part II) | listed as "Coming soon": amines, biomolecules |
+| 12 | 9 · এমাইন (Amines) | ✅ 8 sections, 6 animations, 18-question quiz, Assamese + English |
+| 12 | Chapter 10 (Part II) | listed as "Coming soon": biomolecules |
 
 The Assamese text is a first draft and still needs review by a chemistry teacher.
 

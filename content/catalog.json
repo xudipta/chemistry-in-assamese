@@ -130,12 +130,16 @@
         {
           "id": "class-12/ch09-amines",
           "no": 9,
-          "status": "soon",
+          "status": "ready",
           "title": {
             "as": "এমাইন",
             "en": "Amines"
           },
-          "part": 2
+          "part": 2,
+          "langs": [
+            "as",
+            "en"
+          ]
         },
         {
           "id": "class-12/ch10-biomolecules",

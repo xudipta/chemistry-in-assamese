@@ -116,12 +116,16 @@
         {
           "id": "class-12/ch08-aldehydes-ketones-acids",
           "no": 8,
-          "status": "soon",
+          "status": "ready",
           "title": {
             "as": "এলডিহাইড, কিট'ন আৰু কাৰ্বক্সিলিক এছিড",
             "en": "Aldehydes, Ketones and Carboxylic Acids"
           },
-          "part": 2
+          "part": 2,
+          "langs": [
+            "as",
+            "en"
+          ]
         },
         {
           "id": "class-12/ch09-amines",

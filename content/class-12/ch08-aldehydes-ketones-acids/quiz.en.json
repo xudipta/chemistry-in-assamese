@@ -1,0 +1,158 @@
+{
+ "questions": [
+  {
+   "q": "What is the IUPAC name of CH₃CH(CH₃)CH₂CHO?",
+   "options": [
+    "2-methylbutanal",
+    "3-methylbutanal",
+    "pentanal",
+    "3-methylbutan-1-ol"
+   ],
+   "answer": 1,
+   "explain": "The carbonyl carbon is C-1; the methyl is on C-3 — 3-methylbutanal."
+  },
+  {
+   "q": "What is the hybridisation of the carbonyl carbon?",
+   "options": [
+    "sp",
+    "sp²",
+    "sp³",
+    "sp³d"
+   ],
+   "answer": 1,
+   "explain": "Three σ bonds in a plane (120°) and one π bond — sp²."
+  },
+  {
+   "q": "Why is the boiling point of propanal (322 K) lower than that of propan-1-ol (370 K)?",
+   "options": [
+    "Propanal has a smaller molecular mass",
+    "Propanal has no intermolecular hydrogen bonding",
+    "Propanal is non-polar",
+    "Propanal is a gas"
+   ],
+   "answer": 1,
+   "explain": "The alcohol has O–H···O hydrogen bonds; the aldehyde has only dipole–dipole attraction."
+  },
+  {
+   "q": "What is the name of the reaction in which toluene is converted into benzaldehyde with CrO₂Cl₂?",
+   "options": [
+    "Rosenmund reduction",
+    "Etard reaction",
+    "Stephen reaction",
+    "Gattermann–Koch"
+   ],
+   "answer": 1,
+   "explain": "The reaction of toluene with CrO₂Cl₂ is the Etard reaction."
+  },
+  {
+   "q": "What is obtained when an acyl chloride is reduced with H₂ over Pd–BaSO₄?",
+   "options": [
+    "Ketone",
+    "Aldehyde",
+    "Alcohol",
+    "Carboxylic acid"
+   ],
+   "answer": 1,
+   "explain": "This is the Rosenmund reduction — an aldehyde."
+  },
+  {
+   "q": "Which of the following is the most reactive in nucleophilic addition?",
+   "options": [
+    "HCHO",
+    "CH₃CHO",
+    "CH₃COCH₃",
+    "C₆H₅CHO"
+   ],
+   "answer": 0,
+   "explain": "Least steric hindrance and greatest electrophilicity."
+  },
+  {
+   "q": "Why are aldehydes more reactive than ketones?",
+   "options": [
+    "Less steric hindrance and a more electrophilic carbon",
+    "Higher molecular mass",
+    "Hydrogen bonding",
+    "More acidic"
+   ],
+   "answer": 0,
+   "explain": "A ketone has two bulky, electron-releasing groups."
+  },
+  {
+   "q": "Which does NOT reduce Fehling's reagent?",
+   "options": [
+    "Ethanal",
+    "Propanal",
+    "Benzaldehyde",
+    "Methanal"
+   ],
+   "answer": 2,
+   "explain": "Aromatic aldehydes do not reduce Fehling's reagent."
+  },
+  {
+   "q": "Which gives the iodoform test (NaOI)?",
+   "options": [
+    "Propanal",
+    "Benzaldehyde",
+    "Propanone",
+    "Phenol"
+   ],
+   "answer": 2,
+   "explain": "A compound with a CH₃CO– group gives yellow CHI₃."
+  },
+  {
+   "q": "Which shows the Cannizzaro reaction?",
+   "options": [
+    "CH₃CHO",
+    "CH₃COCH₃",
+    "C₆H₅CHO",
+    "CH₃CH₂CHO"
+   ],
+   "answer": 2,
+   "explain": "Aldehydes without α-hydrogen — benzaldehyde, formaldehyde."
+  },
+  {
+   "q": "What does acetaldehyde give in the presence of dilute NaOH?",
+   "options": [
+    "3-hydroxybutanal",
+    "Ethanoic acid",
+    "Ethanol",
+    "Ethane-1,2-diol"
+   ],
+   "answer": 0,
+   "explain": "Aldol condensation — 3-hydroxybutanal (the aldol)."
+  },
+  {
+   "q": "Which of the following acids is the strongest?",
+   "options": [
+    "CH₃COOH",
+    "ClCH₂COOH",
+    "Cl₂CHCOOH",
+    "Cl₃CCOOH"
+   ],
+   "answer": 3,
+   "explain": "The more chlorines, the more stable the carboxylate and the lower the pKₐ."
+  },
+  {
+   "q": "Why is the boiling point of a carboxylic acid higher than that of an alcohol of similar mass?",
+   "options": [
+    "It forms dimers with strong hydrogen bonds",
+    "It is heavier",
+    "It is ionic",
+    "It is a gas"
+   ],
+   "answer": 0,
+   "explain": "Two O–H···O hydrogen bonds form a dimer."
+  },
+  {
+   "q": "How can a carboxylic acid be distinguished from a phenol?",
+   "options": [
+    "CO₂ is liberated with NaHCO₃",
+    "With FeCl₃",
+    "With bromine water",
+    "H₂ is liberated with Na"
+   ],
+   "answer": 0,
+   "explain": "A carboxylic acid gives CO₂ with NaHCO₃; a phenol does not."
+  }
+ ]
+}

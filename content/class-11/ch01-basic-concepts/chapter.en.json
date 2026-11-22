@@ -1,0 +1,652 @@
+{
+ "id": "class-11/ch01-basic-concepts",
+ "class": 11,
+ "number": 1,
+ "title": {
+  "as": "ৰসায়নবিজ্ঞানৰ কিছুমান প্ৰাথমিক ধাৰণা",
+  "en": "Some Basic Concepts of Chemistry"
+ },
+ "scripts": [
+  "anim.js"
+ ],
+ "goals": [
+  "Understand the importance of chemistry and how matter is classified (elements, compounds, mixtures)",
+  "Use [[si]] and unit factors to convert between units",
+  "Apply significant figures, [[accuracy]] and [[precision]]",
+  "Explain the laws of chemical combination and Dalton's theory",
+  "Calculate with the [[mole]] and [[molarmass]] and find an [[empirical]]",
+  "Do [[stoich]] and [[limiting]] problems and compute concentrations ([[molarity]], [[molality]])"
+ ],
+ "glossary": {
+  "matter": {
+   "as": "পদাৰ্থ",
+   "en": "matter",
+   "def": "Anything that has mass and occupies space."
+  },
+  "mixture": {
+   "as": "মিশ্ৰণ",
+   "en": "mixture",
+   "def": "Two or more pure substances mixed in any proportion; can be separated by physical methods."
+  },
+  "element": {
+   "as": "মৌল",
+   "en": "element",
+   "def": "A pure substance made of one kind of atom; cannot be broken into simpler substances chemically."
+  },
+  "compound": {
+   "as": "যৌগ",
+   "en": "compound",
+   "def": "A pure substance formed when two or more elements combine chemically in a fixed ratio."
+  },
+  "si": {
+   "as": "SI একক",
+   "en": "SI unit",
+   "def": "Units of the International System: seven base units and units derived from them."
+  },
+  "sigfig": {
+   "as": "তাৎপৰ্যপূৰ্ণ অংক",
+   "en": "significant figures",
+   "def": "The digits known with certainty in a measurement plus the first uncertain digit."
+  },
+  "accuracy": {
+   "as": "নিৰ্ভুলতা",
+   "en": "accuracy",
+   "def": "How close a measured value is to the true value."
+  },
+  "precision": {
+   "as": "যথাৰ্থতা",
+   "en": "precision",
+   "def": "How close repeated measurements of the same quantity are to one another."
+  },
+  "dimensional": {
+   "as": "মাত্ৰিক বিশ্লেষণ",
+   "en": "dimensional analysis",
+   "def": "Converting one unit to another by multiplying with unit factors."
+  },
+  "conservation": {
+   "as": "ভৰ সংৰক্ষণ সূত্ৰ",
+   "en": "law of conservation of mass",
+   "def": "Matter is neither created nor destroyed in a chemical reaction; total mass of reactants = total mass of products."
+  },
+  "definite": {
+   "as": "নিৰ্দিষ্ট অনুপাতৰ সূত্ৰ",
+   "en": "law of definite proportions",
+   "def": "A given compound always contains the same elements in the same ratio by mass, whatever its source."
+  },
+  "multiple": {
+   "as": "গুণিত অনুপাতৰ সূত্ৰ",
+   "en": "law of multiple proportions",
+   "def": "If two elements form more than one compound, the masses of one that combine with a fixed mass of the other are in a ratio of small whole numbers."
+  },
+  "gaylussac": {
+   "as": "গে-লুছাকৰ গেছীয় আয়তনৰ সূত্ৰ",
+   "en": "Gay-Lussac's law of gaseous volumes",
+   "def": "At the same temperature and pressure, volumes of gaseous reactants and products are in simple whole-number ratios."
+  },
+  "avogadro": {
+   "as": "আভোগাড্ৰ' সূত্ৰ",
+   "en": "Avogadro's law",
+   "def": "Equal volumes of all gases at the same temperature and pressure contain the same number of molecules."
+  },
+  "amu": {
+   "as": "পাৰমাণৱিক ভৰ একক (u)",
+   "en": "atomic mass unit (u)",
+   "def": "One-twelfth the mass of a carbon-12 atom; 1 u = 1.6606 × 10⁻²⁴ g."
+  },
+  "mole": {
+   "as": "ম'ল",
+   "en": "mole",
+   "def": "The amount of substance containing exactly 6.022 × 10²³ particles; the number of atoms in exactly 12 g of carbon-12."
+  },
+  "avogadro-no": {
+   "as": "আভোগাড্ৰ' ধ্ৰুৱক",
+   "en": "Avogadro constant",
+   "def": "The number of particles in one mole: N_A = 6.022 × 10²³ mol⁻¹."
+  },
+  "molarmass": {
+   "as": "মোলাৰ ভৰ",
+   "en": "molar mass",
+   "def": "Mass in grams of one mole of a substance (g mol⁻¹); numerically equal to its atomic/molecular mass in u."
+  },
+  "empirical": {
+   "as": "মূলানুপাতিক সংকেত",
+   "en": "empirical formula",
+   "def": "The formula giving the simplest whole-number ratio of atoms in a compound."
+  },
+  "molecular": {
+   "as": "আণৱিক সংকেত",
+   "en": "molecular formula",
+   "def": "The formula giving the actual number of atoms of each element in a molecule; (empirical formula)ₙ."
+  },
+  "stoich": {
+   "as": "ষ্টয়কিঅ'মিতি",
+   "en": "stoichiometry",
+   "def": "Calculating the quantities of reactants and products from a balanced chemical equation."
+  },
+  "limiting": {
+   "as": "সীমিতকাৰী বিকাৰক",
+   "en": "limiting reagent",
+   "def": "The reactant that is used up first and so limits the amount of product."
+  },
+  "molarity": {
+   "as": "ম'লাৰিটি (M)",
+   "en": "molarity (M)",
+   "def": "Moles of solute per litre of solution (mol L⁻¹); changes with temperature."
+  },
+  "molality": {
+   "as": "ম'লালিটি (m)",
+   "en": "molality (m)",
+   "def": "Moles of solute per kilogram of solvent (mol kg⁻¹); independent of temperature."
+  },
+  "molefraction": {
+   "as": "ম'ল ভগ্নাংশ",
+   "en": "mole fraction",
+   "def": "Moles of one component ÷ total moles in the solution; mole fractions add up to 1."
+  }
+ },
+ "sections": [
+  {
+   "id": "importance",
+   "title": "Importance and development of chemistry",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Chemistry studies the **composition, properties and changes** of matter. Because it connects with physics, biology, geology and almost every other science, it is called the central science."
+    },
+    {
+     "type": "list",
+     "items": [
+      "**Agriculture and food:** fertilisers and pesticides raise production.",
+      "**Health:** chemists synthesise drugs such as cisplatin and taxol (cancer) and AZT (AIDS).",
+      "**Materials:** superconductors, polymers, glass and alloys.",
+      "**Environment:** understanding CFCs, ozone depletion and greenhouse gases, and finding solutions."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Chemistry has deep roots in India. Glass, dyes and metals were used at Harappa and Mohenjo-daro; the Rasayan Shastra and Rasaratnakara describe metal extraction and medicines; the Charaka and Sushruta Samhitas describe alkalis, acids and metal preparations. Acharya Kanad proposed the idea of the atom around the sixth century BCE. Modern chemistry began with the quantitative work of Lavoisier and Dalton."
+    },
+    {
+     "type": "note",
+     "text": "Pick three things at home (soap, toothpaste, a plastic bottle). What are they made of, and how might they have been produced?",
+     "label": "Try it yourself",
+     "kind": "try"
+    }
+   ]
+  },
+  {
+   "id": "matter",
+   "title": "Nature and classification of matter",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Anything with mass that occupies space is [[matter]]. It exists in three physical states: solid, liquid and gas."
+    },
+    {
+     "type": "table",
+     "head": [
+      "State",
+      "Shape",
+      "Volume",
+      "Particle arrangement",
+      "Compressibility"
+     ],
+     "rows": [
+      [
+       "Solid",
+       "Fixed",
+       "Fixed",
+       "Close and orderly; only vibrate",
+       "Almost none"
+      ],
+      [
+       "Liquid",
+       "Takes the container's shape",
+       "Fixed",
+       "Close but free to move",
+       "Very little"
+      ],
+      [
+       "Gas",
+       "Takes the container's shape",
+       "Fills the container",
+       "Far apart, fast-moving",
+       "High"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Chemically, matter is divided into **pure substances** and **[[mixture]]s**. Pure substances are either [[element]]s (Au, O₂) or [[compound]]s (H₂O, NaCl). Mixtures are **homogeneous** (uniform throughout, like air or sugar solution) or **heterogeneous** (like sand and water)."
+    },
+    {
+     "type": "anim",
+     "name": "matter-classify",
+     "title": "Classifying matter",
+     "caption": "Pick a substance and follow its path down the classification tree."
+    },
+    {
+     "type": "note",
+     "text": "Components of a mixture keep their own properties and can be separated physically (filtering, distillation, magnet). Separating a compound needs a chemical method, e.g. electrolysis of water gives H₂ and O₂.",
+     "label": "Remember"
+    }
+   ]
+  },
+  {
+   "id": "measurement",
+   "title": "Measurement and SI units",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Properties are **physical** (colour, odour, melting/boiling point, density — measured without changing the substance) or **chemical** (combustibility, reactivity — the substance changes). A measured value = number × unit. The world uses a common system, the [[si]]."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Base quantity",
+      "Symbol",
+      "SI unit",
+      "Unit symbol"
+     ],
+     "rows": [
+      [
+       "length",
+       "l",
+       "metre",
+       "m"
+      ],
+      [
+       "mass",
+       "m",
+       "kilogram",
+       "kg"
+      ],
+      [
+       "time",
+       "t",
+       "second",
+       "s"
+      ],
+      [
+       "electric current",
+       "I",
+       "ampere",
+       "A"
+      ],
+      [
+       "thermodynamic temperature",
+       "T",
+       "kelvin",
+       "K"
+      ],
+      [
+       "amount of substance",
+       "n",
+       "mole",
+       "mol"
+      ],
+      [
+       "luminous intensity",
+       "I_v",
+       "candela",
+       "cd"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Prefix",
+      "Multiple",
+      "Prefix",
+      "Multiple"
+     ],
+     "rows": [
+      [
+       "kilo (k)",
+       "10³",
+       "deci (d)",
+       "10⁻¹"
+      ],
+      [
+       "mega (M)",
+       "10⁶",
+       "centi (c)",
+       "10⁻²"
+      ],
+      [
+       "giga (G)",
+       "10⁹",
+       "milli (m)",
+       "10⁻³"
+      ],
+      [
+       "tera (T)",
+       "10¹²",
+       "micro (μ)",
+       "10⁻⁶"
+      ],
+      [
+       "",
+       "",
+       "nano (n)",
+       "10⁻⁹"
+      ],
+      [
+       "",
+       "",
+       "pico (p)",
+       "10⁻¹²"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Derived quantities come from the base units: volume (m³; 1 L = 1 dm³ = 10⁻³ m³ = 1000 cm³), density = mass ÷ volume (kg m⁻³; in chemistry usually g cm⁻³), pressure = force ÷ area (pascal, 1 Pa = 1 N m⁻²; 1 atm = 101325 Pa, 1 bar = 10⁵ Pa). **Mass** is the same everywhere but **weight** (gravitational force) varies from place to place."
+    },
+    {
+     "type": "formula",
+     "label": "Temperature scales",
+     "text": "K = °C + 273.15\n°F = (9/5) × °C + 32"
+    },
+    {
+     "type": "anim",
+     "name": "temp-scales",
+     "title": "Three temperature scales",
+     "caption": "Change the Celsius temperature and read the kelvin and Fahrenheit values. The freezing and boiling points of water are marked."
+    }
+   ]
+  },
+  {
+   "id": "uncertainty",
+   "title": "Uncertainty in measurement and significant figures",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Every measurement carries some uncertainty. [[precision]] means repeated readings agree with each other; [[accuracy]] means readings are close to the true value. They are not the same thing."
+    },
+    {
+     "type": "anim",
+     "name": "accuracy-precision",
+     "title": "Accuracy versus precision",
+     "caption": "Three students weigh an object (true value 2.00 g) twice each. Pick a student and see the readings on a number line."
+    },
+    {
+     "type": "p",
+     "text": "Rules for counting [[sigfig]]:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "All non-zero digits count (285 cm → 3).",
+      "Zeros between non-zero digits count (2.005 → 4).",
+      "Zeros before the first non-zero digit do not count (0.0052 → 2).",
+      "Trailing zeros after a decimal point count (0.200 → 3; 200.0 → 4). Trailing zeros in a number without a decimal point are ambiguous (200 → 1); scientific notation settles it: 2×10² (1), 2.00×10² (3).",
+      "Exact counts (2 balls) and defined numbers (1 m = 100 cm) have unlimited significant figures."
+     ]
+    },
+    {
+     "type": "anim",
+     "name": "sigfig",
+     "title": "Significant-figure counter",
+     "caption": "Pick a number or type your own (0.00520, 200.0, 2.00e2); significant digits are highlighted."
+    },
+    {
+     "type": "p",
+     "text": "In calculations: for **addition and subtraction**, keep as many decimal places as the number with the fewest (12.11 + 18.0 + 1.012 = 31.122 → **31.1**). For **multiplication and division**, keep as many significant figures as the number with the fewest (2.5 × 1.25 = 3.125 → **3.1**). Rounding: if the dropped digit is below 5 the previous digit stays; above 5 it goes up by 1."
+    },
+    {
+     "type": "p",
+     "text": "**[[dimensional]]:** to go from one unit to another, multiply by a unit factor whose value is 1. Example: 1 in = 2.54 cm, so (2.54 cm / 1 in) = 1."
+    },
+    {
+     "type": "anim",
+     "name": "unit-factor",
+     "title": "Unit conversion with unit factors",
+     "caption": "Choose a conversion and press 'Next step' to watch the unwanted units cancel."
+    }
+   ]
+  },
+  {
+   "id": "laws",
+   "title": "Laws of chemical combination and Dalton's theory",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Five basic laws govern chemical combination; each came from experimental results."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Law",
+      "Scientist / year",
+      "Statement",
+      "Example"
+     ],
+     "rows": [
+      [
+       "[[conservation]]",
+       "Lavoisier, 1789",
+       "Total mass of reactants = total mass of products",
+       "2H₂ + O₂ → 2H₂O: 4 g + 32 g = 36 g"
+      ],
+      [
+       "[[definite]]",
+       "Proust, 1799",
+       "Elements in a compound are always in the same mass ratio",
+       "In water H : O = 1 : 8 by mass, from any source"
+      ],
+      [
+       "[[multiple]]",
+       "Dalton, 1803",
+       "Masses of one element combining with a fixed mass of another are in a simple whole-number ratio",
+       "With 12 g C: 16 g O in CO, 32 g O in CO₂ → 16 : 32 = 1 : 2"
+      ],
+      [
+       "[[gaylussac]]",
+       "Gay-Lussac, 1808",
+       "Gas volumes in simple whole-number ratios",
+       "2 L H₂ + 1 L O₂ → 2 L steam"
+      ],
+      [
+       "[[avogadro]]",
+       "Avogadro, 1811",
+       "Equal volumes contain equal numbers of molecules (same T, p)",
+       "1 L of H₂ and 1 L of O₂ hold equal numbers of molecules"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "**Dalton's atomic theory** (1808) explained these laws: (1) matter is made of tiny indivisible particles, atoms; (2) all atoms of an element are identical in mass and properties, atoms of different elements differ; (3) atoms combine in simple whole-number ratios to form compounds; (4) in a reaction atoms are rearranged — neither created nor destroyed. (Later work showed atoms are divisible and that isotopes differ in mass.)"
+    },
+    {
+     "type": "note",
+     "text": "Avogadro's idea clarified molecules: H₂ and O₂ are diatomic. That is why 2 L H₂ + 1 L O₂ gives 2 L of steam — one O₂ molecule supplies the O for two H₂O molecules.",
+     "label": "Remember"
+    }
+   ]
+  },
+  {
+   "id": "mole",
+   "title": "Atomic mass, the mole and molar mass",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Atoms are extremely light (a hydrogen atom ≈ 1.67 × 10⁻²⁴ g), so relative masses are used: one-twelfth of the mass of carbon-12 is the [[amu]] (1 u = 1.6606 × 10⁻²⁴ g). The **average atomic mass** of an element is the abundance-weighted mean over its isotopes."
+    },
+    {
+     "type": "formula",
+     "label": "Average atomic mass",
+     "text": "mass = Σ (isotope mass × abundance %) ÷ 100\nCl: 34.9689 × 0.7577 + 36.9659 × 0.2423 = 35.45 u"
+    },
+    {
+     "type": "p",
+     "text": "**Molecular mass** = the sum of atomic masses of the atoms in a molecule (H₂O = 2 × 1.008 + 16.00 = 18.02 u); for ionic compounds the **formula mass** is used (NaCl = 23.0 + 35.5 = 58.5 u)."
+    },
+    {
+     "type": "p",
+     "text": "Atoms and molecules cannot be counted one by one, so chemists use the [[mole]]. One mole holds [[avogadro-no]] particles. The mass of one mole in grams is the [[molarmass]] — 18.02 g mol⁻¹ for H₂O, 58.5 g mol⁻¹ for NaCl. At standard temperature and pressure (273.15 K, 1 atm) one mole of any ideal gas occupies about 22.4 L."
+    },
+    {
+     "type": "formula",
+     "label": "Mole relationships",
+     "text": "moles (n) = mass (g) ÷ molar mass (g mol⁻¹)\nnumber of particles = n × 6.022 × 10²³\ngas volume (STP) = n × 22.4 L"
+    },
+    {
+     "type": "anim",
+     "name": "mole-bridge",
+     "title": "The mole: mass ↔ particles ↔ volume",
+     "caption": "Choose a substance and change the number of moles to see mass, number of molecules and (for gases) volume."
+    },
+    {
+     "type": "note",
+     "text": "Example: 0.25 mol CO₂ has mass 0.25 × 44 = 11 g and 0.25 × 6.022 × 10²³ = 1.5 × 10²³ molecules.",
+     "label": "Worked example"
+    }
+   ]
+  },
+  {
+   "id": "composition",
+   "title": "Percent composition and finding formulas",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Percent by mass of an element in a compound: **% = (mass of the element in 1 mol of compound ÷ molar mass of the compound) × 100**. Example: in H₂O, H = 2.016 / 18.02 × 100 = 11.19 %, O = 88.81 %."
+    },
+    {
+     "type": "p",
+     "text": "Conversely, percent composition gives the [[empirical]]. If the molar mass is known, the [[molecular]] follows."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Treat each percentage as grams in a 100 g sample.",
+      "Divide each by its atomic mass to get moles.",
+      "Divide all by the smallest to get a ratio.",
+      "If not whole numbers, multiply by a small integer (1.5 → ×2, 1.33 → ×3).",
+      "n = molar mass ÷ empirical-formula mass; molecular formula = (empirical)ₙ."
+     ],
+     "ordered": true
+    },
+    {
+     "type": "anim",
+     "name": "empirical-formula",
+     "title": "Finding a formula step by step",
+     "caption": "Choose a compound and press 'Next step': moles, ratio and finally the molecular formula appear."
+    },
+    {
+     "type": "note",
+     "text": "Do not round 1.50 down to 1 or 2 — it means multiply by 2; 1.33 means multiply by 3. If you get something like 1.2 or 1.7, recheck the arithmetic.",
+     "label": "Careful"
+    }
+   ]
+  },
+  {
+   "id": "stoichiometry",
+   "title": "Stoichiometry and the limiting reagent",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The coefficients of a balanced equation give the ratio of molecules (or moles). [[stoich]] uses that ratio. From CH₄ + 2O₂ → CO₂ + 2H₂O: 1 mol CH₄ (16 g) + 2 mol O₂ (64 g) → 1 mol CO₂ (44 g) + 2 mol H₂O (36 g); 80 g = 80 g."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Balance the equation (equal atoms of each element on both sides).",
+      "Convert the given mass or volume to moles.",
+      "Use the coefficient ratio to find moles of the wanted substance.",
+      "Convert back to mass or volume."
+     ],
+     "ordered": true
+    },
+    {
+     "type": "p",
+     "text": "If reactants are not in the exact ratio, one is used up first — the **[[limiting]]**. It fixes the maximum product; the other is in **excess** and is left over."
+    },
+    {
+     "type": "anim",
+     "name": "limiting-reagent",
+     "title": "Limiting reagent: 2H₂ + O₂ → 2H₂O",
+     "caption": "Change the numbers of H₂ and O₂ molecules; see which is limiting, how much H₂O forms and what is left."
+    },
+    {
+     "type": "note",
+     "text": "In N₂ + 3H₂ → 2NH₃ with 28 g N₂ (1 mol) and 4 g H₂ (2 mol): 1 mol N₂ needs 3 mol H₂ but only 2 mol is present — H₂ is limiting. NH₃ = 2 × (2/3) = 1.33 mol ≈ 22.7 g (17 g mol⁻¹); N₂ used = 0.667 mol (18.7 g), ≈ 9.3 g left over.",
+     "label": "Worked example"
+    }
+   ]
+  },
+  {
+   "id": "concentration",
+   "title": "Concentration of solutions",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The amount of solute in a solution can be expressed in several ways:"
+    },
+    {
+     "type": "table",
+     "head": [
+      "Quantity",
+      "Definition",
+      "Unit",
+      "Depends on temperature?"
+     ],
+     "rows": [
+      [
+       "Mass percent",
+       "(mass of solute ÷ mass of solution) × 100",
+       "%",
+       "No"
+      ],
+      [
+       "[[molefraction]]",
+       "x = n_A ÷ (n_A + n_B)",
+       "none",
+       "No"
+      ],
+      [
+       "[[molarity]]",
+       "M = moles of solute ÷ volume of solution (L)",
+       "mol L⁻¹",
+       "Yes (volume changes)"
+      ],
+      [
+       "[[molality]]",
+       "m = moles of solute ÷ mass of solvent (kg)",
+       "mol kg⁻¹",
+       "No"
+      ]
+     ]
+    },
+    {
+     "type": "formula",
+     "label": "Dilution",
+     "text": "M₁ V₁ = M₂ V₂\n(moles of solute stay the same)"
+    },
+    {
+     "type": "anim",
+     "name": "concentration",
+     "title": "Four concentrations of one solution",
+     "caption": "Change the mass of NaCl and of water; see mass %, mole fraction, molality and (approximate) molarity."
+    },
+    {
+     "type": "note",
+     "text": "4 g NaOH (40 g mol⁻¹) = 0.1 mol. Dissolved to make 250 mL: M = 0.1 ÷ 0.25 = 0.4 mol L⁻¹; dissolved in 100 g water: m = 0.1 ÷ 0.1 = 1 mol kg⁻¹. Diluting 100 mL of 2 M to 500 mL gives M₂ = 2 × 100 ÷ 500 = 0.4 M.",
+     "label": "Worked example"
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "Chemistry studies the composition, properties and changes of matter, which is a pure substance (element, compound) or a mixture.",
+  "The SI has seven base units; K = °C + 273.15. Unit factors do the conversions.",
+  "Follow decimal places for addition/subtraction and significant figures for multiplication/division.",
+  "Conservation of mass, definite proportions, multiple proportions, Gay-Lussac and Avogadro — five laws, explained by Dalton's theory.",
+  "1 mol = 6.022 × 10²³ particles; n = mass ÷ molar mass; 1 mol of gas at STP = 22.4 L.",
+  "Percent composition gives the empirical formula, and then the molecular formula.",
+  "The limiting reagent fixes the amount of product.",
+  "Molarity (mol L⁻¹) changes with temperature; molality (mol kg⁻¹) and mole fraction do not; M₁V₁ = M₂V₂."
+ ]
+}

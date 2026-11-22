@@ -166,9 +166,10 @@
           "no": 1,
           "status": "soon",
           "title": {
-            "as": "ৰসায়নৰ কিছুমান মৌলিক ধাৰণা",
+            "as": "ৰসায়নৰ কিছুমান প্ৰাথমিক ধাৰণা",
             "en": "Some Basic Concepts of Chemistry"
-          }
+          },
+          "part": 1
         },
         {
           "id": "class-11/ch02-structure-of-atom",
@@ -177,97 +178,98 @@
           "title": {
             "as": "পৰমাণুৰ গঠন",
             "en": "Structure of Atom"
-          }
+          },
+          "part": 1
         },
         {
           "id": "class-11/ch03-periodic-classification",
           "no": 3,
           "status": "soon",
           "title": {
-            "as": "মৌলৰ শ্ৰেণীবিভাজন আৰু ধৰ্মৰ পৌনঃপুনিকতা",
+            "as": "মৌলবোৰৰ শ্ৰেণীবিভাজন আৰু পৰ্যায়গত ধৰ্ম",
             "en": "Classification of Elements and Periodicity in Properties"
-          }
+          },
+          "part": 1
         },
         {
           "id": "class-11/ch04-chemical-bonding",
           "no": 4,
           "status": "soon",
           "title": {
-            "as": "ৰাসায়নিক বন্ধন আৰু আণৱিক গঠন",
+            "as": "ৰাসায়নিক বান্ধনি আৰু আণৱিক গঠন",
             "en": "Chemical Bonding and Molecular Structure"
-          }
+          },
+          "part": 1
         },
         {
-          "id": "class-11/ch05-states-of-matter",
+          "id": "class-11/ch05-thermodynamics",
           "no": 5,
           "status": "soon",
           "title": {
-            "as": "পদাৰ্থৰ অৱস্থা",
-            "en": "States of Matter"
-          }
+            "as": "তাপগতি বিজ্ঞান",
+            "en": "Thermodynamics"
+          },
+          "part": 1
         },
         {
-          "id": "class-11/ch06-thermodynamics",
+          "id": "class-11/ch06-equilibrium",
           "no": 6,
           "status": "soon",
           "title": {
-            "as": "তাপগতিবিজ্ঞান",
-            "en": "Thermodynamics"
-          }
-        },
-        {
-          "id": "class-11/ch07-equilibrium",
-          "no": 7,
-          "status": "soon",
-          "title": {
-            "as": "সাম্যাৱস্থা",
+            "as": "সাম্য",
             "en": "Equilibrium"
-          }
+          },
+          "part": 1
         },
         {
           "id": "class-11/ch08-redox",
           "no": 8,
           "status": "soon",
           "title": {
-            "as": "জাৰণ-বিজাৰণ বিক্ৰিয়া",
+            "as": "ৰেডক্স বিক্ৰিয়া",
             "en": "Redox Reactions"
-          }
+          },
+          "part": 2
         },
         {
           "id": "class-11/ch09-hydrogen",
           "no": 9,
           "status": "soon",
           "title": {
-            "as": "হাইড্ৰজেন",
+            "as": "হাইড্ৰ'জেন",
             "en": "Hydrogen"
-          }
+          },
+          "part": 2
         },
         {
           "id": "class-11/ch10-s-block",
           "no": 10,
           "status": "soon",
           "title": {
-            "as": "s-খণ্ডৰ মৌল",
+            "as": "s- গোষ্ঠীৰ মৌলসমূহ",
             "en": "The s-Block Elements"
-          }
+          },
+          "part": 2
         },
         {
           "id": "class-11/ch11-p-block",
           "no": 11,
           "status": "soon",
           "title": {
-            "as": "p-খণ্ডৰ মৌল",
+            "as": "p-গোষ্ঠীৰ মৌলসমূহ",
             "en": "The p-Block Elements"
-          }
+          },
+          "part": 2
         },
         {
           "id": "class-11/ch12-organic-basics",
           "no": 12,
           "status": "soon",
           "title": {
-            "as": "জৈৱ ৰসায়ন: কিছুমান মূল নীতি আৰু কৌশল",
+            "as": "জৈৱ ৰসায়ন- কিছুমান মূলনীতি আৰু কৌশল",
             "en": "Organic Chemistry: Some Basic Principles and Techniques"
-          }
+          },
+          "part": 2
         },
         {
           "id": "class-11/ch13-hydrocarbons",
@@ -276,7 +278,8 @@
           "title": {
             "as": "হাইড্ৰ'কাৰ্বন",
             "en": "Hydrocarbons"
-          }
+          },
+          "part": 2
         },
         {
           "id": "class-11/ch14-environmental-chemistry",
@@ -285,7 +288,20 @@
           "title": {
             "as": "পৰিৱেশ ৰসায়ন",
             "en": "Environmental Chemistry"
-          }
+          },
+          "part": 2
+        }
+      ],
+      "parts": [
+        {
+          "n": 1,
+          "title": "Part I",
+          "note": "Chapters 1–6"
+        },
+        {
+          "n": 2,
+          "title": "Part II",
+          "note": "Chapters 8–14"
         }
       ]
     }

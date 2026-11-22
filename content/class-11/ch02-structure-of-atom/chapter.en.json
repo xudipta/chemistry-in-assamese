@@ -1,0 +1,737 @@
+{
+ "id": "class-11/ch02-structure-of-atom",
+ "class": 11,
+ "number": 2,
+ "title": {
+  "as": "পৰমাণুৰ গঠন",
+  "en": "Structure of Atom"
+ },
+ "scripts": [
+  "anim.js"
+ ],
+ "goals": [
+  "Know how the [[electron]], [[proton]] and [[neutron]] were discovered and their properties",
+  "Understand Thomson's and Rutherford's models, and [[atomic-number]], [[mass-number]], [[isotope]]s and [[isobar]]s",
+  "Apply electromagnetic radiation, the [[photoelectric]] effect and Planck's [[quantum]] theory",
+  "Explain the hydrogen [[line-spectrum]] with Bohr's model and know its limits",
+  "Use the [[de-broglie]] equation and the [[uncertainty]] principle to explain [[orbital]]s and [[quantum-number]]s",
+  "Write electronic configurations using the [[aufbau]], [[pauli]] and [[hund]] rules"
+ ],
+ "glossary": {
+  "electron": {
+   "as": "ইলেক্ট্ৰন",
+   "en": "electron",
+   "def": "A negatively charged particle (−1.6022 × 10⁻¹⁹ C) of mass 9.1094 × 10⁻³¹ kg."
+  },
+  "proton": {
+   "as": "প্ৰ'টন",
+   "en": "proton",
+   "def": "A positively charged (+1.6022 × 10⁻¹⁹ C) particle in the nucleus; mass 1.6726 × 10⁻²⁷ kg."
+  },
+  "neutron": {
+   "as": "নিউট্ৰন",
+   "en": "neutron",
+   "def": "An uncharged particle in the nucleus; mass 1.6749 × 10⁻²⁷ kg."
+  },
+  "nucleus": {
+   "as": "নিউক্লিয়াছ",
+   "en": "nucleus",
+   "def": "The tiny, dense, positive centre of an atom (protons + neutrons); radius about 10⁻¹⁵ m."
+  },
+  "cathode-ray": {
+   "as": "কেথ'ড ৰশ্মি",
+   "en": "cathode ray",
+   "def": "The stream of negative particles (electrons) leaving the cathode when electricity is discharged through a gas at low pressure."
+  },
+  "atomic-number": {
+   "as": "পৰমাণু ক্ৰমাংক (Z)",
+   "en": "atomic number (Z)",
+   "def": "The number of protons in the nucleus."
+  },
+  "mass-number": {
+   "as": "ভৰ ক্ৰমাংক (A)",
+   "en": "mass number (A)",
+   "def": "The total number of protons and neutrons (nucleons)."
+  },
+  "isotope": {
+   "as": "সমস্থানিক",
+   "en": "isotope",
+   "def": "Atoms with the same atomic number but different mass numbers."
+  },
+  "isobar": {
+   "as": "সমভাৰী",
+   "en": "isobar",
+   "def": "Atoms with the same mass number but different atomic numbers."
+  },
+  "wavelength": {
+   "as": "তৰংগদৈৰ্ঘ্য (λ)",
+   "en": "wavelength (λ)",
+   "def": "The distance between two successive crests of a wave."
+  },
+  "frequency": {
+   "as": "কম্পনাংক (ν)",
+   "en": "frequency (ν)",
+   "def": "Number of waves passing a point per second (Hz = s⁻¹); c = νλ."
+  },
+  "photon": {
+   "as": "ফ'টন",
+   "en": "photon",
+   "def": "One quantum of electromagnetic radiation; energy E = hν."
+  },
+  "quantum": {
+   "as": "কোৱান্টাম",
+   "en": "quantum",
+   "def": "The smallest fixed amount of energy that can be absorbed or emitted."
+  },
+  "photoelectric": {
+   "as": "আলোকবিদ্যুৎ প্ৰভাৱ",
+   "en": "photoelectric effect",
+   "def": "Ejection of electrons from a metal surface when light of suitable frequency falls on it."
+  },
+  "work-function": {
+   "as": "কাৰ্য ফলন (W₀)",
+   "en": "work function (W₀)",
+   "def": "The minimum energy needed to remove an electron from a metal; W₀ = hν₀."
+  },
+  "threshold": {
+   "as": "প্ৰভাৱসীমা কম্পনাংক (ν₀)",
+   "en": "threshold frequency (ν₀)",
+   "def": "Light below this frequency ejects no electrons, however intense."
+  },
+  "spectrum": {
+   "as": "বৰ্ণালী",
+   "en": "spectrum",
+   "def": "The pattern obtained when radiation is separated by wavelength."
+  },
+  "line-spectrum": {
+   "as": "ৰেখা বৰ্ণালী",
+   "en": "line spectrum",
+   "def": "A spectrum of a few bright lines at fixed wavelengths; unique to each element."
+  },
+  "ground-state": {
+   "as": "ভূমিস্তৰ অৱস্থা",
+   "en": "ground state",
+   "def": "The lowest-energy state of an atom."
+  },
+  "excited-state": {
+   "as": "উত্তেজিত অৱস্থা",
+   "en": "excited state",
+   "def": "Any state of higher energy than the ground state."
+  },
+  "de-broglie": {
+   "as": "দ্য ব্ৰয়লি তৰংগদৈৰ্ঘ্য",
+   "en": "de Broglie wavelength",
+   "def": "The wavelength associated with a moving particle: λ = h / mv."
+  },
+  "uncertainty": {
+   "as": "হাইজেনবাৰ্গৰ অনিশ্চয়তা সূত্ৰ",
+   "en": "Heisenberg uncertainty principle",
+   "def": "Position and momentum cannot both be known exactly at once: Δx · Δp ≥ h / 4π."
+  },
+  "wavefunction": {
+   "as": "তৰংগ ফলন (ψ)",
+   "en": "wave function (ψ)",
+   "def": "A solution of the Schrödinger equation; |ψ|² gives the probability density of finding the electron at a point."
+  },
+  "orbital": {
+   "as": "অৰবিটেল",
+   "en": "orbital",
+   "def": "The wave function of an electron in an atom; the region around the nucleus where it is likely to be found."
+  },
+  "quantum-number": {
+   "as": "কোৱান্টাম সংখ্যা",
+   "en": "quantum number",
+   "def": "The numbers n, l, mₗ (and mₛ for spin) that describe an orbital's size, shape and orientation."
+  },
+  "shell": {
+   "as": "খোলা",
+   "en": "shell",
+   "def": "All orbitals with the same n (K, L, M, N …); n² orbitals."
+  },
+  "subshell": {
+   "as": "উপখোলা",
+   "en": "subshell",
+   "def": "Orbitals of the same l within a shell (s, p, d, f); (2l + 1) orbitals."
+  },
+  "node": {
+   "as": "ন'ড",
+   "en": "node",
+   "def": "A region where the probability of finding the electron is zero; radial nodes = n − l − 1, angular nodes = l."
+  },
+  "degenerate": {
+   "as": "ডিজেনেৰেট অৰবিটেল",
+   "en": "degenerate orbitals",
+   "def": "Orbitals of equal energy (e.g. the three 2p orbitals)."
+  },
+  "shielding": {
+   "as": "ছিল্ডিং (স্ক্ৰিনিং)",
+   "en": "shielding (screening)",
+   "def": "Reduction of the nucleus's pull on outer electrons by the inner electrons."
+  },
+  "zeff": {
+   "as": "কাৰ্যকৰী নিউক্লীয় আধান (Z_eff)",
+   "en": "effective nuclear charge (Z_eff)",
+   "def": "The nuclear charge actually felt by an electron after shielding."
+  },
+  "aufbau": {
+   "as": "আউফবাউ নীতি",
+   "en": "Aufbau principle",
+   "def": "Electrons fill the lowest-energy orbitals first, then higher ones in order."
+  },
+  "pauli": {
+   "as": "পাউলিৰ নিষেধ নীতি",
+   "en": "Pauli exclusion principle",
+   "def": "No two electrons in an atom can have all four quantum numbers equal; at most 2 electrons per orbital, with opposite spins."
+  },
+  "hund": {
+   "as": "হুণ্ডৰ সৰ্বাধিক গুণিততাৰ নীতি",
+   "en": "Hund's rule of maximum multiplicity",
+   "def": "In degenerate orbitals electrons first occupy separate orbitals with parallel spins, and pair up only afterwards."
+  },
+  "valence": {
+   "as": "যোজ্যতা ইলেক্ট্ৰন",
+   "en": "valence electrons",
+   "def": "Electrons in the outermost shell (highest n); the rest are core electrons."
+  },
+  "exchange": {
+   "as": "বিনিময় শক্তি",
+   "en": "exchange energy",
+   "def": "Energy released when electrons of the same spin swap positions; greatest in half-filled and filled sets."
+  }
+ },
+ "sections": [
+  {
+   "id": "subatomic",
+   "title": "Discovery of the sub-atomic particles",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Dalton thought atoms indivisible, but electrification of glass or ebonite by rubbing and the passage of electricity through gases showed that atoms are built from smaller particles: the [[electron]], [[proton]] and [[neutron]]."
+    },
+    {
+     "type": "p",
+     "text": "**Discovery of the electron.** Faraday's electrolysis experiments hinted that electricity is particulate. In the late 1800s scientists applying high voltage across a low-pressure gas in a glass tube (the cathode-ray discharge tube) found [[cathode-ray]]s leaving the cathode. They travel in straight lines from cathode to anode, are invisible themselves (they make a fluorescent screen glow), bend in electric and magnetic fields like negative particles, and behave identically whatever the cathode material or gas. So they are a universal constituent of matter — the electron."
+    },
+    {
+     "type": "p",
+     "text": "**Charge-to-mass ratio.** In 1897 J. J. Thomson measured the deflection of cathode rays in electric and magnetic fields and obtained e / mₑ = 1.758820 × 10¹¹ C kg⁻¹. Millikan's oil-drop experiment gave the electron charge e = −1.6022 × 10⁻¹⁹ C, and showed charge always comes in whole multiples of e (q = n e). Hence mₑ = e ÷ (e/mₑ) = 9.1094 × 10⁻³¹ kg."
+    },
+    {
+     "type": "p",
+     "text": "**Proton and neutron.** In 1886 Goldstein, using a perforated cathode, found a stream of positive particles (canal rays); the lightest, from hydrogen, is the proton (about 1836 times the electron's mass). In 1932 James Chadwick bombarded beryllium with α-particles and found an uncharged particle as heavy as the proton: the neutron."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Particle",
+      "Symbol",
+      "Charge (C)",
+      "Relative charge",
+      "Mass (kg)",
+      "Mass (u)"
+     ],
+     "rows": [
+      [
+       "Electron",
+       "e",
+       "−1.6022 × 10⁻¹⁹",
+       "−1",
+       "9.1094 × 10⁻³¹",
+       "0.00054"
+      ],
+      [
+       "Proton",
+       "p",
+       "+1.6022 × 10⁻¹⁹",
+       "+1",
+       "1.6726 × 10⁻²⁷",
+       "1.00727"
+      ],
+      [
+       "Neutron",
+       "n",
+       "0",
+       "0",
+       "1.6749 × 10⁻²⁷",
+       "1.00867"
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "text": "The e/m of cathode-ray particles does not depend on the cathode material or the gas in the tube, so every atom contains the same electrons.",
+     "label": "Remember"
+    }
+   ]
+  },
+  {
+   "id": "models",
+   "title": "Early models of the atom",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Atoms contain electrons, protons and neutrons. How are they arranged? A model must explain why atoms are stable, why elements differ in properties, and how atoms absorb and emit radiation."
+    },
+    {
+     "type": "p",
+     "text": "**Thomson's model (1898).** The atom is a positively charged sphere (diameter about 10⁻¹⁰ m) with electrons embedded in it like raisins in a plum pudding or seeds in a watermelon. The positive charge is spread evenly and the total charge is zero. It explained neutrality but failed later experiments."
+    },
+    {
+     "type": "p",
+     "text": "**Rutherford's α-particle scattering experiment (1909–1911).** Under Rutherford's direction, Geiger and Marsden fired a beam of positively charged α-particles (He²⁺, mass ≈ 4 u) at a very thin (about 100 nm) gold foil; a zinc-sulphide screen flashed where particles landed."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Most α-particles passed straight through.",
+      "A small number were deflected through small angles.",
+      "A very small number rebounded at about 180°."
+     ]
+    },
+    {
+     "type": "anim",
+     "name": "rutherford",
+     "title": "α-particles and the nucleus",
+     "caption": "Watch how particles bend near the nucleus; use 'Fire close-up particles' to see near head-on collisions."
+    },
+    {
+     "type": "p",
+     "text": "**Conclusions — Rutherford's nuclear model:** (i) most of the atom is empty space, so most α-particles pass through; (ii) all the positive charge and nearly all the mass sit in a tiny centre — the [[nucleus]] (radius ≈ 10⁻¹⁵ m against ≈ 10⁻¹⁰ m for the atom); (iii) electrons revolve around the nucleus in circular **orbits**, like planets round the sun; (iv) electrons and nucleus are held by electrostatic attraction."
+    },
+    {
+     "type": "p",
+     "text": "**Drawbacks of Rutherford's model.** (1) By Maxwell's theory an electron moving in a circle (accelerating) must radiate energy and spiral into the nucleus (in about 10⁻⁸ s) — yet atoms are stable. (2) The model says nothing about how electrons are arranged or what energies they have."
+    }
+   ]
+  },
+  {
+   "id": "number",
+   "title": "Atomic number, mass number, isotopes and isobars",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The number of protons in the nucleus is the [[atomic-number]] (Z); a neutral atom also has Z electrons. Protons and neutrons together are called nucleons, and their total is the [[mass-number]] (A)."
+    },
+    {
+     "type": "formula",
+     "label": "Relations",
+     "text": "Z = number of protons = number of electrons in a neutral atom\nA = Z + n (n = number of neutrons)\nSymbol:  ᴬ_Z X  (example: ¹⁴₇N)"
+    },
+    {
+     "type": "p",
+     "text": "**[[isotope]]s**: same Z, different A. Hydrogen has three: protium (¹H, A = 1; 99.985% in nature), deuterium (²H or D, A = 2) and tritium (³H or T, A = 3). Isotopes have the same number of electrons, so nearly identical chemistry. Carbon has ¹²C, ¹³C, ¹⁴C — 6 protons and 6, 7, 8 neutrons."
+    },
+    {
+     "type": "p",
+     "text": "**[[isobar]]s**: same A, different Z, e.g. ¹⁴₆C and ¹⁴₇N. They are different elements, so their chemistry differs."
+    },
+    {
+     "type": "anim",
+     "name": "atom-builder",
+     "title": "Build an atom",
+     "caption": "Change the numbers of protons, neutrons and electrons to see Z, A, the charge and isotopes."
+    },
+    {
+     "type": "note",
+     "text": "Example: in ⁸⁰₃₅Br protons = electrons = 35 and neutrons = 80 − 35 = 45. A particle with 16 protons, 16 neutrons and 18 electrons has Z = 16 (sulphur), A = 32 and two extra electrons: ³²₁₆S²⁻.",
+     "label": "Worked example"
+    }
+   ]
+  },
+  {
+   "id": "radiation",
+   "title": "Electromagnetic radiation and the quantum theory",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Before Bohr's model we need the nature of light. Maxwell showed that oscillating charges produce waves with mutually perpendicular electric and magnetic fields — electromagnetic radiation, described by [[wavelength]] (λ) and [[frequency]] (ν). In vacuum all of it travels at the same speed, c = 3.0 × 10⁸ m s⁻¹."
+    },
+    {
+     "type": "formula",
+     "label": "Relations",
+     "text": "c = ν λ\nwave number ν̄ = 1 / λ (unit m⁻¹)"
+    },
+    {
+     "type": "table",
+     "head": [
+      "Radiation",
+      "Wavelength range (nm)",
+      "Frequency range (Hz)"
+     ],
+     "rows": [
+      [
+       "Radio waves",
+       "3 × 10¹⁷ – 3 × 10⁹",
+       "1 × 10⁰ – 1 × 10⁸"
+      ],
+      [
+       "Microwaves",
+       "3 × 10⁹ – 6 × 10⁵",
+       "1 × 10⁸ – 5 × 10¹¹"
+      ],
+      [
+       "Infrared",
+       "6 × 10⁵ – 750",
+       "5 × 10¹¹ – 4 × 10¹⁴"
+      ],
+      [
+       "Visible",
+       "750 – 400",
+       "4 × 10¹⁴ – 7.5 × 10¹⁴"
+      ],
+      [
+       "Ultraviolet",
+       "400 – 15",
+       "7.5 × 10¹⁴ – 2 × 10¹⁶"
+      ],
+      [
+       "X-rays",
+       "15 – 0.01",
+       "2 × 10¹⁶ – 3 × 10¹⁹"
+      ],
+      [
+       "γ-rays",
+       "0.01 – 0.001",
+       "3 × 10¹⁹ – 3 × 10²⁰"
+      ]
+     ]
+    },
+    {
+     "type": "anim",
+     "name": "em-spectrum",
+     "title": "The electromagnetic spectrum",
+     "caption": "Change the wavelength to see frequency, wave number and photon energy; the colour appears in the visible region."
+    },
+    {
+     "type": "p",
+     "text": "**Black-body radiation.** A heated body emits radiation of higher frequency as it gets hotter (red → orange → white → blue). The wave theory could not explain the intensity distribution. In 1900 Max Planck proposed the [[quantum]] theory: atomic oscillators absorb or emit energy not continuously but in packets (quanta)."
+    },
+    {
+     "type": "formula",
+     "label": "Planck's equation",
+     "text": "E = h ν = h c / λ\nh = 6.626 × 10⁻³⁴ J s"
+    },
+    {
+     "type": "p",
+     "text": "**Photoelectric effect.** In 1887 Hertz found that light falling on metals such as potassium, rubidium and caesium ejects electrons. Observations: (i) electrons appear instantly (no time lag); (ii) the number of electrons is proportional to the intensity; (iii) each metal has a [[threshold]] (ν₀) — below it no electrons come out, however bright; (iv) above ν₀ the electrons' kinetic energy grows with frequency but does not depend on intensity. The wave theory could not explain these."
+    },
+    {
+     "type": "p",
+     "text": "In 1905 Einstein explained it using Planck's idea: light is a stream of [[photon]]s, each of energy hν. One photon gives its energy to one electron. Part of it (the [[work-function]] W₀ = hν₀) frees the electron; the rest becomes kinetic energy."
+    },
+    {
+     "type": "formula",
+     "label": "Einstein's equation",
+     "text": "h ν = h ν₀ + ½ mₑ v²\nKE = h (ν − ν₀)"
+    },
+    {
+     "type": "anim",
+     "name": "photoelectric",
+     "title": "The photoelectric effect",
+     "caption": "Choose a metal and vary frequency and intensity. Below ν₀ no electrons appear however intense the light."
+    },
+    {
+     "type": "p",
+     "text": "Black-body radiation and the photoelectric effect show light behaving as particles; diffraction and interference show waves. So light has a **dual behaviour**: particle in some experiments, wave in others."
+    },
+    {
+     "type": "note",
+     "text": "Energy of a mole of photons: for ν = 5 × 10¹⁴ Hz, E = 6.626 × 10⁻³⁴ × 5 × 10¹⁴ = 3.313 × 10⁻¹⁹ J; × 6.022 × 10²³ for a mole = 1.995 × 10⁵ J ≈ 199.5 kJ. A 100 W bulb emitting 400 nm light gives ≈ 100 ÷ (4.97 × 10⁻¹⁹) ≈ 2.0 × 10²⁰ photons per second.",
+     "label": "Worked example"
+    }
+   ]
+  },
+  {
+   "id": "bohr",
+   "title": "Atomic spectra and Bohr's model",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Radiation absorbed or emitted by matter can be viewed as a [[spectrum]]. An **emission spectrum** comes from excited atoms; in an **absorption spectrum** white light shows dark lines where the substance absorbed certain wavelengths. Sunlight or a rainbow gives a continuous spectrum, but atoms give a few bright lines at fixed wavelengths — a [[line-spectrum]], unique to each element like a fingerprint. Bunsen used this to discover elements such as rubidium and caesium."
+    },
+    {
+     "type": "p",
+     "text": "**The hydrogen line spectrum.** In 1885 Balmer found a formula for four visible lines (656, 486, 434, 410 nm); Rydberg generalised it:"
+    },
+    {
+     "type": "formula",
+     "label": "Rydberg equation",
+     "text": "ν̄ = 1/λ = 1.09677 × 10⁷ m⁻¹ (1/n₁² − 1/n₂²),  n₂ > n₁"
+    },
+    {
+     "type": "table",
+     "head": [
+      "Series",
+      "n₁",
+      "n₂",
+      "Region"
+     ],
+     "rows": [
+      [
+       "Lyman",
+       "1",
+       "2, 3, …",
+       "Ultraviolet"
+      ],
+      [
+       "Balmer",
+       "2",
+       "3, 4, …",
+       "Visible"
+      ],
+      [
+       "Paschen",
+       "3",
+       "4, 5, …",
+       "Infrared"
+      ],
+      [
+       "Brackett",
+       "4",
+       "5, 6, …",
+       "Infrared"
+      ],
+      [
+       "Pfund",
+       "5",
+       "6, 7, …",
+       "Infrared"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "**Bohr's model (1913).** Niels Bohr applied Planck's quantum idea to Rutherford's model for hydrogen and hydrogen-like (one-electron: He⁺, Li²⁺) ions, with these postulates:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "An electron moves in circular orbits of fixed radius and energy around the nucleus. These are **stationary orbits**; it does not radiate while in one.",
+      "Energy is absorbed or emitted only when the electron jumps between orbits: ΔE = E₂ − E₁ = hν (Bohr's frequency rule).",
+      "The electron's angular momentum is quantised: mₑ v r = n h / 2π, n = 1, 2, 3, …"
+     ]
+    },
+    {
+     "type": "formula",
+     "label": "Results for hydrogen-like atoms",
+     "text": "Eₙ = −2.18 × 10⁻¹⁸ J × Z² / n²   (for H: −13.6 eV / n²)\nrₙ = 52.9 pm × n² / Z   (a₀ = 52.9 pm)\n|ΔE| = 2.18 × 10⁻¹⁸ J × |1/n₁² − 1/n₂²|   (n₁, n₂ = the two orbits)"
+    },
+    {
+     "type": "p",
+     "text": "n = 1 is the [[ground-state]] (E₁ = −2.18 × 10⁻¹⁸ J); higher levels are the [[excited-state]]. The negative sign means a bound electron has less energy than a free one (n = ∞, energy 0); the closer to the nucleus, the more negative. A drop to a lower level emits a photon, so transitions ending at n = 2 give the Balmer series — Bohr's theory yields the Rydberg equation."
+    },
+    {
+     "type": "anim",
+     "name": "bohr",
+     "title": "Electron jumps and photons",
+     "caption": "Pick 3 → 2: λ ≈ 656 nm, the red Balmer line. 2 → 1 gives ultraviolet (invisible)."
+    },
+    {
+     "type": "p",
+     "text": "**Limitations of Bohr's theory.** (i) It cannot explain spectra of multi-electron atoms (not even helium); (ii) it cannot explain the fine structure of lines or their splitting in magnetic and electric fields (Zeeman and Stark effects); (iii) it does not explain how atoms form molecules (chemical bonds); (iv) it ignores the wave nature of electrons and Heisenberg's uncertainty principle — a definite radius and speed cannot be known together."
+    },
+    {
+     "type": "note",
+     "text": "Example: n = 5 to n = 2: ΔE = 2.18 × 10⁻¹⁸ (1/4 − 1/25) = 4.58 × 10⁻¹⁹ J; ν = ΔE / h = 6.91 × 10¹⁴ Hz; λ = c / ν = 434 nm (the blue Balmer line). For He⁺ at n = 1, E = −2.18 × 10⁻¹⁸ × 4 = −8.72 × 10⁻¹⁸ J and r = 52.9 ÷ 2 = 26.45 pm.",
+     "label": "Worked example"
+    }
+   ]
+  },
+  {
+   "id": "wave",
+   "title": "Towards quantum mechanics: dual nature of matter and uncertainty",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Bohr's limitations called for a new theory, quantum mechanics, built on two ideas: the dual nature of matter and Heisenberg's uncertainty principle."
+    },
+    {
+     "type": "p",
+     "text": "**Dual behaviour of matter.** In 1924 Louis de Broglie proposed that matter, like light, shows wave properties. A particle of mass m moving at speed v has the [[de-broglie]]:"
+    },
+    {
+     "type": "formula",
+     "label": "de Broglie equation",
+     "text": "λ = h / m v = h / p"
+    },
+    {
+     "type": "p",
+     "text": "Experiments confirm the wave nature of electrons (diffraction by metal surfaces) and it is used in the electron microscope. But for a large object — a 0.1 kg ball at 10 m s⁻¹ — λ = 6.6 × 10⁻³⁴ m, far too small to notice. So the wave nature matters only for tiny particles such as electrons and atoms."
+    },
+    {
+     "type": "anim",
+     "name": "de-broglie",
+     "title": "de Broglie wavelength",
+     "caption": "Pick an object and compare its λ = h/mv with atomic and nuclear sizes."
+    },
+    {
+     "type": "p",
+     "text": "**Heisenberg's uncertainty principle (1927).** The position (x) and momentum (p = mv) of a small particle cannot both be determined exactly at the same time:"
+    },
+    {
+     "type": "formula",
+     "label": "Statement",
+     "text": "Δx · Δp ≥ h / 4π     or     Δx · Δv ≥ h / 4π m"
+    },
+    {
+     "type": "p",
+     "text": "The more exactly an electron's position is known, the more uncertain its speed. Example: if Δx = 0.1 Å (10⁻¹¹ m), Δv ≥ 5.8 × 10⁶ m s⁻¹ for an electron. For a 1 mg object, Δv · Δx ≈ 5 × 10⁻²⁹ m² s⁻¹ — negligible. So an electron cannot follow a definite orbit; Bohr's fixed orbits contradict this. We speak instead of the probability of finding the electron in a region."
+    },
+    {
+     "type": "anim",
+     "name": "uncertainty",
+     "title": "The uncertainty principle",
+     "caption": "Choose a particle and vary Δx to see the minimum Δv and whether it matters."
+    }
+   ]
+  },
+  {
+   "id": "quantum",
+   "title": "Quantum mechanical model of the atom",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "In 1926 Erwin Schrödinger gave an equation that includes both the wave and particle character of the electron:"
+    },
+    {
+     "type": "formula",
+     "label": "Schrödinger equation",
+     "text": "Ĥ ψ = E ψ"
+    },
+    {
+     "type": "p",
+     "text": "Here Ĥ is the Hamiltonian operator, E the total energy and ψ the [[wavefunction]]. Solving it gives allowed values of E and ψ. ψ itself has no physical meaning, but ψ² (|ψ|²) gives the probability density of finding the electron at a point around the nucleus. For the hydrogen atom, three [[quantum-number]]s (n, l, mₗ) arise naturally from the solution."
+    },
+    {
+     "type": "p",
+     "text": "The wave function of an electron in an atom is called an **[[orbital]]** (not an orbit). Each orbital has a definite energy, size and shape, and holds at most two electrons. An orbit is Bohr's fixed circular path; an orbital is a probability distribution."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Quantum number",
+      "Name",
+      "Allowed values",
+      "What it decides"
+     ],
+     "rows": [
+      [
+       "n",
+       "Principal",
+       "1, 2, 3, …",
+       "the [[shell]] (K, L, M, N); size and main energy"
+      ],
+      [
+       "l",
+       "Azimuthal (subsidiary)",
+       "0 to n − 1",
+       "the [[subshell]] (s, p, d, f); shape"
+      ],
+      [
+       "mₗ",
+       "Magnetic",
+       "−l to +l (2l + 1 values)",
+       "orientation of the orbital"
+      ],
+      [
+       "mₛ",
+       "Spin",
+       "+½, −½",
+       "direction of the electron's spin"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The subshells l = 0, 1, 2, 3 are called **s, p, d, f**. A subshell has (2l + 1) orbitals; the nth shell has n² orbitals and at most 2n² electrons. Example: n = 3 has l = 0, 1, 2, i.e. 3s (1), 3p (3), 3d (5) = 9 orbitals."
+    },
+    {
+     "type": "anim",
+     "name": "quantum-explorer",
+     "title": "From n to l and mₗ",
+     "caption": "Change n to see the subshells and the number of orbitals."
+    },
+    {
+     "type": "p",
+     "text": "**Shapes of orbitals.** Shape depends on l: s orbitals are spherical; the three p orbitals (pₓ, p_y, p_z) are dumbbells at right angles; the five d orbitals (d_xy, d_yz, d_zx, d_x²−y², d_z²) are mostly four-lobed. 1s and 2s are both spherical, but 2s is larger. A boundary-surface diagram encloses the region with about 90% probability of finding the electron."
+    },
+    {
+     "type": "anim",
+     "name": "orbitals",
+     "title": "3-D shapes of orbitals",
+     "caption": "Pick an orbital and drag to rotate it. Red and blue are the opposite signs of ψ."
+    },
+    {
+     "type": "p",
+     "text": "**Nodes.** A [[node]] is where the probability of finding the electron is zero. Radial nodes = n − l − 1; angular nodes (planes) = l; total nodes = n − 1. 1s has none, 2s has 1, 3s has 2; 2p has one angular (planar) node."
+    },
+    {
+     "type": "anim",
+     "name": "nodes",
+     "title": "Counting nodes",
+     "caption": "Pick an orbital and see its radial and angular nodes."
+    }
+   ]
+  },
+  {
+   "id": "configuration",
+   "title": "Orbital energies and electronic configuration",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "**In hydrogen** an orbital's energy depends only on n: 1s < 2s = 2p < 3s = 3p = 3d < 4s = 4p = 4d = 4f; orbitals of equal energy are [[degenerate]]. **In multi-electron atoms**, electron-electron repulsion makes energy depend on both n and l: inner electrons [[shielding]] the outer ones, which therefore feel a smaller [[zeff]]. An s orbital penetrates closer to the nucleus and is shielded least, so energy rises s < p < d < f."
+    },
+    {
+     "type": "p",
+     "text": "To fix the order, use the **(n + l) rule**: the orbital with the lower (n + l) has lower energy; if (n + l) is equal, the one with lower n is lower. Example: 4s (4 + 0 = 4) lies below 3d (3 + 2 = 5), so 4s fills first."
+    },
+    {
+     "type": "anim",
+     "name": "nl-rule",
+     "title": "The (n + l) rule",
+     "caption": "Choose two subshells and see which has the lower energy."
+    },
+    {
+     "type": "p",
+     "text": "Electrons fill orbitals according to three rules:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "**[[aufbau]]:** electrons fill the lowest-energy orbitals first. Order: 1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, 5s, 4d, 5p, 6s, 4f, 5d, 6p, 7s, 5f, 6d, 7p.",
+      "**[[pauli]]:** at most 2 electrons per orbital, with opposite spins (↑↓). So s, p, d, f subshells hold at most 2, 6, 10, 14 electrons.",
+      "**[[hund]]:** in degenerate orbitals (p, d, f) electrons first occupy separate orbitals with the same spin and pair up afterwards. So nitrogen's 2p holds three unpaired electrons."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Configurations are written as 1s² 2s² 2p⁴ (O, Z = 8) or with orbital boxes. Na is 1s² 2s² 2p⁶ 3s¹ = [Ne] 3s¹; K = [Ar] 4s¹; Ca = [Ar] 4s²; Sc = [Ar] 3d¹ 4s². Electrons in the outermost shell are [[valence]] electrons, the inner ones core electrons (in Na, 3s¹ is valence and [Ne] is core)."
+    },
+    {
+     "type": "anim",
+     "name": "aufbau",
+     "title": "Fill the electrons one by one",
+     "caption": "Change Z or press 'Next electron' to watch orbitals fill; note the number of unpaired electrons."
+    },
+    {
+     "type": "p",
+     "text": "**Exceptions.** Cr (Z = 24) is [Ar] 3d⁵ 4s¹ and Cu (Z = 29) is [Ar] 3d¹⁰ 4s¹ — not 3d⁴ 4s² or 3d⁹ 4s². Half-filled (d⁵) and completely filled (d¹⁰) subshells are extra stable, and 3d and 4s are close in energy. The causes: (i) symmetrical distribution of electrons (less shielding) and (ii) larger [[exchange]] energy."
+    },
+    {
+     "type": "note",
+     "text": "Electronic configuration decides an element's chemistry; the periodic table and bonding are explained on that basis in modern chemistry.",
+     "label": "Remember"
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "Atoms consist of electrons, protons and neutrons. Z = protons, A = protons + neutrons; isotopes share Z, isobars share A.",
+  "Rutherford's α-scattering overturned Thomson's model; the nuclear model could not explain stability.",
+  "c = νλ; E = hν; in the photoelectric effect hν = hν₀ + ½mv² — the particle nature of light.",
+  "In Bohr's model Eₙ = −2.18 × 10⁻¹⁸ J (Z²/n²); it explains the hydrogen line spectrum but fails for multi-electron atoms.",
+  "λ = h/mv; Δx · Δp ≥ h/4π. Hence no fixed electron orbit — the Schrödinger equation and orbitals.",
+  "Four quantum numbers n, l, mₗ, mₛ; a shell has n² orbitals; l = 0, 1, 2, 3 ⇒ s, p, d, f; nodes = n − 1.",
+  "The Aufbau, Pauli and Hund rules give electronic configurations; Cr and Cu are exceptions."
+ ]
+}

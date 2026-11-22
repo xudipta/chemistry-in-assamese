@@ -1,0 +1,224 @@
+{
+ "questions": [
+  {
+   "q": "What are cathode-ray particles?",
+   "options": [
+    "Protons",
+    "Electrons",
+    "Neutrons",
+    "α-particles"
+   ],
+   "answer": 1,
+   "explain": "They carry negative charge and have the same e/m for every material — electrons."
+  },
+  {
+   "q": "How many neutrons does bromine with Z = 35 and A = 80 have?",
+   "options": [
+    "35",
+    "45",
+    "80",
+    "115"
+   ],
+   "answer": 1,
+   "explain": "n = A − Z = 80 − 35 = 45."
+  },
+  {
+   "q": "A particle has 16 protons, 16 neutrons and 18 electrons. Its symbol is:",
+   "options": [
+    "³²₁₆S",
+    "³²₁₆S²⁻",
+    "³²₁₆S²⁺",
+    "³⁴₁₈Ar"
+   ],
+   "answer": 1,
+   "explain": "Z = 16 (S), A = 32; two extra electrons ⇒ charge 2−."
+  },
+  {
+   "q": "What are ¹⁴₆C and ¹⁴₇N called?",
+   "options": [
+    "Isotopes",
+    "Isobars",
+    "Isoelectronic species",
+    "Allotropes"
+   ],
+   "answer": 1,
+   "explain": "Same A (14), different Z — isobars."
+  },
+  {
+   "q": "What did Rutherford's α-scattering experiment show?",
+   "options": [
+    "The atom is uniformly filled with positive charge",
+    "Positive charge and most mass are in a tiny nucleus",
+    "Electron energy is quantised",
+    "Neutrons exist"
+   ],
+   "answer": 1,
+   "explain": "Rare large-angle deflections point to a small, heavy, positive centre."
+  },
+  {
+   "q": "Frequency of light of wavelength 500 nm? (c = 3 × 10⁸ m s⁻¹)",
+   "options": [
+    "6.0 × 10¹⁴ Hz",
+    "1.5 × 10¹⁷ Hz",
+    "6.0 × 10⁶ Hz",
+    "1.67 × 10⁻¹⁵ Hz"
+   ],
+   "answer": 0,
+   "explain": "ν = c / λ = 3 × 10⁸ / 5 × 10⁻⁷ = 6.0 × 10¹⁴ Hz."
+  },
+  {
+   "q": "Energy of one photon of ν = 5 × 10¹⁴ Hz? (h = 6.626 × 10⁻³⁴ J s)",
+   "options": [
+    "3.31 × 10⁻¹⁹ J",
+    "3.31 × 10⁻⁴⁸ J",
+    "1.33 × 10⁻⁴⁸ J",
+    "3.31 × 10¹⁹ J"
+   ],
+   "answer": 0,
+   "explain": "E = hν = 6.626 × 10⁻³⁴ × 5 × 10¹⁴ = 3.31 × 10⁻¹⁹ J."
+  },
+  {
+   "q": "Very intense light below the threshold frequency falls on a metal. What happens?",
+   "options": [
+    "Many electrons are emitted",
+    "A few electrons are emitted",
+    "No electrons are emitted",
+    "The metal melts"
+   ],
+   "answer": 2,
+   "explain": "Each photon has less than W₀; intensity raises the number of photons, not their energy."
+  },
+  {
+   "q": "An electron in hydrogen falls from n = 3 to n = 2. What happens?",
+   "options": [
+    "Energy absorbed, ultraviolet",
+    "A photon is emitted, visible (red Balmer line, ≈ 656 nm)",
+    "A photon is emitted, infrared",
+    "Nothing"
+   ],
+   "answer": 1,
+   "explain": "A downward jump emits energy; n → 2 is the Balmer series (visible)."
+  },
+  {
+   "q": "Energy of the electron in the ground state of hydrogen?",
+   "options": [
+    "+2.18 × 10⁻¹⁸ J",
+    "−2.18 × 10⁻¹⁸ J",
+    "−5.45 × 10⁻¹⁹ J",
+    "0"
+   ],
+   "answer": 1,
+   "explain": "E₁ = −2.18 × 10⁻¹⁸ J / 1² (negative — bound)."
+  },
+  {
+   "q": "Radius of the n = 2 Bohr orbit of hydrogen (a₀ = 52.9 pm)?",
+   "options": [
+    "52.9 pm",
+    "105.8 pm",
+    "211.6 pm",
+    "26.45 pm"
+   ],
+   "answer": 2,
+   "explain": "rₙ = n² a₀ = 4 × 52.9 = 211.6 pm."
+  },
+  {
+   "q": "If a particle's speed is doubled its de Broglie wavelength becomes —",
+   "options": [
+    "double",
+    "half",
+    "unchanged",
+    "four times"
+   ],
+   "answer": 1,
+   "explain": "λ = h / mv — inversely proportional to v."
+  },
+  {
+   "q": "According to Heisenberg's uncertainty principle —",
+   "options": [
+    "the charge of an electron cannot be measured",
+    "position and momentum cannot both be known exactly together",
+    "electrons radiate energy",
+    "the nucleus cannot be split"
+   ],
+   "answer": 1,
+   "explain": "Δx · Δp ≥ h / 4π."
+  },
+  {
+   "q": "How many orbitals are there in the n = 3 shell?",
+   "options": [
+    "3",
+    "6",
+    "9",
+    "18"
+   ],
+   "answer": 2,
+   "explain": "n² = 9 (3s: 1, 3p: 3, 3d: 5)."
+  },
+  {
+   "q": "For the 3d subshell, the value of l and the number of mₗ values are:",
+   "options": [
+    "l = 1, 3 values",
+    "l = 2, 5 values",
+    "l = 2, 3 values",
+    "l = 3, 7 values"
+   ],
+   "answer": 1,
+   "explain": "For d, l = 2; mₗ = −2 … +2 ⇒ 5 values."
+  },
+  {
+   "q": "Which set of quantum numbers is impossible?",
+   "options": [
+    "n = 3, l = 2",
+    "n = 2, l = 2",
+    "n = 4, l = 0",
+    "n = 1, l = 0"
+   ],
+   "answer": 1,
+   "explain": "l runs from 0 to n − 1; l = 2 is not allowed for n = 2."
+  },
+  {
+   "q": "Number of radial nodes in a 3p orbital?",
+   "options": [
+    "0",
+    "1",
+    "2",
+    "3"
+   ],
+   "answer": 1,
+   "explain": "n − l − 1 = 3 − 1 − 1 = 1."
+  },
+  {
+   "q": "By the (n + l) rule, which has lower energy?",
+   "options": [
+    "3d",
+    "4s",
+    "both equal",
+    "4p"
+   ],
+   "answer": 1,
+   "explain": "4s: 4 + 0 = 4; 3d: 3 + 2 = 5; lower (n + l) ⇒ 4s."
+  },
+  {
+   "q": "How many unpaired electrons are in the 2p subshell of nitrogen (Z = 7)?",
+   "options": [
+    "0",
+    "1",
+    "2",
+    "3"
+   ],
+   "answer": 3,
+   "explain": "2p³: by Hund's rule one in each of the three orbitals."
+  },
+  {
+   "q": "The correct configuration of chromium (Z = 24) is:",
+   "options": [
+    "[Ar] 3d⁴ 4s²",
+    "[Ar] 3d⁵ 4s¹",
+    "[Ar] 3d⁶",
+    "[Ar] 4s² 4p⁴"
+   ],
+   "answer": 1,
+   "explain": "The half-filled 3d⁵ is extra stable."
+  }
+ ]
+}

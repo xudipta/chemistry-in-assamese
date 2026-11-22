@@ -10,7 +10,7 @@ English term in brackets. Installable as a web app and works offline.
 ## Status
 | Class | Chapter | Status |
 |---|---|---|
-| 11 | 2 · পৰমাণুৰ গঠন (Structure of Atom) | ✅ proof of concept: 5 sections, 6 animations, quiz |
+| 11 | 2 · পৰমাণুৰ গঠন (Structure of Atom) | ✅ rebuilt to follow the Assamese book: 8 sections, 12 animations, 20-question quiz; Assamese + English (Part I) |
 | 11 | 1 · ৰসায়নবিজ্ঞানৰ কিছুমান প্ৰাথমিক ধাৰণা (Some Basic Concepts of Chemistry) | ✅ 9 sections, 9 animations, 15-question quiz; Assamese + English (Part I) |
 | 11 | 3–6 (Part I) and 8–14 (Part II) | listed as "Coming soon". Chapter list now checked against the Assamese book (Part I = chapters 1–6, Part II = chapters 8–14; the book has no chapter 7 and no States of Matter) |
 | 12 | 1 · দ্ৰৱ (Solutions) | ✅ 7 sections, 9 animations, 12-question quiz; terminology checked against the Assamese textbook; **also available in English** |

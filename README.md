@@ -11,7 +11,7 @@ English term in brackets. Installable as a web app and works offline.
 | Class | Chapter | Status |
 |---|---|---|
 | 11 | 2 · পৰমাণুৰ গঠন (Structure of Atom) | ✅ proof of concept: 5 sections, 6 animations, quiz |
-| 11 | other chapters | listed as "Coming soon" (**list is a draft, to be checked against the Class 11 book**) |
+| 11 | 1, 3–6 (Part I) and 8–14 (Part II) | listed as "Coming soon". Chapter list now checked against the Assamese book (Part I = chapters 1–6, Part II = chapters 8–14; the book has no chapter 7 and no States of Matter) |
 | 12 | 1 · দ্ৰৱ (Solutions) | ✅ 7 sections, 9 animations, 12-question quiz; terminology checked against the Assamese textbook; **also available in English** |
 | 12 | 2 · বিদ্যুৎৰসায়নবিজ্ঞান (Electrochemistry) | ✅ 8 sections, 10 animations, 14-question quiz; **also available in English** |
 | 12 | 3 · ৰাসায়নিক গতিবিজ্ঞান (Chemical Kinetics) | ✅ 5 sections, 10 animations, 14-question quiz; **also available in English** |

@@ -183,7 +183,11 @@
             "as": "পৰমাণুৰ গঠন",
             "en": "Structure of Atom"
           },
-          "part": 1
+          "part": 1,
+          "langs": [
+            "as",
+            "en"
+          ]
         },
         {
           "id": "class-11/ch03-periodic-classification",

@@ -164,12 +164,16 @@
         {
           "id": "class-11/ch01-basic-concepts",
           "no": 1,
-          "status": "soon",
+          "status": "ready",
           "title": {
-            "as": "ৰসায়নৰ কিছুমান প্ৰাথমিক ধাৰণা",
+            "as": "ৰসায়নবিজ্ঞানৰ কিছুমান প্ৰাথমিক ধাৰণা",
             "en": "Some Basic Concepts of Chemistry"
           },
-          "part": 1
+          "part": 1,
+          "langs": [
+            "as",
+            "en"
+          ]
         },
         {
           "id": "class-11/ch02-structure-of-atom",

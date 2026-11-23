@@ -206,12 +206,16 @@
         {
           "id": "class-11/ch04-chemical-bonding",
           "no": 4,
-          "status": "soon",
+          "status": "ready",
           "title": {
             "as": "ৰাসায়নিক বান্ধনি আৰু আণৱিক গঠন",
             "en": "Chemical Bonding and Molecular Structure"
           },
-          "part": 1
+          "part": 1,
+          "langs": [
+            "as",
+            "en"
+          ]
         },
         {
           "id": "class-11/ch05-thermodynamics",

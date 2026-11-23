@@ -1,0 +1,224 @@
+{
+ "questions": [
+  {
+   "q": "According to the octet rule, atoms tend to…",
+   "options": [
+    "lose, gain or share electrons to get eight electrons in the outer shell",
+    "take up eight protons in the nucleus",
+    "only lose electrons",
+    "always share exactly two electrons"
+   ],
+   "answer": 0,
+   "explain": "To reach a stable noble-gas-like octet, atoms transfer or share electrons (two for H)."
+  },
+  {
+   "q": "How many valence electrons are there in the CO₃²⁻ ion?",
+   "options": [
+    "18",
+    "22",
+    "24",
+    "26"
+   ],
+   "answer": 2,
+   "explain": "4 (C) + 3×6 (O) + 2 (for the charge) = 24."
+  },
+  {
+   "q": "What is the formal charge on the central oxygen of O₃ (as in O=O⁺–O⁻)?",
+   "options": [
+    "0",
+    "+1",
+    "−1",
+    "+2"
+   ],
+   "answer": 1,
+   "explain": "F.C. = 6 − 2 − ½×6 = +1 (one lone pair and three bonding pairs)."
+  },
+  {
+   "q": "In which molecule does the central atom have an incomplete octet?",
+   "options": [
+    "NH₃",
+    "BF₃",
+    "PCl₅",
+    "CO₂"
+   ],
+   "answer": 1,
+   "explain": "In BF₃ boron has only 6 electrons around it. PCl₅ has 10 (an expanded octet)."
+  },
+  {
+   "q": "The lattice enthalpy of NaCl is 788 kJ mol⁻¹. What does this mean?",
+   "options": [
+    "788 kJ is needed to separate 1 mol of solid NaCl into gaseous Na⁺ and Cl⁻",
+    "The ionisation enthalpy of Na is 788 kJ mol⁻¹",
+    "The melting point of NaCl is 788 K",
+    "The electron gain enthalpy of Cl is −788 kJ mol⁻¹"
+   ],
+   "answer": 0,
+   "explain": "Lattice enthalpy is the energy needed to break the crystal into gaseous ions."
+  },
+  {
+   "q": "Forming Na⁺ and Cl⁻ costs +147.1 kJ mol⁻¹. Why is NaCl still stable?",
+   "options": [
+    "Forming the crystal lattice releases −788 kJ mol⁻¹",
+    "Na has no electrons",
+    "Cl is small",
+    "+147.1 kJ mol⁻¹ is negligible"
+   ],
+   "answer": 0,
+   "explain": "−788 + 147.1 is negative — the overall process releases energy."
+  },
+  {
+   "q": "What is the order of bond lengths of C–C, C=C and C≡C?",
+   "options": [
+    "C–C < C=C < C≡C",
+    "C≡C < C=C < C–C",
+    "C=C < C–C < C≡C",
+    "all equal"
+   ],
+   "answer": 1,
+   "explain": "Higher bond order, shorter bond: 154 > 133 > 120 pm."
+  },
+  {
+   "q": "Which has the highest bond enthalpy?",
+   "options": [
+    "H₂ (435.8)",
+    "O₂ (498)",
+    "N₂ (946.0)",
+    "Cl₂"
+   ],
+   "answer": 2,
+   "explain": "N≡N is a triple bond (order 3) — 946.0 kJ mol⁻¹."
+  },
+  {
+   "q": "What is the length of each O–O bond in O₃, and why?",
+   "options": [
+    "128 pm — equal because of resonance (order 1.5)",
+    "148 and 121 pm — one single, one double bond",
+    "121 pm for both",
+    "148 pm for both"
+   ],
+   "answer": 0,
+   "explain": "Experimentally both are 128 pm — the hybrid of I and II."
+  },
+  {
+   "q": "Which molecule has zero dipole moment?",
+   "options": [
+    "NH₃",
+    "H₂O",
+    "BF₃",
+    "CHCl₃"
+   ],
+   "answer": 2,
+   "explain": "BF₃ is trigonal planar — three equal B–F moments cancel."
+  },
+  {
+   "q": "In H₂O the H–O–H angle is 104.5° and μ = 1.85 D. What would μ be if the angle were 180°?",
+   "options": [
+    "0",
+    "1.85 D",
+    "3.7 D",
+    "0.92 D"
+   ],
+   "answer": 0,
+   "explain": "The two O–H moments would point in opposite directions and cancel (like CO₂): μ = 2 × 1.51 × cos 90° = 0."
+  },
+  {
+   "q": "What are the shape and bond angle of NH₃?",
+   "options": [
+    "trigonal pyramidal, 107°",
+    "trigonal planar, 120°",
+    "tetrahedral, 109.5°",
+    "bent, 104.5°"
+   ],
+   "answer": 0,
+   "explain": "The lp–bp repulsion of one lone pair closes the angle from 109.5° to 107°."
+  },
+  {
+   "q": "What is the shape of XeF₄?",
+   "options": [
+    "tetrahedral",
+    "square planar",
+    "see-saw",
+    "square pyramidal"
+   ],
+   "answer": 1,
+   "explain": "AB₄E₂: six pairs arranged octahedrally with the two lone pairs opposite each other — square planar."
+  },
+  {
+   "q": "Which is the correct order of repulsion in VSEPR?",
+   "options": [
+    "bp–bp > lp–bp > lp–lp",
+    "lp–lp > lp–bp > bp–bp",
+    "lp–bp > lp–lp > bp–bp",
+    "all equal"
+   ],
+   "answer": 1,
+   "explain": "A lone pair is held by one nucleus only and spreads out, so lp–lp repulsion is the largest."
+  },
+  {
+   "q": "What are the hybridisation of carbon in C₂H₄ and the number of σ and π bonds in the C=C bond?",
+   "options": [
+    "sp²; one σ and one π",
+    "sp³; two σ",
+    "sp; one σ and two π",
+    "sp²; two σ"
+   ],
+   "answer": 0,
+   "explain": "The sp² orbitals form the σ bond; sideways overlap of the unhybridised 2p orbitals forms the π bond."
+  },
+  {
+   "q": "How many σ and π bonds are there in C₂H₂?",
+   "options": [
+    "3 σ, 2 π",
+    "2 σ, 3 π",
+    "5 σ, 0 π",
+    "4 σ, 1 π"
+   ],
+   "answer": 0,
+   "explain": "Two C–H plus the C–C = 3 σ bonds; the C≡C adds two π bonds."
+  },
+  {
+   "q": "What are the hybridisations of the central atoms in PCl₅ and SF₆?",
+   "options": [
+    "sp³ and sp³d",
+    "sp³d and sp³d²",
+    "sp²d and sp³d",
+    "dsp² and sp³d²"
+   ],
+   "answer": 1,
+   "explain": "PCl₅: 5 σ bonds — sp³d (bipyramid); SF₆: 6 σ bonds — sp³d² (octahedron)."
+  },
+  {
+   "q": "What are the bond order and magnetic behaviour of O₂⁻?",
+   "options": [
+    "1.5; paramagnetic",
+    "2; diamagnetic",
+    "1; diamagnetic",
+    "2.5; paramagnetic"
+   ],
+   "answer": 0,
+   "explain": "17 electrons: N_b = 10, N_a = 7 → ½(10 − 7) = 1.5, with one unpaired electron in π*."
+  },
+  {
+   "q": "According to MO theory, which molecule does not exist?",
+   "options": [
+    "B₂",
+    "C₂",
+    "Be₂",
+    "N₂"
+   ],
+   "answer": 2,
+   "explain": "Be₂: (σ2s)²(σ*2s)² — bond order ½(4 − 4) = 0."
+  },
+  {
+   "q": "Among the group 16 hydrides, which has the highest boiling point, and why?",
+   "options": [
+    "H₂O — because of intermolecular hydrogen bonding",
+    "H₂Te — because of its larger molar mass",
+    "H₂S — because it is polar",
+    "All are equal"
+   ],
+   "answer": 0,
+   "explain": "H₂O boils at 373 K; H₂S, H₂Se, H₂Te at 213, 232 and 271 K."
+  }
+ ]
+}

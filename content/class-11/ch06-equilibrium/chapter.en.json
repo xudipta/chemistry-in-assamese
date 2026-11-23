@@ -1,0 +1,1235 @@
+{
+ "id": "class-11/ch06-equilibrium",
+ "class": 11,
+ "number": 6,
+ "title": {
+  "as": "সাম্য",
+  "en": "Equilibrium"
+ },
+ "scripts": [
+  "anim.js"
+ ],
+ "goals": [
+  "Understand the nature of [[equilibrium]] in physical and chemical processes, and the idea of [[dynamic-eq]]",
+  "Write the [[kc]], relate K_{p} and K_{c}, and write K for homogeneous and heterogeneous equilibria",
+  "Use the [[qc]] to predict direction, find equilibrium concentrations with an ICE table, and relate K to ΔG°",
+  "Apply [[lechatelier]] to predict the effect of concentration, pressure, temperature, a catalyst and an inert gas",
+  "Identify acids and bases by the Arrhenius, Brønsted–Lowry and Lewis definitions; calculate [[ph]], K_{w}, K_{a}, K_{b}",
+  "Explain the [[degree-ion]], the [[common-ion]], salt [[hydrolysis]] and the pH of a [[buffer]]",
+  "Find solubility from the [[ksp]] and predict whether a precipitate forms"
+ ],
+ "glossary": {
+  "equilibrium": {
+   "as": "সাম্য",
+   "en": "equilibrium",
+   "def": "The state in which two opposing processes go on at equal rates, so the amounts of substances stay constant."
+  },
+  "dynamic-eq": {
+   "as": "গতিশীল সাম্য",
+   "en": "dynamic equilibrium",
+   "def": "At equilibrium the forward and backward processes do not stop; they continue at equal rates."
+  },
+  "vapour-pressure": {
+   "as": "বাষ্পীয় চাপ",
+   "en": "vapour pressure",
+   "def": "The pressure of the vapour in equilibrium with its liquid in a closed vessel; it rises with temperature."
+  },
+  "reversible": {
+   "as": "উভমুখী বিক্ৰিয়া",
+   "en": "reversible reaction",
+   "def": "A reaction that can go in both the forward and the backward direction."
+  },
+  "eq-mixture": {
+   "as": "সাম্য মিশ্ৰ",
+   "en": "equilibrium mixture",
+   "def": "The mixture of reactants and products present at equilibrium."
+  },
+  "mass-action": {
+   "as": "ভৰ ক্ৰিয়াৰ সূত্ৰ",
+   "en": "law of mass action",
+   "def": "The rate of a reaction is proportional to the product of the active masses (molar concentrations) of the reactants."
+  },
+  "kc": {
+   "as": "সাম্য ধ্ৰুৱক",
+   "en": "equilibrium constant",
+   "def": "At equilibrium, the product of the product concentrations (raised to their coefficients) divided by that of the reactants; it depends only on temperature."
+  },
+  "homo": {
+   "as": "সমসত্ত্ব সাম্য",
+   "en": "homogeneous equilibrium",
+   "def": "An equilibrium in which all reactants and products are in the same phase."
+  },
+  "hetero": {
+   "as": "অসমসত্ত্ব সাম্য",
+   "en": "heterogeneous equilibrium",
+   "def": "An equilibrium with more than one phase; pure solids and liquids do not appear in K."
+  },
+  "qc": {
+   "as": "বিক্ৰিয়া ভাগফল",
+   "en": "reaction quotient",
+   "def": "The quantity Q calculated like K from the concentrations at any moment; comparing Q with K gives the direction."
+  },
+  "lechatelier": {
+   "as": "ল-চেটেলিয়াৰ নীতি",
+   "en": "Le Chatelier's principle",
+   "def": "When a system at equilibrium is disturbed, the equilibrium shifts so as to reduce the effect of the disturbance."
+  },
+  "ionic-eq": {
+   "as": "আয়নীয় সাম্য",
+   "en": "ionic equilibrium",
+   "def": "Equilibrium between ions and un-ionised molecules in solution."
+  },
+  "electrolyte": {
+   "as": "বিদ্যুৎবিশ্লেষ্য",
+   "en": "electrolyte",
+   "def": "A substance that conducts electricity in solution or when molten (acids, bases, salts)."
+  },
+  "arrhenius": {
+   "as": "আৰ্হেনিয়াছৰ এছিড-ক্ষাৰক তত্ত্ব",
+   "en": "Arrhenius concept",
+   "def": "A substance giving H⁺ in water is an acid, one giving OH⁻ is a base."
+  },
+  "bronsted": {
+   "as": "ব্ৰনষ্টেড-লৰি এছিড-ক্ষাৰক",
+   "en": "Brønsted–Lowry concept",
+   "def": "A proton donor is an acid and a proton acceptor is a base."
+  },
+  "conjugate": {
+   "as": "সংযুগ্ম এছিড-ক্ষাৰক যোৰ",
+   "en": "conjugate acid–base pair",
+   "def": "An acid and a base that differ by one proton."
+  },
+  "lewis": {
+   "as": "লিউইছ এছিড-ক্ষাৰক",
+   "en": "Lewis concept",
+   "def": "An electron-pair acceptor is an acid; a donor is a base."
+  },
+  "kw": {
+   "as": "পানীৰ আয়নিক গুণফল",
+   "en": "ionic product of water",
+   "def": "K_{w} = [H₃O⁺][OH⁻] = 1.0 × 10⁻¹⁴ at 298 K."
+  },
+  "ph": {
+   "as": "pH",
+   "en": "pH",
+   "def": "pH = −log[H⁺]; below 7 acidic, 7 neutral, above 7 basic."
+  },
+  "ionisation-const": {
+   "as": "আয়নীকৰণ ধ্ৰুৱক",
+   "en": "ionisation constant",
+   "def": "The equilibrium constant K_{a} or K_{b} for the ionisation of a weak acid or base."
+  },
+  "degree-ion": {
+   "as": "আয়নীকৰণ মাত্ৰা",
+   "en": "degree of ionisation",
+   "def": "The fraction of the initial amount that has ionised (α)."
+  },
+  "common-ion": {
+   "as": "সম আয়ন প্ৰভাৱ",
+   "en": "common-ion effect",
+   "def": "Adding an ion already present in an equilibrium reduces ionisation or solubility."
+  },
+  "hydrolysis": {
+   "as": "জল-বিশ্লেষণ",
+   "en": "hydrolysis",
+   "def": "Reaction of a salt's ions with water to give an acid or a base."
+  },
+  "buffer": {
+   "as": "বাফাৰ দ্ৰৱ",
+   "en": "buffer solution",
+   "def": "A solution that keeps its pH nearly constant when a little acid or base is added."
+  },
+  "henderson": {
+   "as": "হেণ্ডাৰ্ছন-হেছেলবাখ সমীকৰণ",
+   "en": "Henderson–Hasselbalch equation",
+   "def": "pH = pK_{a} + log([A⁻]/[HA])."
+  },
+  "ksp": {
+   "as": "দ্ৰাব্যতা গুণফল",
+   "en": "solubility product",
+   "def": "The product of the ion concentrations (with powers) in a saturated solution of a sparingly soluble salt, K_{sp}."
+  },
+  "solubility": {
+   "as": "দ্ৰাব্যতা",
+   "en": "solubility",
+   "def": "The concentration of a salt dissolved in its saturated solution (mol L⁻¹)."
+  }
+ },
+ "sections": [
+  {
+   "id": "physical-eq",
+   "title": "Equilibrium in physical processes",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "[[equilibrium]] is reached when two opposing processes go on at the same time and at the same rate. From outside nothing seems to change, but at the molecular level both processes never stop. This is called [[dynamic-eq]]. Both physical and chemical processes can reach equilibrium."
+    },
+    {
+     "type": "p",
+     "text": "**Solid ⇌ liquid.** Ice and water in a thermos flask reach equilibrium at 273 K under atmospheric pressure (1.013 bar): H₂O(s) ⇌ H₂O(l). At this temperature the masses of ice and water stay constant, and so does the temperature. That fixed temperature is the melting point."
+    },
+    {
+     "type": "p",
+     "text": "**Liquid ⇌ vapour.** Water in a closed vessel first evaporates; as vapour builds up, some of it condenses back. Finally the two rates become equal: H₂O(l) ⇌ H₂O(g). The pressure of the vapour is then constant at a given temperature — the equilibrium [[vapour-pressure]]. When it reaches 1.013 bar, that temperature is the normal boiling point (373 K for water)."
+    },
+    {
+     "type": "anim",
+     "name": "eq-vapour",
+     "title": "Liquid ⇌ vapour in a closed vessel",
+     "caption": "The evaporation rate is nearly constant; the condensation rate grows with the number of vapour molecules. When they match, equilibrium is reached. A higher temperature gives more vapour at equilibrium."
+    },
+    {
+     "type": "p",
+     "text": "**Solid ⇌ vapour.** Iodine I₂(s) ⇌ I₂(g), camphor and NH₄Cl(s) ⇌ NH₄Cl(g) reach equilibrium in a closed vessel. **Dissolution.** A solid dissolving to give a saturated solution is in equilibrium with it (sugar(s) ⇌ sugar in solution). **Gas ⇌ solution.** CO₂(g) ⇌ CO₂(aq): by Henry's law the concentration of dissolved gas at a given temperature is proportional to its pressure. That is why opening a soda bottle lowers the pressure and lets CO₂ escape."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Process",
+      "Quantity constant at equilibrium"
+     ],
+     "rows": [
+      [
+       "H₂O(l) ⇌ H₂O(g)",
+       "Vapour pressure p(H₂O) at a given temperature"
+      ],
+      [
+       "H₂O(s) ⇌ H₂O(l)",
+       "Melting point at a given pressure"
+      ],
+      [
+       "Solid ⇌ dissolved solid",
+       "Concentration of the saturated solution (solubility) at a given temperature"
+      ],
+      [
+       "CO₂(g) ⇌ CO₂(aq)",
+       "[CO₂(aq)] / [CO₂(g)]"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "General features of equilibrium in physical processes:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Equilibrium is possible only in a closed system at a given temperature.",
+      "Both opposing processes go on at the same rate — so equilibrium is dynamic though it looks static.",
+      "All measurable properties of the system (pressure, concentration and so on) stay constant.",
+      "A particular quantity has a constant value at a given temperature — as listed in the table above.",
+      "The size of that quantity shows how far the process had gone before reaching equilibrium."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chemical-eq",
+   "title": "Equilibrium in chemical processes — dynamic equilibrium",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "In a closed vessel a [[reversible]] reaction runs forwards and backwards at the same time. Starting from reactants only, their concentrations fall and the products' concentrations rise, so the forward rate falls and the backward rate rises. At some point the two rates become equal — that is chemical equilibrium, and from then on no concentration changes. The mixture at equilibrium is the [[eq-mixture]]."
+    },
+    {
+     "type": "formula",
+     "label": "A reversible reaction",
+     "text": "A + B ⇌ C + D"
+    },
+    {
+     "type": "p",
+     "text": "The reaction H₂(g) + I₂(g) ⇌ 2HI(g) was studied at 731 K in a closed vessel with different starting concentrations (concentrations × 10⁻² mol L⁻¹). Whatever the start, the last column is almost constant — and in experiments 5 and 6, which began with HI only, we still arrive at the same value."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Expt",
+      "[H₂]₀",
+      "[I₂]₀",
+      "[HI]₀",
+      "[H₂] eq.",
+      "[I₂] eq.",
+      "[HI] eq.",
+      "[HI]² / ([H₂][I₂])"
+     ],
+     "rows": [
+      [
+       "1",
+       "2.4",
+       "1.38",
+       "0",
+       "1.14",
+       "0.12",
+       "2.52",
+       "46.4"
+      ],
+      [
+       "2",
+       "2.4",
+       "1.68",
+       "0",
+       "0.92",
+       "0.20",
+       "2.96",
+       "47.6"
+      ],
+      [
+       "5",
+       "0",
+       "0",
+       "3.04",
+       "0.345",
+       "0.345",
+       "2.35",
+       "46.4"
+      ],
+      [
+       "6",
+       "0",
+       "0",
+       "7.58",
+       "0.86",
+       "0.86",
+       "5.86",
+       "46.4"
+      ]
+     ]
+    },
+    {
+     "type": "anim",
+     "name": "eq-approach",
+     "title": "H₂ + I₂ ⇌ 2HI: approaching equilibrium",
+     "caption": "Choose a start and watch the forward and backward rates approach each other and become equal. Experiments 1 and 5, starting from opposite sides, end at the same equilibrium concentrations."
+    },
+    {
+     "type": "p",
+     "text": "That equilibrium is dynamic was shown with deuterium (D₂). When some D₂ is added to the equilibrium mixture of N₂, H₂ and NH₃, after a while NH₂D, NHD₂ and ND₃ are found — so the reaction has not stopped; it goes on in both directions while the composition stays fixed."
+    },
+    {
+     "type": "note",
+     "text": "Chemical equilibrium needs a closed system at constant temperature, with the forward and backward rates equal. It can be reached from either side. A catalyst speeds up the approach to equilibrium but does not change the composition of the equilibrium mixture.",
+     "label": "Remember"
+    }
+   ]
+  },
+  {
+   "id": "kc-law",
+   "title": "Law of chemical equilibrium and the equilibrium constant",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The concentrations in an equilibrium mixture obey a fixed relation. In 1864 the Norwegian chemists Guldberg and Waage expressed it through the [[mass-action]]: the rate of a reaction is proportional to the product of the “active masses” (molar concentrations) of the reactants. For aA + bB ⇌ cC + dD at equilibrium:"
+    },
+    {
+     "type": "formula",
+     "label": "Equilibrium constant",
+     "text": "aA + bB ⇌ cC + dD\nK_{c} = [C]^{c}[D]^{d} / ([A]^{a}[B]^{b})"
+    },
+    {
+     "type": "p",
+     "text": "Here [ ] is the equilibrium molar concentration (mol L⁻¹), each raised to its stoichiometric coefficient; products on top, reactants below. For 4NH₃ + 5O₂ ⇌ 4NO + 6H₂O, K_{c} = [NO]⁴[H₂O]⁶ / ([NH₃]⁴[O₂]⁵). The value of K_{c} is the [[kc]] — it depends only on temperature, not on the starting concentrations."
+    },
+    {
+     "type": "p",
+     "text": "For H₂ + I₂ ⇌ 2HI, K_{c} = [HI]² / ([H₂][I₂]); in the table above its value at 731 K is about 46.4."
+    },
+    {
+     "type": "p",
+     "text": "**What happens to K when the equation is changed?**"
+    },
+    {
+     "type": "table",
+     "head": [
+      "Chemical equation",
+      "Equilibrium constant"
+     ],
+     "rows": [
+      [
+       "aA + bB ⇌ cC + dD",
+       "K"
+      ],
+      [
+       "cC + dD ⇌ aA + bB (reversed)",
+       "K′ = 1/K"
+      ],
+      [
+       "naA + nbB ⇌ ncC + ndD (coefficients × n)",
+       "K″ = Kⁿ"
+      ],
+      [
+       "½H₂ + ½I₂ ⇌ HI",
+       "K^{1/2}"
+      ]
+     ]
+    },
+    {
+     "type": "formula",
+     "label": "Worked example (800 K)",
+     "text": "N₂ + O₂ ⇌ 2NO\n[N₂] = 3.0 × 10⁻³ M, [O₂] = 4.2 × 10⁻³ M, [NO] = 2.8 × 10⁻³ M\nK_{c} = (2.8 × 10⁻³)² / (3.0 × 10⁻³ × 4.2 × 10⁻³) = 0.622"
+    },
+    {
+     "type": "p",
+     "text": "The unit of the equilibrium constant depends on the reaction (it is often treated as dimensionless, because each concentration is compared with the standard state of 1 M)."
+    },
+    {
+     "type": "anim",
+     "name": "kc-calc",
+     "title": "Equilibrium-constant calculator",
+     "caption": "Pick a reaction, move the concentration sliders and read K_{c}; reverse the equation or multiply it by 2 or ½ and see how K changes; below, vary T to see K_{p} = K_{c}(RT)^{Δn}."
+    },
+    {
+     "type": "note",
+     "text": "In N₂ + 3H₂ ⇌ 2NH₃, raise [NH₃] and watch K_{c}. When you double the equation, what happens to K_{c}? (Answer: it is squared.)",
+     "label": "Try it yourself",
+     "kind": "try"
+    }
+   ]
+  },
+  {
+   "id": "homo-hetero",
+   "title": "Homogeneous and heterogeneous equilibria",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "**[[homo]]** — all reactants and products are in the same phase (gas or solution). Examples: N₂(g) + 3H₂(g) ⇌ 2NH₃(g); CH₃COOC₂H₅(aq) + H₂O(l) ⇌ CH₃COOH(aq) + C₂H₅OH(aq); Fe³⁺(aq) + SCN⁻(aq) ⇌ Fe(SCN)²⁺(aq)."
+    },
+    {
+     "type": "p",
+     "text": "For gases it is convenient to use partial pressures instead of concentrations. For an ideal gas pV = nRT, so p = (n/V)RT = [gas]RT. For H₂ + I₂ ⇌ 2HI, K_{p} = (p_{HI})² / (p_{H₂} · p_{I₂}) = K_{c} (the RT factors cancel). But for N₂ + 3H₂ ⇌ 2NH₃, K_{p} = K_{c}(RT)⁻², since the moles of gas go from 4 to 2."
+    },
+    {
+     "type": "formula",
+     "label": "Relation between K_{p} and K_{c}",
+     "text": "K_{p} = K_{c}(RT)^{Δn}\nΔn = (moles of gaseous products) − (moles of gaseous reactants)\nR = 0.0831 bar L mol⁻¹ K⁻¹"
+    },
+    {
+     "type": "table",
+     "head": [
+      "Reaction",
+      "Temperature / K",
+      "K_{p}"
+     ],
+     "rows": [
+      [
+       "N₂ + 3H₂ ⇌ 2NH₃",
+       "298",
+       "6.8 × 10⁵"
+      ],
+      [
+       "",
+       "400",
+       "41"
+      ],
+      [
+       "",
+       "500",
+       "3.6 × 10⁻²"
+      ],
+      [
+       "2SO₂ + O₂ ⇌ 2SO₃",
+       "298",
+       "4.0 × 10²⁴"
+      ],
+      [
+       "",
+       "500",
+       "2.5 × 10¹⁰"
+      ],
+      [
+       "",
+       "700",
+       "3.0 × 10⁴"
+      ],
+      [
+       "N₂O₄ ⇌ 2NO₂",
+       "298",
+       "0.98"
+      ],
+      [
+       "",
+       "400",
+       "47.9"
+      ],
+      [
+       "",
+       "500",
+       "1700"
+      ]
+     ]
+    },
+    {
+     "type": "formula",
+     "label": "Worked example (400 K)",
+     "text": "N₂O₄ ⇌ 2NO₂: K_{p} = 85.87 (pressures in bar), Δn = 2 − 1 = 1\n85.87 = K_{c} × (0.083 × 400)  ⇒  K_{c} ≈ 2.6"
+    },
+    {
+     "type": "p",
+     "text": "**[[hetero]]** — reactants and products in more than one phase, for example solid ⇌ gas. The “concentration” of a pure solid or liquid (mass ÷ volume = density ÷ molar mass) is constant, so it does not appear in K — it counts as 1. In CaCO₃(s) ⇌ CaO(s) + CO₂(g), K_{c} = [CO₂] and K_{p} = p_{CO₂}. At 1100 K the equilibrium CO₂ pressure is 2.0 × 10⁵ Pa, so K_{p} = 2.0 × 10⁵ Pa / 10⁵ Pa = 2.00."
+    },
+    {
+     "type": "anim",
+     "name": "hetero-caco3",
+     "title": "CaCO₃(s) ⇌ CaO(s) + CO₂(g)",
+     "caption": "Change the amount of solid CaCO₃ or the volume: at equilibrium p(CO₂) stays 2.00 bar (as long as some solid is left); the amount of solid does not change the pressure."
+    },
+    {
+     "type": "p",
+     "text": "More examples: Ni(s) + 4CO(g) ⇌ Ni(CO)₄(g), K_{c} = [Ni(CO)₄] / [CO]⁴; Ag₂O(s) + 2HNO₃(aq) ⇌ 2AgNO₃(aq) + H₂O(l), K_{c} = [AgNO₃]² / [HNO₃]². For CO₂(g) + C(s) ⇌ 2CO(g), K_{p} = 3.0 at 1000 K; starting with p(CO₂) = 0.48 bar one gets p(CO) = 0.66 bar and p(CO₂) = 0.15 bar at equilibrium (0.66² / 0.15 ≈ 3.0)."
+    }
+   ]
+  },
+  {
+   "id": "uses-k",
+   "title": "Applications of the equilibrium constant, and Gibbs energy",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Important features of the equilibrium constant:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "K applies only at equilibrium, when the concentrations are constant.",
+      "Its value does not depend on the starting concentrations.",
+      "It has one value at a given temperature; it changes when the temperature changes.",
+      "K of the reverse reaction is the inverse (1/K) of the forward K.",
+      "When two reactions are added, the K of the new reaction is the product of the two K values."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "**1) Extent of a reaction.** A large K means mostly products at equilibrium; a small K means mostly reactants."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Value of K",
+      "In the equilibrium mixture"
+     ],
+     "rows": [
+      [
+       "K > 10³",
+       "mostly products — the reaction almost goes to completion"
+      ],
+      [
+       "10⁻³ < K < 10³",
+       "significant amounts of both reactants and products"
+      ],
+      [
+       "K < 10⁻³",
+       "mostly reactants — the reaction hardly occurs"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Reaction",
+      "K"
+     ],
+     "rows": [
+      [
+       "H₂ + ½O₂ ⇌ H₂O (500 K)",
+       "K_{c} = 2.4 × 10⁴⁷"
+      ],
+      [
+       "H₂ + Cl₂ ⇌ 2HCl (300 K)",
+       "K_{c} = 4.0 × 10³¹"
+      ],
+      [
+       "H₂ + Br₂ ⇌ 2HBr (300 K)",
+       "K_{c} = 5.4 × 10¹⁸"
+      ],
+      [
+       "H₂ + I₂ ⇌ 2HI (700 K)",
+       "K_{c} = 57.0"
+      ],
+      [
+       "N₂O₄ ⇌ 2NO₂ (298 K)",
+       "K_{c} = 4.64 × 10⁻³"
+      ],
+      [
+       "N₂ + O₂ ⇌ 2NO (298 K)",
+       "K_{c} = 4.8 × 10⁻³¹"
+      ],
+      [
+       "H₂O ⇌ H₂ + ½O₂ (500 K)",
+       "K_{c} = 4.1 × 10⁻⁴⁸"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "**2) Direction of a reaction.** Calculate the [[qc]] Q_{c} = [C]^{c}[D]^{d} / ([A]^{a}[B]^{b}) with the concentrations at any moment and compare with K_{c}: if Q < K the reaction goes forward (more products); if Q > K it goes backward; if Q = K it is at equilibrium. Example: H₂ + I₂ ⇌ 2HI, K_{c} = 57.0 at 700 K. With [H₂] = 0.10, [I₂] = 0.20, [HI] = 0.40 M, Q_{c} = 0.40² / (0.10 × 0.20) = 8.0 < 57.0, so the reaction goes forward."
+    },
+    {
+     "type": "anim",
+     "name": "q-vs-k",
+     "title": "Comparing Q_{c} with K_{c}",
+     "caption": "Change the concentrations to make Q smaller or larger; compare Q with K on a log scale to see the direction. The second reaction is Example 6.7 (2A ⇌ B + C)."
+    },
+    {
+     "type": "p",
+     "text": "**3) Calculating equilibrium concentrations.** Given the starting concentrations and K, proceed as follows:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Write the balanced equation.",
+      "Make an ICE table with the rows (I) initial concentration, (C) change on reaching equilibrium, (E) equilibrium concentration. Let x mol L⁻¹ react in the forward direction.",
+      "Put the equilibrium concentrations into the K expression, write the equation in x and solve it (keep the root that is positive and physically meaningful).",
+      "Use x to get each equilibrium concentration, and check by putting them back into K."
+     ],
+     "ordered": true
+    },
+    {
+     "type": "formula",
+     "label": "Worked example (800 K)",
+     "text": "CO + H₂O ⇌ CO₂ + H₂,  K_{c} = 4.24;  initial [CO] = [H₂O] = 0.10 M\nx² / (0.10 − x)² = 4.24  ⇒  x = 0.067 M\n[CO₂] = [H₂] = 0.067 M,  [CO] = [H₂O] = 0.033 M"
+    },
+    {
+     "type": "anim",
+     "name": "ice-solver",
+     "title": "ICE-table solver",
+     "caption": "Choose a reaction and change the starting concentration. The program solves K_{c} = Q_{c} for x and gives the equilibrium concentrations. CO + H₂O (0.10 M) gives x = 0.067; PCl₅ (3.00 M) dissociates by 1.59 mol L⁻¹."
+    },
+    {
+     "type": "p",
+     "text": "**4) Equilibrium constant and Gibbs energy.** How spontaneous a reaction is depends on the Gibbs energy change ΔG. If ΔG < 0 the reaction is spontaneous (forward), if ΔG > 0 it is non-spontaneous (it goes backward), and if ΔG = 0 the system is at equilibrium. At any moment ΔG = ΔG° + RT ln Q. At equilibrium ΔG = 0 and Q = K, so:"
+    },
+    {
+     "type": "formula",
+     "label": "K and ΔG°",
+     "text": "ΔG° = −RT ln K\nK = e^{−ΔG°/RT}"
+    },
+    {
+     "type": "p",
+     "text": "If ΔG° is negative, K > 1 (the reaction goes mostly forward); if ΔG° is positive, K < 1. Example: for ΔG° = 13.8 kJ mol⁻¹ at 298 K, ln K = −13800 / (8.314 × 298) = −5.569, so K = 3.81 × 10⁻³. For sucrose + H₂O ⇌ glucose + fructose with K_{c} = 2 × 10¹³ at 300 K, ΔG° = −RT ln K = −8.314 × 300 × ln(2 × 10¹³) ≈ −7.64 × 10⁴ J mol⁻¹."
+    }
+   ]
+  },
+  {
+   "id": "le-chatelier",
+   "title": "Factors affecting equilibrium",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "If the concentration, pressure or temperature of a system at equilibrium is changed, the equilibrium is upset and the system moves to a new one. [[lechatelier]] tells the direction in advance: **when a change (of concentration, pressure or temperature) is imposed on a system at equilibrium, the system shifts in the direction that reduces the effect of the change.** It applies to every kind of equilibrium."
+    },
+    {
+     "type": "p",
+     "text": "**Effect of concentration.** Adding H₂ to H₂ + I₂ ⇌ 2HI lowers Q_{c} = [HI]² / ([H₂][I₂]) (Q < K), so the reaction goes forward, using H₂ and I₂ to make more HI — until Q again equals K. Removing a product pulls the equilibrium forward: that is why NH₃ is liquefied and removed in its manufacture, and why CaCO₃ decomposes completely in a lime kiln when CO₂ escapes. In Fe³⁺ + SCN⁻ ⇌ [Fe(SCN)]²⁺, adding KSCN deepens the red colour; adding HgCl₂ removes SCN⁻ and the colour fades."
+    },
+    {
+     "type": "p",
+     "text": "**Effect of pressure.** Pressure matters only for gas reactions in which the number of moles changes (Δn ≠ 0). Raising the pressure (reducing the volume) shifts the equilibrium towards fewer moles of gas. In CO + 3H₂ ⇌ CH₄ + H₂O the moles go from 4 to 2; halving the volume doubles every concentration, giving Q_{c} = ¼ K_{c}, so the equilibrium moves forward. In C(s) + CO₂(g) ⇌ 2CO(g) a pressure rise shifts it backward. If Δn = 0 (for example H₂ + I₂ ⇌ 2HI), pressure has no effect; solids and liquids are practically unaffected too."
+    },
+    {
+     "type": "p",
+     "text": "**Adding an inert gas.** Adding an inert gas such as argon at constant volume raises the total pressure, but the partial pressures and concentrations of the reactants do not change, so the equilibrium stays put. At constant pressure the volume increases, which acts like lowering the pressure."
+    },
+    {
+     "type": "p",
+     "text": "**Effect of temperature.** Only a change of temperature changes the value of K. For an exothermic reaction (ΔH negative) K falls when the temperature rises (the equilibrium shifts backward); for an endothermic reaction (ΔH positive) K rises. N₂ + 3H₂ ⇌ 2NH₃, ΔH = −92.38 kJ mol⁻¹ — raising T reduces the yield of NH₃. 2NO₂ ⇌ N₂O₄, ΔH = −57.2 kJ mol⁻¹ — brown NO₂ is darker in hot water (more NO₂) and paler in ice water (more N₂O₄). [Co(H₂O)₆]²⁺ (pink) + 4Cl⁻ ⇌ [CoCl₄]²⁻ (blue) + 6H₂O — blue when heated, pink when cooled."
+    },
+    {
+     "type": "p",
+     "text": "**Effect of a catalyst.** A catalyst raises the rates of the forward and backward reactions equally; so the equilibrium and K do not change — equilibrium is just reached sooner. In the Haber process for N₂ + 3H₂ ⇌ 2NH₃ roughly 500 °C, 200 atm and an iron catalyst are used: a lower temperature would give more product but the reaction would be far too slow, so a catalyst and a compromise temperature are needed. For 2SO₂ + O₂ ⇌ 2SO₃ the K_{c} is very large but the reaction is slow, so a catalyst (such as V₂O₅) is used."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Change",
+      "Shift of equilibrium",
+      "Does K change?"
+     ],
+     "rows": [
+      [
+       "Add reactant / remove product",
+       "forward",
+       "no"
+      ],
+      [
+       "Raise pressure (Δn ≠ 0)",
+       "towards fewer moles of gas",
+       "no"
+      ],
+      [
+       "Raise temperature",
+       "in the endothermic direction",
+       "yes"
+      ],
+      [
+       "Catalyst",
+       "none",
+       "no"
+      ],
+      [
+       "Inert gas at constant volume",
+       "none",
+       "no"
+      ]
+     ]
+    },
+    {
+     "type": "anim",
+     "name": "lechatelier",
+     "title": "Le Chatelier's principle in action",
+     "caption": "Pick a system and a disturbance and press Apply. Compare Q with K to see the shift. K at 298, 400 and 500 K is taken from the K_{p} table (Table 6.5)."
+    },
+    {
+     "type": "note",
+     "text": "In N₂O₄ ⇌ 2NO₂ change the temperature from 298 to 500 K — how much does K rise? And in the NH₃ system, what happens when you cool from 500 K to 298 K?",
+     "label": "Try it yourself",
+     "kind": "try"
+    }
+   ]
+  },
+  {
+   "id": "acids-ph",
+   "title": "Acids, bases and pH",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Equilibria between ions in solution are called [[ionic-eq]]. Substances that conduct electricity in solution or when molten are [[electrolyte]]s — the name was given by Michael Faraday. Sugar and urea are non-electrolytes. Electrolytes are strong or weak: NaCl ionises almost completely in water (strong), but acetic acid ionises only about 5% (weak) — so in a weak electrolyte there is an equilibrium between ions and un-ionised molecules."
+    },
+    {
+     "type": "p",
+     "text": "**Arrhenius concept.** By the [[arrhenius]], an acid gives H⁺ in water and a base gives OH⁻: HX + H₂O → H₃O⁺ + X⁻; MOH → M⁺ + OH⁻. A free H⁺ does not exist in water; it attaches to a water molecule to form the hydronium ion H₃O⁺ (H⁺(aq) means this). But NH₃ has no OH⁻ and is still a base — the Arrhenius idea cannot explain it."
+    },
+    {
+     "type": "p",
+     "text": "**Brønsted–Lowry concept.** In the [[bronsted]] definition, a proton (H⁺) donor is an acid and a proton acceptor is a base. In NH₃ + H₂O ⇌ NH₄⁺ + OH⁻, NH₃ accepts a proton (base) and H₂O gives one (acid). The base left when an acid loses a proton is its conjugate base; the acid formed when a base gains a proton is its conjugate acid — such a pair is a [[conjugate]]. The stronger the acid, the weaker its conjugate base; and a strong base has a weak conjugate acid."
+    },
+    {
+     "type": "formula",
+     "label": "Conjugate pairs",
+     "text": "HCl + H₂O ⇌ H₃O⁺ + Cl⁻\nNH₃ + H₂O ⇌ NH₄⁺ + OH⁻"
+    },
+    {
+     "type": "table",
+     "head": [
+      "Species",
+      "Conjugate acid",
+      "Conjugate base"
+     ],
+     "rows": [
+      [
+       "H₂O",
+       "H₃O⁺",
+       "OH⁻"
+      ],
+      [
+       "HCO₃⁻",
+       "H₂CO₃",
+       "CO₃²⁻"
+      ],
+      [
+       "HSO₄⁻",
+       "H₂SO₄",
+       "SO₄²⁻"
+      ],
+      [
+       "NH₃",
+       "NH₄⁺",
+       "NH₂⁻"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "**Lewis concept.** In the [[lewis]] definition given by G. N. Lewis in 1923, an electron-pair acceptor is an acid and an electron-pair donor is a base. BF₃ (electron-deficient) accepts the lone pair of NH₃ to form BF₃:NH₃. Lewis acids: BF₃, AlCl₃, H⁺, Co³⁺, Mg²⁺. Lewis bases: H₂O, NH₃, OH⁻, F⁻."
+    },
+    {
+     "type": "p",
+     "text": "**Strong acids and bases.** HClO₄, HCl, HBr, HI, HNO₃ and H₂SO₄ are strong acids — they give up protons almost completely in water. LiOH, NaOH, KOH, CsOH and Ba(OH)₂ are strong bases. Their conjugate bases/acids (Cl⁻, NO₃⁻ and so on) are very weak."
+    },
+    {
+     "type": "p",
+     "text": "**Ionisation of water.** Pure water behaves both as an acid and as a base: H₂O + H₂O ⇌ H₃O⁺ + OH⁻. The equilibrium constant of this gives the [[kw]]:"
+    },
+    {
+     "type": "formula",
+     "label": "Ionic product of water",
+     "text": "K_{w} = [H₃O⁺][OH⁻] = 1.0 × 10⁻¹⁴  (298 K)\n[H₃O⁺] = [OH⁻] = 1.0 × 10⁻⁷ M (pure water)"
+    },
+    {
+     "type": "p",
+     "text": "The molarity of pure water is 1000 g L⁻¹ ÷ 18 g mol⁻¹ = 55.55 M, so only about one in 5.5 × 10⁸ molecules is ionised (10⁻⁷ / 55.55 ≈ 1.8 × 10⁻⁹). A solution is acidic if [H₃O⁺] > [OH⁻], neutral if they are equal and basic if [H₃O⁺] < [OH⁻]."
+    },
+    {
+     "type": "p",
+     "text": "**The [[ph]] scale.** Concentrations are put on a log scale: pH = −log[H⁺] (strictly, the activity of H⁺), pOH = −log[OH⁻]. From K_{w} = 10⁻¹⁴, pH + pOH = pK_{w} = 14 (at 298 K). A change of 1 pH unit means a tenfold change in [H⁺]. pH < 7 is acidic, pH = 7 neutral, pH > 7 basic. Example: [H⁺] = 3.8 × 10⁻³ M gives pH = 2.42; for 1.0 × 10⁻⁸ M HCl, including the ionisation of water, [H⁺] = 1.05 × 10⁻⁷ M and pH = 6.98 (not 8 — diluting an acid can never take its pH beyond 7)."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Liquid",
+      "pH"
+     ],
+     "rows": [
+      [
+       "Lime water",
+       "10.5"
+      ],
+      [
+       "Milk of magnesia",
+       "10"
+      ],
+      [
+       "Sea water",
+       "7.8"
+      ],
+      [
+       "Human blood",
+       "7.4"
+      ],
+      [
+       "Milk",
+       "6.8"
+      ],
+      [
+       "Human saliva",
+       "6.4"
+      ],
+      [
+       "Coffee",
+       "5.0"
+      ],
+      [
+       "Tomato juice",
+       "4.2"
+      ],
+      [
+       "Vinegar",
+       "3.0"
+      ],
+      [
+       "Lemon juice",
+       "2.2"
+      ],
+      [
+       "Gastric juice",
+       "1.2"
+      ],
+      [
+       "1 M HCl",
+       "0"
+      ]
+     ]
+    },
+    {
+     "type": "anim",
+     "name": "ph-scale",
+     "title": "pH of a strong acid / base",
+     "caption": "Choose HCl or NaOH and change the concentration (log scale). Read pH, pOH, [H₃O⁺] and [OH⁻]. At 10⁻⁸ M HCl the pH is 6.98. You can compare with the pH of other liquids."
+    },
+    {
+     "type": "note",
+     "text": "pH paper gives the pH to about 0.5 units; a pH meter can read to 0.001. Controlling pH matters in blood, cosmetics and biology.",
+     "label": "Good to know"
+    }
+   ]
+  },
+  {
+   "id": "weak-ionisation",
+   "title": "Ionisation of weak acids and bases",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A weak acid HA ionises only partly in water: HA + H₂O ⇌ H₃O⁺ + A⁻. For an initial concentration c and [[degree-ion]] α, at equilibrium [H⁺] = [A⁻] = cα and [HA] = c(1 − α), so the [[ionisation-const]] is:"
+    },
+    {
+     "type": "formula",
+     "label": "K_{a} of a weak acid",
+     "text": "K_{a} = [H⁺][A⁻] / [HA] = cα² / (1 − α) ≈ cα²   (small α)\nα ≈ √(K_{a} / c)       pK_{a} = −log K_{a}"
+    },
+    {
+     "type": "p",
+     "text": "The larger the K_{a}, the stronger the acid. On dilution α increases (K_{a} stays constant) — this dependence of α on concentration is Ostwald's dilution law. Example: for 0.02 M HF (K_{a} = 3.2 × 10⁻⁴), solving α² + 1.6 × 10⁻² α − 1.6 × 10⁻² = 0 gives α = 0.12; [H₃O⁺] = [F⁻] = 2.4 × 10⁻³ M, [HF] = 1.76 × 10⁻² M and pH = 2.62. For 0.08 M HOCl (K_{a} = 2.5 × 10⁻⁵), x²/(0.08 − x) = K_{a} with x ≪ 0.08 gives [H₃O⁺] = 1.41 × 10⁻³ M, 1.76% dissociation and pH = 2.85."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Acid (298 K)",
+      "K_{a}"
+     ],
+     "rows": [
+      [
+       "HF",
+       "3.5 × 10⁻⁴"
+      ],
+      [
+       "HNO₂",
+       "4.5 × 10⁻⁴"
+      ],
+      [
+       "HCOOH",
+       "1.8 × 10⁻⁴"
+      ],
+      [
+       "Niacin (C₅H₄NCOOH)",
+       "1.5 × 10⁻⁵"
+      ],
+      [
+       "CH₃COOH",
+       "1.74 × 10⁻⁵"
+      ],
+      [
+       "C₆H₅COOH",
+       "6.5 × 10⁻⁵"
+      ],
+      [
+       "HClO",
+       "3.0 × 10⁻⁸"
+      ],
+      [
+       "HCN",
+       "4.9 × 10⁻¹⁰"
+      ],
+      [
+       "C₆H₅OH",
+       "1.3 × 10⁻¹⁰"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "**Weak bases.** For a base B + H₂O ⇌ BH⁺ + OH⁻ such as NH₃, K_{b} = [BH⁺][OH⁻] / [B] = cα² / (1 − α), pK_{b} = −log K_{b}. Example: 0.05 M NH₃ (K_{b} = 1.77 × 10⁻⁵) gives α = 0.018, [OH⁻] = 9.4 × 10⁻⁴ M, pOH = 3.03 and pH = 10.97."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Base (298 K)",
+      "K_{b}"
+     ],
+     "rows": [
+      [
+       "(CH₃)₂NH",
+       "5.4 × 10⁻⁴"
+      ],
+      [
+       "(C₂H₅)₃N",
+       "6.45 × 10⁻⁵"
+      ],
+      [
+       "NH₃",
+       "1.77 × 10⁻⁵"
+      ],
+      [
+       "Quinine",
+       "1.10 × 10⁻⁶"
+      ],
+      [
+       "Pyridine C₅H₅N",
+       "1.77 × 10⁻⁹"
+      ],
+      [
+       "Aniline C₆H₅NH₂",
+       "4.27 × 10⁻¹⁰"
+      ],
+      [
+       "Urea",
+       "1.3 × 10⁻¹⁴"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "**Relation between K_{a} and K_{b}.** For a conjugate pair: NH₄⁺ + H₂O ⇌ H₃O⁺ + NH₃ (K_{a}) and NH₃ + H₂O ⇌ NH₄⁺ + OH⁻ (K_{b}) add up to 2H₂O ⇌ H₃O⁺ + OH⁻. When reactions are added their K values multiply, so:"
+    },
+    {
+     "type": "formula",
+     "label": "A conjugate pair",
+     "text": "K_{a} × K_{b} = K_{w}     pK_{a} + pK_{b} = pK_{w} = 14 (298 K)\nExample: K_{a}(NH₄⁺) = 1.0 × 10⁻¹⁴ / 1.77 × 10⁻⁵ = 5.64 × 10⁻¹⁰"
+    },
+    {
+     "type": "anim",
+     "name": "weak-acid",
+     "title": "Weak acids/bases and the common-ion effect",
+     "caption": "Change the substance and concentration: see the α against log c curve and the pH (HF at 0.02 M: α = 0.12, pH = 2.62). Use ‘Add its salt’ to add a salt supplying the common ion and see how α and pH change."
+    },
+    {
+     "type": "p",
+     "text": "**Polyprotic acids.** Acids such as H₂CO₃ and H₃PO₄ give more than one proton, each step with its own K: H₂X ⇌ H⁺ + HX⁻ (K_{a1}), HX⁻ ⇌ H⁺ + X²⁻ (K_{a2}). Always K_{a1} > K_{a2} > K_{a3}, because it is harder to remove a proton from a negative ion. So usually the first step decides the pH."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Acid (298 K)",
+      "K_{a1}",
+      "K_{a2}",
+      "K_{a3}"
+     ],
+     "rows": [
+      [
+       "Oxalic",
+       "5.9 × 10⁻²",
+       "6.4 × 10⁻⁵",
+       "—"
+      ],
+      [
+       "Ascorbic",
+       "7.4 × 10⁻⁴",
+       "1.6 × 10⁻¹²",
+       "—"
+      ],
+      [
+       "Sulphurous",
+       "1.7 × 10⁻²",
+       "6.4 × 10⁻⁸",
+       "—"
+      ],
+      [
+       "Carbonic",
+       "4.3 × 10⁻⁷",
+       "5.6 × 10⁻¹¹",
+       "—"
+      ],
+      [
+       "Citric",
+       "7.4 × 10⁻⁴",
+       "1.7 × 10⁻⁵",
+       "4.0 × 10⁻⁷"
+      ],
+      [
+       "Phosphoric",
+       "7.5 × 10⁻³",
+       "6.2 × 10⁻⁸",
+       "4.2 × 10⁻¹³"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "**What decides the strength of an acid.** The strength and polarity of the H–A bond decide how easily H⁺ is released. Down a group, a larger A means a weaker bond and a stronger acid: HF ≪ HCl ≪ HBr ≪ HI; H₂O < H₂S. Across a period, a more electronegative A makes the bond more polar and the acid stronger: CH₄ < NH₃ < H₂O < HF."
+    },
+    {
+     "type": "p",
+     "text": "**Common-ion effect.** Adding CH₃COONa to CH₃COOH ⇌ H⁺ + CH₃COO⁻ raises [CH₃COO⁻], and by Le Chatelier the equilibrium shifts backward, lowering [H⁺] — this is the [[common-ion]]. 0.05 M acetic acid (K_{a} = 1.8 × 10⁻⁵) has pH ≈ 3.02; adding 0.05 M CH₃COONa, x(0.05 + x)/(0.05 − x) = K_{a} gives [H⁺] = 1.8 × 10⁻⁵ M and pH = 4.74. Likewise, adding 0.20 M NH₄Cl to 0.10 M NH₃ gives [OH⁻] = 8.85 × 10⁻⁶ M and pH = 8.95 (NH₃ alone at 0.10 M has pH ≈ 11.1)."
+    }
+   ]
+  },
+  {
+   "id": "hydrolysis",
+   "title": "Hydrolysis of salts and the pH of their solutions",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "When a salt dissolves, its cation or anion may react with water to give an acid or a base. This reaction of the cation, the anion or both with water is the [[hydrolysis]] of the salt, and it changes the pH of the solution. The cations of strong bases (Na⁺, K⁺, Ca²⁺) and the anions of strong acids (Cl⁻, NO₃⁻, ClO₄⁻) do not hydrolyse."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Type of salt",
+      "Example",
+      "pH of solution"
+     ],
+     "rows": [
+      [
+       "strong acid + strong base",
+       "NaCl, KNO₃",
+       "7"
+      ],
+      [
+       "weak acid + strong base",
+       "CH₃COONa",
+       "> 7 (basic)"
+      ],
+      [
+       "strong acid + weak base",
+       "NH₄Cl",
+       "< 7 (acidic)"
+      ],
+      [
+       "weak acid + weak base",
+       "CH₃COONH₄",
+       "depends on pK_{a} and pK_{b}"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "CH₃COONa: CH₃COO⁻ + H₂O ⇌ CH₃COOH + OH⁻ — acetic acid is weak and stays un-ionised, so OH⁻ builds up and the solution is basic. NH₄Cl: NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺ — NH₃ is a weak base, so H₃O⁺ builds up and the solution is acidic. In CH₃COONH₄ both ions hydrolyse; the nature of the solution depends on comparing the strengths of the acid and the base. The following formulas can be used (c = salt concentration):"
+    },
+    {
+     "type": "formula",
+     "label": "pH formulas",
+     "text": "Weak acid + strong base:  pH = 7 + ½(pK_{a} + log c)\nStrong acid + weak base:  pH = 7 − ½(pK_{b} + log c)\nWeak acid + weak base:   pH = 7 + ½(pK_{a} − pK_{b})"
+    },
+    {
+     "type": "p",
+     "text": "Example: for CH₃COONH₄, pK_{a} = 4.76 and pK_{b} = 4.75, so pH = 7 + ½(4.76 − 4.75) = 7.005 — almost neutral. Note that the pH of a weak-acid/weak-base salt does not depend on its concentration. The formulas are approximate — they assume a small degree of hydrolysis."
+    },
+    {
+     "type": "anim",
+     "name": "hydrolysis",
+     "title": "pH of a salt solution",
+     "caption": "Pick a salt and change the concentration. Read the pH, the hydrolysis equation and its degree. NaCl is neutral, CH₃COONa basic, NH₄Cl acidic; CH₃COONH₄ is almost neutral."
+    }
+   ]
+  },
+  {
+   "id": "buffer",
+   "title": "Buffer solutions",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A [[buffer]] is a solution whose pH changes hardly at all when a little acid or base is added, or when it is diluted. The pH of blood is held near 7.4 by buffers. An acidic buffer is a weak acid with its salt (for example CH₃COOH + CH₃COONa, pH ≈ 4.75); a basic buffer is a weak base with its salt (NH₄OH + NH₄Cl, pH ≈ 9.25). Buffers are essential in medicines, cosmetics and biochemical reactions."
+    },
+    {
+     "type": "p",
+     "text": "Why does it work? If a little H⁺ arrives, CH₃COO⁻ takes it up to form CH₃COOH; if a little OH⁻ arrives, CH₃COOH neutralises it. Both components — the acid and its conjugate base — are present in large amounts, so the ratio [A⁻]/[HA] changes only slightly."
+    },
+    {
+     "type": "p",
+     "text": "From K_{a} = [H⁺][A⁻]/[HA] for HA ⇌ H⁺ + A⁻ we get [H⁺] = K_{a}[HA]/[A⁻]; taking −log of both sides gives the [[henderson]]:"
+    },
+    {
+     "type": "formula",
+     "label": "Henderson–Hasselbalch equation",
+     "text": "pH = pK_{a} + log([salt] / [acid]) = pK_{a} + log([A⁻] / [HA])\nBasic buffer: pOH = pK_{b} + log([BH⁺] / [B])"
+    },
+    {
+     "type": "p",
+     "text": "When [A⁻] = [HA], pH = pK_{a}. To make a buffer of a given pH, choose an acid whose pK_{a} is near that pH and adjust the salt-to-acid ratio. Acetic acid has pK_{a} = 4.76, so its buffer works within pH 4.76 ± 1. For NH₄OH, pK_{b} = 4.75; with equal concentrations of NH₄OH and NH₄Cl, pOH = 4.75 and pH = 9.25."
+    },
+    {
+     "type": "formula",
+     "label": "Worked example",
+     "text": "0.10 mol CH₃COOH + 0.10 mol CH₃COONa in 1 L: pH = 4.76 + log 1 = 4.76\nAdd 0.01 mol HCl: [A⁻] = 0.09, [HA] = 0.11 ⇒ pH = 4.76 + log(0.09/0.11) = 4.67\nAdd 0.01 mol NaOH: [A⁻] = 0.11, [HA] = 0.09 ⇒ pH = 4.85\nThe same 0.01 mol HCl in pure water: pH = 7 → 2"
+    },
+    {
+     "type": "anim",
+     "name": "buffer",
+     "title": "A buffer against pure water",
+     "caption": "Change the buffer and the moles of its components. Add 0.01 mol HCl or NaOH again and again and compare how the pH of the buffer and of pure water change. With little component, the buffer capacity runs out."
+    }
+   ]
+  },
+  {
+   "id": "solubility",
+   "title": "Solubility equilibria of sparingly soluble salts",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The [[solubility]] of salts varies — some (such as CaCl₂) dissolve freely, others (BaSO₄, AgCl) hardly at all. Solubility depends on the lattice enthalpy of the salt and the solvation enthalpy of its ions; the salt dissolves when water surrounding the ions pays for breaking up the lattice. At 298 K salts fall into three classes by solubility:"
+    },
+    {
+     "type": "table",
+     "head": [
+      "Class",
+      "Solubility"
+     ],
+     "rows": [
+      [
+       "I — soluble",
+       "> 0.1 M"
+      ],
+      [
+       "II — slightly soluble",
+       "0.01 M – 0.1 M"
+      ],
+      [
+       "III — sparingly soluble",
+       "< 0.01 M"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "In a saturated solution of BaSO₄ the equilibrium is BaSO₄(s) ⇌ Ba²⁺(aq) + SO₄²⁻(aq). The concentration of the solid is constant, so the equilibrium constant is the [[ksp]]:"
+    },
+    {
+     "type": "formula",
+     "label": "Solubility product",
+     "text": "K_{sp} = [Ba²⁺][SO₄²⁻] = 1.1 × 10⁻¹⁰  (298 K)\nFor molar solubility S, K_{sp} = S × S ⇒ S = 1.05 × 10⁻⁵ mol L⁻¹"
+    },
+    {
+     "type": "p",
+     "text": "In general, for M_{x}A_{y} ⇌ xM^{y+} + yA^{x−}, K_{sp} = [M^{y+}]^{x}[A^{x−}]^{y} = (xS)^{x}(yS)^{y} = x^{x}y^{y}S^{x+y}, so S = (K_{sp} / x^{x}y^{y})^{1/(x+y)}. For Zr₃(PO₄)₄, K_{sp} = (3S)³(4S)⁴ = 6912 S⁷. Example: A₂X₃ with K_{sp} = 1.1 × 10⁻²³ gives (2S)²(3S)³ = 108 S⁵ = 1.1 × 10⁻²³, S ≈ 1.0 × 10⁻⁵ mol L⁻¹. For AgCN (K_{sp} = 6.0 × 10⁻¹⁷) S = 7.8 × 10⁻⁹ M, and for Ni(OH)₂ (K_{sp} = 2.0 × 10⁻¹⁵) 4S³ = 2.0 × 10⁻¹⁵ gives S = 7.9 × 10⁻⁶ M — so Ni(OH)₂ is more soluble. Note: when the numbers of ions differ, K_{sp} values cannot be compared directly as solubilities."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Salt",
+      "K_{sp} (298 K)"
+     ],
+     "rows": [
+      [
+       "AgI",
+       "8.3 × 10⁻¹⁷"
+      ],
+      [
+       "AgBr",
+       "5.0 × 10⁻¹³"
+      ],
+      [
+       "Ag₂CrO₄",
+       "1.1 × 10⁻¹²"
+      ],
+      [
+       "AgCl",
+       "1.8 × 10⁻¹⁰"
+      ],
+      [
+       "BaSO₄",
+       "1.1 × 10⁻¹⁰"
+      ],
+      [
+       "CaCO₃",
+       "2.8 × 10⁻⁹"
+      ],
+      [
+       "CaF₂",
+       "5.3 × 10⁻⁹"
+      ],
+      [
+       "Ni(OH)₂",
+       "2.0 × 10⁻¹⁵"
+      ],
+      [
+       "Al(OH)₃",
+       "1.3 × 10⁻³³"
+      ],
+      [
+       "PbCl₂",
+       "1.6 × 10⁻⁵"
+      ],
+      [
+       "Ag₂SO₄",
+       "1.4 × 10⁻⁵"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "**Precipitation.** On mixing two solutions, calculate the ionic product Q = [M^{y+}]^{x}[A^{x−}]^{y} and compare it with K_{sp}: if Q > K_{sp} a precipitate forms; if Q < K_{sp} the salt stays dissolved (unsaturated); if Q = K_{sp} the solution is saturated."
+    },
+    {
+     "type": "p",
+     "text": "**Common-ion effect.** If one ion of the salt is already present, by Le Chatelier the equilibrium shifts towards the solid and the solubility falls. Example: Ni(OH)₂ in 0.10 M NaOH — taking [OH⁻] ≈ 0.10 M, 2.0 × 10⁻¹⁵ = S(0.10)², S = 2.0 × 10⁻¹³ M (against 7.9 × 10⁻⁶ M in pure water). Passing HCl gas into a saturated NaCl solution raises [Cl⁻] and precipitates NaCl. pH also matters: the anion of a weak acid (such as F⁻, PO₄³⁻) combines with H⁺, so the solubility rises when the pH is lowered."
+    },
+    {
+     "type": "anim",
+     "name": "ksp-solubility",
+     "title": "K_{sp} and solubility",
+     "caption": "Choose a salt: see all solubilities on a log scale and S from K_{sp}. Add a common ion to watch S fall, or use ‘Precipitation test’ to change the ion concentrations and compare Q with K_{sp}."
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "In physical processes (liquid ⇌ vapour, solid ⇌ liquid) and reversible chemical reactions, dynamic equilibrium is reached when the forward and backward rates are equal; the measurable properties are then constant.",
+  "For aA + bB ⇌ cC + dD, K_{c} = [C]^{c}[D]^{d} / ([A]^{a}[B]^{b}); for gases there is K_{p}, with K_{p} = K_{c}(RT)^{Δn}. K depends only on temperature.",
+  "Reversing the equation inverts K; multiplying by n raises it to the power n. In heterogeneous equilibria pure solids and liquids do not appear in K (K_{p} = p_{CO₂} for CaCO₃ ⇌ CaO + CO₂).",
+  "A large K (>10³) means mostly products, a small K (<10⁻³) mostly reactants. If Q_{c} < K the reaction goes forward, if Q_{c} > K backward, and if Q_{c} = K it is at equilibrium. An ICE table gives the equilibrium concentrations.",
+  "ΔG° = −RT ln K: a negative ΔG° gives K > 1, a positive ΔG° gives K < 1.",
+  "Le Chatelier's principle: if the concentration, pressure or temperature is changed, the equilibrium shifts to reduce the effect. Only temperature changes K; a catalyst and an inert gas at constant volume do not move the equilibrium.",
+  "Arrhenius (H⁺/OH⁻), Brønsted–Lowry (proton donor/acceptor, conjugate pairs) and Lewis (electron-pair acceptor/donor) are three ideas of acids and bases. The conjugate base of a strong acid is weak.",
+  "K_{w} = [H₃O⁺][OH⁻] = 10⁻¹⁴ (298 K); pH = −log[H⁺], pH + pOH = 14. For a weak acid K_{a} = cα²/(1 − α), likewise K_{b} for a weak base; K_{a} × K_{b} = K_{w}. For polyprotic acids K_{a1} > K_{a2} > K_{a3}.",
+  "The common-ion effect reduces ionisation. Hydrolysis of salts changes the pH: salts of weak acids are basic, salts of weak bases acidic, strong–strong salts neutral.",
+  "The pH of a buffer is pH = pK_{a} + log([salt]/[acid]) (Henderson–Hasselbalch); it keeps the pH nearly constant when a little acid or base is added.",
+  "For a sparingly soluble salt M_{x}A_{y}, K_{sp} = (xS)^{x}(yS)^{y}; a precipitate forms when Q > K_{sp}. A common ion lowers the solubility, and the solubility of a salt of a weak-acid anion rises as the pH falls."
+ ]
+}

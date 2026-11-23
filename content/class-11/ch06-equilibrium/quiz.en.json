@@ -1,0 +1,246 @@
+{
+ "questions": [
+  {
+   "q": "Which statement about a chemical reaction at equilibrium is correct?",
+   "options": [
+    "The reaction stops completely",
+    "Forward and backward rates are equal and the concentrations are constant",
+    "The reactant concentration becomes zero",
+    "The product concentration equals the reactant concentration"
+   ],
+   "answer": 1,
+   "explain": "Equilibrium is dynamic — both reactions go on but, the rates being equal, the concentrations do not change. The concentrations need not be equal."
+  },
+  {
+   "q": "What is the expression for K_{c} of H₂(g) + I₂(g) ⇌ 2HI(g)?",
+   "options": [
+    "[H₂][I₂] / [HI]²",
+    "[HI] / ([H₂][I₂])",
+    "[HI]² / ([H₂][I₂])",
+    "[HI]² / ([H₂] + [I₂])"
+   ],
+   "answer": 2,
+   "explain": "Products on top, reactants below, each raised to its coefficient — HI is squared."
+  },
+  {
+   "q": "If K_{c} of N₂ + 3H₂ ⇌ 2NH₃ is K, what is K_{c} of 2NH₃ ⇌ N₂ + 3H₂?",
+   "options": [
+    "K",
+    "1/K",
+    "K²",
+    "−K"
+   ],
+   "answer": 1,
+   "explain": "The equilibrium constant of the reverse reaction is the inverse, 1/K."
+  },
+  {
+   "q": "If K_{c} of N₂ + 3H₂ ⇌ 2NH₃ is K, what is K_{c} of ½N₂ + 3/2 H₂ ⇌ NH₃?",
+   "options": [
+    "2K",
+    "K²",
+    "√K",
+    "1/K"
+   ],
+   "answer": 2,
+   "explain": "Multiplying the equation by n gives Kⁿ; for n = ½ it is K^{1/2} = √K."
+  },
+  {
+   "q": "For N₂ + O₂ ⇌ 2NO at 800 K, [N₂] = 3.0 × 10⁻³ M, [O₂] = 4.2 × 10⁻³ M and [NO] = 2.8 × 10⁻³ M at equilibrium. What is K_{c}?",
+   "options": [
+    "1.61",
+    "0.622",
+    "0.311",
+    "6.22"
+   ],
+   "answer": 1,
+   "explain": "K_{c} = (2.8 × 10⁻³)² / (3.0 × 10⁻³ × 4.2 × 10⁻³) = 7.84 × 10⁻⁶ / 1.26 × 10⁻⁵ = 0.622."
+  },
+  {
+   "q": "In K_{p} = K_{c}(RT)^{Δn}, what is Δn for N₂ + 3H₂ ⇌ 2NH₃?",
+   "options": [
+    "+2",
+    "+1",
+    "−2",
+    "0"
+   ],
+   "answer": 2,
+   "explain": "Δn = moles of gaseous products − moles of gaseous reactants = 2 − 4 = −2."
+  },
+  {
+   "q": "What is K_{p} for CaCO₃(s) ⇌ CaO(s) + CO₂(g)?",
+   "options": [
+    "p_{CO₂}",
+    "p_{CO₂} / p_{CaCO₃}",
+    "p_{CaO} × p_{CO₂}",
+    "1"
+   ],
+   "answer": 0,
+   "explain": "Pure solids do not appear in K; only the gas CO₂ does — K_{p} = p_{CO₂}."
+  },
+  {
+   "q": "K_{c} of N₂ + O₂ ⇌ 2NO is 4.8 × 10⁻³¹ at 298 K. What does it mean?",
+   "options": [
+    "Reactants dominate at equilibrium — the reaction hardly occurs",
+    "The reaction goes almost to completion",
+    "Reactants and products are equal",
+    "The reaction is very fast"
+   ],
+   "answer": 0,
+   "explain": "For K < 10⁻³ the equilibrium mixture is mostly reactants. K tells the extent, not the speed."
+  },
+  {
+   "q": "H₂ + I₂ ⇌ 2HI, K_{c} = 57.0 (700 K). With [H₂] = 0.10, [I₂] = 0.20, [HI] = 0.40 M, Q_{c} = 8.0. Which way does the reaction go?",
+   "options": [
+    "Forward (HI increases)",
+    "Backward",
+    "Neither; it is at equilibrium",
+    "Cannot be told"
+   ],
+   "answer": 0,
+   "explain": "When Q < K the reaction moves towards more products, i.e. forward."
+  },
+  {
+   "q": "CO + H₂O ⇌ CO₂ + H₂ (K_{c} = 4.24, 800 K). Starting with 0.10 M each of CO and H₂O, what is [CO₂] at equilibrium?",
+   "options": [
+    "0.033 M",
+    "0.067 M",
+    "0.050 M",
+    "0.100 M"
+   ],
+   "answer": 1,
+   "explain": "x² / (0.10 − x)² = 4.24 ⇒ x/(0.10 − x) = 2.06 ⇒ x = 0.067 M."
+  },
+  {
+   "q": "What happens to N₂ + 3H₂ ⇌ 2NH₃ when the pressure is raised at constant temperature?",
+   "options": [
+    "Equilibrium shifts forward — more NH₃",
+    "Equilibrium shifts backward",
+    "No change",
+    "The value of K increases"
+   ],
+   "answer": 0,
+   "explain": "Moles fall from 4 to 2; higher pressure favours fewer moles (forward). K does not change since T is the same."
+  },
+  {
+   "q": "What happens to K of an exothermic reaction when the temperature is raised?",
+   "options": [
+    "Increases",
+    "Decreases",
+    "Stays the same",
+    "Becomes zero"
+   ],
+   "answer": 1,
+   "explain": "For an exothermic reaction a higher temperature shifts the equilibrium backward, so K decreases (as in NH₃ synthesis)."
+  },
+  {
+   "q": "What does a catalyst do to an equilibrium?",
+   "options": [
+    "Increases K",
+    "Pushes the equilibrium towards products",
+    "Helps reach equilibrium sooner without changing K",
+    "Destroys the equilibrium"
+   ],
+   "answer": 2,
+   "explain": "A catalyst speeds up both directions equally; the position of equilibrium and K are unchanged."
+  },
+  {
+   "q": "What is the conjugate base of HCO₃⁻?",
+   "options": [
+    "H₂CO₃",
+    "CO₃²⁻",
+    "OH⁻",
+    "CO₂"
+   ],
+   "answer": 1,
+   "explain": "Losing a proton, the acid HCO₃⁻ gives CO₃²⁻. H₂CO₃ is its conjugate acid."
+  },
+  {
+   "q": "Which of the following is a Lewis acid?",
+   "options": [
+    "NH₃",
+    "OH⁻",
+    "BF₃",
+    "H₂O"
+   ],
+   "answer": 2,
+   "explain": "BF₃ is electron-deficient and accepts an electron pair. The others donate electron pairs (bases)."
+  },
+  {
+   "q": "About what is the pH of 1.0 × 10⁻⁸ M HCl?",
+   "options": [
+    "8",
+    "7",
+    "6.98",
+    "6"
+   ],
+   "answer": 2,
+   "explain": "The ionisation of water must be included: [H⁺] = 1.05 × 10⁻⁷ M, pH = 6.98. An acid cannot have pH above 7."
+  },
+  {
+   "q": "What is the degree of ionisation α of 0.02 M HF (K_{a} = 3.2 × 10⁻⁴)?",
+   "options": [
+    "0.012",
+    "0.12",
+    "0.50",
+    "0.0012"
+   ],
+   "answer": 1,
+   "explain": "Solving the quadratic K_{a} = cα²/(1 − α) gives α = 0.12; the pH is 2.62."
+  },
+  {
+   "q": "K_{b} of NH₃ is 1.77 × 10⁻⁵. What is K_{a} of NH₄⁺? (K_{w} = 10⁻¹⁴)",
+   "options": [
+    "1.77 × 10⁻¹⁹",
+    "5.64 × 10⁻¹⁰",
+    "1.77 × 10⁻⁵",
+    "5.64 × 10⁻⁵"
+   ],
+   "answer": 1,
+   "explain": "K_{a} × K_{b} = K_{w}; K_{a} = 10⁻¹⁴ / 1.77 × 10⁻⁵ = 5.64 × 10⁻¹⁰."
+  },
+  {
+   "q": "What is an aqueous solution of CH₃COONa like?",
+   "options": [
+    "Acidic (pH < 7)",
+    "Basic (pH > 7)",
+    "Neutral (pH = 7)",
+    "Cannot be decided"
+   ],
+   "answer": 1,
+   "explain": "CH₃COO⁻ + H₂O ⇌ CH₃COOH + OH⁻ — the anion of a weak acid hydrolyses and gives OH⁻, so the solution is basic."
+  },
+  {
+   "q": "In a buffer [CH₃COONa] / [CH₃COOH] = 10 and pK_{a} = 4.76. What is the pH?",
+   "options": [
+    "3.76",
+    "4.76",
+    "5.76",
+    "9.52"
+   ],
+   "answer": 2,
+   "explain": "pH = pK_{a} + log 10 = 4.76 + 1 = 5.76."
+  },
+  {
+   "q": "K_{sp} of AgCl is 1.8 × 10⁻¹⁰ at 298 K. What is its solubility S in water?",
+   "options": [
+    "1.8 × 10⁻¹⁰ M",
+    "9.0 × 10⁻¹¹ M",
+    "1.34 × 10⁻⁵ M",
+    "3.6 × 10⁻⁵ M"
+   ],
+   "answer": 2,
+   "explain": "K_{sp} = S² ⇒ S = √(1.8 × 10⁻¹⁰) = 1.34 × 10⁻⁵ mol L⁻¹."
+  },
+  {
+   "q": "Why is AgCl less soluble in NaCl solution than in pure water?",
+   "options": [
+    "The common ion Cl⁻ shifts the equilibrium towards solid AgCl",
+    "NaCl reacts with Ag⁺ and coats it",
+    "K_{sp} decreases",
+    "The temperature rises"
+   ],
+   "answer": 0,
+   "explain": "When Q = [Ag⁺][Cl⁻] exceeds K_{sp}, the salt precipitates, so the solubility falls. K_{sp} itself does not change (same temperature)."
+  }
+ ]
+}

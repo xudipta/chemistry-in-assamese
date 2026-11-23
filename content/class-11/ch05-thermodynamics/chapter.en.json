@@ -1,0 +1,679 @@
+{
+  "id": "class-11/ch05-thermodynamics",
+  "class": 11,
+  "number": 5,
+  "title": {
+    "as": "তাপগতি বিজ্ঞান",
+    "en": "Thermodynamics"
+  },
+  "scripts": [
+    "anim.js"
+  ],
+  "goals": [
+    "Explain system, surroundings and the types of system, and the idea of a state function",
+    "Define internal energy, heat and work and apply the first law ΔU = q + w",
+    "Calculate pressure–volume work, relate ΔH to ΔU, and use heat capacity and calorimetry",
+    "Find reaction enthalpies with standard enthalpies of formation and Hess's law; recognise the different kinds of enthalpy",
+    "Understand entropy, the second and third laws, and use Gibbs energy to judge spontaneity and equilibrium (ΔG° = −RT ln K)"
+  ],
+  "glossary": {
+    "system": {
+      "as": "তন্ত্ৰ",
+      "en": "system",
+      "def": "The part of the universe chosen for study."
+    },
+    "surroundings": {
+      "as": "পাৰিপাৰ্শ্বিক",
+      "en": "surroundings",
+      "def": "Everything outside the system that can exchange energy or matter with it."
+    },
+    "open": {
+      "as": "মুক্ত তন্ত্ৰ",
+      "en": "open system",
+      "def": "A system that exchanges both matter and energy with its surroundings."
+    },
+    "closed": {
+      "as": "আবদ্ধ তন্ত্ৰ",
+      "en": "closed system",
+      "def": "A system that exchanges energy but not matter."
+    },
+    "isolated": {
+      "as": "অন্তৰিত তন্ত্ৰ",
+      "en": "isolated system",
+      "def": "A system that exchanges neither matter nor energy."
+    },
+    "statefn": {
+      "as": "অৱস্থা ফলন",
+      "en": "state function",
+      "def": "A property whose value depends only on the present state, not on the path taken (e.g. U, H, S, G)."
+    },
+    "extensive": {
+      "as": "প্ৰসাৰী ধৰ্ম",
+      "en": "extensive property",
+      "def": "A property that depends on the amount of matter (mass, volume, U, H)."
+    },
+    "intensive": {
+      "as": "অন্তঃসাৰী ধৰ্ম",
+      "en": "intensive property",
+      "def": "A property independent of the amount of matter (temperature, pressure, density)."
+    },
+    "internal-energy": {
+      "as": "অন্তৰ্নিহিত শক্তি",
+      "en": "internal energy",
+      "def": "The total energy contained in the system (chemical, electrical, mechanical, …); symbol U."
+    },
+    "work": {
+      "as": "কাৰ্য",
+      "en": "work",
+      "def": "A mode of energy transfer between system and surroundings (w); a path-dependent quantity."
+    },
+    "heat": {
+      "as": "তাপ",
+      "en": "heat",
+      "def": "Energy transferred because of a temperature difference (q)."
+    },
+    "adiabatic": {
+      "as": "ৰুদ্ধতাপ প্ৰক্ৰিয়া",
+      "en": "adiabatic process",
+      "def": "A process in which no heat is exchanged with the surroundings (q = 0)."
+    },
+    "first-law": {
+      "as": "তাপগতিবিজ্ঞানৰ প্ৰথম সূত্ৰ",
+      "en": "first law of thermodynamics",
+      "def": "ΔU = q + w; energy can be neither created nor destroyed."
+    },
+    "isothermal": {
+      "as": "সমোষ্ণী প্ৰক্ৰিয়া",
+      "en": "isothermal process",
+      "def": "A process carried out at constant temperature (ΔT = 0)."
+    },
+    "reversible": {
+      "as": "প্ৰত্যাৱৰ্তী প্ৰক্ৰিয়া",
+      "en": "reversible process",
+      "def": "A process carried out infinitely slowly, always near equilibrium, that a tiny change can reverse."
+    },
+    "irreversible": {
+      "as": "অপ্ৰত্যাৱৰ্তী প্ৰক্ৰিয়া",
+      "en": "irreversible process",
+      "def": "An ordinary, finite-rate process that takes place away from equilibrium."
+    },
+    "enthalpy": {
+      "as": "এনথালপি",
+      "en": "enthalpy",
+      "def": "H = U + pV; at constant pressure the heat absorbed or released equals ΔH."
+    },
+    "heat-capacity": {
+      "as": "তাপধাৰিতা",
+      "en": "heat capacity",
+      "def": "Heat needed to raise the temperature by 1 K (C = q/ΔT)."
+    },
+    "specific-heat": {
+      "as": "আপেক্ষিক তাপ",
+      "en": "specific heat",
+      "def": "Heat needed to raise 1 g of a substance by 1 °C (or 1 K)."
+    },
+    "calorimeter": {
+      "as": "কেলৰিমিটাৰ",
+      "en": "calorimeter",
+      "def": "An apparatus used to measure heat changes of reactions."
+    },
+    "std-state": {
+      "as": "প্ৰমাণ অৱস্থা",
+      "en": "standard state",
+      "def": "The pure form of a substance at 1 bar and the stated temperature."
+    },
+    "formation": {
+      "as": "প্ৰমাণ সংগঠন এনথালপি",
+      "en": "standard enthalpy of formation",
+      "def": "Enthalpy change when 1 mol of a compound forms from its elements in their reference states (ΔfH°)."
+    },
+    "thermochem": {
+      "as": "তাপৰাসায়নিক সমীকৰণ",
+      "en": "thermochemical equation",
+      "def": "A balanced equation written with ΔH and the physical states of the substances."
+    },
+    "hess": {
+      "as": "হেছৰ স্থিৰ সংকলন সূত্ৰ",
+      "en": "Hess's law of constant heat summation",
+      "def": "The total enthalpy change is the same whether a reaction takes place in one step or in several."
+    },
+    "combustion": {
+      "as": "প্ৰমাণ দহন এনথালপি",
+      "en": "standard enthalpy of combustion",
+      "def": "Enthalpy change when 1 mol of a substance burns completely in excess oxygen (ΔcH°)."
+    },
+    "atomization": {
+      "as": "পৰমাণুকৰণ এনথালপি",
+      "en": "enthalpy of atomization",
+      "def": "Enthalpy change when 1 mol of a substance is converted to gaseous atoms (ΔaH°)."
+    },
+    "bond-enthalpy": {
+      "as": "বান্ধনি এনথালপি",
+      "en": "bond enthalpy",
+      "def": "Enthalpy needed to break 1 mol of a bond in the gas phase."
+    },
+    "lattice": {
+      "as": "লেটিছ এনথালপি",
+      "en": "lattice enthalpy",
+      "def": "Enthalpy change when 1 mol of an ionic solid is separated into gaseous ions."
+    },
+    "born-haber": {
+      "as": "বৰ্ন-হেবাৰ চক্ৰ",
+      "en": "Born–Haber cycle",
+      "def": "An enthalpy cycle using Hess's law to find lattice enthalpy."
+    },
+    "spontaneous": {
+      "as": "স্বতঃস্ফূৰ্ত প্ৰক্ৰিয়া",
+      "en": "spontaneous process",
+      "def": "A process that can occur on its own without outside help."
+    },
+    "entropy": {
+      "as": "এনট্ৰপি",
+      "en": "entropy",
+      "def": "A measure of the disorder of a system (S); a state function."
+    },
+    "second-law": {
+      "as": "তাপগতিবিজ্ঞানৰ দ্বিতীয় সূত্ৰ",
+      "en": "second law of thermodynamics",
+      "def": "In a spontaneous process the entropy of the universe (system + surroundings) increases."
+    },
+    "third-law": {
+      "as": "তাপগতিবিজ্ঞানৰ তৃতীয় সূত্ৰ",
+      "en": "third law of thermodynamics",
+      "def": "The entropy of a perfectly crystalline pure substance is zero at absolute zero."
+    },
+    "gibbs": {
+      "as": "গীবছ শক্তি",
+      "en": "Gibbs energy",
+      "def": "G = H − TS; the criterion of spontaneity at constant temperature and pressure."
+    }
+  },
+  "sections": [
+    {
+      "id": "terms",
+      "title": "Thermodynamic terms",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "In a chemical reaction energy changes hands: heat may be released or absorbed. Thermodynamics keeps the books on these energy changes and tells us whether a reaction can occur and how far it can go. It cannot tell us how fast it will happen."
+        },
+        {
+          "type": "p",
+          "text": "First, a few terms. The part of the universe we study is the [[system]]; everything else is the [[surroundings]]. The real or imaginary surface between them is the boundary. So universe = system + surroundings."
+        },
+        {
+          "type": "p",
+          "text": "Depending on what can cross the boundary, a system is one of three kinds:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "[[open]] — both matter and energy are exchanged. Example: hot water in an open beaker.",
+            "[[closed]] — only energy is exchanged, not matter. Example: water in a sealed conducting vessel.",
+            "[[isolated]] — neither matter nor energy is exchanged. Example: an ideal thermos flask."
+          ]
+        },
+        {
+          "type": "anim",
+          "name": "thermo-system",
+          "title": "Types of system",
+          "caption": "Pick a system type and try to push matter and heat across the boundary — what does it let through?"
+        },
+        {
+          "type": "p",
+          "text": "The state of a system is described by its pressure (p), volume (V), temperature (T), amount (n) and so on. Such quantities are [[statefn]]s (state variables): their values depend only on the present state, not on how the system got there. When the state changes, the change in a state function depends only on the initial and final states."
+        },
+        {
+          "type": "note",
+          "text": "In thermodynamics we look only at the initial and final states; the path in between does not matter for a state function."
+        }
+      ]
+    },
+    {
+      "id": "first-law",
+      "title": "Internal energy and the first law",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "All the energy held inside a system — chemical, electrical, mechanical and so on — is its [[internal-energy]] (U). We cannot find the absolute value of U, but we can measure its change ΔU. U can change in three ways: by heat exchange, by work, and by exchange of matter."
+        },
+        {
+          "type": "p",
+          "text": "First take an adiabatic system, in which no heat can enter or leave (q = 0). Joule's experiments showed that the same amount of adiabatic work takes a system between the same two states, however the work is done. So ΔU = w(adiabatic), and U is a state function."
+        },
+        {
+          "type": "p",
+          "text": "In general a system exchanges both [[heat]] (q) and [[work]] (w). With the IUPAC sign convention q is positive when the system absorbs heat and w is positive when work is done on the system. Heat released by the system, or work done by the system, is negative."
+        },
+        {
+          "type": "formula",
+          "label": "First law",
+          "text": "ΔU = q + w"
+        },
+        {
+          "type": "p",
+          "text": "This is the [[first-law]]: energy is neither created nor destroyed, only converted. For an isolated system q = 0 and w = 0, so ΔU = 0. Note that q and w individually depend on the path, but their sum q + w = ΔU does not."
+        },
+        {
+          "type": "anim",
+          "name": "thermo-firstlaw",
+          "title": "ΔU = q + w",
+          "caption": "Change q and w and watch ΔU. Book Example 5.7 (701 J absorbed, 394 J of work done by the gas) is preloaded."
+        },
+        {
+          "type": "note",
+          "text": "Example (book 5.7): a system absorbing 701 J of heat and doing 394 J of work has ΔU = +701 + (−394) = +307 J. In an adiabatic case ΔU = w; at constant volume ΔU = q."
+        }
+      ]
+    },
+    {
+      "id": "work-enthalpy",
+      "title": "Applications: work and enthalpy",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "When a reaction produces or uses a gas, pressure–volume work is usually done. Picture a gas under a piston; if the external pressure is p_{ex} and the volume changes from V_{i} to V_{f}, the work done on the system is:"
+        },
+        {
+          "type": "formula",
+          "label": "Pressure–volume work",
+          "text": "w = −p_{ex}ΔV = −p_{ex}(V_{f} − V_{i})"
+        },
+        {
+          "type": "p",
+          "text": "In expansion V_{f} > V_{i}, so w is negative — the system does work; in compression w is positive. On a p–V diagram the work is the area under the line of the external pressure."
+        },
+        {
+          "type": "p",
+          "text": "In a [[reversible]] process the external and internal pressures differ only infinitesimally (p_{ex} = p ± dp) and w = −∫p dV. In an [[irreversible]] process this is not so. For the isothermal reversible expansion of n mol of an ideal gas:"
+        },
+        {
+          "type": "formula",
+          "label": "Isothermal reversible work",
+          "text": "w_{rev} = −nRT ln(V_{f}/V_{i}) = −2.303 nRT log(V_{f}/V_{i})"
+        },
+        {
+          "type": "anim",
+          "name": "thermo-pvwork",
+          "title": "p–V work: reversible versus irreversible",
+          "caption": "1 mol of ideal gas expands from 2 L. The shaded area is the work done; the reversible path gives the maximum work."
+        },
+        {
+          "type": "p",
+          "text": "For an ideal gas ΔU = 0 in an isothermal expansion (Joule), so q = −w. In a free expansion into vacuum (p_{ex} = 0), w = 0 and q = 0. In book Example 5.3, expansion from 2 L to 10 L against 1 atm gives w = −1 × 8 = −8 L atm. (Book Example 5.4 prints R as 0.8206; the correct value is 0.08206 L atm K⁻¹ mol⁻¹, giving |w| ≈ 39.4 L atm for 1 mol expanding reversibly from 2 to 10 L at 298 K.)"
+        },
+        {
+          "type": "p",
+          "text": "At constant volume (ΔV = 0), w = 0 and so ΔU = q_{V}. But most reactions run in open vessels, i.e. at constant pressure, where ΔU = q_{p} − pΔV, so q_{p} = ΔU + pΔV. This combination defines a new state function, [[enthalpy]]:"
+        },
+        {
+          "type": "formula",
+          "label": "Enthalpy",
+          "text": "H = U + pV      ΔH = ΔU + pΔV = q_{p}"
+        },
+        {
+          "type": "p",
+          "text": "In an exothermic reaction ΔH is negative; in an endothermic reaction it is positive. Solids and liquids change volume very little, so ΔH and ΔU differ appreciably only when the number of moles of gas changes:"
+        },
+        {
+          "type": "formula",
+          "label": "ΔH and ΔU",
+          "text": "ΔH = ΔU + Δn_{g}RT"
+        },
+        {
+          "type": "p",
+          "text": "Here Δn_{g} = (moles of gaseous products) − (moles of gaseous reactants). Example 5.5: for 1 mol H₂O(l) → H₂O(g) at 373 K, ΔH = 41.00 kJ mol⁻¹, so ΔU = 41.00 − (1)(8.314 × 10⁻³)(373) = 37.904 kJ mol⁻¹."
+        }
+      ]
+    },
+    {
+      "id": "calorimetry",
+      "title": "Heat capacity and calorimetry",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Properties that depend on the amount of matter are [[extensive]] (mass, volume, U, H, heat capacity); those that do not are [[intensive]] (temperature, pressure, density). Cut a vessel into two equal halves: V and n halve, but T and p stay the same. The ratio of two extensive properties (such as molar volume V/n) is intensive."
+        },
+        {
+          "type": "p",
+          "text": "When a substance absorbs heat its temperature rises: q = C × ΔT, where C is the [[heat-capacity]]. For 1 mol it is the molar heat capacity (C_{m}); for 1 g it is the [[specific-heat]] (c), and q = c × m × ΔT. Water has a large heat capacity, so it takes a lot of heat to warm it."
+        },
+        {
+          "type": "p",
+          "text": "At constant volume q_{V} = C_{V}ΔT = ΔU; at constant pressure q_{p} = C_{p}ΔT = ΔH. For 1 mol of ideal gas ΔH = ΔU + RΔT, hence:"
+        },
+        {
+          "type": "formula",
+          "label": "C_{p} and C_{V}",
+          "text": "C_{p} − C_{V} = R"
+        },
+        {
+          "type": "p",
+          "text": "The energy change of a reaction is measured in a [[calorimeter]]. To find ΔU **at constant volume** a bomb calorimeter is used: the sample and oxygen are sealed in a steel bomb, immersed in water and ignited electrically, and the temperature rise is read. Since ΔV = 0, w = 0 and q_{V} = ΔU. Heat measured **at constant pressure** (an open vessel) is q_{p} = ΔH. If the calorimeter's heat capacity C is known, q = C × ΔT."
+        },
+        {
+          "type": "anim",
+          "name": "thermo-calorimeter",
+          "title": "Bomb calorimeter and ΔH versus ΔU",
+          "caption": "In the first view change C and ΔT to obtain ΔU; in the second view see the effect of Δn_{g}RT."
+        },
+        {
+          "type": "note",
+          "text": "Example 5.6 (book): 1 g of graphite burns in a bomb calorimeter at 298 K and the temperature rises from 298 K to 299 K; C = 20.7 kJ K⁻¹. So ΔU = −20.7 kJ g⁻¹ = −(20.7 × 12.0) = −2.48 × 10² kJ mol⁻¹; as Δn_{g} = 0, ΔH = ΔU."
+        }
+      ]
+    },
+    {
+      "id": "reaction-enthalpy",
+      "title": "Enthalpy change of a reaction (Δ_{r}H)",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "In a reaction the reactants turn into products. The enthalpy change that goes with this is the reaction enthalpy Δ_{r}H:"
+        },
+        {
+          "type": "formula",
+          "label": "Reaction enthalpy",
+          "text": "Δ_{r}H = Σ a_{i}H(products) − Σ b_{i}H(reactants)"
+        },
+        {
+          "type": "p",
+          "text": "Because reaction enthalpy depends on conditions, the [[std-state]] is fixed: the pure form of a substance at 1 bar and the stated temperature (usually 298 K). The standard state of liquid water at 298 K is pure liquid water at 1 bar. The ° sign on Δ_{r}H° marks standard conditions."
+        },
+        {
+          "type": "p",
+          "text": "Changes of state also involve enthalpy: melting ice needs Δ_{fus}H° = 6.00 kJ mol⁻¹ (273 K) and vaporising water needs Δ_{vap}H° = 40.79 kJ mol⁻¹ (373 K). The reverse process has the opposite sign. A solid turning directly to vapour has Δ_{sub}H° (for CO₂ 25.2 kJ mol⁻¹ at 195 K)."
+        },
+        {
+          "type": "p",
+          "text": "The enthalpy change when 1 mol of a compound forms from its elements in their reference states is the [[formation]] (Δ_{f}H°). An element's reference state is its most stable form at 298 K and 1 bar, so Δ_{f}H° = 0 for such elements (H₂(g), O₂(g), C(graphite), Br₂(l), …)."
+        },
+        {
+          "type": "table",
+          "head": [
+            "Substance",
+            "Δ_{f}H° (kJ mol⁻¹, 298 K)",
+            "Substance",
+            "Δ_{f}H° (kJ mol⁻¹, 298 K)"
+          ],
+          "rows": [
+            [
+              "H₂O(l)",
+              "−285.83",
+              "H₂O(g)",
+              "−241.82"
+            ],
+            [
+              "CO₂(g)",
+              "−393.51",
+              "CO(g)",
+              "−110.53"
+            ],
+            [
+              "CH₄(g)",
+              "−74.81",
+              "NH₃(g)",
+              "−46.11"
+            ],
+            [
+              "CaCO₃(s)",
+              "−1206.92",
+              "CaO(s)",
+              "−635.09"
+            ],
+            [
+              "Fe₂O₃(s)",
+              "−824.2",
+              "NO(g)",
+              "+90.25"
+            ],
+            [
+              "C(diamond)",
+              "+1.89",
+              "C(graphite)",
+              "0"
+            ]
+          ]
+        },
+        {
+          "type": "p",
+          "text": "The standard enthalpy of any reaction can be found from such data:"
+        },
+        {
+          "type": "formula",
+          "label": "Δ_{r}H° from Δ_{f}H°",
+          "text": "Δ_{r}H° = Σ a_{i}Δ_{f}H°(products) − Σ b_{i}Δ_{f}H°(reactants)"
+        },
+        {
+          "type": "anim",
+          "name": "thermo-enthalpy",
+          "title": "Enthalpy diagram and Δ_{f}H° bookkeeping",
+          "caption": "Pick a reaction; the diagram shows the reactant and product levels measured from the elements (zero line) and the resulting ΔᵣH°."
+        },
+        {
+          "type": "p",
+          "text": "Example: for Fe₂O₃(s) + 3H₂(g) → 2Fe(s) + 3H₂O(l), Δ_{r}H° = 3(−285.83) − (−824.2) = −33.3 kJ mol⁻¹. For CaCO₃(s) → CaO(s) + CO₂(g), Δ_{r}H° = (−635.09) + (−393.51) − (−1206.92) = +178.3 kJ mol⁻¹ — limestone absorbs heat as it decomposes."
+        },
+        {
+          "type": "p",
+          "text": "**[[thermochem]]:** a balanced equation is written together with ΔH and the physical states (s, l, g, aq). Rules: (1) coefficients mean moles, so doubling the equation doubles ΔH; (2) reversing the equation changes the sign of ΔH; (3) always state the physical states. E.g. N₂(g) + 3H₂(g) → 2NH₃(g); Δ_{r}H° = −91.8 kJ mol⁻¹, and the reverse reaction has ΔH = +91.8 kJ mol⁻¹."
+        },
+        {
+          "type": "p",
+          "text": "**[[hess]]:** ΔH is a state function, so the total ΔH is the same whether the reaction takes one step or several. Just add the step enthalpies (Δ_{r}H = Δ_{r}H₁ + Δ_{r}H₂ + Δ_{r}H₃ + …). For instance, C(graphite) + ½O₂ → CO cannot be measured directly because CO₂ also forms:"
+        },
+        {
+          "type": "formula",
+          "label": "Hess's law example",
+          "text": "(i)  C(graphite) + O₂ → CO₂;   Δ_{r}H° = −393.5 kJ mol⁻¹\n(ii) CO + ½O₂ → CO₂;   Δ_{r}H° = −283.0 kJ mol⁻¹\n(i) − (ii):  C(graphite) + ½O₂ → CO;   Δ_{r}H° = −110.5 kJ mol⁻¹"
+        },
+        {
+          "type": "anim",
+          "name": "thermo-hess",
+          "title": "Hess's law: adding the steps",
+          "caption": "Add the steps one at a time and watch the total ΔH build up."
+        }
+      ]
+    },
+    {
+      "id": "enthalpy-types",
+      "title": "Enthalpies for different types of reactions",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "**[[combustion]] (Δ_{c}H°):** the enthalpy change when 1 mol of a substance burns completely in excess oxygen. Combustion is exothermic, so Δ_{c}H° is always negative. Example: C₄H₁₀(g) + 13/2 O₂(g) → 4CO₂(g) + 5H₂O(l); Δ_{c}H° = −2658.0 kJ mol⁻¹. Burning glucose gives Δ_{c}H° = −2802.0 kJ mol⁻¹ — breaking down food in our body releases the same energy."
+        },
+        {
+          "type": "p",
+          "text": "Book Example 5.9: burning 1 mol C₆H₆(l) releases 3267.0 kJ; with Δ_{f}H° of CO₂ and H₂O(l) equal to −393.5 and −285.83 kJ mol⁻¹, Δ_{f}H°(C₆H₆) = 6(−393.5) + 3(−285.83) + 3267.0 = +48.51 kJ mol⁻¹."
+        },
+        {
+          "type": "p",
+          "text": "**[[atomization]] (Δ_{a}H°):** the enthalpy change when 1 mol of a substance is converted to gaseous atoms. H₂(g) → 2H(g); Δ_{a}H° = 435.0 kJ mol⁻¹. CH₄(g) → C(g) + 4H(g); Δ_{a}H° = 1665 kJ mol⁻¹. For a metal it equals the sublimation enthalpy: Na(s) → Na(g); Δ_{a}H° = 108.4 kJ mol⁻¹."
+        },
+        {
+          "type": "p",
+          "text": "**[[bond-enthalpy]] (Δ_{bond}H°):** in diatomic molecules (H₂, Cl₂, O₂) the bond dissociation enthalpy equals the atomisation enthalpy (H–H = 435.0, Cl–Cl = 242 kJ mol⁻¹). In polyatomic molecules such as CH₄ the four C–H bonds need different energies: 427, 439, 452 and 347 kJ mol⁻¹, totalling 1665. So the mean C–H bond enthalpy = 1665 ÷ 4 ≈ 416 kJ mol⁻¹."
+        },
+        {
+          "type": "formula",
+          "label": "ΔH from bond enthalpies",
+          "text": "Δ_{r}H° = Σ (bond enthalpies of reactants) − Σ (bond enthalpies of products)"
+        },
+        {
+          "type": "p",
+          "text": "This works best for substances in the gas phase and gives only approximate values (mean bond enthalpies are used). Breaking bonds costs energy (endothermic); forming bonds releases it (exothermic)."
+        },
+        {
+          "type": "p",
+          "text": "**[[lattice]] (Δ_{lattice}H°):** the enthalpy needed to separate 1 mol of an ionic solid into gaseous ions; NaCl(s) → Na⁺(g) + Cl⁻(g); Δ_{lattice}H° = +788 kJ mol⁻¹. It cannot be measured directly, so the [[born-haber]] is used: applying Hess's law to sublimation (+108.4), ionisation (+496), half the Cl–Cl dissociation (+121), electron gain (−348.6) and formation (−411.2) gives lattice enthalpy = 411.2 + 108.4 + 121 + 496 − 348.6 = 788 kJ mol⁻¹."
+        },
+        {
+          "type": "anim",
+          "name": "thermo-cycle",
+          "title": "Born–Haber cycle, enthalpy of solution and bond enthalpy",
+          "caption": "Choose one of three examples and add its steps one at a time."
+        },
+        {
+          "type": "p",
+          "text": "**Enthalpy of solution (Δ_{sol}H°)** is the enthalpy change when 1 mol of a substance dissolves in a stated amount of solvent. For an ionic compound Δ_{sol}H° = Δ_{lattice}H° + Δ_{hyd}H°; for NaCl, 788 − 784 = +4 kJ mol⁻¹. **Enthalpy of dilution** is the enthalpy change on diluting a solution; e.g. dissolving HCl(g) in 10, 25, 40 and ∞ mol of water gives ΔH = −69.01, −72.3, −72.79 and −74.85 kJ mol⁻¹."
+        }
+      ]
+    },
+    {
+      "id": "spontaneity",
+      "title": "Spontaneity",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "The first law says the energy books must balance but not which change will happen on its own. Everyday experience: hot objects cool down by themselves, a gas spreads into a vacuum, water flows downhill. A change that occurs without outside help is [[spontaneous]]. A spontaneous process is always irreversible, and can be reversed only with help from an external agency."
+        },
+        {
+          "type": "p",
+          "text": "**Is a fall in enthalpy the criterion?** Many spontaneous reactions are exothermic — ½N₂ + 3/2 H₂ → NH₃ (ΔH = −46 kJ mol⁻¹), H₂ + ½O₂ → H₂O(l) (ΔH = −285.8 kJ mol⁻¹). But ½N₂ + O₂ → NO₂ (ΔH = +33.2 kJ mol⁻¹) and C(graphite) + 2S(s) → CS₂(l) (ΔH = +128.5 kJ mol⁻¹) are endothermic yet occur; ice melts (endothermic) and a gas spreads into vacuum (ΔH = 0). So a fall in enthalpy alone is not the full criterion."
+        },
+        {
+          "type": "p",
+          "text": "**[[entropy]] and spontaneity:** when a gas spreads into a vacuum ΔH = 0 and yet the change occurs — because the arrangement of the particles becomes more disordered. The measure of disorder is the entropy S: the more disordered the system, the larger S. A liquid has more entropy than a solid, a gas more than a liquid; raising the temperature also raises entropy because the particles move more. For a reversible process ΔS = q_{rev}/T."
+        },
+        {
+          "type": "anim",
+          "name": "thermo-entropy",
+          "title": "Entropy: particles spreading",
+          "caption": "Remove the partition and watch the particles spread. The chance of them all returning to one side is tiny."
+        },
+        {
+          "type": "p",
+          "text": "**[[second-law]]:** in a spontaneous process the total entropy of the system plus surroundings increases:"
+        },
+        {
+          "type": "formula",
+          "label": "Second law",
+          "text": "ΔS_{total} = ΔS_{sys} + ΔS_{surr} > 0      ΔS_{surr} = −ΔH_{sys}/T (constant p)"
+        },
+        {
+          "type": "note",
+          "text": "Example 5.11 (book): for 4Fe + 3O₂ → 2Fe₂O₃ at 298 K, ΔS_{sys} = −549.4 J K⁻¹ mol⁻¹ and ΔH = −1648 × 10³ J mol⁻¹. ΔS_{surr} = 1648 × 10³/298 = +5530 J K⁻¹ mol⁻¹, so ΔS_{total} = 5530 − 549.4 ≈ +4980.6 J K⁻¹ mol⁻¹ > 0 — the reaction is spontaneous (iron rusts)."
+        },
+        {
+          "type": "p",
+          "text": "**Absolute entropy and the [[third-law]]:** cooling reduces the motion of the particles and so the entropy. At absolute zero (0 K) the entropy of a pure, perfectly crystalline substance is zero. This lets us find absolute entropies by measuring ∫(C_{p}/T)dT from 0 K up to T."
+        }
+      ]
+    },
+    {
+      "id": "gibbs",
+      "title": "Gibbs energy change and equilibrium",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Applying the second law requires ΔS of the surroundings, which is awkward. To decide spontaneity from properties of the system alone we define a new state function, the [[gibbs]] (G):"
+        },
+        {
+          "type": "formula",
+          "label": "Gibbs equation",
+          "text": "G = H − TS      at constant T and p: ΔG = ΔH − TΔS"
+        },
+        {
+          "type": "p",
+          "text": "From ΔS_{total} = ΔS_{sys} − ΔH_{sys}/T we get ΔG = −TΔS_{total}. In a spontaneous process ΔS_{total} > 0, so:"
+        },
+        {
+          "type": "list",
+          "items": [
+            "ΔG < 0 — the process is spontaneous (and useful work can be obtained);",
+            "ΔG > 0 — the process is not spontaneous (the reverse is);",
+            "ΔG = 0 — the system is at equilibrium."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "ΔG is a contest between ΔH and TΔS. If ΔH is negative (exothermic) and ΔS positive, ΔG < 0 always. If they have the same sign, temperature decides; the crossover temperature is T = ΔH/ΔS. Book Table 5.4:"
+        },
+        {
+          "type": "table",
+          "head": [
+            "Δ_{r}H°",
+            "Δ_{r}S°",
+            "Δ_{r}G°",
+            "Description"
+          ],
+          "rows": [
+            [
+              "−",
+              "+",
+              "−",
+              "Reaction spontaneous at all temperatures"
+            ],
+            [
+              "−",
+              "−",
+              "− (low T)",
+              "Spontaneous at low temperature"
+            ],
+            [
+              "−",
+              "−",
+              "+ (high T)",
+              "Non-spontaneous at high temperature"
+            ],
+            [
+              "+",
+              "+",
+              "+ (low T)",
+              "Non-spontaneous at low temperature"
+            ],
+            [
+              "+",
+              "+",
+              "− (high T)",
+              "Spontaneous at high temperature"
+            ],
+            [
+              "+",
+              "−",
+              "+",
+              "Non-spontaneous at all temperatures"
+            ]
+          ]
+        },
+        {
+          "type": "anim",
+          "name": "thermo-gibbs",
+          "title": "ΔG = ΔH − TΔS: the spontaneity map",
+          "caption": "Vary ΔH, ΔS and T; the line shows ΔG and the crossover temperature where it passes through zero."
+        },
+        {
+          "type": "p",
+          "text": "**Equilibrium:** at equilibrium the reaction goes both ways at equal rates, so ΔG = 0. For reactants and products in their standard states, the standard Gibbs energy change (Δ_{r}G°) is related to the equilibrium constant K by:"
+        },
+        {
+          "type": "formula",
+          "label": "Δ_{r}G° and K",
+          "text": "Δ_{r}G° = −RT ln K = −2.303 RT log K      (Δ_{r}G° = Δ_{r}H° − TΔ_{r}S°)"
+        },
+        {
+          "type": "p",
+          "text": "If Δ_{r}G° is negative, K > 1 and products dominate; if positive, K < 1 and reactants dominate. Knowing Δ_{r}G° gives K, and vice versa. Book Example 5.12: for 3/2 O₂ → O₃ with K_{p} = 2.47 × 10⁻²⁹, Δ_{r}G° = −2.303(8.314)(298) log(2.47 × 10⁻²⁹) ≈ +163 kJ mol⁻¹. Example 5.13: for Δ_{r}G° = −13.6 kJ mol⁻¹, log K = 13600/(2.303 × 8.314 × 298) = 2.38, so K ≈ 2.4 × 10²."
+        },
+        {
+          "type": "anim",
+          "name": "thermo-gibbsk",
+          "title": "Δ_{r}G° and the equilibrium constant K",
+          "caption": "Change Δ_{r}G° and T and see K and the equilibrium composition."
+        }
+      ]
+    }
+  ],
+  "summary": [
+    "Thermodynamics tracks the energy changes of chemical and physical processes. Universe = system + surroundings; a system may be open, closed or isolated.",
+    "First law: ΔU = q + w; U is a state function while q and w depend on the path. In the IUPAC convention q > 0 when the system absorbs heat and w > 0 when work is done on it.",
+    "Pressure–volume work is w = −p_{ex}ΔV; for the isothermal reversible expansion of an ideal gas w = −2.303 nRT log(V_{f}/V_{i}) and ΔU = 0.",
+    "Enthalpy H = U + pV; q_{p} = ΔH at constant pressure, q_{V} = ΔU at constant volume, and ΔH = ΔU + Δn_{g}RT; C_{p} − C_{V} = R.",
+    "In a calorimeter q = C × ΔT; a bomb calorimeter measures ΔU.",
+    "Δ_{r}H° = ΣΔ_{f}H°(products) − ΣΔ_{f}H°(reactants); Δ_{f}H° = 0 for elements in their reference states. Hess's law: the total ΔH is independent of the path.",
+    "Definitions of combustion, atomisation, bond, lattice, solution and dilution enthalpies; the Born–Haber cycle gives the lattice enthalpy of NaCl = +788 kJ mol⁻¹.",
+    "Entropy S measures disorder; ΔS_{total} > 0 for a spontaneous process (second law); S = 0 for a perfect crystal at 0 K (third law).",
+    "Gibbs energy ΔG = ΔH − TΔS: ΔG < 0 spontaneous, ΔG = 0 equilibrium; Δ_{r}G° = −RT ln K."
+  ]
+}

@@ -1,7 +1,7 @@
 /* Service worker: makes the site work offline.
    Network-first, so a new deploy shows up as soon as you are online; the cache is the offline fallback.
    Bump VERSION to drop old caches after a big change. */
-const VERSION = 'chem-as-v27';
+const VERSION = 'chem-as-v29';
 const SHELL = [
   './', 'index.html', 'chapter.html', 'manifest.webmanifest',
   'assets/css/base.css',
@@ -20,6 +20,11 @@ const SHELL = [
   'content/class-11/ch02-structure-of-atom/chapter.en.json',
   'content/class-11/ch02-structure-of-atom/quiz.en.json',
   'content/class-11/ch02-structure-of-atom/anim.js',
+  'content/class-11/ch05-thermodynamics/chapter.json',
+  'content/class-11/ch05-thermodynamics/quiz.json',
+  'content/class-11/ch05-thermodynamics/chapter.en.json',
+  'content/class-11/ch05-thermodynamics/quiz.en.json',
+  'content/class-11/ch05-thermodynamics/anim.js',
   'content/class-11/ch03-periodic-classification/chapter.json',
   'content/class-11/ch03-periodic-classification/quiz.json',
   'content/class-11/ch03-periodic-classification/chapter.en.json',
@@ -30,6 +35,11 @@ const SHELL = [
   'content/class-11/ch06-equilibrium/chapter.en.json',
   'content/class-11/ch06-equilibrium/quiz.en.json',
   'content/class-11/ch06-equilibrium/anim.js',
+  'content/class-11/ch04-chemical-bonding/chapter.json',
+  'content/class-11/ch04-chemical-bonding/quiz.json',
+  'content/class-11/ch04-chemical-bonding/chapter.en.json',
+  'content/class-11/ch04-chemical-bonding/quiz.en.json',
+  'content/class-11/ch04-chemical-bonding/anim.js',
   'content/class-12/ch01-solutions/chapter.json',
   'content/class-12/ch01-solutions/quiz.json',
   'content/class-12/ch01-solutions/chapter.en.json',

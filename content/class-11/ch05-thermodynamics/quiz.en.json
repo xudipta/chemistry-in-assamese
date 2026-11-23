@@ -1,0 +1,224 @@
+{
+  "questions": [
+    {
+      "q": "Which kind of system exchanges neither matter nor energy with its surroundings?",
+      "options": [
+        "Open system",
+        "Closed system",
+        "Isolated system",
+        "Both open and closed"
+      ],
+      "answer": 2,
+      "explain": "In an isolated system neither matter nor energy crosses the boundary (e.g. an ideal thermos flask)."
+    },
+    {
+      "q": "Which of these is a state function?",
+      "options": [
+        "Heat (q)",
+        "Work (w)",
+        "Enthalpy (H)",
+        "Length of the path"
+      ],
+      "answer": 2,
+      "explain": "U, H, S and G are state functions; q and w depend on the path."
+    },
+    {
+      "q": "A system absorbs 701 J of heat and does 394 J of work. What is ΔU?",
+      "options": [
+        "+1095 J",
+        "+307 J",
+        "−307 J",
+        "−1095 J"
+      ],
+      "answer": 1,
+      "explain": "ΔU = q + w = +701 + (−394) = +307 J (w is negative when the system does the work)."
+    },
+    {
+      "q": "Which is true for an adiabatic process?",
+      "options": [
+        "q = 0, so ΔU = w",
+        "w = 0, so ΔU = q",
+        "ΔU is always zero",
+        "ΔT is always zero"
+      ],
+      "answer": 0,
+      "explain": "Adiabatic means no heat exchange (q = 0), so ΔU = q + w = w."
+    },
+    {
+      "q": "An ideal gas expands isothermally into a vacuum. Then:",
+      "options": [
+        "w = 0, q = 0, ΔU = 0",
+        "w < 0, q > 0",
+        "w > 0, q < 0",
+        "ΔU > 0"
+      ],
+      "answer": 0,
+      "explain": "p_{ex} = 0 so w = 0; for an ideal gas ΔU = 0 so q = 0."
+    },
+    {
+      "q": "A gas expands from 2 L to 10 L against a constant external pressure of 1 atm. What is w (work done on the gas)?",
+      "options": [
+        "+8 L atm",
+        "−8 L atm",
+        "−10 L atm",
+        "0"
+      ],
+      "answer": 1,
+      "explain": "w = −p_{ex}ΔV = −1 × (10 − 2) = −8 L atm; the gas does the work."
+    },
+    {
+      "q": "For an isothermal expansion between the same two volumes, which path lets the system do the most work?",
+      "options": [
+        "The reversible path",
+        "One-step irreversible",
+        "Free expansion into vacuum",
+        "All paths give equal work"
+      ],
+      "answer": 0,
+      "explain": "In a reversible expansion the external pressure stays almost equal to the gas pressure, giving the largest area under the p–V curve."
+    },
+    {
+      "q": "For N₂(g) + 3H₂(g) → 2NH₃(g), how are ΔH and ΔU related?",
+      "options": [
+        "ΔH = ΔU",
+        "ΔH = ΔU + 2RT",
+        "ΔH = ΔU − 2RT",
+        "ΔH = ΔU + 4RT"
+      ],
+      "answer": 2,
+      "explain": "Δn_{g} = 2 − 4 = −2; ΔH = ΔU + Δn_{g}RT = ΔU − 2RT."
+    },
+    {
+      "q": "Which quantity does a bomb calorimeter measure directly?",
+      "options": [
+        "ΔH",
+        "ΔU (at constant volume)",
+        "ΔG",
+        "ΔS"
+      ],
+      "answer": 1,
+      "explain": "The bomb is sealed, ΔV = 0, so w = 0 and q_{V} = ΔU."
+    },
+    {
+      "q": "A calorimeter with C = 20.7 kJ K⁻¹ warms by 1 K when 1 g of graphite burns (M = 12.0 g mol⁻¹). What is ΔU?",
+      "options": [
+        "−20.7 kJ mol⁻¹",
+        "−1.7 kJ mol⁻¹",
+        "+248 kJ mol⁻¹",
+        "−248 kJ mol⁻¹"
+      ],
+      "answer": 3,
+      "explain": "−20.7 kJ per gram; times 12.0 g mol⁻¹ gives −248 kJ mol⁻¹ (exothermic)."
+    },
+    {
+      "q": "What is the standard enthalpy of formation (Δ_{f}H°) of an element in its reference state at 298 K?",
+      "options": [
+        "One",
+        "Zero",
+        "Negative",
+        "Different for each element"
+      ],
+      "answer": 1,
+      "explain": "By definition Δ_{f}H° = 0 for an element in its reference state."
+    },
+    {
+      "q": "From C + O₂ → CO₂ (−393.5 kJ) and CO + ½O₂ → CO₂ (−283.0 kJ), the ΔH for C + ½O₂ → CO is:",
+      "options": [
+        "−676.5 kJ mol⁻¹",
+        "+110.5 kJ mol⁻¹",
+        "−110.5 kJ mol⁻¹",
+        "+676.5 kJ mol⁻¹"
+      ],
+      "answer": 2,
+      "explain": "Hess's law: (i) − (ii) = −393.5 − (−283.0) = −110.5 kJ mol⁻¹."
+    },
+    {
+      "q": "Δ_{f}H°: CaCO₃ = −1206.92, CaO = −635.09, CO₂ = −393.51 kJ mol⁻¹. What is Δ_{r}H° for CaCO₃ → CaO + CO₂?",
+      "options": [
+        "−178.3 kJ mol⁻¹",
+        "+178.3 kJ mol⁻¹",
+        "+2235.5 kJ mol⁻¹",
+        "−1028.6 kJ mol⁻¹"
+      ],
+      "answer": 1,
+      "explain": "(−635.09 − 393.51) − (−1206.92) = +178.3; an endothermic reaction."
+    },
+    {
+      "q": "The atomisation enthalpy of CH₄ is 1665 kJ mol⁻¹. The mean C–H bond enthalpy is about:",
+      "options": [
+        "1665 kJ mol⁻¹",
+        "832 kJ mol⁻¹",
+        "416 kJ mol⁻¹",
+        "333 kJ mol⁻¹"
+      ],
+      "answer": 2,
+      "explain": "Four C–H bonds: 1665 ÷ 4 ≈ 416 kJ mol⁻¹."
+    },
+    {
+      "q": "What lattice enthalpy does the Born–Haber cycle give for NaCl?",
+      "options": [
+        "−788 kJ mol⁻¹",
+        "+788 kJ mol⁻¹",
+        "−411 kJ mol⁻¹",
+        "+4 kJ mol⁻¹"
+      ],
+      "answer": 1,
+      "explain": "411.2 + 108.4 + 121 + 496 − 348.6 = +788 kJ mol⁻¹ (energy is needed to separate the ions)."
+    },
+    {
+      "q": "In which process does entropy increase?",
+      "options": [
+        "A gas condenses to a liquid",
+        "Water freezes to ice",
+        "A solid melts to a liquid",
+        "A crystal is cooled to 0 K"
+      ],
+      "answer": 2,
+      "explain": "On melting the particles become more disordered, so ΔS > 0."
+    },
+    {
+      "q": "Which condition always holds for a spontaneous process?",
+      "options": [
+        "ΔH < 0",
+        "ΔS_{sys} > 0",
+        "ΔS_{total} > 0",
+        "ΔU = 0"
+      ],
+      "answer": 2,
+      "explain": "Second law: the total entropy of system plus surroundings increases. ΔH or ΔS_{sys} alone does not decide."
+    },
+    {
+      "q": "If ΔH is negative and ΔS is negative, the reaction is:",
+      "options": [
+        "spontaneous at all temperatures",
+        "spontaneous at low temperature",
+        "spontaneous at high temperature",
+        "never spontaneous"
+      ],
+      "answer": 1,
+      "explain": "ΔG = ΔH − TΔS; at low T the −TΔS term is small and the negative ΔH wins."
+    },
+    {
+      "q": "With ΔH = +400 kJ mol⁻¹ and ΔS = +0.2 kJ K⁻¹ mol⁻¹, above what temperature is the reaction spontaneous?",
+      "options": [
+        "above 200 K",
+        "above 2000 K",
+        "below 2000 K",
+        "at no temperature"
+      ],
+      "answer": 1,
+      "explain": "Crossover T = ΔH/ΔS = 400/0.2 = 2000 K; above it ΔG < 0."
+    },
+    {
+      "q": "If Δ_{r}G° is negative, what can be said about the equilibrium constant K?",
+      "options": [
+        "K > 1",
+        "K = 1",
+        "K < 1",
+        "K = 0"
+      ],
+      "answer": 0,
+      "explain": "Δ_{r}G° = −RT ln K; a negative Δ_{r}G° means ln K is positive, so K > 1."
+    }
+  ]
+}

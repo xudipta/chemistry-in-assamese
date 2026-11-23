@@ -226,12 +226,16 @@
         {
           "id": "class-11/ch06-equilibrium",
           "no": 6,
-          "status": "soon",
+          "status": "ready",
           "title": {
             "as": "সাম্য",
             "en": "Equilibrium"
           },
-          "part": 1
+          "part": 1,
+          "langs": [
+            "as",
+            "en"
+          ]
         },
         {
           "id": "class-11/ch08-redox",

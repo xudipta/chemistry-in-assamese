@@ -192,12 +192,16 @@
         {
           "id": "class-11/ch03-periodic-classification",
           "no": 3,
-          "status": "soon",
+          "status": "ready",
           "title": {
             "as": "মৌলবোৰৰ শ্ৰেণীবিভাজন আৰু পৰ্যায়গত ধৰ্ম",
             "en": "Classification of Elements and Periodicity in Properties"
           },
-          "part": 1
+          "part": 1,
+          "langs": [
+            "as",
+            "en"
+          ]
         },
         {
           "id": "class-11/ch04-chemical-bonding",

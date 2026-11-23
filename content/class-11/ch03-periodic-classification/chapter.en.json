@@ -1,0 +1,1294 @@
+{
+ "id": "class-11/ch03-periodic-classification",
+ "class": 11,
+ "number": 3,
+ "title": {
+  "as": "মৌলবোৰৰ শ্ৰেণীবিভাজন আৰু পৰ্যায়গত ধৰ্ম",
+  "en": "Classification of Elements and Periodicity in Properties"
+ },
+ "scripts": [
+  "anim.js"
+ ],
+ "goals": [
+  "Follow how the [[periodic-table]] developed: Döbereiner, Newlands and Mendeleev",
+  "Know Moseley's work and the modern [[periodic-law]]",
+  "Write IUPAC names for elements with [[atomic-number]] above 100",
+  "Use the electronic configuration to find the [[period]], [[group]] and the s-, p-, d-, f- block",
+  "Compare the trends of [[atomic-radius]], [[ionisation-enthalpy]], [[electron-gain-enthalpy]] and [[electronegativity]]",
+  "Explain how [[valency]] and chemical reactivity change across the table"
+ ],
+ "glossary": {
+  "classification": {
+   "as": "শ্ৰেণীবিভাজন",
+   "en": "classification",
+   "def": "Sorting elements into groups with similar properties."
+  },
+  "triad": {
+   "as": "ট্ৰায়াড",
+   "en": "triad",
+   "def": "A set of three similar elements in which the middle atomic mass is the average of the other two (Döbereiner)."
+  },
+  "octave": {
+   "as": "অষ্টক সূত্ৰ",
+   "en": "law of octaves",
+   "def": "Arranged by mass, every eighth element resembles the first (Newlands)."
+  },
+  "periodic-law": {
+   "as": "পৰ্যাবৃত্ত সূত্ৰ",
+   "en": "periodic law",
+   "def": "The properties of elements are a periodic function of their atomic numbers."
+  },
+  "periodic-table": {
+   "as": "পৰ্যাবৃত্ত তালিকা",
+   "en": "periodic table",
+   "def": "The table of elements arranged according to the periodic law."
+  },
+  "atomic-number": {
+   "as": "পৰমাণু ক্ৰমাংক",
+   "en": "atomic number",
+   "def": "The number of protons in the nucleus (Z)."
+  },
+  "atomic-mass": {
+   "as": "পাৰমাণৱিক ভাৰ",
+   "en": "atomic mass",
+   "def": "The relative mass of an atom; the basis of Mendeleev's table."
+  },
+  "period": {
+   "as": "পৰ্যায়",
+   "en": "period",
+   "def": "A horizontal row of the table; all its elements have the same outermost shell n."
+  },
+  "group": {
+   "as": "বৰ্গ",
+   "en": "group",
+   "def": "A vertical column (1–18); its elements share the same valence-shell configuration."
+  },
+  "s-block": {
+   "as": "s-গোষ্ঠী",
+   "en": "s-block",
+   "def": "Groups 1 and 2: the last electron enters an s orbital."
+  },
+  "p-block": {
+   "as": "p-গোষ্ঠী",
+   "en": "p-block",
+   "def": "Groups 13–18: the last electron enters a p orbital."
+  },
+  "d-block": {
+   "as": "d-গোষ্ঠী",
+   "en": "d-block",
+   "def": "Groups 3–12 (transition elements): the (n−1)d orbitals are filling."
+  },
+  "f-block": {
+   "as": "f-গোষ্ঠী",
+   "en": "f-block",
+   "def": "Lanthanoids and actinoids: the (n−2)f orbitals are filling."
+  },
+  "representative": {
+   "as": "প্ৰতিনিধি মৌল",
+   "en": "representative element",
+   "def": "An s- or p-block element (a main-group element)."
+  },
+  "transition": {
+   "as": "সংক্ৰমণশীল মৌল",
+   "en": "transition element",
+   "def": "A d-block element; shows variable valency, coloured ions and so on."
+  },
+  "inner-transition": {
+   "as": "অন্তঃসংক্ৰমণশীল মৌল",
+   "en": "inner-transition element",
+   "def": "An f-block element (lanthanoids and actinoids)."
+  },
+  "lanthanoid": {
+   "as": "লেন্থেনইড",
+   "en": "lanthanoid",
+   "def": "The 14 f-block elements from Z = 58 to 71."
+  },
+  "actinoid": {
+   "as": "এক্টিনইড",
+   "en": "actinoid",
+   "def": "The 14 f-block elements from Z = 90 to 103 (all radioactive)."
+  },
+  "alkali": {
+   "as": "ক্ষাৰ ধাতু",
+   "en": "alkali metal",
+   "def": "A group 1 element (except H); a very reactive metal."
+  },
+  "alkaline-earth": {
+   "as": "ক্ষাৰমৃত্তিকা ধাতু",
+   "en": "alkaline earth metal",
+   "def": "A group 2 element."
+  },
+  "halogen": {
+   "as": "হেল'জেন",
+   "en": "halogen",
+   "def": "A group 17 element; has a very negative electron gain enthalpy."
+  },
+  "chalcogen": {
+   "as": "চালক'জেন",
+   "en": "chalcogen",
+   "def": "A group 16 element (O, S, Se, Te, Po)."
+  },
+  "noble-gas": {
+   "as": "সম্ভ্ৰান্ত গেছ",
+   "en": "noble gas",
+   "def": "A group 18 element; its outer shell is full, so it is very unreactive."
+  },
+  "metal": {
+   "as": "ধাতু",
+   "en": "metal",
+   "def": "A shiny, conducting, ductile and malleable element."
+  },
+  "nonmetal": {
+   "as": "অধাতু",
+   "en": "non-metal",
+   "def": "Usually a brittle, non-conducting solid or gas."
+  },
+  "metalloid": {
+   "as": "ধাতুকল্প",
+   "en": "metalloid",
+   "def": "An element with properties between metals and non-metals (Si, Ge, As, Sb, Te)."
+  },
+  "atomic-radius": {
+   "as": "পাৰমাণৱিক ব্যাসাৰ্ধ",
+   "en": "atomic radius",
+   "def": "The approximate distance from the nucleus to the outer edge of the atom."
+  },
+  "covalent-radius": {
+   "as": "সহযোজী ব্যাসাৰ্ধ",
+   "en": "covalent radius",
+   "def": "Half the distance between two bonded atoms of the same non-metal."
+  },
+  "metallic-radius": {
+   "as": "ধাতৱ ব্যাসাৰ্ধ",
+   "en": "metallic radius",
+   "def": "Half the distance between the nuclei of two adjacent atoms in a metal crystal."
+  },
+  "ionic-radius": {
+   "as": "আয়নীয় ব্যাসাৰ্ধ",
+   "en": "ionic radius",
+   "def": "The size of an ion in a crystal; cations are small, anions large."
+  },
+  "isoelectronic": {
+   "as": "সমইলেক্ট্ৰনীয় প্ৰজাতি",
+   "en": "isoelectronic species",
+   "def": "Atoms or ions with the same number of electrons (for example O²⁻, F⁻, Na⁺, Mg²⁺)."
+  },
+  "ionisation-enthalpy": {
+   "as": "আয়নীকৰণ এনথালপি",
+   "en": "ionisation enthalpy",
+   "def": "The minimum energy to remove one electron from a gaseous atom (kJ mol⁻¹)."
+  },
+  "electron-gain-enthalpy": {
+   "as": "ইলেক্ট্ৰন গ্ৰহণ এনথালপি",
+   "en": "electron gain enthalpy",
+   "def": "The enthalpy change when a gaseous atom takes up one electron (Δ_egH)."
+  },
+  "electronegativity": {
+   "as": "বিদ্যুৎঋণাত্মকতা",
+   "en": "electronegativity",
+   "def": "An atom's ability to attract the shared electrons in a bond."
+  },
+  "shielding": {
+   "as": "আৱৰণ প্ৰভাৱ",
+   "en": "shielding (screening) effect",
+   "def": "Inner electrons reduce the pull of the nucleus on the outer electrons."
+  },
+  "zeff": {
+   "as": "কাৰ্যকৰী নিউক্লীয় আধান",
+   "en": "effective nuclear charge",
+   "def": "The nuclear charge actually felt by an outer electron after shielding."
+  },
+  "valency": {
+   "as": "যোজ্যতা",
+   "en": "valency",
+   "def": "The combining power of an element; usually the number of outer electrons or 8 minus it."
+  },
+  "oxidation-state": {
+   "as": "জাৰণ অৱস্থা",
+   "en": "oxidation state",
+   "def": "The apparent charge an atom carries in a compound."
+  },
+  "diagonal": {
+   "as": "কৰ্ণ সম্বন্ধ",
+   "en": "diagonal relationship",
+   "def": "Similarity between a second-period element and the third-period element one group to its right (Li–Mg, Be–Al, B–Si)."
+  },
+  "amphoteric": {
+   "as": "উভধৰ্মী",
+   "en": "amphoteric",
+   "def": "Reacting with both acids and bases (for example Al₂O₃)."
+  },
+  "reducing-agent": {
+   "as": "বিজাৰক",
+   "en": "reducing agent",
+   "def": "A substance that gives up electrons."
+  },
+  "oxidising-agent": {
+   "as": "জাৰক",
+   "en": "oxidising agent",
+   "def": "A substance that accepts electrons."
+  }
+ },
+ "sections": [
+  {
+   "id": "why",
+   "title": "3.1 Why classify the elements?",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Today we know 118 elements. In 1800 only 31 were known, and by 1865 the number was 63. With so many elements and compounds, remembering each one separately is almost impossible. Scientists therefore looked for a way of [[classification]] so that knowing the properties of a few elements lets us predict the rest."
+    },
+    {
+     "type": "p",
+     "text": "In this chapter we first follow the history of the [[periodic-table]], then see how the modern table links to electronic configuration, and finally study how properties (size, ionisation enthalpy, electron gain enthalpy, electronegativity, valency) change in a regular way."
+    }
+   ]
+  },
+  {
+   "id": "history",
+   "title": "3.2 Genesis of periodic classification",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "**Döbereiner's triads.** In 1829 the German chemist Johann Döbereiner noticed that some similar elements fall into groups of three, called [[triad]]s. When the three are listed by atomic mass, the middle one has a mass close to the average of the other two. Only a few of the elements known then formed such triads, so the idea could not be applied generally."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Triad",
+      "Atomic masses",
+      "Mean of first and third"
+     ],
+     "rows": [
+      [
+       "Li, Na, K",
+       "7, 23, 39",
+       "(7 + 39)/2 = 23"
+      ],
+      [
+       "Ca, Sr, Ba",
+       "40, 88, 137",
+       "(40 + 137)/2 = 88.5"
+      ],
+      [
+       "Cl, Br, I",
+       "35.5, 80, 127",
+       "(35.5 + 127)/2 = 81.25"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "**Newlands' law of octaves.** In 1865 the English chemist John Newlands arranged the elements by increasing atomic mass and saw that every eighth element resembled the first, like the notes of a musical octave. This is the [[octave]] law. It worked only up to calcium and then broke down. It was not accepted at first, but the Royal Society awarded him the Davy Medal in 1887."
+    },
+    {
+     "type": "anim",
+     "name": "triads",
+     "title": "Triads and octaves",
+     "caption": "Pick a triad and check the average; then switch to octaves, choose an element and see its look-alike eight places away."
+    },
+    {
+     "type": "p",
+     "text": "**Mendeleev and Lothar Meyer.** In 1869 the Russian Dmitri Mendeleev and the German Lothar Meyer put forward the periodic law at about the same time. Meyer plotted atomic volume, melting point and similar properties against atomic mass and saw them rise and fall regularly. Mendeleev stated:"
+    },
+    {
+     "type": "formula",
+     "label": "Mendeleev's periodic law",
+     "text": "The properties (physical and chemical) of the elements are a periodic function of their atomic masses."
+    },
+    {
+     "type": "p",
+     "text": "Mendeleev arranged the elements in rows and columns by increasing [[atomic-mass]]. In places he broke the mass order and left gaps for unknown elements. Beryllium's mass had been taken as 13.5; he corrected it to 9. Only 63 elements were known then. He predicted that the elements for two of the gaps (he called them eka-aluminium and eka-silicon) would be found, and he wrote down their properties in advance. Later gallium and germanium were discovered, and the predictions matched closely."
+    },
+    {
+     "type": "anim",
+     "name": "mendeleev-eka",
+     "title": "Mendeleev's predictions",
+     "caption": "Choose a gap and reveal the discovery to compare prediction and measurement (Table 3.3)."
+    },
+    {
+     "type": "note",
+     "text": "Mendeleev's table had weaknesses. In some places the mass order had to be broken: argon (40) comes before potassium (39.1), and tellurium (127.6) before iodine (126.9). Needing to break the mass order to match properties showed that atomic mass is not the fundamental property.",
+     "label": "Limitations"
+    }
+   ]
+  },
+  {
+   "id": "modern",
+   "title": "3.3 The modern periodic law and the present form of the table",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "In 1913 the English physicist Henry Moseley studied the X-rays given out by various elements. He found that the square root of the X-ray frequency (√ν) plotted against the [[atomic-number]] Z is a straight line, but plotted against atomic mass it is not. So the atomic number, not the mass, is the fundamental property of an element. Mendeleev's law was corrected accordingly."
+    },
+    {
+     "type": "formula",
+     "label": "Modern periodic law",
+     "text": "The physical and chemical properties of the elements are a periodic function of their atomic numbers."
+    },
+    {
+     "type": "anim",
+     "name": "moseley",
+     "title": "Moseley's plot and the role of Z",
+     "caption": "Change Z to see the K_α X-ray wavelength and √ν; then order the pairs Ar–K, Co–Ni and Te–I by mass and by Z."
+    },
+    {
+     "type": "p",
+     "text": "A table built on this law is the modern periodic table, also called the long form. It has 7 horizontal rows and 18 vertical columns. A row is a [[period]] and a column is a [[group]]. IUPAC numbers the groups 1 to 18."
+    },
+    {
+     "type": "p",
+     "text": "The period number is the value of the highest principal quantum number n of its elements. Period 1 has 2 elements, periods 2 and 3 have 8 each, periods 4 and 5 have 18 each, and periods 6 and 7 have 32 each. The 14 elements of period 6 ([[lanthanoid]]s) and the 14 of period 7 ([[actinoid]]s) are shown separately below the main table."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Period",
+      "n",
+      "Number of elements",
+      "Sub-shells filled"
+     ],
+     "rows": [
+      [
+       "1",
+       "1",
+       "2",
+       "1s"
+      ],
+      [
+       "2",
+       "2",
+       "8",
+       "2s, 2p"
+      ],
+      [
+       "3",
+       "3",
+       "8",
+       "3s, 3p"
+      ],
+      [
+       "4",
+       "4",
+       "18",
+       "4s, 3d, 4p"
+      ],
+      [
+       "5",
+       "5",
+       "18",
+       "5s, 4d, 5p"
+      ],
+      [
+       "6",
+       "6",
+       "32",
+       "6s, 4f, 5d, 6p"
+      ],
+      [
+       "7",
+       "7",
+       "32",
+       "7s, 5f, 6d, 7p"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Remember: the properties repeat because the same type of outer-shell electronic configuration returns at regular intervals. The electronic configuration is what decides an element's properties."
+    }
+   ]
+  },
+  {
+   "id": "nomenclature",
+   "title": "3.4 Nomenclature of elements with atomic number above 100",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "When a new element is made, its discoverers propose a name, but if scientists from different countries claim the same element, disputes arise (element 104 was named rutherfordium by one group and kurchatovium by another). To avoid this IUPAC gave a rule: the temporary name is built from one root for each digit of the atomic number, ending in 'ium'. The symbol uses the first letter of each root."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Digit",
+      "Root",
+      "Abbreviation"
+     ],
+     "rows": [
+      [
+       "0",
+       "nil",
+       "n"
+      ],
+      [
+       "1",
+       "un",
+       "u"
+      ],
+      [
+       "2",
+       "bi",
+       "b"
+      ],
+      [
+       "3",
+       "tri",
+       "t"
+      ],
+      [
+       "4",
+       "quad",
+       "q"
+      ],
+      [
+       "5",
+       "pent",
+       "p"
+      ],
+      [
+       "6",
+       "hex",
+       "h"
+      ],
+      [
+       "7",
+       "sept",
+       "s"
+      ],
+      [
+       "8",
+       "oct",
+       "o"
+      ],
+      [
+       "9",
+       "enn",
+       "e"
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "text": "Element 120: digits 1, 2, 0 → un, bi, nil → Unbinilium. Symbol: U + b + n = Ubn.",
+     "label": "Example 3.1"
+    },
+    {
+     "type": "anim",
+     "name": "iupac-name",
+     "title": "IUPAC name builder",
+     "caption": "Choose three digits to see the temporary name, the symbol and, where there is one, today's official name."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Z",
+      "Temporary name (symbol)",
+      "Present IUPAC name (symbol)"
+     ],
+     "rows": [
+      [
+       "101",
+       "Unnilunium (Unu)",
+       "Mendelevium (Md)"
+      ],
+      [
+       "102",
+       "Unnilbium (Unb)",
+       "Nobelium (No)"
+      ],
+      [
+       "103",
+       "Unniltrium (Unt)",
+       "Lawrencium (Lr)"
+      ],
+      [
+       "104",
+       "Unnilquadium (Unq)",
+       "Rutherfordium (Rf)"
+      ],
+      [
+       "105",
+       "Unnilpentium (Unp)",
+       "Dubnium (Db)"
+      ],
+      [
+       "106",
+       "Unnilhexium (Unh)",
+       "Seaborgium (Sg)"
+      ],
+      [
+       "107",
+       "Unnilseptium (Uns)",
+       "Bohrium (Bh)"
+      ],
+      [
+       "108",
+       "Unniloctium (Uno)",
+       "Hassium (Hs)"
+      ],
+      [
+       "109",
+       "Unnilennium (Une)",
+       "Meitnerium (Mt)"
+      ],
+      [
+       "110",
+       "Ununnilium (Uun)",
+       "Darmstadtium (Ds)"
+      ],
+      [
+       "111",
+       "Unununium (Uuu)",
+       "Roentgenium (Rg)"
+      ],
+      [
+       "112",
+       "Ununbium (Uub)",
+       "Copernicium (Cn)"
+      ],
+      [
+       "113",
+       "Ununtrium (Uut)",
+       "Nihonium (Nh)"
+      ],
+      [
+       "114",
+       "Ununquadium (Uuq)",
+       "Flerovium (Fl)"
+      ],
+      [
+       "115",
+       "Ununpentium (Uup)",
+       "Moscovium (Mc)"
+      ],
+      [
+       "116",
+       "Ununhexium (Uuh)",
+       "Livermorium (Lv)"
+      ],
+      [
+       "117",
+       "Ununseptium (Uus)",
+       "Tennessine (Ts)"
+      ],
+      [
+       "118",
+       "Ununoctium (Uuo)",
+       "Oganesson (Og)"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Elements up to 118 have now been discovered. Making new ones is possible only in a few high-energy laboratories, because these nuclei are extremely unstable."
+    }
+   ]
+  },
+  {
+   "id": "config",
+   "title": "3.5 Electronic configuration of elements and the periodic table",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "An electronic configuration is the distribution of electrons among the orbitals of an atom. Electrons fill the sub-shells in the order 1s, 2s, 2p, 3s, 3p, 4s, 3d and so on. Let us see how this ties in with the table."
+    },
+    {
+     "type": "p",
+     "text": "**(a) Configuration along a period.** Each period begins when a new outer shell starts to fill. Period 2 runs from lithium (1s²2s¹) to neon (1s²2s²2p⁶); period 3 from sodium ([Ne]3s¹) to argon ([Ne]3s²3p⁶). Period 4 runs from potassium ([Ar]4s¹) to krypton ([Ar]3d¹⁰4s²4p⁶). Here 4s, 3d and 4p fill, giving 2 + 10 + 6 = 18 elements. The ten elements Sc to Zn, in which 3d fills, form the first transition series. In the same way period 5 fills 5s, 4d, 5p (18 elements), period 6 fills 6s, 4f, 5d, 6p (32) and period 7 fills 7s, 5f, 6d, 7p (32)."
+    },
+    {
+     "type": "note",
+     "text": "Why period 5 has 18 elements: it fills 5s (2) + 4d (10) + 5p (6), three sub-shells that hold 18 electrons in total.",
+     "label": "Example 3.2"
+    },
+    {
+     "type": "p",
+     "text": "**(b) Configuration down a group.** Elements of one group have the same type of valence-shell configuration, and chemical properties depend mainly on the number of electrons in the valence shell. So the members of a group behave alike. For example every group 1 element has ns¹ in its valence shell."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Z",
+      "Element",
+      "Electronic configuration"
+     ],
+     "rows": [
+      [
+       "3",
+       "Li",
+       "1s² 2s¹  =  [He] 2s¹"
+      ],
+      [
+       "11",
+       "Na",
+       "1s² 2s² 2p⁶ 3s¹  =  [Ne] 3s¹"
+      ],
+      [
+       "19",
+       "K",
+       "[Ar] 4s¹"
+      ],
+      [
+       "37",
+       "Rb",
+       "[Kr] 5s¹"
+      ],
+      [
+       "55",
+       "Cs",
+       "[Xe] 6s¹"
+      ],
+      [
+       "87",
+       "Fr",
+       "[Rn] 7s¹"
+      ]
+     ]
+    },
+    {
+     "type": "anim",
+     "name": "config-position",
+     "title": "From configuration to period and group",
+     "caption": "Change Z and watch the sub-shells fill and how the period and group are worked out."
+    },
+    {
+     "type": "formula",
+     "label": "Finding period and group",
+     "text": "Period = highest n\ns-block: group = number of ns electrons\np-block: group = 10 + (ns + np electrons)\nd-block: group = (n−1)d + ns electrons"
+    }
+   ]
+  },
+  {
+   "id": "blocks",
+   "title": "3.6 Electronic configuration and types of elements: s-, p-, d-, f- blocks",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Depending on which sub-shell receives the last electron, the elements fall into four blocks: [[s-block]], [[p-block]], [[d-block]] and [[f-block]]."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Block",
+      "Groups",
+      "General outer configuration"
+     ],
+     "rows": [
+      [
+       "s",
+       "1, 2",
+       "ns¹⁻²"
+      ],
+      [
+       "p",
+       "13–18",
+       "ns²np¹⁻⁶"
+      ],
+      [
+       "d",
+       "3–12",
+       "(n−1)d¹⁻¹⁰ ns⁰⁻²"
+      ],
+      [
+       "f",
+       "— (below the table)",
+       "(n−2)f¹⁻¹⁴ (n−1)d⁰⁻¹ ns²"
+      ]
+     ]
+    },
+    {
+     "type": "anim",
+     "name": "periodic-table",
+     "title": "Interactive periodic table",
+     "caption": "Click any element or move the Z slider. Colour by block, metal/non-metal, group or period."
+    },
+    {
+     "type": "p",
+     "text": "**s-block.** Group 1 (the [[alkali]]s) and group 2 (the [[alkaline-earth]]s) have ns¹ and ns². They are soft, very reactive metals with low ionisation enthalpies and readily form +1 and +2 ions. Hydrogen is 1s¹, so it is placed in group 1 even though its properties are different. Helium is 1s² but, with a full shell, it is placed in group 18."
+    },
+    {
+     "type": "p",
+     "text": "**p-block.** Groups 13 to 18, with configurations from ns²np¹ to ns²np⁶ (helium excepted). Group 18 holds the [[noble-gas]]es, whose outer shell is full. The [[halogen]]s (group 17) and the [[chalcogen]]s (group 16) are very important; their electron gain enthalpies are strongly negative. The s- and p-block elements together are the [[representative]] elements."
+    },
+    {
+     "type": "p",
+     "text": "**d-block.** Groups 3 to 12, with the general configuration (n−1)d¹⁻¹⁰ ns⁰⁻². These are the [[transition]] elements. They show coloured ions, variable valency and paramagnetism, and are often used as catalysts. Zn, Cd and Hg are (n−1)d¹⁰ns², not true transition elements in the strict sense, but they are kept in this block."
+    },
+    {
+     "type": "p",
+     "text": "**f-block.** The [[lanthanoid]]s (Ce, Z = 58 to Lu, Z = 71) and [[actinoid]]s (Th, Z = 90 to Lr, Z = 103) shown below the table. Configuration (n−2)f¹⁻¹⁴(n−1)d⁰⁻¹ns². These are the [[inner-transition]] elements. All actinoids are radioactive, and the elements after uranium (Z > 92) are made artificially."
+    },
+    {
+     "type": "note",
+     "text": "Elements 117 and 120 had not been discovered when the book was written. Element 117 would be [Rn]5f¹⁴6d¹⁰7s²7p⁵, so it belongs to the halogens (group 17). Element 120 would be [Og]8s², so it falls in group 2 (an alkaline earth metal).",
+     "label": "Example 3.3"
+    },
+    {
+     "type": "p",
+     "text": "**Metals, non-metals and metalloids.** About 78% of the elements are [[metal]]s and fewer than 20% are [[nonmetal]]s. Metals usually have high melting and boiling points, conduct heat and electricity, and are ductile and malleable. Non-metals are brittle and do not conduct. Metallic character falls from left to right and rises down a group. Elements along the border (Si, Ge, As, Sb, Te) are [[metalloid]]s, with properties between the two."
+    },
+    {
+     "type": "note",
+     "text": "Arrange Si, Be, Mg, Na, P in increasing metallic character. Na, Mg, Si, P are in period 3; Be and Mg are in group 2. Metallic character falls from left to right and rises down a group. So the order is P < Si < Be < Mg < Na.",
+     "label": "Example 3.4"
+    }
+   ]
+  },
+  {
+   "id": "size",
+   "title": "3.7 Periodic trends in properties (a): size",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Moving left to right across a period, or top to bottom down a group, the physical and chemical properties change in a regular way. We start with the physical properties: [[atomic-radius]], ionic radius, ionisation enthalpy, electron gain enthalpy and electronegativity."
+    },
+    {
+     "type": "p",
+     "text": "**Atomic radius.** An atom is tiny (radius about 1.2 Å = 1.2 × 10⁻¹⁰ m) and its electron cloud has no sharp edge, so radius must be defined approximately. For a non-metal we take half the bond length between two identical bonded atoms, the [[covalent-radius]] (in Cl₂ the Cl–Cl distance is 198 pm, so the radius is 99 pm). For a metal we take half the distance between the nuclei of neighbouring atoms in the crystal, the [[metallic-radius]] (for copper 256 pm gives 128 pm)."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Atom (period 2)",
+      "Li",
+      "Be",
+      "B",
+      "C",
+      "N",
+      "O",
+      "F"
+     ],
+     "rows": [
+      [
+       "Radius (pm)",
+       "152",
+       "111",
+       "88",
+       "77",
+       "74",
+       "66",
+       "64"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Atom (period 3)",
+      "Na",
+      "Mg",
+      "Al",
+      "Si",
+      "P",
+      "S",
+      "Cl"
+     ],
+     "rows": [
+      [
+       "Radius (pm)",
+       "186",
+       "160",
+       "143",
+       "117",
+       "110",
+       "104",
+       "99"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Group 1",
+      "Radius (pm)",
+      "Group 17",
+      "Radius (pm)"
+     ],
+     "rows": [
+      [
+       "Li",
+       "152",
+       "F",
+       "64"
+      ],
+      [
+       "Na",
+       "186",
+       "Cl",
+       "99"
+      ],
+      [
+       "K",
+       "231",
+       "Br",
+       "114"
+      ],
+      [
+       "Rb",
+       "244",
+       "I",
+       "133"
+      ],
+      [
+       "Cs",
+       "262",
+       "At",
+       "140"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "**The trend and why.** Radius falls from left to right across a period: the electrons enter the same shell, but the nuclear charge rises one unit at a time, so the electron cloud is pulled in. Radius rises down a group: each step adds a new shell, and the inner electrons provide [[shielding]], lowering the [[zeff]] felt by the outer electrons."
+    },
+    {
+     "type": "anim",
+     "name": "trends",
+     "title": "Periodic trends explorer",
+     "caption": "Pick a property and a series (period or group); each bar uses the book's table values. Exceptions are listed automatically."
+    },
+    {
+     "type": "p",
+     "text": "**[[ionic-radius]].** An atom that loses electrons becomes a cation, and one that gains electrons becomes an anion. A cation is smaller than its atom (fewer electrons for the same nuclear charge, and the outer shell may be lost altogether): Na is 186 pm but Na⁺ is about 102 pm. An anion is larger: extra electrons repel one another and lower the effective nuclear charge. F is 64 pm but F⁻ is 136 pm."
+    },
+    {
+     "type": "p",
+     "text": "Atoms and ions with the same number of electrons are [[isoelectronic]]. O²⁻, F⁻, Na⁺ and Mg²⁺ all have 10 electrons. Among them, the larger the nuclear charge, the more strongly the same electrons are pulled in, so the radius falls. Mg²⁺ is therefore the smallest and O²⁻ the largest."
+    },
+    {
+     "type": "anim",
+     "name": "isoelectronic",
+     "title": "Sizes of isoelectronic ions",
+     "caption": "Choose the 10- or 18-electron set, or compare an atom with its ion."
+    },
+    {
+     "type": "note",
+     "text": "Which of Mg, Mg²⁺, Al and Al³⁺ is the largest and which the smallest? Mg is larger than Al (it is to the left in the period). Mg²⁺ and Al³⁺ are isoelectronic, and Al³⁺ is smaller because of its larger nuclear charge. Also each cation is smaller than its atom. So Mg is the largest and Al³⁺ the smallest.",
+     "label": "Example 3.5"
+    }
+   ]
+  },
+  {
+   "id": "energy",
+   "title": "3.7 (b): ionisation enthalpy, electron gain enthalpy and electronegativity",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "**Ionisation enthalpy.** The minimum energy needed to remove the outermost electron from an isolated gaseous atom is the first [[ionisation-enthalpy]]: X(g) → X⁺(g) + e⁻, measured in kJ mol⁻¹. Removing a second electron needs the second ionisation enthalpy, which is always larger because it is harder to take an electron from a positive ion: ΔiH₁ < ΔiH₂ < ΔiH₃ ..."
+    },
+    {
+     "type": "p",
+     "text": "**Across a period.** ΔiH generally rises from left to right, because the radius falls and the nuclear charge rises. There are exceptions: it drops from Be (899) to B (801), because B's outer electron is in a 2p orbital, which feels the nucleus less strongly than a 2s electron (2s penetrates closer). It also drops from N (1402) to O (1314), because N's 2p³ is half-filled and stable, while O's fourth electron pairs up in an orbital where repulsion is larger. **Down a group.** ΔiH falls, because the radius and the shielding increase."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Element (period 2)",
+      "Li",
+      "Be",
+      "B",
+      "C",
+      "N",
+      "O",
+      "F",
+      "Ne"
+     ],
+     "rows": [
+      [
+       "First ΔiH (kJ mol⁻¹)",
+       "520",
+       "899",
+       "801",
+       "1086",
+       "1402",
+       "1314",
+       "1681",
+       "2080"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Group 1",
+      "Li",
+      "Na",
+      "K",
+      "Rb",
+      "Cs"
+     ],
+     "rows": [
+      [
+       "First ΔiH (kJ mol⁻¹)",
+       "520",
+       "496",
+       "419",
+       "403",
+       "374"
+      ]
+     ]
+    },
+    {
+     "type": "anim",
+     "name": "successive-ie",
+     "title": "Successive ionisation enthalpies",
+     "caption": "Choose an element and see where the big jump occurs; it reveals the number of valence electrons."
+    },
+    {
+     "type": "note",
+     "text": "For the period-3 elements Na, Mg and Si the first ΔiH are 496, 737 and 786 kJ mol⁻¹. Is Al's value 575 or 760? Al's outermost electron is in 3p, which feels the nucleus less than a 3s electron does, so Al's ΔiH is lower than Mg's. The right value is 575.",
+     "label": "Example 3.6"
+    },
+    {
+     "type": "p",
+     "text": "**Electron gain enthalpy.** The enthalpy change when a gaseous atom takes up an electron to form a negative ion is the [[electron-gain-enthalpy]] (Δ_egH): X(g) + e⁻ → X⁻(g). For most elements energy is released, so Δ_egH is negative. The [[halogen]]s (group 17) have the most negative values, because one extra electron gives them the stable noble-gas configuration. Group 18 shells are full, so the new electron must go into a higher shell, and Δ_egH is positive."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Group 1",
+      "Δ_egH",
+      "Group 16",
+      "Δ_egH",
+      "Group 17",
+      "Δ_egH",
+      "Group 18",
+      "Δ_egH"
+     ],
+     "rows": [
+      [
+       "H",
+       "−73",
+       "",
+       "",
+       "",
+       "",
+       "He",
+       "+48"
+      ],
+      [
+       "Li",
+       "−60",
+       "O",
+       "−141",
+       "F",
+       "−328",
+       "Ne",
+       "+116"
+      ],
+      [
+       "Na",
+       "−53",
+       "S",
+       "−200",
+       "Cl",
+       "−349",
+       "Ar",
+       "+96"
+      ],
+      [
+       "K",
+       "−48",
+       "Se",
+       "−195",
+       "Br",
+       "−325",
+       "Kr",
+       "+96"
+      ],
+      [
+       "Rb",
+       "−47",
+       "Te",
+       "−190",
+       "I",
+       "−295",
+       "Xe",
+       "+77"
+      ],
+      [
+       "Cs",
+       "−46",
+       "Po",
+       "−174",
+       "At",
+       "−270",
+       "Rn",
+       "+68"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Down a group Δ_egH usually becomes less negative, yet O and F are less negative than S and Cl. O and F add the new electron to the small 2p orbitals, where electron–electron repulsion is larger. The larger 3p orbitals of S and Cl suffer less repulsion. As a result, S has the most negative value in its group and Cl the most negative in the whole table."
+    },
+    {
+     "type": "note",
+     "text": "Among P, S, Cl and F the most negative Δ_egH is Cl's. F is less negative than Cl because of the strong repulsion in fluorine's small 2p subshell. P, S and Cl are in one period and Δ_egH becomes more negative from left to right, so Cl > S > P in magnitude.",
+     "label": "Example 3.7"
+    },
+    {
+     "type": "p",
+     "text": "**Electronegativity.** The ability of a bonded atom to attract the shared electrons towards itself is its [[electronegativity]]. It rises from left to right across a period and falls down a group. On Pauling's scale fluorine, the highest, is given 4.0. A smaller atom with a larger nuclear charge pulls shared electrons harder. Electronegativity and metallic character run in opposite directions: when one rises the other falls."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Element (period 2)",
+      "Li",
+      "Be",
+      "B",
+      "C",
+      "N",
+      "O",
+      "F"
+     ],
+     "rows": [
+      [
+       "Electronegativity",
+       "1.0",
+       "1.5",
+       "2.0",
+       "2.5",
+       "3.0",
+       "3.5",
+       "4.0"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Element (period 3)",
+      "Na",
+      "Mg",
+      "Al",
+      "Si",
+      "P",
+      "S",
+      "Cl"
+     ],
+     "rows": [
+      [
+       "Electronegativity",
+       "0.9",
+       "1.2",
+       "1.5",
+       "1.8",
+       "2.1",
+       "2.5",
+       "3.0"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Group 1",
+      "Value",
+      "Group 17",
+      "Value"
+     ],
+     "rows": [
+      [
+       "Li",
+       "1.0",
+       "F",
+       "4.0"
+      ],
+      [
+       "Na",
+       "0.9",
+       "Cl",
+       "3.0"
+      ],
+      [
+       "K",
+       "0.8",
+       "Br",
+       "2.8"
+      ],
+      [
+       "Rb",
+       "0.8",
+       "I",
+       "2.5"
+      ],
+      [
+       "Cs",
+       "0.7",
+       "At",
+       "2.2"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "chemical",
+   "title": "3.7 (c): periodic trends in chemical properties",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "**Valency and oxidation state.** [[valency]] is the combining power of an element. For representative elements it equals the number of outer electrons, or 8 minus that number. Nowadays the [[oxidation-state]] is often used instead. In Na₂O, for instance, Na is +1 and O is −2."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Group",
+      "1",
+      "2",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18"
+     ],
+     "rows": [
+      [
+       "Valence electrons",
+       "1",
+       "2",
+       "3",
+       "4",
+       "5",
+       "6",
+       "7",
+       "8"
+      ],
+      [
+       "Valency",
+       "1",
+       "2",
+       "3",
+       "4",
+       "3, 5",
+       "2, 6",
+       "1, 7",
+       "0, 8"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Group",
+      "Hydrides",
+      "Oxides"
+     ],
+     "rows": [
+      [
+       "1",
+       "LiH, NaH, KH",
+       "Li₂O, Na₂O, K₂O"
+      ],
+      [
+       "2",
+       "CaH₂",
+       "MgO, CaO, SrO, BaO"
+      ],
+      [
+       "13",
+       "B₂H₆, AlH₃",
+       "B₂O₃, Al₂O₃, Ga₂O₃, In₂O₃"
+      ],
+      [
+       "14",
+       "CH₄, SiH₄, GeH₄, SnH₄",
+       "CO₂, SiO₂, GeO₂, SnO₂, PbO₂"
+      ],
+      [
+       "15",
+       "NH₃, PH₃, AsH₃, SbH₃",
+       "N₂O₃, N₂O₅, P₄O₆, P₄O₁₀, As₂O₃, As₂O₅"
+      ],
+      [
+       "16",
+       "H₂O, H₂S, H₂Se, H₂Te",
+       "SO₃, SeO₃, TeO₃"
+      ],
+      [
+       "17",
+       "HF, HCl, HBr, HI",
+       "Cl₂O₇"
+      ]
+     ]
+    },
+    {
+     "type": "note",
+     "text": "In the ion [AlCl(H₂O)₅]²⁺ the oxidation state of Al is +3 and its co-ordination number is 6; the two are not the same thing.",
+     "label": "Example 3.9"
+    },
+    {
+     "type": "p",
+     "text": "**Anomalous behaviour of the second-period elements.** The first element of each group from 1, 2 and 13 to 17 (Li, Be, B, C, N, O, F) differs from the rest of its group. The causes: (i) small size, (ii) high ionisation enthalpy and electronegativity, (iii) only four orbitals (2s, 2p) in the valence shell, so a maximum covalency of 4, whereas the others have d orbitals and can exceed 4 (e.g. [AlF₆]³⁻, [BF₄]⁻), and (iv) the first element can form pπ–pπ multiple bonds (C=C, C≡C, N≡N, O=O)."
+    },
+    {
+     "type": "p",
+     "text": "**Diagonal relationship.** Certain second-period elements resemble the third-period element one group to their right: Li–Mg, Be–Al, B–Si. This is the [[diagonal]] relationship. The reason is that the pairs have similar ionic radii and charge-to-size ratios; for example Li⁺ (76 pm) and Mg²⁺ (72 pm) are close in size."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Property",
+      "Li",
+      "Be",
+      "B",
+      "Na",
+      "Mg",
+      "Al"
+     ],
+     "rows": [
+      [
+       "Metallic/atomic radius (pm)",
+       "152",
+       "111",
+       "88",
+       "186",
+       "160",
+       "143"
+      ],
+      [
+       "Ionic radius (pm)",
+       "76 (Li⁺)",
+       "31 (Be²⁺)",
+       "—",
+       "102 (Na⁺)",
+       "72 (Mg²⁺)",
+       "—"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "**Chemical reactivity.** From left to right the ionisation enthalpy generally rises and the electron gain enthalpy becomes more negative (noble gases excepted). So elements on the left (alkali metals) give up electrons easily and are strong [[reducing-agent]]s, while those on the right (halogens) take up electrons easily and are strong [[oxidising-agent]]s. Reactivity is therefore high at both ends of a period and low in the middle. Down a group, the reactivity of metals increases, but that of non-metals decreases."
+    },
+    {
+     "type": "p",
+     "text": "**Nature of the oxides.** Across a period the oxides change from basic → amphoteric → acidic. Na₂O and MgO are basic, Al₂O₃ is [[amphoteric]], and SiO₂, P₄O₁₀, SO₃ and Cl₂O₇ are acidic. Down a group, basic character increases and acidic character decreases."
+    },
+    {
+     "type": "anim",
+     "name": "valence-oxides",
+     "title": "Valency and oxides",
+     "caption": "Choose a group to see the formulae of its hydrides and oxides, or step through the period-3 oxides to see acid–base character."
+    },
+    {
+     "type": "note",
+     "text": "Na₂O + H₂O → 2NaOH (a base), so Na₂O is a basic oxide. Cl₂O₇ + H₂O → 2HClO₄ (a strong acid), so Cl₂O₇ is an acidic oxide. Litmus paper can confirm this.",
+     "label": "Example 3.10"
+    }
+   ]
+  }
+ ],
+ "summary": [
+  "Mendeleev ordered the elements by atomic mass; by the modern [[periodic-law]] the properties are a periodic function of the atomic number. Moseley's X-ray work established this.",
+  "The long-form table has 7 periods and 18 groups, with period lengths 2, 8, 8, 18, 18, 32, 32. The period equals the highest n, and the group follows from the outer configuration.",
+  "Elements above 100 get temporary names from digit roots (nil, un, bi, tri, quad, pent, hex, sept, oct, enn) ending in -ium.",
+  "Elements are divided into the [[s-block]], [[p-block]], [[d-block]] and [[f-block]]. About 78% of elements are metals, and metallic character falls from left to right.",
+  "Across a period the atomic radius falls, while ionisation enthalpy and electronegativity generally rise and electron gain enthalpy becomes more negative; down a group the radius rises and the others fall.",
+  "Among isoelectronic ions, the larger the nuclear charge, the smaller the radius. A cation is smaller than its atom, an anion larger.",
+  "Reactivity is highest at both ends of a period; the first element of each group behaves anomalously and shows diagonal relationships (Li–Mg, Be–Al, B–Si). Oxides go basic → amphoteric → acidic."
+ ]
+}

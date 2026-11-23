@@ -1,0 +1,224 @@
+{
+ "questions": [
+  {
+   "q": "According to Döbereiner's law of triads, what is seen in Li (7), Na (23), K (39)?",
+   "options": [
+    "The middle element's mass equals the average of the other two",
+    "All three masses are equal",
+    "Each mass is double the previous one",
+    "The masses are unrelated"
+   ],
+   "answer": 0,
+   "explain": "(7 + 39)/2 = 23, which is the mass of Na."
+  },
+  {
+   "q": "In Newlands' law of octaves, which is the eighth element from Li?",
+   "options": [
+    "Be",
+    "Na",
+    "Mg",
+    "K"
+   ],
+   "answer": 1,
+   "explain": "Li, Be, B, C, N, O, F, then Na is the eighth, and Na resembles Li."
+  },
+  {
+   "q": "On what basis did Mendeleev arrange the elements?",
+   "options": [
+    "Increasing atomic number",
+    "Increasing atomic mass and similarity of properties",
+    "Electronic configuration",
+    "Melting point"
+   ],
+   "answer": 1,
+   "explain": "He arranged by rising mass and broke the order in places to keep similar properties together."
+  },
+  {
+   "q": "Mendeleev's 'eka-aluminium' was later discovered as which element?",
+   "options": [
+    "Germanium",
+    "Gallium",
+    "Scandium",
+    "Indium"
+   ],
+   "answer": 1,
+   "explain": "Eka-aluminium (mass 68, low melting point) = gallium (mass ≈ 70, m.p. 302.93 K). Germanium is eka-silicon."
+  },
+  {
+   "q": "What is the basis of the modern periodic law?",
+   "options": [
+    "Atomic mass",
+    "Atomic number",
+    "Density",
+    "Valency"
+   ],
+   "answer": 1,
+   "explain": "Moseley's X-ray work showed √ν varies linearly with Z."
+  },
+  {
+   "q": "Why does argon (Z = 18, mass 39.95) come before potassium (Z = 19, mass 39.10)?",
+   "options": [
+    "Because the order is by mass",
+    "Because the order follows atomic number and fits the properties",
+    "Because argon is a metal",
+    "There is no reason"
+   ],
+   "answer": 1,
+   "explain": "The Z order is the true one; by mass Ar and K would fall in the wrong groups."
+  },
+  {
+   "q": "How many elements are there in the sixth period of the long-form table?",
+   "options": [
+    "8",
+    "18",
+    "32",
+    "14"
+   ],
+   "answer": 2,
+   "explain": "6s (2) + 4f (14) + 5d (10) + 6p (6) = 32."
+  },
+  {
+   "q": "What is the IUPAC temporary name and symbol of the element with Z = 105?",
+   "options": [
+    "Unnilquadium (Unq)",
+    "Unnilpentium (Unp)",
+    "Ununpentium (Uup)",
+    "Unnilhexium (Unh)"
+   ],
+   "answer": 1,
+   "explain": "1, 0, 5 → un, nil, pent → Unnilpentium; symbol U + n + p = Unp."
+  },
+  {
+   "q": "What is the temporary symbol of the element with Z = 120?",
+   "options": [
+    "Ubn",
+    "Unb",
+    "Uon",
+    "Ubo"
+   ],
+   "answer": 0,
+   "explain": "1, 2, 0 → un, bi, nil → Unbinilium → Ubn."
+  },
+  {
+   "q": "An element has outer configuration ns²np⁴ with n = 3. Which element is it and in which group?",
+   "options": [
+    "S, group 16",
+    "Cl, group 17",
+    "Si, group 14",
+    "O, group 16"
+   ],
+   "answer": 0,
+   "explain": "Period 3; p-block; group = 10 + 2 + 4 = 16; 1s²2s²2p⁶3s²3p⁴ is sulphur."
+  },
+  {
+   "q": "Fe (Z = 26) is [Ar]3d⁶4s². Which block and group is it?",
+   "options": [
+    "s-block, group 2",
+    "p-block, group 14",
+    "d-block, group 8",
+    "f-block"
+   ],
+   "answer": 2,
+   "explain": "(n−1)d + ns = 6 + 2 = 8; a d-block element of period 4."
+  },
+  {
+   "q": "Why is helium (1s²) placed in group 18?",
+   "options": [
+    "Its shell is full, so it is unreactive like the other noble gases",
+    "Its mass is large",
+    "It has 8 electrons",
+    "It is a metal"
+   ],
+   "answer": 0,
+   "explain": "1s² is a complete shell and its properties match the noble gases."
+  },
+  {
+   "q": "Why does atomic radius decrease from left to right across a period?",
+   "options": [
+    "The number of shells increases",
+    "Nuclear charge rises while electrons enter the same shell",
+    "Electrons decrease",
+    "Neutrons increase"
+   ],
+   "answer": 1,
+   "explain": "A higher charge pulls the electrons in, with little change in shielding."
+  },
+  {
+   "q": "Among O²⁻, F⁻, Na⁺ and Mg²⁺, which has the smallest radius?",
+   "options": [
+    "O²⁻",
+    "F⁻",
+    "Na⁺",
+    "Mg²⁺"
+   ],
+   "answer": 3,
+   "explain": "All have 10 electrons; Mg has the largest nuclear charge (+12)."
+  },
+  {
+   "q": "Why is the first ionisation enthalpy of Be (899) higher than that of B (801)?",
+   "options": [
+    "B's electron is in 2p, which feels the nucleus less than 2s",
+    "B is larger",
+    "Be has more electrons",
+    "Be has a smaller nuclear charge"
+   ],
+   "answer": 0,
+   "explain": "A 2s electron penetrates closer to the nucleus, so it is harder to remove."
+  },
+  {
+   "q": "The successive ionisation enthalpies of Mg are 738, 1451, 7733 kJ mol⁻¹. What can be concluded?",
+   "options": [
+    "Mg has 1 valence electron",
+    "Mg has 2 valence electrons (big jump at the third)",
+    "Mg has 3 valence electrons",
+    "Mg is a non-metal"
+   ],
+   "answer": 1,
+   "explain": "After two electrons, the next comes from a stable inner shell, hence the big jump."
+  },
+  {
+   "q": "Among P, S, Cl and F, which has the most negative electron gain enthalpy?",
+   "options": [
+    "P",
+    "S",
+    "Cl",
+    "F"
+   ],
+   "answer": 2,
+   "explain": "Cl: −349, F: −328 kJ mol⁻¹. F's small 2p subshell has more repulsion."
+  },
+  {
+   "q": "Which element has the highest electronegativity on Pauling's scale?",
+   "options": [
+    "Chlorine",
+    "Oxygen",
+    "Fluorine",
+    "Nitrogen"
+   ],
+   "answer": 2,
+   "explain": "F = 4.0 (the highest), O = 3.5, Cl = 3.0, N = 3.0."
+  },
+  {
+   "q": "What kind of oxide is Al₂O₃?",
+   "options": [
+    "Basic",
+    "Acidic",
+    "Amphoteric",
+    "Neutral"
+   ],
+   "answer": 2,
+   "explain": "It reacts with both acids and bases."
+  },
+  {
+   "q": "Which pair shows a diagonal relationship?",
+   "options": [
+    "Li – Na",
+    "Li – Mg",
+    "Be – Mg",
+    "B – Al"
+   ],
+   "answer": 1,
+   "explain": "Li (group 1, period 2) and Mg (group 2, period 3) have similar properties."
+  }
+ ]
+}

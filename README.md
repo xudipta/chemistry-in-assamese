@@ -13,8 +13,9 @@ English term in brackets. Installable as a web app and works offline.
 | 11 | 2 · পৰমাণুৰ গঠন (Structure of Atom) | ✅ rebuilt to follow the Assamese book: 8 sections, 12 animations, 20-question quiz; Assamese + English (Part I) |
 | 11 | 1 · ৰসায়নবিজ্ঞানৰ কিছুমান প্ৰাথমিক ধাৰণা (Some Basic Concepts of Chemistry) | ✅ 9 sections, 9 animations, 15-question quiz; Assamese + English (Part I) |
 | 11 | 3 · মৌলবোৰৰ শ্ৰেণীবিভাজন আৰু পৰ্যায়গত ধৰ্ম (Classification of Elements and Periodicity in Properties) | ✅ 9 sections, 10 animations, 20-question quiz; Assamese + English (Part I) |
+| 11 | 4 · ৰাসায়নিক বান্ধনি আৰু আণৱিক গঠন (Chemical Bonding and Molecular Structure) | ✅ 10 sections, 10 animations, 20-question quiz; Assamese + English (Part I) |
 | 11 | 5 · তাপগতি বিজ্ঞান (Thermodynamics) | ✅ 8 sections, 10 animations, 20-question quiz; Assamese + English (Part I) |
-| 11 | 4, 6 (Part I) and 8–14 (Part II) | listed as "Coming soon". Chapter list now checked against the Assamese book (Part I = chapters 1–6, Part II = chapters 8–14; the book has no chapter 7 and no States of Matter) |
+| 11 | 6 (Part I) and 8–14 (Part II) | listed as "Coming soon". Chapter list now checked against the Assamese book (Part I = chapters 1–6, Part II = chapters 8–14; the book has no chapter 7 and no States of Matter) |
 | 12 | 1 · দ্ৰৱ (Solutions) | ✅ 7 sections, 9 animations, 12-question quiz; terminology checked against the Assamese textbook; **also available in English** |
 | 12 | 2 · বিদ্যুৎৰসায়নবিজ্ঞান (Electrochemistry) | ✅ 8 sections, 10 animations, 14-question quiz; **also available in English** |
 | 12 | 3 · ৰাসায়নিক গতিবিজ্ঞান (Chemical Kinetics) | ✅ 5 sections, 10 animations, 14-question quiz; **also available in English** |

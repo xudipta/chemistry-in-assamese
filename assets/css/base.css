@@ -192,3 +192,12 @@ figure.anim figcaption { margin-top: 10px; font-size: .9rem; color: var(--muted)
 footer.site-footer { border-top: 1px solid var(--border); padding: 22px 0 40px; color: var(--muted); font-size: .88rem; }
 .loading { padding: 40px 0; color: var(--muted); }
 @media (max-width: 520px) { body { font-size: 16px; } .qn-row { grid-template-columns: 1fr; } .ctl input[type="range"] { width: 100px; } }
+
+/* ---- step-by-step reading mode ---- */
+.read-mode { margin: 14px 0 0; }
+.step-off { display: none !important; }
+.stepper { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: var(--surface); border-top: 1px solid var(--border); box-shadow: 0 -4px 14px rgba(0,0,0,.08); }
+.stepper[hidden] { display: none; }
+.stepper .step-label { font-size: .9rem; color: var(--muted); text-align: center; flex: 1; }
+body.stepping main { padding-bottom: 84px; }
+body.stepping .site-footer { margin-bottom: 70px; }

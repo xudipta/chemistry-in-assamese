@@ -147,6 +147,70 @@
     return wrap;
   }
 
+  /* ---- optional "step by step" reading mode: one section at a time with Previous / Next ---- */
+  var MODE_KEY = 'chem-as-readmode', stepHash = null;
+  function modeGet() { try { return window.localStorage.getItem(MODE_KEY) === 'step'; } catch (e) { return false; } }
+  function modeSet(on) { try { window.localStorage.setItem(MODE_KEY, on ? 'step' : 'full'); } catch (e) { /* storage blocked */ } }
+
+  function setupStepper(toc, chapNav) {
+    var secs = [].slice.call(root.querySelectorAll('section.sec'));
+    if (secs.length < 2 || !toc) return;
+    var last = secs.length - 1, mode = modeGet(), cur = 0;
+    var saved = C.Progress.get(chapterId).step;
+    if (typeof saved === 'number' && saved >= 0 && saved <= last) cur = saved;
+    var fromHash = function () {
+      var id = decodeURIComponent((location.hash || '').slice(1)), i;
+      for (i = 0; i <= last; i++) if (secs[i].id === id) return i;
+      return -1;
+    };
+    if (fromHash() >= 0) cur = fromHash();
+
+    var row = el('div', 'read-mode');
+    var toggle = el('button', 'btn');
+    toggle.type = 'button';
+    row.appendChild(toggle);
+    toc.parentNode.insertBefore(row, toc);
+
+    var bar = el('nav', 'stepper'); bar.setAttribute('aria-label', 'Section navigation');
+    var prev = el('button', 'btn', '← Previous'), next = el('button', 'btn primary', 'Next →'), label = el('span', 'step-label');
+    prev.type = 'button'; next.type = 'button'; label.setAttribute('aria-live', 'polite');
+    bar.appendChild(prev); bar.appendChild(label); bar.appendChild(next);
+    root.appendChild(bar);
+
+    function show(i, scroll) {
+      cur = Math.max(0, Math.min(last, i));
+      secs.forEach(function (s, k) { s.classList.toggle('step-off', mode && k !== cur); });
+      chapNav.classList.toggle('step-off', mode && cur !== last);
+      var h = secs[cur].querySelector('h2');
+      label.textContent = 'Section ' + (cur + 1) + ' of ' + secs.length;
+      label.title = h ? h.textContent : '';
+      prev.disabled = cur === 0; next.disabled = cur === last;
+      C.Progress.update(chapterId, { step: cur });
+      if (scroll) window.scrollTo(0, Math.max(0, secs[cur].getBoundingClientRect().top + window.scrollY - 72));
+    }
+    function setMode(on, scroll) {
+      mode = on; modeSet(on);
+      document.body.classList.toggle('stepping', on);
+      bar.hidden = !on;
+      toggle.textContent = on ? 'Show full chapter' : 'Read step by step';
+      toggle.setAttribute('aria-pressed', String(on));
+      show(cur, scroll);
+    }
+    toggle.addEventListener('click', function () { setMode(!mode, true); });
+    prev.addEventListener('click', function () { show(cur - 1, true); });
+    next.addEventListener('click', function () { show(cur + 1, true); });
+
+    if (stepHash) window.removeEventListener('hashchange', stepHash);
+    stepHash = function () { var i = fromHash(); if (mode && i >= 0) show(i, true); };
+    window.addEventListener('hashchange', stepHash);
+
+    document.body.classList.toggle('stepping', mode);
+    bar.hidden = !mode;
+    toggle.textContent = mode ? 'Show full chapter' : 'Read step by step';
+    toggle.setAttribute('aria-pressed', String(mode));
+    show(cur, false);
+  }
+
   function render(ch, quiz, catalog, wanted) {
     var title = ch.title, en = shown === 'en';
     document.title = title.en + ' · Chemistry in Assamese';
@@ -229,6 +293,7 @@
     }
     root.appendChild(nav);
 
+    setupStepper(root.querySelector('nav.toc'), nav);
     C.Progress.update(chapterId, { seen: Date.now() });
   }
 

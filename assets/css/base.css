@@ -108,6 +108,7 @@ a.card:hover { border-color: var(--brand); transform: translateY(-2px); transiti
 .toc a:hover { text-decoration: underline; }
 section.sec { padding-top: 12px; margin-top: 28px; }
 section.sec > h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.4rem, 4vw, 1.8rem); line-height: 1.35; margin: 0 0 8px; padding-bottom: 6px; border-bottom: 2px solid var(--brand-soft); }
+section.sec p, section.sec li { overflow-wrap: anywhere; }
 section.sec p { margin: .75rem 0; max-width: 70ch; }
 section.sec ul, section.sec ol { max-width: 70ch; }
 sup, sub { line-height: 0; }

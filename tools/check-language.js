@@ -67,6 +67,19 @@ function scan() {
         await page.waitForTimeout(300);
         await record(`animation ${i + 1} (${name})`);
         for (let s = 0, ns = await fig.locator('select').count(); s < ns; s++) {
+          /* A dropdown can be hidden by design while another control (an earlier dropdown) is in a different mode.
+             Switch the earlier dropdowns through their options until it shows, so it is still tested. */
+          if (!(await fig.locator('select').nth(s).isVisible())) {
+            let shown = false;
+            for (let j = 0; j < s && !shown; j++) {
+              const eo = await fig.locator('select').nth(j).locator('option').evaluateAll((o) => o.map((x) => x.value));
+              for (const v of eo) {
+                await fig.locator('select').nth(j).selectOption(v); await page.waitForTimeout(50);
+                if (await fig.locator('select').nth(s).isVisible()) { shown = true; break; }
+              }
+            }
+            if (!shown) { console.log(`note: animation ${i + 1} dropdown ${s + 1} stays hidden in every mode; skipped`); continue; }
+          }
           const opts = await fig.locator('select').nth(s).locator('option').evaluateAll((o) => o.map((x) => x.value));
           for (const v of opts) { await fig.locator('select').nth(s).selectOption(v); await page.waitForTimeout(80); await record(`animation ${i + 1} dropdown ${s + 1}=${v}`); }
         }

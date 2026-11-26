@@ -50,7 +50,7 @@ function scan() {
       const errs = [];
       page.on('pageerror', (e) => errs.push(e.message));
       page.on('console', (m) => { if (m.type() === 'error') errs.push(m.text().slice(0, 120)); });
-      await page.goto(`${base}/chapter.html?c=${ch.id}&lang=${lang}`);
+      await page.goto(`${base}/chapter.html?c=${ch.id}&lang=${lang}&open=all`);   /* open=all: every section expanded, so all animations are tested */
       await page.waitForSelector('.sec');
       await page.waitForTimeout(800);
       const label = `${ch.id} [${lang}]`;

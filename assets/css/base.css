@@ -202,3 +202,16 @@ footer.site-footer { border-top: 1px solid var(--border); padding: 22px 0 40px; 
 .stepper .step-label { font-size: .9rem; color: var(--muted); text-align: center; flex: 1; }
 body.stepping main { padding-bottom: 84px; }
 body.stepping .site-footer { margin-bottom: 70px; }
+
+/* ---- collapsible sections ---- */
+.read-mode { display: flex; flex-wrap: wrap; gap: 8px; }
+section.sec > h2 { padding-bottom: 0; }
+.sec-toggle { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; text-align: start; font: inherit; color: inherit; background: none; border: 0; border-bottom: 2px solid var(--brand-soft); padding: 0 0 6px; cursor: pointer; }
+.sec-toggle:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; border-radius: 6px; }
+.sec-chev { flex: none; width: 10px; height: 10px; border-right: 3px solid var(--brand); border-bottom: 3px solid var(--brand); transform: rotate(45deg); transition: transform .15s; margin: 0 6px 4px 0; }
+section.sec.collapsed .sec-chev { transform: rotate(-45deg); margin-bottom: 0; }
+section.sec.collapsed > .sec-body { display: none; }
+body.stepping section.sec.collapsed > .sec-body { display: block; }
+body.stepping .sec-chev { display: none; }
+body.stepping .sec-toggle { cursor: default; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .sec-chev { transition: none; } }

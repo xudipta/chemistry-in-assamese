@@ -147,6 +147,56 @@
     return wrap;
   }
 
+  /* ---- collapsible sections (accordion): the first section starts open, the rest collapsed ---- */
+  var openIds = null, accHash = null;   /* open sections survive a language switch within the page */
+
+  function setupAccordion(toc) {
+    var secs = [].slice.call(root.querySelectorAll('section.sec'));
+    if (!toc || secs.length < 2) return;
+    var allOpen = /[?&]open=all\b/.test(location.search);
+    if (!openIds) openIds = {};
+    var byId = {};
+    secs.forEach(function (sec, i) {
+      var h2 = sec.querySelector(':scope > h2');
+      if (!h2) return;
+      var body = el('div', 'sec-body'); body.id = sec.id + '-body';
+      while (h2.nextSibling) body.appendChild(h2.nextSibling);
+      sec.appendChild(body);
+      var btn = el('button', 'sec-toggle'); btn.type = 'button';
+      while (h2.firstChild) btn.appendChild(h2.firstChild);
+      btn.appendChild(el('span', 'sec-chev'));
+      btn.setAttribute('aria-controls', body.id);
+      h2.appendChild(btn);
+      byId[sec.id] = { sec: sec, btn: btn };
+      btn.addEventListener('click', function () { set(sec.id, sec.classList.contains('collapsed')); });
+    });
+    function set(id, open) {
+      var r = byId[id]; if (!r) return;
+      r.sec.classList.toggle('collapsed', !open);
+      r.btn.setAttribute('aria-expanded', String(open));
+      openIds[id] = open;
+    }
+    function setAll(open) { secs.forEach(function (s) { set(s.id, open); }); }
+    var hashId = decodeURIComponent((location.hash || '').slice(1));
+    secs.forEach(function (s, i) {
+      var open = allOpen || (s.id in openIds ? openIds[s.id] : (i === 0 || s.id === hashId));
+      set(s.id, open);
+    });
+
+    var row = el('div', 'read-mode');
+    var ex = el('button', 'btn', 'Expand all'), co = el('button', 'btn', 'Collapse all');
+    ex.type = 'button'; co.type = 'button';
+    ex.addEventListener('click', function () { setAll(true); });
+    co.addEventListener('click', function () { setAll(false); });
+    row.appendChild(ex); row.appendChild(co);
+    toc.parentNode.insertBefore(row, toc);
+
+    /* contents links and deep links open the section they point to */
+    if (accHash) window.removeEventListener('hashchange', accHash);
+    accHash = function () { var id = decodeURIComponent((location.hash || '').slice(1)); if (byId[id]) { set(id, true); if (!document.body.classList.contains('stepping')) byId[id].sec.scrollIntoView(); } };
+    window.addEventListener('hashchange', accHash);
+  }
+
   /* ---- optional "step by step" reading mode: one section at a time with Previous / Next ---- */
   var MODE_KEY = 'chem-as-readmode', stepHash = null;
   function modeGet() { try { return window.localStorage.getItem(MODE_KEY) === 'step'; } catch (e) { return false; } }
@@ -165,11 +215,11 @@
     };
     if (fromHash() >= 0) cur = fromHash();
 
-    var row = el('div', 'read-mode');
+    var row = root.querySelector('.read-mode');
+    if (!row) { row = el('div', 'read-mode'); toc.parentNode.insertBefore(row, toc); }
     var toggle = el('button', 'btn');
     toggle.type = 'button';
-    row.appendChild(toggle);
-    toc.parentNode.insertBefore(row, toc);
+    row.insertBefore(toggle, row.firstChild);
 
     var bar = el('nav', 'stepper'); bar.setAttribute('aria-label', 'Section navigation');
     var prev = el('button', 'btn', '← Previous'), next = el('button', 'btn primary', 'Next →'), label = el('span', 'step-label');
@@ -293,6 +343,7 @@
     }
     root.appendChild(nav);
 
+    setupAccordion(root.querySelector('nav.toc'));
     setupStepper(root.querySelector('nav.toc'), nav);
     C.Progress.update(chapterId, { seen: Date.now() });
   }

@@ -261,6 +261,75 @@
     show(cur, false);
   }
 
+  /* ---- sticky chapter bar: current section, reading progress and a "Sections" menu (side list on wide screens) ---- */
+  var barScroll = null, barKey = null;
+
+  function setupChapterBar(toc) {
+    var secs = [].slice.call(root.querySelectorAll('section.sec'));
+    if (!toc || secs.length < 2) return;
+    var items = secs.map(function (s) {
+      var h = s.querySelector('h2');
+      return { id: s.id, sec: s, title: h ? h.textContent.trim() : s.id };
+    });
+    var bar = el('div', 'chap-bar'); bar.hidden = true;
+    var menuBtn = el('button', 'btn chap-menu-btn', 'Sections ▾'); menuBtn.type = 'button';
+    menuBtn.setAttribute('aria-expanded', 'false'); menuBtn.setAttribute('aria-controls', 'chap-menu');
+    var cur = el('span', 'chap-cur'); cur.setAttribute('aria-live', 'polite');
+    var prog = el('div', 'chap-progress'), fill = el('span'); prog.appendChild(fill);
+    prog.setAttribute('role', 'progressbar'); prog.setAttribute('aria-label', 'Reading progress');
+    prog.setAttribute('aria-valuemin', '0'); prog.setAttribute('aria-valuemax', '100');
+    bar.appendChild(menuBtn); bar.appendChild(cur); bar.appendChild(prog);
+
+    function list(cls, id) {
+      var nav2 = el('nav', cls); if (id) nav2.id = id;
+      nav2.setAttribute('aria-label', 'Chapter sections');
+      items.forEach(function (it) {
+        var a = el('a', '', C.esc(it.title)); a.setAttribute('href', '#' + it.id);
+        a.addEventListener('click', function (e) {
+          e.preventDefault(); closeMenu();
+          if (location.hash !== '#' + it.id) location.hash = it.id;
+          else window.dispatchEvent(new HashChangeEvent('hashchange'));
+        });
+        nav2.appendChild(a);
+      });
+      return nav2;
+    }
+    var menu = list('chap-menu', 'chap-menu'); menu.hidden = true;
+    var side = list('side-toc');
+    function closeMenu() { menu.hidden = true; menuBtn.setAttribute('aria-expanded', 'false'); }
+    menuBtn.addEventListener('click', function () {
+      var open = menu.hidden; menu.hidden = !open; menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    root.appendChild(bar); root.appendChild(menu); root.appendChild(side);
+
+    if (barScroll) { window.removeEventListener('scroll', barScroll); window.removeEventListener('resize', barScroll); }
+    if (barKey) document.removeEventListener('keydown', barKey);
+    barKey = function (e) { if (e.key === 'Escape' && !menu.hidden) { closeMenu(); menuBtn.focus(); } };
+    document.addEventListener('keydown', barKey);
+
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var doc = document.documentElement, max = doc.scrollHeight - window.innerHeight;
+      var pct = max > 0 ? Math.max(0, Math.min(100, Math.round(window.scrollY / max * 100))) : 0;
+      fill.style.width = pct + '%'; prog.setAttribute('aria-valuenow', String(pct));
+      var shown = toc.getBoundingClientRect().bottom < 56;
+      bar.hidden = !shown; if (!shown) closeMenu();
+      var now = items[0];
+      items.forEach(function (it) {
+        if (it.sec.offsetParent !== null && it.sec.getBoundingClientRect().top <= 150) now = it;
+      });
+      cur.textContent = now.title;
+      [].forEach.call(menu.children, function (a, i) { if (items[i] === now) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+      [].forEach.call(side.children, function (a, i) { if (items[i] === now) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current'); });
+      side.classList.toggle('on', shown);
+    }
+    barScroll = function () { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } };
+    window.addEventListener('scroll', barScroll, { passive: true });
+    window.addEventListener('resize', barScroll);
+    update();
+  }
+
   function render(ch, quiz, catalog, wanted) {
     var title = ch.title, en = shown === 'en';
     document.title = title.en + ' · Chemistry in Assamese';
@@ -345,6 +414,7 @@
 
     setupAccordion(root.querySelector('nav.toc'));
     setupStepper(root.querySelector('nav.toc'), nav);
+    setupChapterBar(root.querySelector('nav.toc'));
     C.Progress.update(chapterId, { seen: Date.now() });
   }
 

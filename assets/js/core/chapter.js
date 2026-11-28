@@ -26,10 +26,10 @@
     x = x.replace(/\[\[([\w-]+)\]\]/g, function (m, k) {
       var g = glossary[k];
       if (!g) return m;
-      /* the reader's language first, the other in brackets (Assamese stays visible: exams are in Assamese) */
+      /* the reader's language in the line; the other language's name and the meaning appear on tap, hover or keyboard focus */
       var main = shown === 'en' ? C.esc(g.en) : C.esc(g.as);
       var other = shown === 'en' ? '<span lang="as">' + C.esc(g.as) + '</span>' : C.esc(g.en);
-      return '<span class="term" tabindex="0" data-def="' + C.esc(g.def) + '">' + main + ' <span class="en">(' + other + ')</span></span>';
+      return '<span class="term" tabindex="0">' + main + '<span class="term-pop" role="tooltip"><b>' + other + '</b> \u2014 ' + C.esc(g.def) + '</span></span>';
     });
     x = x.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
     x = x.replace(/\^\{(.+?)\}/g, '<sup>$1</sup>').replace(/_\{(.+?)\}/g, '<sub>$1</sub>');
@@ -41,6 +41,27 @@
     if (html !== undefined) n.innerHTML = html;
     return n;
   }
+
+  /* keep a glossary popover inside the screen; Escape closes it */
+  function placeTermPop(e) {
+    var term = e.target.closest && e.target.closest('.term'); if (!term) return;
+    var pop = term.querySelector('.term-pop'); if (!pop) return;
+    pop.style.left = '0px';
+    var r = pop.getBoundingClientRect(), over = r.right - (window.innerWidth - 8);
+    if (over > 0) pop.style.left = -Math.min(over, Math.max(0, r.left - 8)) + 'px';
+  }
+  document.addEventListener('mouseover', placeTermPop);
+  document.addEventListener('focusin', placeTermPop);
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape') return;
+    [].forEach.call(document.querySelectorAll('.term'), function (t) {
+      var pop = t.querySelector('.term-pop');
+      if (pop && pop.offsetParent !== null) t.classList.add('dismissed');
+    });
+    if (document.activeElement && document.activeElement.classList.contains('term')) document.activeElement.blur();
+  });
+  document.addEventListener('mouseout', function (e) { var t = e.target.closest && e.target.closest('.term'); if (t) t.classList.remove('dismissed'); });
+  document.addEventListener('focusin', function (e) { var t = e.target.closest && e.target.closest('.term'); if (t) t.classList.remove('dismissed'); });
 
   var renderers = {
     p: function (b) { return el('p', '', inline(b.text)); },
